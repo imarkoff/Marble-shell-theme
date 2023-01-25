@@ -1,0 +1,245 @@
+{
+    "dark" : {
+        "accent": {
+            "replace" : "ACCENT-COLOR",
+            "s" : 42,
+            "l" : 26,
+            "a" : 1
+        },
+
+        "accent_hover" : {
+            "replace" : "ACCENT_HOVER",
+            "s" : 66,
+            "l" : 22,
+            "a" : 1
+        },
+
+        "accent-disabled" : {
+            "replace" : "ACCENT-DISABLED",
+            "s" : 6,
+            "l" : 15,
+            "a" : 1
+        },
+
+        "accent-disabled_hover" : {
+            "replace" : "ACCENT-DIS_HOVER",
+            "s" : 7,
+            "l" : 21,
+            "a" : 1
+        },
+
+        "background" : {
+            "replace" : "BACKGROUND-COLOR",
+            "s" : 7,
+            "l" : 8,
+            "a" : 1
+        },
+
+        "accent-opacity-color" : {
+            "replace": "ACCENT-OPACITY-COLOR",
+            "s" : 42,
+            "l" : 26,
+            "a" : 0.2
+        },
+
+        "quick-toggle-menu-background" : {
+            "replace" : "QUICK-TOGGLE-MENU-BACKGROUND",
+            "s" : 6,
+            "l" : 10,
+            "a" : 1
+        },
+
+        "accent-secondary-color" : {
+            "replace" : "ACCENT-SECONDARY-COLOR",
+            "s" : 20,
+            "l" : 75,
+            "a" : 1
+        },
+
+        "accent-secondary_hover" : {
+            "replace" : "ACCENT-SECONDARY_HOVER",
+            "s" : 20,
+            "l" : 75,
+            "a" : 1
+        },
+        
+        "well-app-selected" : {
+            "replace" : "WELL-APP-SELECTED",
+            "s" : 20,
+            "l" : 75,
+            "a" : 0.4
+        },
+
+        "text-primary-color" : {
+            "replace" : "TEXT-PRIMARY-COLOR",
+            "s" : 65,
+            "l" : 95,
+            "a" : 1
+        },
+
+        "text-secondary-color" : {
+            "replace" : "TEXT-SECONDARY-COLOR",
+            "s" : 65,
+            "l" : 95,
+            "a" : 0.67
+        },
+
+        "text-disabled-color" : {
+            "replace" : "TEXT-DISABLED-COLOR",
+            "s" : 65,
+            "l" : 95,
+            "a" : 0.38
+        },
+
+        "border-shadow" : {
+            "replace" : "BORDER-SHADOW",
+            "s" : 0,
+            "l" : 0,
+            "a" : 0.03
+        },
+
+        "separator-color" : {
+            "replace" : "SEPARATOR-COLOR",
+            "s" : 255,
+            "l" : 255,
+            "a" : 0.1
+        },
+
+        "show-apps-icon-color" : {
+            "replace" : "SHOW-APPS-ICON-COLOR",
+            "s" : 65,
+            "l" : 95,
+            "a" : 1
+        }
+    },
+
+    "light" : {
+        "accent-color" : {
+            "replace" : "ACCENT-COLOR",
+            "s" : 75,
+            "l" : 75,
+            "a" : 1
+        },
+
+        "accent_hover" : {
+            "replace" : "ACCENT_HOVER",
+            "s" : 79,
+            "l" : 78,
+            "a" : 1
+        },
+
+        "accent-disabled" : {
+            "replace" : "ACCENT-DISABLED",
+            "s" : 35,
+            "l" : 90,
+            "a" : 1
+        },
+
+        "accent-disabled_hover" : {
+            "replace" : "ACCENT-DIS_HOVER",
+            "s" : 35,
+            "l" : 85,
+            "a" : 1
+        },
+
+        "background-color" : {
+            "replace" : "BACKGROUND-COLOR",
+            "s" : 40,
+            "l" : 98,
+            "a" : 1
+        },
+
+        "accent-opacity-color" : {
+            "replace": "ACCENT-OPACITY-COLOR",
+            "s" : 78,
+            "l" : 84,
+            "a" : 0.5
+        },
+
+        "accent-secondary-color" : {
+            "replace" : "ACCENT-SECONDARY-COLOR",
+            "s" : 20,
+            "l" : 50,
+            "a" : 1   
+        },
+
+        "accent-secondary_hover" : {
+            "replace" : "ACCENT-SECONDARY_HOVER",
+            "s" : 20,
+            "l" : 40,
+            "a" : 1 
+        },
+
+        "well-app-selected" : {
+            "replace" : "WELL-APP-SELECTED",
+            "s" : 20,
+            "l" : 50,
+            "a" : 0.4
+        },
+
+        "text-primary-color": {
+            "replace" : "TEXT-PRIMARY-COLOR",
+            "s" : 71,
+            "l" : 10,
+            "a" : 0.87
+        },
+
+        "text-secondary-color" : {
+            "replace" : "TEXT-SECONDARY-COLOR",
+            "s" : 71,
+            "l" : 10,
+            "a" : 0.6
+        },
+
+        "text-disabled-color" : {
+            "replace" : "TEXT-DISABLED-COLOR",
+            "s" : 71,
+            "l" : 10,
+            "a" : 0.38
+        },
+
+        "border-shadow" : {
+            "replace" : "BORDER-SHADOW",
+            "s" : 0,
+            "l" : 0,
+            "a" : 0.03
+        },
+
+        "separator-color" : {
+            "replace" : "SEPARATOR-COLOR",
+            "s" : 0,
+            "l" : 0,
+            "a" : 0.1
+        },
+
+        "show-apps-icon-color" : {
+            "replace" : "SHOW-APPS-ICON-COLOR",
+            "s" : 4,
+            "l" : 30,
+            "a" : 1
+        }
+    },
+    
+    "colors" : {
+        "red" : {
+            "h" : 0
+        },
+        "yellow" : {
+            "h" : 40
+        },
+        "green" : {
+            "h" : 135
+        },
+        "blue" : {
+            "h" : 210
+        },
+        "purple" : {
+            "h" : 275
+        },
+        "pink" : {
+            "h" : 295
+        }
+    },
+
+    "apply-theme-files" : ["gnome-shell.css", "checkbox.svg", "checkbox-focused.svg", "checkbox-off.svg", "checkbox-off-focused.svg", "workspace-placeholder.svg", "toggle-off.svg", "toggle-on.svg", "calendar-today.svg"]
+}
