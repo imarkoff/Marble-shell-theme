@@ -39,16 +39,7 @@ def destination_return(path_name, theme_mode):
     :return: copied files' folder location
     """
 
-    return f"~/.local/share/themes/Orchis-Shell-MOD-{theme_mode}-{path_name}/gnome-shell"
-
-
-def source_return():
-    """
-    Unmodified gnome-shell theme location
-    :return: location from where files will be taken
-    """
-
-    return f"./gnome-shell/"
+    return f"~/.local/share/themes/Marble-Shell-{theme_mode}-{path_name}/gnome-shell"
 
 
 def copy_files(source, destination):
@@ -124,7 +115,7 @@ def install_color(hue, path_name, theme_mode, sat=None):
 
     print(f"Creating {path_name} {theme_mode} theme...", end=" ")
 
-    copy_files(source_return(), destination_return(path_name, theme_mode))
+    copy_files("./gnome-shell", destination_return(path_name, theme_mode))
     apply_theme(hue, destination_return(path_name, theme_mode), theme_mode, sat=sat)
 
     print("Done.")
