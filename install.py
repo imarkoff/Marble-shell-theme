@@ -39,7 +39,7 @@ def destination_return(path_name, theme_mode):
     :return: copied files' folder location
     """
 
-    return f"~/.local/share/themes/Marble-Shell-{theme_mode}-{path_name}/gnome-shell"
+    return f"~/.local/share/themes/Marble-Shell-{path_name}-{theme_mode}/gnome-shell"
 
 
 def copy_files(source, destination):
