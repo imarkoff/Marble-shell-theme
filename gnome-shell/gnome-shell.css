@@ -60,6 +60,7 @@
   background-color: ACCENT-DIS_HOVER;
 }
 
+
 /* clock fix */
 .clock-display{
   background-color: transparent !important;
@@ -70,11 +71,13 @@
   margin: 0 !important;
 }
 
+
 /* Activities Ripple */
 .ripple-box {
   background-color: ACCENT-OPACITY-COLOR;
   box-shadow: 0 0 2px 2px ACCENT-OPACITY-COLOR;
 }
+
 
 /* POPOVERS */
 .popup-menu-content {
@@ -128,6 +131,7 @@
 
 .calendar .calendar-nonwork-day { color: TEXT-PRIMARY-COLOR; }
 
+
 /* calendar */
 #calendarArea{ padding: 0; }
 
@@ -138,6 +142,7 @@
   background-color: #595959;
   border-radius: 10px;
 }
+
 
 /* calendar-days */
 .calendar-day-base{ 
@@ -196,6 +201,7 @@
   font-weight: 700;
 }
 
+
 /* events */
 .calendar{
   border-radius: 11px;
@@ -229,6 +235,7 @@
 .world-clocks-button .world-clocks-timezone { color: TEXT-SECONDARY-COLOR; }
 
 .weather-button .weather-forecast-time { color: TEXT-SECONDARY-COLOR; }
+
 
 /* message-list */
 .message-list{
@@ -264,8 +271,6 @@
   color: TEXT-PRIMARY-COLOR;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
-
-
 
 .message-media-control:active{
   background-color: ACCENT-COLOR;
@@ -362,6 +367,7 @@
   color: TEXT-PRIMARY-COLOR;
 }
 
+
 /* quick-settings */
 .icon-button{ box-shadow: inset 0 0 0 1px BORDER-SHADOW; }
 .quick-settings{
@@ -422,6 +428,7 @@
   -slider-handle-radius: 7px;
 }
 
+
 /* overview-ws-thumbnail */
 .workspace-thumbnail {
   border: none;
@@ -444,6 +451,7 @@
   /* border-radius: 9px; */
   border-radius: 0px;
 }
+
 
 /* overview */
 .controls-manager, .workspace-animation {
@@ -478,6 +486,7 @@
   padding: 4px 8px;
 }
 
+
 /* APP-GRID */
 .app-well-app .overview-icon {
   box-shadow: inset 0 0 0 0px rgba(255, 255, 255, 0); /* fix default dash focused box-shadow*/
@@ -493,6 +502,11 @@
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
   background-color: ACCENT-DISABLED;
 }
+
+.app-well-app.app-folder .overview-icon {
+  background-color: ACCENT-DIS_HOVER;
+}
+
 
 /* folder dialog */
 .app-folder-dialog {
@@ -548,6 +562,7 @@
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
+
 /* Dash */
 #dash .dash-background {
   background-color: BACKGROUND-COLOR;
@@ -591,9 +606,14 @@
 
 #dashtodockContainer .app-well-app.focused .app-well-app-running-dot { width: 20px; }
 
+.dash-separator {
+  box-shadow: 0 0 0 0.25px TEXT-DISABLED-COLOR;
+}
+
 .show-apps .overview-icon {
   color: SHOW-APPS-ICON-COLOR;
 }
+
 
 /* Search */
 StEntry{
@@ -644,6 +664,7 @@ StEntry:focus {
   background-color: ACCENT-DIS_HOVER;
   color: TEXT-PRIMARY-COLOR;
 }
+
 
 /* OSD */
 .modal-dialog{
@@ -790,6 +811,7 @@ stage {
   color: TEXT-PRIMARY-COLOR;
 }
 
+
 /* screenshot ui */
 .screenshot-ui-panel {
   border-radius: 22px;
@@ -890,6 +912,7 @@ stage {
   text-align: center;
   -y-offset: 24px;
 }
+
 
 /* Tiled window previews */
 .tile-preview {

@@ -123,8 +123,8 @@
 
         "accent_hover" : {
             "replace" : "ACCENT_HOVER",
-            "s" : 79,
-            "l" : 78,
+            "s" : 70,
+            "l" : 70,
             "a" : 1
         },
 
