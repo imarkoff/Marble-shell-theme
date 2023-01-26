@@ -39,7 +39,7 @@ def destination_return(path_name, theme_mode):
     :return: copied files' folder location
     """
 
-    return f"~/.local/share/themes/Marble-Shell-{path_name}-{theme_mode}/gnome-shell"
+    return f"~/.local/share/themes/Marble-shell-{path_name}-{theme_mode}/gnome-shell"
 
 
 def copy_files(source, destination):
@@ -135,6 +135,8 @@ def main():
     user_input = input("\n>>> ").split()
     userInputLength = len(user_input)
 
+    # this part is a piece of sh....
+    # i'll rewrite it later
     match user_input[0]:
         case "-A" | "--all":
             if userInputLength == 1 or user_input[1] != "--light" and user_input[1] != "--dark":
