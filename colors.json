@@ -100,7 +100,7 @@
 
         "separator-color" : {
             "replace" : "SEPARATOR-COLOR",
-            "s" : 255,
+            "s" : 0,
             "l" : 255,
             "a" : 0.1
         },
