@@ -1,7 +1,19 @@
 # Marble shell theme
-Shell theme for GNOME. Fork of the https://www.pling.com/p/1939902/.
+Shell theme for GNOME. Based on https://www.pling.com/p/1939902/.
+
+Currently incompatible with Yaru Shell (Ubuntu).
 
 ## Screenshots
+
+![Available colors:](https://shields.io/badge/-Available%20colors:-0d1117?style=flat-square)
+![red](https://shields.io/badge/-red-red?style=flat-square)
+![yellow](https://shields.io/badge/-yellow-yellow?style=flat-square)
+![green](https://shields.io/badge/-green-green?style=flat-square)
+![blue](https://shields.io/badge/-blue-blue?style=flat-square)
+![purple](https://shields.io/badge/-purple-purple?style=flat-square)
+![pink](https://shields.io/badge/-pink-pink?style=flat-square)
+![or different Hue color.](https://shields.io/badge/-or%20different%20Hue%20color.-0d1117?style=flat-square)
+
 Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 
 Wallpaper: https://www.androidpolice.com/chromebook-chrome-os-wallpapers/#radiance
@@ -18,13 +30,13 @@ Wallpaper: https://www.androidpolice.com/chromebook-chrome-os-wallpapers/#radian
 ![Dash look](./readme-images/dash.png?raw=true "Dash look")
 
 ## Requirements
-1. GNOME 42+. I do not guarantee correct functionality on older versions.
+1. GNOME 43+. I do not guarantee correct functionality on older versions.
 2. [User Themes](https://extensions.gnome.org/extension/19/user-themes/ "User Themes") extension.
 3. [GNOME Tweaks](https://gitlab.gnome.org/GNOME/gnome-tweaks "GNOME Tweaks").
 4. Python 3.10+.
 
 ## Installation
-1. Open terminal;
+1. Open terminal.
 2. Clone git and change directory:
 ```shell
 git clone https://github.com/imarkoff/Marble-shell-theme.git && cd Marble-shell-theme
@@ -33,8 +45,8 @@ git clone https://github.com/imarkoff/Marble-shell-theme.git && cd Marble-shell-
 ```shell
 python install.py
 ```
-4. Folllow instructions inside the program;
-5. After successful file creation open up GNOME Tweaks, go to `Appearance - Themes - Shell`;
+4. Folllow instructions inside the program.
+5. After successful file creation open up GNOME Tweaks, go to `Appearance - Themes - Shell`.
 6. Select shell theme you want.
 ## Installation tweaks
 #### Install default color
