@@ -63,6 +63,10 @@ stage {
   margin: 0;
 }
 
+#panel .power-status.panel-status-indicators-box StIcon {
+  font-size: 14px;
+}
+
 .panel-button:hover,
 .panel-button:hover .clock,
 .panel-button:active,
@@ -71,6 +75,9 @@ stage {
   background-color: ACCENT-DIS_HOVER;
 }
 
+#panel .power-status.panel-status-indicators-box {
+  font-size: 12px;
+}
 
 /* clock fix */
 .clock-display{
