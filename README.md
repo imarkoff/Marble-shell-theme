@@ -1,7 +1,5 @@
 # Marble shell theme
-Shell theme for GNOME. Based on https://www.pling.com/p/1939902/.
-
-Currently incompatible with Yaru Shell (Ubuntu).
+Shell theme for GNOME DE. Based on https://www.pling.com/p/1939902/.
 
 ## Screenshots
 
@@ -29,6 +27,10 @@ Wallpaper: https://www.androidpolice.com/chromebook-chrome-os-wallpapers/#radian
 #### Dash ([Dash To Dock](https://extensions.gnome.org/extension/307/dash-to-dock/ "Dash To Dock"))
 ![Dash look](./readme-images/dash.png?raw=true "Dash look")
 
+## Known issues
+- Currently incompatible with Yaru Shell (Ubuntu).
+- Blur My Shell extension may not work in overview.
+
 ## Requirements
 - GNOME 43+. I do not guarantee correct functionality on older versions.
 - [User Themes](https://extensions.gnome.org/extension/19/user-themes/ "User Themes") extension.
@@ -48,6 +50,7 @@ python install.py
 4. Follow instructions inside the program.
 5. After successful file creation open up GNOME Tweaks, go to `Appearance - Themes - Shell`.
 6. Select shell theme you want.
+
 ## Installation tweaks
 #### Install default color
 | Option | Theme mode (optional) | Description |
