@@ -24,7 +24,7 @@
         "accent-disabled_hover" : {
             "replace" : "ACCENT-DIS_HOVER",
             "s" : 7,
-            "l" : 21,
+            "l" : 20,
             "a" : 1
         },
 
@@ -59,7 +59,7 @@
         "accent-secondary_hover" : {
             "replace" : "ACCENT-SECONDARY_HOVER",
             "s" : 20,
-            "l" : 75,
+            "l" : 70,
             "a" : 1
         },
         
@@ -91,6 +91,13 @@
             "a" : 0.38
         },
 
+        "text-inverted-color": {
+            "replace" : "TEXT-INVERTED-COLOR",
+            "s" : 71,
+            "l" : 10,
+            "a" : 0.87
+        },
+
         "border-shadow" : {
             "replace" : "BORDER-SHADOW",
             "s" : 0,
@@ -110,6 +117,34 @@
             "s" : 65,
             "l" : 95,
             "a" : 1
+        },
+
+        "scrollbar-color" : {
+            "replace" : "SCROLLBAR-COLOR",
+            "s" : 10,
+            "l" : 35,
+            "a" : 0.75
+        },
+
+        "scrollbar_hover" : {
+            "replace" : "SCROLLBAR_HOVER",
+            "s" : 12,
+            "l" : 35,
+            "a" : 1
+        },
+
+        "scrollbar_active" : {
+            "replace" : "SCROLLBAR_ACTIVE",
+            "s" : 12,
+            "l" : 35,
+            "a" : 0.87
+        },
+
+        "page-nav-hint" : {
+            "replace" : "PAGE-NAV-HINT",
+            "s" : 15,
+            "l" : 90,
+            "a" : 0.05
         }
     },
 
@@ -166,7 +201,7 @@
         "accent-secondary_hover" : {
             "replace" : "ACCENT-SECONDARY_HOVER",
             "s" : 20,
-            "l" : 40,
+            "l" : 45,
             "a" : 1 
         },
 
@@ -198,6 +233,13 @@
             "a" : 0.38
         },
 
+        "text-inverted-color" : {
+            "replace" : "TEXT-INVERTED-COLOR",
+            "s" : 65,
+            "l" : 95,
+            "a" : 1
+        },
+
         "border-shadow" : {
             "replace" : "BORDER-SHADOW",
             "s" : 0,
@@ -217,6 +259,34 @@
             "s" : 4,
             "l" : 30,
             "a" : 1
+        },
+
+        "scrollbar-color" : {
+            "replace" : "SCROLLBAR-COLOR",
+            "s" : 20,
+            "l" : 70,
+            "a" : 0.75
+        },
+
+        "scrollbar_hover" : {
+            "replace" : "SCROLLBAR_HOVER",
+            "s" : 20,
+            "l" : 70,
+            "a" : 1
+        },
+
+        "scrollbar_active" : {
+            "replace" : "SCROLLBAR_ACTIVE",
+            "s" : 20,
+            "l" : 70,
+            "a" : 0.87
+        },
+
+        "page-nav-hint" : {
+            "replace" : "PAGE-NAV-HINT",
+            "s" : 95,
+            "l" : 20,
+            "a" : 0.05
         }
     },
     

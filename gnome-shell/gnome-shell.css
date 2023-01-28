@@ -15,15 +15,9 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
 
-/* colors */
-/* accent: ACCENT-COLOR */
-/* accent_hover: ACCENT_HOVER */
-/* accent-fg: BACKGROUND-COLOR */
-/* sections, accent-disabled, slider-background: ACCENT-DISABLED */
-/* accent-disabled_hover, workspace-thumbnails: ACCENT-DIS_HOVER */
-/* background: BACKGROUND-COLOR */
-/* screenshot-ui-window-selector-window-border, ripple-box: background-color: ACCENT-OPACITY-COLOR (ACCENT-COLOR5) */
-/* well-app-running-dot: ACCENT-SECONDARY-COLOR */
+stage {
+  color: TEXT-PRIMARY-COLOR;
+}
 
 .workspace-background{
   border: 1px solid BORDER-SHADOW;
@@ -98,9 +92,12 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
 /* POPOVERS */
 .popup-menu-content {
+  color: TEXT-PRIMARY-COLOR;
+  background: BACKGROUND-COLOR;
   padding: 16px;
-  border-radius: 24px;
+  border-radius: 20px;
   border: 1px solid BORDER-SHADOW;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
 }
 
 .popup-menu-item {
@@ -123,6 +120,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
 .popup-separator-menu-item .popup-separator-menu-item-separator {
   height: 1px;
+  margin: 2.5px 0 2.5px 0;
   background-color: SEPARATOR-COLOR;
 }
 
@@ -135,14 +133,22 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 }
 
 .popup-sub-menu .popup-menu-item {
-  background-color: ACCENT-DISABLED;
+  margin: 0;
   color: TEXT-PRIMARY-COLOR;
-  box-shadow: none;
+
+}
+
+.popup-sub-menu .popup-menu-item:last-child {
+  border-radius: 0 0 12px 12px;
+}
+
+.popup-sub-menu .popup-menu-item:hover, .popup-sub-menu .popup-menu-item:focus {
+  background-color: ACCENT-DIS_HOVER !important;
 }
 
 .popup-menu-item:insensitive { color: TEXT-DISABLED-COLOR; margin: 0; }
 
-.popup-inactive-menu-item { color: TEXT-PRIMARY-COLOR; }
+.popup-inactive-menu-item { color: TEXT-PRIMARY-COLOR; background-color: transparent; }
 
 .popup-inactive-menu-item:insensitive { color: TEXT-SECONDARY-COLOR !important; }
 
@@ -154,31 +160,40 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
 .datemenu-calendar-column{ margin: 0px; }
 
-.pager-button:hover,
-.pager-button:focus{
-  background-color: #595959;
-  border-radius: 10px;
-}
-
-
-/* calendar-days */
-.calendar-day-base{ 
-  color: TEXT-PRIMARY-COLOR;
-  border-radius: 10px;
+/* calendar header */
+.datemenu-today-button {
+  color: TEXT-SECONDARY-COLOR;
+  background-color: none;
+  border-radius: 12px;
 }
 
 .datemenu-today-button:hover {
-  transition-duration: 150ms;
-  background-color: ACCENT-DISABLED; }
+  transition-duration: 100ms;
+  background-color: ACCENT-DISABLED;
+}
+
+.datemenu-today-button:focus {
+  transition-duration: 100ms;
+  background-color: ACCENT-DISABLED;
+  box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
+}
+
+.day-label {
+  font-weight: 600;
+}
+
+.date-label {
+  font-weight: 700;
+}
+
+/* calendar-days */
+.calendar-day-base, .calendar-month-header .pager-button{ 
+  color: TEXT-PRIMARY-COLOR;
+  border-radius: 10px;
+}
 
 .calendar-month-label{
   color: TEXT-PRIMARY-COLOR;
-}
-
-.date-label,
-.day-label {
-  color: TEXT-SECONDARY-COLOR;
-  font-weight: 700;
 }
 
 .calendar-day-base, .calendar .calendar-month-header .pager-button  { transition-duration: 100ms; }
@@ -221,7 +236,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
 /* events */
 .calendar{
-  border-radius: 11px;
+  border-radius: 12px;
   background-color: ACCENT-DISABLED;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW !important;
   padding: 5px;
@@ -233,8 +248,14 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 .weather-button{
   background-color: ACCENT-DISABLED;
   color: TEXT-SECONDARY-COLOR;
-  border-radius: 11px;
+  border-radius: 12px;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.events-button:focus,
+.world-clocks-button:focus,
+.weather-button:focus {
+  box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
 }
 
 .weather-button .weather-header,
@@ -267,6 +288,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
+.message:focus {
+  box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
+  border-radius: 12px;
+}
+
 .message-list .message {
   background: ACCENT-DISABLED;
 }
@@ -284,9 +310,14 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 }
 
 .message-close-button{
-  border-radius: 10px;
+  border-radius: 9px;
   color: TEXT-PRIMARY-COLOR;
+  background-color: ACCENT-DIS_HOVER;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.message-close-button:active {
+  color: TEXT-SECONDARY-COLOR;
 }
 
 .message-media-control:active{
@@ -297,7 +328,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
 /* Media Controls */
 .message-media-control {
-  border-radius: 9px;
+  border-radius: 12px;
   padding: 0 18px;
   margin: 16px 1px;
   color: TEXT-PRIMARY-COLOR;
@@ -338,33 +369,50 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
   background-image: url("checkbox-focused.svg");
 }
 
+
+/* Toggles */
 .toggle-switch{
   background-image: url("./toggle-off.svg");
   background-color: ACCENT-DIS_HOVER;
   border-radius: 10px;
+  box-shadow: inset 0 0 0 1px BORDER-SHADOW !important;
 }
 .toggle-switch:checked{
   background-image: url("./toggle-on.svg");
   background-color: ACCENT-COLOR;
 }
 
-.dnd-button:hover{
-  background-color: ACCENT-DIS_HOVER !important;
-  border: 1px solid transparent !important;
+
+/* Do Not Distrub toggle */
+.dnd-button{
+  width: 48px;
+  border-radius: 10px;
+}
+
+.dnd-button .toggle-switch {
+  background-color: ACCENT-DISABLED;
+}
+
+.dnd-button:hover .toggle-switch {
+  background-color: ACCENT-DIS_HOVER;
+}
+
+.dnd-button .toggle-switch:checked {
+  background-color: ACCENT-COLOR;
 }
 
 .dnd-button:hover .toggle-switch:checked {
   background-color: ACCENT_HOVER;
 }
 
-.dnd-button{
-  width: 48px;
-  border-radius: 10px;
-  border: 1px solid BORDER-SHADOW;
-  background-color: ACCENT-DISABLED;
-  /* box-shadow: 0 2px 5px -4px black !important; */
-  box-shadow: none !important;
+.dnd-button:focus {
+  border-color: transparent;
 }
+
+.dnd-button:focus .toggle-switch {
+  box-shadow: inset 0 0 0 1px ACCENT-SECONDARY-COLOR !important;
+}
+
 
 .button{
   color: TEXT-PRIMARY-COLOR;
@@ -373,6 +421,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 }
 .button:insensitive{
   box-shadow: none;
+  color: TEXT-SECONDARY-COLOR;
 }
 
 .button:hover, .button:active {
@@ -380,10 +429,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 }
 
 .message-list-clear-button{
-  border-radius: 10px;
+  border-radius: 9px;
   color: TEXT-PRIMARY-COLOR;
 }
 
+.message-list-clear-button:focus {
+  box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
+}
 
 /* quick-settings */
 .icon-button{ box-shadow: inset 0 0 0 1px BORDER-SHADOW; }
@@ -396,7 +448,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 	color: TEXT-PRIMARY-COLOR;
 	border-radius: 12px;
 	background: ACCENT-DISABLED;
-	transition-duration: 200ms;
+	transition-duration: 100ms;
 }
 
 .quick-toggle .quick-toggle-label {
@@ -431,6 +483,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
   color: TEXT-PRIMARY-COLOR;
 }
 
+
+/* slider */
 .slider,
 .level {
   height: 16px;
@@ -444,6 +498,26 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
   -barlevel-overdrive-separator-width: 2px;
   -slider-handle-radius: 7px;
 }
+
+
+/* Scroll bar */
+StScrollBar {
+  padding: 0; }
+  StScrollView StScrollBar {
+    min-width: 8px;
+    min-height: 8px;}
+  StScrollBar StBin#trough {
+    border-radius: 0;
+    background-color: transparent; }
+  StScrollBar StButton#vhandle, StScrollBar StButton#hhandle {
+    border-radius: 8px;
+    background-color: SCROLLBAR-COLOR;
+    border: 3px solid transparent;
+    transition: 500ms all ease; }
+    StScrollBar StButton#vhandle:hover, StScrollBar StButton#hhandle:hover {
+      background-color: SCROLLBAR_HOVER; }
+    StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
+      background-color: SCROLLBAR_ACTIVE; }
 
 
 /* overview-ws-thumbnail */
@@ -504,7 +578,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 }
 
 
-/* APP-GRID */
+/* App icons */
 .app-well-app .overview-icon {
   box-shadow: inset 0 0 0 0px rgba(255, 255, 255, 0); /* fix default dash focused box-shadow*/
   transition-duration: 100ms;
@@ -522,6 +596,12 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
 .app-well-app.app-folder .overview-icon {
   background-color: ACCENT-DIS_HOVER;
+}
+
+.app-well-app:drop .overview-icon, .grid-search-result:drop .overview-icon,
+.app-well-app.app-folder:drop .overview-icon, .app-folder.grid-search-result:drop .overview-icon {
+  border: 2px solid ACCENT-SECONDARY-COLOR;
+  background-color: ACCENT-OPACITY-COLOR;
 }
 
 
@@ -563,7 +643,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
   background-color: ACCENT-DIS_HOVER;
 }
 
-.page-indicator .page-indicator-icon { background-color: TEXT-PRIMARY-COLOR; }
+.page-indicator .page-indicator-icon { background-color: TEXT-SECONDARY-COLOR; }
 
 .page-navigation-arrow:hover > StIcon {
   transition-duration: 100ms;
@@ -576,6 +656,16 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
   transition-duration: 100ms;
   background-color: ACCENT-DIS_HOVER;
   color: TEXT-PRIMARY-COLOR;
+  box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.page-navigation-hint.next:ltr, .page-navigation-hint.previous:rtl {
+  background-gradient-start: PAGE-NAV-HINT;
+  box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.page-navigation-hint.previous:ltr, .page-navigation-hint.next:rtl {
+  background-gradient-end: PAGE-NAV-HINT;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
@@ -599,7 +689,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
   height: 5px;
   border-radius: 5px;
   background: ACCENT-SECONDARY-COLOR;
-  transition-duration: 200ms;
+  transition-duration: 100ms;
 }
 
 #dash .app-well-app:hover .overview-icon,
@@ -717,7 +807,7 @@ StEntry:focus {
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
   background-color: ACCENT-DISABLED;
   color:TEXT-PRIMARY-COLOR;
-  animation-duration: 200ms;
+  animation-duration: 100ms;
 }
 
 .modal-dialog-linked-button:first-child, .notification-button:first-child, .hotplug-notification-item:first-child {
@@ -755,9 +845,14 @@ StEntry:focus {
 
 .modal-dialog .modal-dialog-linked-button:focus, .hotplug-notification-item:focus, .notification-banner .notification-button:focus {
   animation-duration: 100ms;
-  box-shadow: inset 0 0 0 1px BORDER-SHADOW !important; }
+  box-shadow: inset 0 0 0 0.25px ACCENT-SECONDARY-COLOR !important; }
   .modal-dialog .modal-dialog-linked-button:focus:hover, .hotplug-notification-item:focus:hover, .notification-banner .notification-button:focus:hover, .modal-dialog .modal-dialog-linked-button:focus:active, .hotplug-notification-item:focus:active, .notification-banner .notification-button:focus:active {
     box-shadow: inset 0 0 0 1px BORDER-SHADOW !important; }
+
+.modal-dialog .modal-dialog-linked-button:insensitive, .hotplug-notification-item:insensitive, .notification-banner .notification-button:insensitive {
+  color: TEXT-SECONDARY-COLOR;
+  background-color: ACCENT_HOVER;
+}
 
 .prompt-dialog-password-entry {
   background-color: ACCENT-DISABLED;
@@ -769,19 +864,10 @@ StEntry:focus {
 .nm-dialog-item:selected{
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
-
-.popup-menu-content {
-  color: TEXT-PRIMARY-COLOR;
-  background: BACKGROUND-COLOR;
-  border-radius: 20px;
-  box-shadow: inset 0 0 0 1px BORDER-SHADOW;
- }
   
-  .system-menu-action {
+ .system-menu-action {
   border-radius: 32px;
-  /* wish we could do 50% */
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
-  background: BACKGROUND-COLOR;
   padding: 13px; }
 
 .quick-toggle:checked { 
@@ -820,14 +906,6 @@ StEntry:focus {
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
-.level-bar { background-color: #595959; }
-
-stage {
-   /* font-family: Roboto Reguler;*/
-    /* font-size: 14px; */
-  color: TEXT-PRIMARY-COLOR;
-}
-
 
 /* screenshot ui */
 .screenshot-ui-panel {
@@ -839,7 +917,7 @@ stage {
 
 .screenshot-ui-show-pointer-button, .screenshot-ui-type-button {
   border-radius: 15px;
-  transition-duration: 200ms;
+  transition-duration: 100ms;
 }
 
 .screenshot-ui-show-pointer-button:checked, .screenshot-ui-type-button:checked,
@@ -890,12 +968,12 @@ stage {
   padding: 4px; }
   .screenshot-ui-capture-button .screenshot-ui-capture-button-circle {
     background-color: ACCENT-SECONDARY-COLOR;
-    transition-duration: 200ms;
+    transition-duration: 100ms;
     border-radius: 99px; }
     .screenshot-ui-capture-button .screenshot-ui-capture-button-circle:hover, .screenshot-ui-capture-button .screenshot-ui-capture-button-circle:focus {
-      background-color: ACCENT-DARK_HOVER; }
+      background-color: ACCENT-SECONDARY_HOVER; }
   .screenshot-ui-capture-button:hover .screenshot-ui-capture-button-circle, .screenshot-ui-capture-button:focus .screenshot-ui-capture-button-circle {
-    background-color: ACCENT-DARK_HOVER; }
+    background-color: ACCENT-SECONDARY_HOVER; }
   .screenshot-ui-capture-button:cast .screenshot-ui-capture-button-circle {
     background-color: #c01c28; }
   .screenshot-ui-capture-button:cast:hover .screenshot-ui-capture-button-circle, .screenshot-ui-capture-button:cast:focus .screenshot-ui-capture-button-circle {
@@ -908,7 +986,7 @@ stage {
 
 .screenshot-ui-shot-cast-button {
   background-color: transparent;
-  transition-duration: 150ms;
+  transition-duration: 100ms;
 }
 
 .screenshot-ui-shot-cast-button:hover, .screenshot-ui-shot-cast-button:focus, .screenshot-ui-shot-cast-button:active {
@@ -916,8 +994,8 @@ stage {
 }
 
 .screenshot-ui-shot-cast-button:checked {
-  background-color: ACCENT-COLOR;
-  color: TEXT-PRIMARY-COLOR;
+  background-color: ACCENT-SECONDARY-COLOR;
+  color: TEXT-INVERTED-COLOR;
 }
 
 .screenshot-ui-tooltip {
@@ -941,7 +1019,7 @@ stage {
   background-color: ACCENT-DISABLED;
   color:TEXT-PRIMARY-COLOR;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-  transition-duration: 150ms;
+  transition-duration: 100ms;
 }
 
 .window-close:hover, .screenshot-ui-close-button:hover {
