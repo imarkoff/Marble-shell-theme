@@ -24,7 +24,14 @@ Wallpaper: https://www.androidpolice.com/chromebook-chrome-os-wallpapers/#radian
 ![Quick settings look](./readme-images/qs.png?raw=true "Quick settings look")
 #### Calendar & notifications
 ![Calendar & notifications look](./readme-images/notifications.png?raw=true)
+
 #### Dash ([Dash To Dock](https://extensions.gnome.org/extension/307/dash-to-dock/ "Dash To Dock"))
+- Position and size:
+  - Icon size: 42px.
+- Appearance:
+  - Shrink the dash.
+  - Fixed opacity: 80%.
+
 ![Dash look](./readme-images/dash.png?raw=true "Dash look")
 
 ## Known issues
