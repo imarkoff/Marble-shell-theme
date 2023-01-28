@@ -67,13 +67,13 @@ python install.py
 #### Theme mode
 | Option | Secondary option | Description |
 | ------------ | ------------ | ------------ |
-|  | --light | light theme only |
-|  | --dark | dark theme only |
+|  | light | light theme only |
+|  | dark | dark theme only |
 #### Examples
 | Command | Description |
 | ------------ | ------------ |
 | -A | Install all accent colors with light & dark mode |
-| --all --dark | Install all accent colors with dark mode only |
-| --purple --light | Install purple accent color with light mode only |
+| --all dark | Install all accent colors with dark mode only |
+| --purple light | Install purple accent color with light mode only |
 | --hue 180 | Install hue=180 accent color with light & dark mode |
-| --hue 145 coldgreen --dark | Install hue=145 coldgreen accent color with dark mode only |
+| --hue 145 coldgreen dark | Install hue=145 coldgreen accent color with dark mode only |

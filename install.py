@@ -37,15 +37,15 @@ def print_help():
           "--hue\tHUE_DEGREE\tTHEME_NAME[optional]\tTHEME_MODE[optional]\nGenerate theme from Hue prompt [0 - 360]")
 
     print("\nTheme mode:\n"
-          "\t--light light theme only\n"
-          "\t--dark  dark theme only")
+          "\tlight light theme only\n"
+          "\tdark  dark theme only")
 
     print("\nExample:\n"
           "-A\t\t\tInstall all accent colors with light & dark mode\n"
-          "--all --dark\t\tInstall all accent colors with dark mode only\n"
-          "--purple --light\tInstall purple accent color with light mode only\n"
+          "--all dark\t\tInstall all accent colors with dark mode only\n"
+          "--purple light\t\tInstall purple accent color with light mode only\n"
           "--hue 180\t\tInstall hue=180 accent color with light & dark mode\n"
-          "--hue 140 coldgreen --dark\tInstall hue=140 coldgreen accent color with dark mode only")
+          "--hue 140 coldgreen dark\tInstall hue=140 coldgreen accent color with dark mode only")
 
 
 def destination_return(path_name, theme_mode):
@@ -149,35 +149,35 @@ def install_all(theme_mode):
 
 
 def main():
-    user_input = input("\n>>> ").split()
+    user_input = input("\n>>> ").lower().split()
     userInputLength = len(user_input)
 
     # this part is a piece of sh....
     # i'll rewrite it later
     match user_input[0]:
-        case "-A" | "--all":
-            if userInputLength == 1 or user_input[1] != "--light" and user_input[1] != "--dark":
+        case "-a" | "--all":
+            if userInputLength == 1 or user_input[1] != "light" and user_input[1] != "dark":
                 install_all("light")
                 install_all("dark")
             else:
-                install_all(user_input[1][2:len(user_input[1])])
+                install_all(user_input[1])
 
         case "--red" | "--pink" | "--purple" | "--blue" | "--green" | "--yellow":
             path_name = user_input[0][2:len(user_input[0])]
             hue = colors["colors"][path_name]["h"]
 
-            if userInputLength == 1 or user_input[1] != "--light" and user_input[1] != "--dark":
+            if userInputLength == 1 or user_input[1] != "light" and user_input[1] != "dark":
                 install_color(hue, path_name, "light")
                 install_color(hue, path_name, "dark")
             else:
-                install_color(hue, path_name, user_input[1][2:len(user_input[1])])
+                install_color(hue, path_name, user_input[1])
 
         case "--gray" | "--grey":
-            if userInputLength == 1 or user_input[1] != "--light" and user_input[1] != "--dark":
+            if userInputLength == 1 or user_input[1] != "light" and user_input[1] != "dark":
                 install_color(0, "gray", "light", sat=0)
                 install_color(0, "gray", "dark", sat=0)
             else:
-                install_color(0, "gray", user_input[1][2:len(user_input[1])], sat=0)
+                install_color(0, "gray", user_input[1], sat=0)
 
         case "--hue":
             if not user_input[1].isdigit():
@@ -188,20 +188,20 @@ def main():
                 print("Incorrect hue degree. The integer must be from 0 to 360.", end="")
                 main()
 
-            elif userInputLength == 2 and user_input[2] != "--light" and user_input[2] != "--dark":
+            elif userInputLength == 2 and user_input[2] != "light" and user_input[2] != "dark":
                 install_color(int(user_input[1]), user_input[1], "light")
                 install_color(int(user_input[1]), user_input[1], "dark")
 
-            elif userInputLength == 2 and user_input[2] == "--light" or \
-                    userInputLength == 2 and user_input[2] == "--dark":
-                install_color(int(user_input[1]), user_input[1], user_input[2][2:len(user_input[2])])
+            elif userInputLength == 2 and user_input[2] == "light" or \
+                    userInputLength == 2 and user_input[2] == "dark":
+                install_color(int(user_input[1]), user_input[1], user_input[2])
 
-            elif userInputLength == 3 or user_input[3] != "--light" and user_input[3] != "--dark":
+            elif userInputLength == 3 or user_input[3] != "light" and user_input[3] != "dark":
                 install_color(int(user_input[1]), user_input[2], "light")
                 install_color(int(user_input[1]), user_input[2], "dark")
 
-            elif user_input[3] == "--light" or user_input[3] == "--dark":
-                install_color(int(user_input[1]), user_input[2], user_input[3][2:len(user_input[3])])
+            elif user_input[3] == "light" or user_input[3] == "dark":
+                install_color(int(user_input[1]), user_input[2], user_input[3])
 
 
 print_help()
