@@ -23,6 +23,8 @@ stage {
   border: 1px solid BORDER-SHADOW;
 }
 
+
+/* panel */
 #panel{
   background-color: BACKGROUND-COLOR;
   height: 38px;
@@ -103,12 +105,20 @@ stage {
   background: BACKGROUND-COLOR;
   padding: 16px;
   border-radius: 20px;
-  border: 1px solid BORDER-SHADOW;
+  border: 1px solid BORDER-MENU-SHADOW;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
 }
 
-.popup-menu-item {
+.popup-menu-item, .app-menu {
   margin: 2.5px 0 2.5px 0;
+}
+
+.popup-menu-item:first-child {
+  margin: 0 0 2.5px 0;
+}
+
+.popup-menu-item:last-child {
+  margin: 2.5px 0 0 0;
 }
 
 .popup-menu-item:focus, .popup-menu-item:hover, .popup-menu-item:checked {
@@ -127,7 +137,7 @@ stage {
 
 .popup-separator-menu-item .popup-separator-menu-item-separator {
   height: 1px;
-  margin: 2.5px 0 2.5px 0;
+  margin: 2.5px 0;
   background-color: SEPARATOR-COLOR;
 }
 
@@ -242,9 +252,9 @@ stage {
 
 
 /* events */
-.calendar{
+.calendar {
   border-radius: 12px;
-  background-color: ACCENT-DISABLED;
+  background-color: SECTION-COLOR;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW !important;
   padding: 5px;
 }
@@ -252,8 +262,8 @@ stage {
 
 .events-button,
 .world-clocks-button,
-.weather-button{
-  background-color: ACCENT-DISABLED;
+.weather-button {
+  background-color: SECTION-COLOR;
   color: TEXT-SECONDARY-COLOR;
   border-radius: 12px;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
@@ -292,16 +302,16 @@ stage {
   background: BACKGROUND-COLOR;
   color: TEXT-PRIMARY-COLOR;
   border-radius: 12px;
+  border: none;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
 .message:focus {
   box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
-  border-radius: 12px;
 }
 
 .message-list .message {
-  background: ACCENT-DISABLED;
+  background: SECTION-COLOR;
 }
 
 .message .message-body, .message-title {
@@ -426,6 +436,7 @@ stage {
   background-color: ACCENT-DISABLED;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW; 
 }
+
 .button:insensitive{
   box-shadow: none;
   color: TEXT-SECONDARY-COLOR;
@@ -444,11 +455,30 @@ stage {
   box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
 }
 
+
+.system-menu-action {
+  border-radius: 32px;
+  box-shadow: inset 0 0 0 1px BORDER-MENU-SHADOW;
+  padding: 13px;
+}
+
+
 /* quick-settings */
-.icon-button{ box-shadow: inset 0 0 0 1px BORDER-SHADOW; }
-.quick-settings{
+.quick-settings {
   padding: 20px;
   border-radius: 24px;
+}
+
+.icon-button {
+  background-color: ACCENT-DISABLED;
+  color: TEXT-PRIMARY-COLOR;
+  transition-duration: 100ms;
+  box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.icon-button:hover,
+.quick-toggle:hover {
+	background-color: ACCENT-DIS_HOVER;
 }
 
 .quick-toggle { 
@@ -458,23 +488,44 @@ stage {
 	transition-duration: 100ms;
 }
 
+.quick-toggle:checked { 
+	color: TEXT-PRIMARY-COLOR;
+	background-color: ACCENT-COLOR;
+}
+
+.quick-toggle:checked:hover {
+	background: ACCENT_HOVER;
+}
+
+.slider-bin {
+  padding: 2px 1px;
+  color: TEXT-PRIMARY-COLOR;
+}
+
+.icon-button:focus, .quick-toggle:focus, .slider-bin:focus { box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important; }
+
 .quick-toggle .quick-toggle-label {
   font-weight: 600;
 }
 
 .quick-toggle-arrow { border-radius: 0 12px 12px 0; }
-.quick-slider .icon-button{ box-shadow: none; }
+.quick-slider .icon-button{ box-shadow: inset 0 0 0 1px BORDER-SHADOW; }
 .quick-slider .icon-button:hover{ 
-  background-color: #474747;
+  background-color: ACCENT-DIS_HOVER;
+  color: TEXT-PRIMARY-COLOR;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
-.quick-slider .icon-button:active{
-  background-color: ACCENT-COLOR;
+.quick-toggle-menu {
+  background-color: BACKGROUND-COLOR;
+  border-radius: 20px;
   color: TEXT-PRIMARY-COLOR;
+  box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
-.quick-toggle-menu{
+.quick-toggle-menu .header .icon {
+  background-color: ACCENT-COLOR;
+  border-radius: 15px;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
@@ -531,7 +582,7 @@ StScrollBar {
 .workspace-thumbnail {
   border: none;
   /* border-radius: 9px; */
-  background-color: ACCENT-DISABLED;
+  background-color: SECTION-COLOR;
   border: 1px solid BORDER-SHADOW;
 }
 
@@ -552,12 +603,13 @@ StScrollBar {
 
 
 /* overview */
+/* REMOVE THIS STYLE FOR BLUR MY SHELL */
 .controls-manager, .workspace-animation {
   background-color: BACKGROUND-COLOR;
 }
 
 .workspace-background {
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -589,6 +641,7 @@ StScrollBar {
 .app-well-app .overview-icon {
   box-shadow: inset 0 0 0 0px rgba(255, 255, 255, 0); /* fix default dash focused box-shadow*/
   transition-duration: 100ms;
+  color: TEXT-PRIMARY-COLOR; /* ubuntu fix */
 }
 
 .app-well-app:hover .overview-icon,
@@ -637,6 +690,8 @@ StScrollBar {
   font-weight: 700;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
   background-color: ACCENT-DISABLED;
+  selection-background-color: ACCENT-COLOR;
+  selected-color: TEXT-PRIMARY-COLOR; /* ubuntu fix */
 }
 
 .app-folder-dialog .folder-name-container .edit-folder-button {
@@ -649,6 +704,8 @@ StScrollBar {
 .app-folder-dialog .folder-name-container .edit-folder-button:hover {
   background-color: ACCENT-DIS_HOVER;
 }
+
+.app-folder-dialog .folder-name-container .edit-folder-button:focus { box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important; }
 
 .page-indicator .page-indicator-icon { background-color: TEXT-SECONDARY-COLOR; }
 
@@ -679,24 +736,34 @@ StScrollBar {
 
 /* Dash */
 #dash .dash-background {
-  background-color: BACKGROUND-COLOR;
-  border: none;
+  background-color: DASH-COLOR;
   box-shadow: inset 0 0 15px -10px ACCENT-SECONDARY-COLOR;
+}
+
+#dashtodockContainer #dash .dash-background { 
+  border: none;
+  border-radius: 18px; /* ubuntu fix */
 }
 
 .dash-label {
   background-color: BACKGROUND-COLOR;
   color: TEXT-PRIMARY-COLOR;
   border-radius: 11px;
-  box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+  border: none; /* ubuntu fix */
+  box-shadow: inset 0 0 0 1px BORDER-MENU-SHADOW;
 }
 
-.app-well-app-running-dot{
+.app-well-app-running-dot {
   width: 10px;
   height: 5px;
   border-radius: 5px;
   background: ACCENT-SECONDARY-COLOR;
   transition-duration: 100ms;
+}
+
+.dash-item-container .app-well-app .overview-icon,
+.dash-item-container .show-apps .overview-icon {
+  border-radius: 21px;
 }
 
 #dash .app-well-app:hover .overview-icon,
@@ -708,6 +775,20 @@ StScrollBar {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* ubuntu fix */
+#dashtodockContainer #dash .app-well-app:hover .overview-icon,
+#dashtodockContainer #dash .app-well-app:focus .overview-icon,
+#dashtodockContainer #dash .app-well-app:selected .overview-icon,
+#dashtodockContainer #dash .show-apps:hover .overview-icon,
+#dashtodockContainer #dash .show-apps:focus .overview-icon,
+#dashtodockContainer .show-apps:selected .overview-icon,
+#dashtodockContainer .show-apps:selected:hover .overview-icon,
+#dashtodockContainer .show-apps:active .overview-icon,
+#dashtodockContainer .show-apps:checked .overview-icon,
+#dashtodockContainer .app-well-app.focused .overview-icon {
+  border-radius: 15px; /* ubuntu fix*/
+}
+
 #dashtodockContainer .app-well-app.focused .overview-icon,
 .show-apps:selected .overview-icon,
 .show-apps:selected:hover .overview-icon,
@@ -715,6 +796,24 @@ StScrollBar {
 .show-apps:checked .overview-icon {
   box-shadow: inset 0 0 4px 1px WELL-APP-SELECTED;
 }
+
+/* ubuntu fix */
+#dashtodockContainer.bottom.extended #dash .dash-background, #dashtodockContainer.bottom.extended.dashtodock #dash .dash-background, #dashtodockContainer.bottom.extended.shrink #dash .dash-background,
+#dashtodockContainer.top.extended #dash .dash-background, #dashtodockContainer.top.extended.dashtodock #dash .dash-background, #dashtodockContainer.top.extended.shrink #dash .dash-background,
+#dashtodockContainer.left.extended #dash .dash-background, #dashtodockContainer.left.extended.dashtodock #dash .dash-background, #dashtodockContainer.left.extended.shrink #dash .dash-background,
+#dashtodockContainer.right.extended #dash .dash-background, #dashtodockContainer.right.extended.dashtodock #dash .dash-background, #dashtodockContainer.right.extended.shrink #dash .dash-background {
+  border-radius: 0;
+  background-color: DASH-COLOR;
+  box-shadow: none;
+  transition-duration: 250ms;
+}
+
+/* animation fix */
+#dashtodockContainer.bottom.overview #dash .dash-background, #dashtodockContainer.bottom.overview.dashtodock #dash .dash-background, #dashtodockContainer.bottom.overview.shrink #dash .dash-background,
+#dashtodockContainer.top.overview #dash .dash-background, #dashtodockContainer.top.overview.dashtodock #dash .dash-background, #dashtodockContainer.top.overview.shrink #dash .dash-background,
+#dashtodockContainer.left.overview #dash .dash-background, #dashtodockContainer.left.overview.dashtodock #dash .dash-background, #dashtodockContainer.left.overview.shrink #dash .dash-background,
+#dashtodockContainer.right.overview #dash .dash-background, #dashtodockContainer.right.overview.dashtodock #dash .dash-background, #dashtodockContainer.right.overview.shrink #dash .dash-background {
+  background-color: BACKGROUND-COLOR; }
 
 #dash .app-well-app:hover .app-well-app-running-dot { width: 15px; }
 
@@ -734,8 +833,10 @@ StEntry{
   border-radius: 12px;
   transition-duration: 100ms;
   border: 1px solid BORDER-SHADOW;
-  background-color: ACCENT-DISABLED;
+  background-color: SECTION-COLOR;
   color: TEXT-SECONDARY-COLOR;
+  selection-background-color: ACCENT-COLOR;
+  selected-color: TEXT-PRIMARY-COLOR; /* ubuntu fix */  
 }
 
 StEntry StLabel {
@@ -748,6 +849,7 @@ StEntry StLabel:insensitive {
 
 StEntry:hover, StEntry:focus, StEntry:active {
   border: 1px solid ACCENT-COLOR;
+  box-shadow: none;
 }
 
 StEntry:focus {
@@ -756,10 +858,13 @@ StEntry:focus {
 
 .search-section-content{
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
-  border-radius: 17px;
-  background-color: ACCENT-DISABLED;
-  color:TEXT-PRIMARY-COLOR
+  border-radius: 15px;
+  border: none;
+  background-color: SECTION-COLOR;
+  color:TEXT-PRIMARY-COLOR;
 }
+
+.list-search-result .list-search-result-title { color: TEXT-PRIMARY-COLOR; } /* ubuntu fix */
 
 .list-search-result .list-search-result-description { color: TEXT-SECONDARY-COLOR; }
 
@@ -852,7 +957,7 @@ StEntry:focus {
 
 .modal-dialog .modal-dialog-linked-button:focus, .hotplug-notification-item:focus, .notification-banner .notification-button:focus {
   animation-duration: 100ms;
-  box-shadow: inset 0 0 0 0.25px ACCENT-SECONDARY-COLOR !important; }
+  box-shadow: inset 0 0 0 1px TEXT-DISABLED-COLOR !important; }
   .modal-dialog .modal-dialog-linked-button:focus:hover, .hotplug-notification-item:focus:hover, .notification-banner .notification-button:focus:hover, .modal-dialog .modal-dialog-linked-button:focus:active, .hotplug-notification-item:focus:active, .notification-banner .notification-button:focus:active {
     box-shadow: inset 0 0 0 1px BORDER-SHADOW !important; }
 
@@ -862,7 +967,7 @@ StEntry:focus {
 }
 
 .prompt-dialog-password-entry {
-  background-color: ACCENT-DISABLED;
+  background-color: SECTION-COLOR;
 }
 
 .nm-dialog-scroll-view{
@@ -872,52 +977,13 @@ StEntry:focus {
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
   
- .system-menu-action {
-  border-radius: 32px;
-  box-shadow: inset 0 0 0 1px BORDER-SHADOW;
-  padding: 13px; }
-
-.quick-toggle:checked { 
-	color: TEXT-PRIMARY-COLOR;
-	background-color: ACCENT-COLOR;
-}
-
-.icon-button {
-  background-color: ACCENT-DISABLED;
-  color: TEXT-PRIMARY-COLOR;
-  transition-duration: 100ms;
-}
-.icon-button:hover,
-.quick-toggle:hover {
-	background-color: ACCENT-DIS_HOVER;
-}
-
-.quick-toggle:checked:hover {
-	background: ACCENT_HOVER;
-}
-
-.quick-toggle-menu{ 
-  background-color: BACKGROUND-COLOR;
-  border-radius: 20px;
-  color: TEXT-PRIMARY-COLOR;
-}
-
-.quick-slider .icon-button:hover{ 
-  background-color: ACCENT-DIS_HOVER;
-  color: TEXT-PRIMARY-COLOR;
-}
-
-.quick-toggle-menu .header .icon {
-  background-color: ACCENT-COLOR;
-  border-radius: 15px;
-  box-shadow: inset 0 0 0 1px BORDER-SHADOW;
-}
 
 
 /* screenshot ui */
 .screenshot-ui-panel {
   border-radius: 22px;
-  background: BACKGROUND-COLOR;
+  background-color: BACKGROUND-COLOR;
+  border: 0; /* ubuntu fix */ 
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
   color: TEXT-PRIMARY-COLOR;
 }
@@ -930,7 +996,8 @@ StEntry:focus {
 .screenshot-ui-show-pointer-button:checked, .screenshot-ui-type-button:checked,
 .screenshot-ui-show-pointer-button:checked:hover, .screenshot-ui-type-button:checked:hover,
 .screenshot-ui-show-pointer-button:checked:focus, .screenshot-ui-type-button:checked:focus {
-  background: ACCENT-DIS_HOVER;
+  background-color: ACCENT-DIS_HOVER;
+  box-shadow: inset 0 0 0 1px BORDER-SHADOW;
   color: TEXT-PRIMARY-COLOR;
 }
 
@@ -950,7 +1017,7 @@ StEntry:focus {
 }
 
 .screenshot-ui-window-selector {
-  background-color: ACCENT-DISABLED;
+  background-color: SECTION-COLOR;
 }
 
 .screenshot-ui-window-selector-window:hover .screenshot-ui-window-selector-window-border {
@@ -989,6 +1056,7 @@ StEntry:focus {
 
 .screenshot-ui-shot-cast-container {
   background-color: ACCENT-DISABLED;
+  box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
 .screenshot-ui-shot-cast-button {
@@ -1024,7 +1092,8 @@ StEntry:focus {
 
 .window-close, .screenshot-ui-close-button {
   background-color: ACCENT-DISABLED;
-  color:TEXT-PRIMARY-COLOR;
+  color: TEXT-PRIMARY-COLOR;
+  border: 1px solid BORDER-SHADOW;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   transition-duration: 100ms;
 }

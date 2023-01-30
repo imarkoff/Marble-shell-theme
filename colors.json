@@ -28,13 +28,20 @@
             "a" : 1
         },
 
-        "background" : {
+        "background-color" : {
             "replace" : "BACKGROUND-COLOR",
             "s" : 7,
             "l" : 8,
             "a" : 1
         },
-
+	
+	"dash-color" : {
+            "replace" : "DASH-COLOR",
+            "s" : 7,
+            "l" : 8,
+            "a" : 0.8
+        },
+	
         "accent-opacity-color" : {
             "replace": "ACCENT-OPACITY-COLOR",
             "s" : 42,
@@ -101,8 +108,15 @@
         "border-shadow" : {
             "replace" : "BORDER-SHADOW",
             "s" : 0,
-            "l" : 0,
+            "l" : 255,
             "a" : 0.03
+        },
+
+        "bordermenu-shadow" : {
+            "replace" : "BORDER-MENU-SHADOW",
+            "s" : 0,
+            "l" : 255,
+            "a" : 0.07
         },
 
         "separator-color" : {
@@ -145,6 +159,13 @@
             "s" : 15,
             "l" : 90,
             "a" : 0.05
+        },
+
+        "section-color" : {
+            "replace" : "SECTION-COLOR",
+            "s" : 6,
+            "l" : 12,
+            "a" : 1
         }
     },
 
@@ -184,6 +205,13 @@
             "a" : 1
         },
 
+	"dash-color" : {
+            "replace" : "DASH-COLOR",
+            "s" : 40,
+            "l" : 98,
+            "a" : 0.8
+        },
+	
         "accent-opacity-color" : {
             "replace": "ACCENT-OPACITY-COLOR",
             "s" : 78,
@@ -247,6 +275,13 @@
             "a" : 0.03
         },
 
+        "border-menu-shadow" : {
+            "replace" : "BORDER-MENU-SHADOW",
+            "s" : 0,
+            "l" : 0,
+            "a" : 0.07
+        },
+
         "separator-color" : {
             "replace" : "SEPARATOR-COLOR",
             "s" : 0,
@@ -287,6 +322,13 @@
             "s" : 95,
             "l" : 20,
             "a" : 0.05
+        },
+
+        "section-color" : {
+            "replace" : "SECTION-COLOR",
+            "s" : 45,
+            "l" : 92,
+            "a" : 1
         }
     },
     
