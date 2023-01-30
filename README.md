@@ -35,7 +35,6 @@ Wallpaper: https://www.androidpolice.com/chromebook-chrome-os-wallpapers/#radian
 ![Dash look](./readme-images/dash.png?raw=true "Dash look")
 
 ## Known issues
-- Currently incompatible with Yaru Shell (Ubuntu).
 - Blur My Shell extension may not work in overview.
 
 ## Requirements
