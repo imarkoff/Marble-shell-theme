@@ -923,11 +923,11 @@ StEntry:focus {
 }
 
 .modal-dialog-linked-button:first-child, .notification-button:first-child, .hotplug-notification-item:first-child {
-  margin: 0 12px 12px 12px !important;
+  margin: 0 6px 12px 12px !important;
 }
 
 .modal-dialog-linked-button:last-child, .notification-button:last-child, .hotplug-notification-item:last-child {
-  margin:  0 12px 12px 0 !important;
+  margin:  0 12px 12px 6px !important;
 }
 
 .modal-dialog-linked-button:first-child:last-child, .notification-button:first-child:last-child, .hotplug-notification-item:first-child:last-child {
@@ -935,7 +935,7 @@ StEntry:focus {
 }
 
 .modal-dialog-linked-button, .notification-button, .hotplug-notification-item {
-  margin: 0 0 12px 12 !important;
+  margin: 0 6px 12px 6px !important;
 }
 
 .modal-dialog-linked-button:hover,
