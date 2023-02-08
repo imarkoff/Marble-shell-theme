@@ -1,335 +1,416 @@
 {
-    "dark" : {
-        "accent": {
+    "elements" : {
+        "accent-color": {
             "replace" : "ACCENT-COLOR",
-            "s" : 42,
-            "l" : 26,
-            "a" : 1
+
+            "light" : {
+                "s" : 75,
+                "l" : 75,
+                "a" : 1
+            },
+
+            "dark" : {
+                "s" : 42,
+                "l" : 26,
+                "a" : 1
+            }
+            
         },
 
         "accent_hover" : {
             "replace" : "ACCENT_HOVER",
-            "s" : 66,
-            "l" : 22,
-            "a" : 1
+
+            "light" : {
+                "s" : 70,
+                "l" : 70,
+                "a" : 1
+            },
+
+            "dark" : {
+                "s" : 66,
+                "l" : 22,
+                "a" : 1
+            }
         },
 
         "accent-disabled" : {
-            "replace" : "ACCENT-DISABLED",
-            "s" : 6,
-            "l" : 15,
-            "a" : 1
+            "replace" : "ACCENT-DISABLED-COLOR",
+            
+            "light" : {
+                "s" : 35,
+                "l" : 90,
+                "a" : 1
+            },
+            
+            "dark" : {
+                "s" : 95,
+                "l" : 85,
+                "a" : 0.08
+            }
         },
-
         "accent-disabled_hover" : {
-            "replace" : "ACCENT-DIS_HOVER",
-            "s" : 7,
-            "l" : 20,
-            "a" : 1
-        },
+            "replace" : "ACCENT-DISABLED_HOVER",
 
-        "background-color" : {
-            "replace" : "BACKGROUND-COLOR",
-            "s" : 7,
-            "l" : 8,
-            "a" : 1
-        },
-	
-	"dash-color" : {
-            "replace" : "DASH-COLOR",
-            "s" : 7,
-            "l" : 8,
-            "a" : 0.8
-        },
-	
-        "accent-opacity-color" : {
-            "replace": "ACCENT-OPACITY-COLOR",
-            "s" : 42,
-            "l" : 26,
-            "a" : 0.2
-        },
+            "light" : {
+                "s" : 35,
+                "l" : 85,
+                "a" : 1
+            },
 
-        "quick-toggle-menu-background" : {
-            "replace" : "QUICK-TOGGLE-MENU-BACKGROUND",
-            "s" : 6,
-            "l" : 10,
-            "a" : 1
+            "dark" : {
+                "s" : 40,
+                "l" : 85,
+                "a" : 0.13
+            }
         },
 
         "accent-secondary-color" : {
             "replace" : "ACCENT-SECONDARY-COLOR",
-            "s" : 20,
-            "l" : 75,
-            "a" : 1
-        },
+            
+            "light" : {
+                "s" : 20,
+                "l" : 50,
+                "a" : 1   
+            },
 
+            "dark" : {
+                "s" : 20,
+                "l" : 75,
+                "a" : 1
+            }
+        },
         "accent-secondary_hover" : {
             "replace" : "ACCENT-SECONDARY_HOVER",
-            "s" : 20,
-            "l" : 70,
-            "a" : 1
+
+            "light" : {
+                "s" : 20,
+                "l" : 45,
+                "a" : 1 
+            },
+
+            "dark" : {
+                "s" : 20,
+                "l" : 70,
+                "a" : 1
+            }
         },
         
+        "accent-opacity-color" : {
+            "replace": "ACCENT-OPACITY-COLOR",
+            
+            "light" : {
+                "s" : 78,
+                "l" : 84,
+                "a" : 0.5
+            },
+
+            "dark" : {
+                "s" : 42,
+                "l" : 26,
+                "a" : 0.2
+            }
+        },
+
+        "background-color" : {
+            "replace" : "BACKGROUND-COLOR",
+
+            "light" : {
+                "s" : 40,
+                "l" : 98,
+                "a" : 1
+            },
+
+            "dark" : {
+                "s" : 7,
+                "l" : 8,
+                "a" : 1
+            }
+        },
+        
+        "dash-color" : {
+            "replace" : "DASH-COLOR",
+
+            "light" : {
+                "s" : 40,
+                "l" : 98,
+                "a" : 0.8
+            },
+
+            "dark" : {
+                "s" : 0,
+                "l" : 7,
+                "a" : 0.7
+            }
+        },
+        "dash_overview" : {
+            "replace" : "DASH_OVERVIEW",
+
+            "light" : {
+                "s" : 60,
+                "l" : 90,
+                "a" : 0.4
+            },
+
+            "dark" : {
+                "s" : 0,
+                "l" : 100,
+                "a" : 0.12
+            }
+        },
+
         "well-app-selected" : {
             "replace" : "WELL-APP-SELECTED",
-            "s" : 20,
-            "l" : 75,
-            "a" : 0.4
+
+            "light" : {
+                "s" : 20,
+                "l" : 50,
+                "a" : 0.4
+            },
+            
+            "dark" : {
+                "s" : 20,
+                "l" : 75,
+                "a" : 0.4
+            }
         },
 
         "text-primary-color" : {
             "replace" : "TEXT-PRIMARY-COLOR",
-            "s" : 65,
-            "l" : 95,
-            "a" : 1
+            
+            "light" : {
+                "s" : 71,
+                "l" : 10,
+                "a" : 0.87
+            },
+
+            "dark" : {
+                "s" : 65,
+                "l" : 95,
+                "a" : 1
+            }
         },
 
         "text-secondary-color" : {
             "replace" : "TEXT-SECONDARY-COLOR",
-            "s" : 65,
-            "l" : 95,
-            "a" : 0.67
+
+            "light" : {
+                "s" : 71,
+                "l" : 10,
+                "a" : 0.6
+            },
+
+            "dark" : {
+                "s" : 65,
+                "l" : 95,
+                "a" : 0.67
+            }
         },
 
         "text-disabled-color" : {
             "replace" : "TEXT-DISABLED-COLOR",
-            "s" : 65,
-            "l" : 95,
-            "a" : 0.38
+
+            "light" : {
+                "s" : 71,
+                "l" : 10,
+                "a" : 0.38
+            },
+
+            "dark" : {
+                "s" : 65,
+                "l" : 95,
+                "a" : 0.38
+            }
         },
 
         "text-inverted-color": {
             "replace" : "TEXT-INVERTED-COLOR",
-            "s" : 71,
-            "l" : 10,
-            "a" : 0.87
+
+            "light" : {
+                "s" : 65,
+                "l" : 95,
+                "a" : 1
+            },
+
+            "dark" : {
+                "s" : 71,
+                "l" : 10,
+                "a" : 0.87
+            }
         },
 
         "border-shadow" : {
             "replace" : "BORDER-SHADOW",
-            "s" : 0,
-            "l" : 255,
-            "a" : 0.03
-        },
 
-        "bordermenu-shadow" : {
-            "replace" : "BORDER-MENU-SHADOW",
-            "s" : 0,
-            "l" : 255,
-            "a" : 0.07
-        },
+            "light" : {
+                "s" : 0,
+                "l" : 0,
+                "a" : 0.03
+            },
 
-        "separator-color" : {
-            "replace" : "SEPARATOR-COLOR",
-            "s" : 0,
-            "l" : 255,
-            "a" : 0.1
-        },
-
-        "show-apps-icon-color" : {
-            "replace" : "SHOW-APPS-ICON-COLOR",
-            "s" : 65,
-            "l" : 95,
-            "a" : 1
-        },
-
-        "scrollbar-color" : {
-            "replace" : "SCROLLBAR-COLOR",
-            "s" : 10,
-            "l" : 35,
-            "a" : 0.75
-        },
-
-        "scrollbar_hover" : {
-            "replace" : "SCROLLBAR_HOVER",
-            "s" : 12,
-            "l" : 35,
-            "a" : 1
-        },
-
-        "scrollbar_active" : {
-            "replace" : "SCROLLBAR_ACTIVE",
-            "s" : 12,
-            "l" : 35,
-            "a" : 0.87
-        },
-
-        "page-nav-hint" : {
-            "replace" : "PAGE-NAV-HINT",
-            "s" : 15,
-            "l" : 90,
-            "a" : 0.05
-        },
-
-        "section-color" : {
-            "replace" : "SECTION-COLOR",
-            "s" : 6,
-            "l" : 12,
-            "a" : 1
-        }
-    },
-
-    "light" : {
-        "accent-color" : {
-            "replace" : "ACCENT-COLOR",
-            "s" : 75,
-            "l" : 75,
-            "a" : 1
-        },
-
-        "accent_hover" : {
-            "replace" : "ACCENT_HOVER",
-            "s" : 70,
-            "l" : 70,
-            "a" : 1
-        },
-
-        "accent-disabled" : {
-            "replace" : "ACCENT-DISABLED",
-            "s" : 35,
-            "l" : 90,
-            "a" : 1
-        },
-
-        "accent-disabled_hover" : {
-            "replace" : "ACCENT-DIS_HOVER",
-            "s" : 35,
-            "l" : 85,
-            "a" : 1
-        },
-
-        "background-color" : {
-            "replace" : "BACKGROUND-COLOR",
-            "s" : 40,
-            "l" : 98,
-            "a" : 1
-        },
-
-	"dash-color" : {
-            "replace" : "DASH-COLOR",
-            "s" : 40,
-            "l" : 98,
-            "a" : 0.8
-        },
-	
-        "accent-opacity-color" : {
-            "replace": "ACCENT-OPACITY-COLOR",
-            "s" : 78,
-            "l" : 84,
-            "a" : 0.5
-        },
-
-        "accent-secondary-color" : {
-            "replace" : "ACCENT-SECONDARY-COLOR",
-            "s" : 20,
-            "l" : 50,
-            "a" : 1   
-        },
-
-        "accent-secondary_hover" : {
-            "replace" : "ACCENT-SECONDARY_HOVER",
-            "s" : 20,
-            "l" : 45,
-            "a" : 1 
-        },
-
-        "well-app-selected" : {
-            "replace" : "WELL-APP-SELECTED",
-            "s" : 20,
-            "l" : 50,
-            "a" : 0.4
-        },
-
-        "text-primary-color": {
-            "replace" : "TEXT-PRIMARY-COLOR",
-            "s" : 71,
-            "l" : 10,
-            "a" : 0.87
-        },
-
-        "text-secondary-color" : {
-            "replace" : "TEXT-SECONDARY-COLOR",
-            "s" : 71,
-            "l" : 10,
-            "a" : 0.6
-        },
-
-        "text-disabled-color" : {
-            "replace" : "TEXT-DISABLED-COLOR",
-            "s" : 71,
-            "l" : 10,
-            "a" : 0.38
-        },
-
-        "text-inverted-color" : {
-            "replace" : "TEXT-INVERTED-COLOR",
-            "s" : 65,
-            "l" : 95,
-            "a" : 1
-        },
-
-        "border-shadow" : {
-            "replace" : "BORDER-SHADOW",
-            "s" : 0,
-            "l" : 0,
-            "a" : 0.03
+            "dark" : {
+                "s" : 0,
+                "l" : 255,
+                "a" : 0.03
+            }
         },
 
         "border-menu-shadow" : {
             "replace" : "BORDER-MENU-SHADOW",
-            "s" : 0,
-            "l" : 0,
-            "a" : 0.07
+
+            "light" : {
+                "s" : 0,
+                "l" : 0,
+                "a" : 0.07
+            },
+
+            "dark" : {
+                "s" : 0,
+                "l" : 255,
+                "a" : 0.07
+            }
         },
 
         "separator-color" : {
             "replace" : "SEPARATOR-COLOR",
-            "s" : 0,
-            "l" : 0,
-            "a" : 0.1
+
+            "light" : {
+                "s" : 0,
+                "l" : 0,
+                "a" : 0.1
+            },
+
+            "dark" : {
+                "s" : 0,
+                "l" : 255,
+                "a" : 0.1
+            }
         },
 
         "show-apps-icon-color" : {
             "replace" : "SHOW-APPS-ICON-COLOR",
-            "s" : 4,
-            "l" : 30,
-            "a" : 1
+
+            "light" : {
+                "s" : 4,
+                "l" : 30,
+                "a" : 1
+            },
+
+            "dark" : {
+                "s" : 65,
+                "l" : 95,
+                "a" : 1
+            }
         },
 
         "scrollbar-color" : {
             "replace" : "SCROLLBAR-COLOR",
-            "s" : 20,
-            "l" : 70,
-            "a" : 0.75
-        },
 
+            "light" : {
+                "s" : 20,
+                "l" : 70,
+                "a" : 0.75
+            },
+
+            "dark" : {
+                "s" : 10,
+                "l" : 25,
+                "a" : 0.75
+            }
+        },
         "scrollbar_hover" : {
             "replace" : "SCROLLBAR_HOVER",
-            "s" : 20,
-            "l" : 70,
-            "a" : 1
-        },
 
+            "light" : {
+                "s" : 20,
+                "l" : 70,
+                "a" : 1
+            },
+
+            "dark" : {
+                "s" : 12,
+                "l" : 25,
+                "a" : 1
+            }
+        },
         "scrollbar_active" : {
             "replace" : "SCROLLBAR_ACTIVE",
-            "s" : 20,
-            "l" : 70,
-            "a" : 0.87
-        },
 
+            "light" : {
+                "s" : 20,
+                "l" : 70,
+                "a" : 0.87
+            },
+
+            "dark" : {
+                "s" : 12,
+                "l" : 35,
+                "a" : 0.87
+            }
+        },
+        
         "page-nav-hint" : {
             "replace" : "PAGE-NAV-HINT",
-            "s" : 95,
-            "l" : 20,
-            "a" : 0.05
-        },
 
+            "light" : {
+                "s" : 95,
+                "l" : 20,
+                "a" : 0.05
+            },
+
+            "dark" : {
+                "s" : 15,
+                "l" : 90,
+                "a" : 0.05
+            }
+        },
+    
         "section-color" : {
             "replace" : "SECTION-COLOR",
-            "s" : 45,
-            "l" : 92,
-            "a" : 1
+
+            "light" : {
+                "s" : 45,
+                "l" : 92,
+                "a" : 1
+            },
+
+            "dark" : {
+                "s" : 6,
+                "l" : 12,
+                "a" : 1
+            }
+        },
+
+        "close-button-color" : {
+            "replace" : "CLOSE-BUTTON-COLOR",
+
+            "light" : {
+                "s" : 35,
+                "l" : 90,
+                "a" : 1
+            },
+
+            "dark" : {
+                "s" : 6,
+                "l" : 15,
+                "a" : 1
+            }
+        },
+        "close-button_hover" : {
+            "replace" : "CLOSE-BUTTON_HOVER",
+
+            "light" : {
+                "s" : 35,
+                "l" : 85,
+                "a" : 1
+            },
+
+            "dark" : {
+                "s" : 7,
+                "l" : 20,
+                "a" : 1
+            }
         }
+        
     },
     
     "colors" : {
@@ -351,7 +432,5 @@
         "pink" : {
             "h" : 295
         }
-    },
-
-    "apply-theme-files" : ["gnome-shell.css", "checkbox.svg", "checkbox-focused.svg", "checkbox-off.svg", "checkbox-off-focused.svg", "workspace-placeholder.svg", "toggle-off.svg", "toggle-on.svg", "calendar-today.svg"]
+    }
 }

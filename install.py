@@ -69,6 +69,7 @@ def copy_files(source, destination):
     destinationDirs = destination.split("/")
     loopCreateDirs = f"{destinationDirs[0]}/"
 
+    # create every folder
     for i in range(1, len(destinationDirs)):
         loopCreateDirs += f"{destinationDirs[i]}/"
         os.system(f"mkdir -p {loopCreateDirs}")
@@ -89,23 +90,24 @@ def apply_theme_to_file(hue, destination, theme_mode, apply_file, sat=None):
     with open(os.path.expanduser(f"{destination}/{apply_file}"), "r") as file:
         edit_file = file.read()
 
+        # colorsys works in range(0, 1)
         h = hue / 360
-        for i in colors[f"{theme_mode}"]:
-            lightness = int(colors[f"{theme_mode}"][i]["l"]) / 100
-            saturation = int(colors[f"{theme_mode}"][i]["s"]) / 100 if sat is None else sat
+        for element in colors["elements"]:
+            
+            # convert to range(0, 1)
+            lightness = int(colors["elements"][element][theme_mode]["l"]) / 100
+            saturation = int(colors["elements"][element][theme_mode]["s"]) / 100 if sat is None else sat
+            alpha = colors["elements"][element][theme_mode]["a"]
 
-            hls_to_rgb = colorsys.hls_to_rgb(h, lightness, saturation)
+            # convert hsl to rgb and multiple every item
+            red, green, blue = [int(item * 256) for item in colorsys.hls_to_rgb(h, lightness, saturation)]
 
-            edit_file = edit_file.replace(colors[f"{theme_mode}"][i]["replace"],
-                                          f"rgba({int(hls_to_rgb[0] * 256)},"
-                                          f"{int(hls_to_rgb[1] * 256)},"
-                                          f"{int(hls_to_rgb[2] * 256)},"
-                                          f"{colors[f'{theme_mode}'][i]['a']})")
+            replace_keyword = colors["elements"][element]["replace"]
+
+            edit_file = edit_file.replace(replace_keyword, f"rgba({red}, {green}, {blue}, {alpha})")
 
     with open(os.path.expanduser(f"{destination}/{apply_file}"), "w") as file:
         file.write(edit_file)
-
-    colorsOpen.close()
 
 
 def apply_theme(hue, destination, theme_mode, sat=None):
@@ -117,8 +119,8 @@ def apply_theme(hue, destination, theme_mode, sat=None):
     :param sat: color saturation (optional)
     """
 
-    for applyFile in colors["apply-theme-files"]:
-        apply_theme_to_file(hue, destination, theme_mode, applyFile, sat=sat)
+    for apply_file in os.listdir("./gnome-shell/"):
+        apply_theme_to_file(hue, destination, theme_mode, apply_file, sat=sat)
 
 
 def install_color(hue, path_name, theme_mode, sat=None):
@@ -131,20 +133,28 @@ def install_color(hue, path_name, theme_mode, sat=None):
     """
 
     print(f"Creating {path_name} {theme_mode} theme...", end=" ")
+    
+    try:
+        copy_files("./gnome-shell", destination_return(path_name, theme_mode))
+        apply_theme(hue, destination_return(path_name, theme_mode), theme_mode, sat=sat)
+    
+    except Exception as err:
+        print("\nError: " + str(err))
 
-    copy_files("./gnome-shell", destination_return(path_name, theme_mode))
-    apply_theme(hue, destination_return(path_name, theme_mode), theme_mode, sat=sat)
-
-    print("Done.")
-
+    else:
+        print("Done.")
 
 def install_all(theme_mode):
     """
     Install all accent colors listed in "colors", colors.json
     :param theme_mode: theme name (light or dark)
     """
+
+    # install hue colors listed in colors.json 
     for color in colors["colors"]:
         install_color(colors["colors"][color]["h"], color, theme_mode)
+    
+    # install gray color separately
     install_color(0, "gray", theme_mode, sat=0)
 
 
@@ -152,7 +162,6 @@ def main():
     user_input = input("\n>>> ").lower().split()
     userInputLength = len(user_input)
 
-    # this part is a piece of sh....
     # i'll rewrite it later
     match user_input[0]:
         case "-a" | "--all":
@@ -204,9 +213,11 @@ def main():
                 install_color(int(user_input[1]), user_input[2], user_input[3])
 
 
-print_help()
 
-colorsOpen = open("colors.json")
-colors = json.loads(colorsOpen.read())   # used as database for replacing colors, files which must be generated
+if __name__ == "__main__":
 
-main()
+    print_help()
+
+    colors = json.load(open("colors.json"))   # used as database for replacing colors, files which must be generated
+
+    main()
