@@ -30,12 +30,9 @@ Wallpaper: https://www.androidpolice.com/chromebook-chrome-os-wallpapers/#radian
   - Icon size: 42px.
 - Appearance:
   - Shrink the dash.
-  - Fixed opacity: 80%.
+  - Default opacity.
 
 ![Dash look](./readme-images/dash.png?raw=true "Dash look")
-
-## Known issues
-- Blur My Shell extension may not work in overview.
 
 ## Requirements
 - GNOME 43+. I do not guarantee correct functionality on older versions.
