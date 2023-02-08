@@ -698,15 +698,18 @@ StScrollBar {
 
 .page-indicator .page-indicator-icon { background-color: TEXT-SECONDARY-COLOR; }
 
-.page-navigation-arrow:hover > StIcon {
+.page-navigation-arrow > StIcon {
   transition-duration: 100ms;
+  color: TEXT-SECONDARY-COLOR;
+}
+
+.page-navigation-arrow:hover > StIcon {
   background-color: ACCENT-DISABLED-COLOR;
   color:TEXT-PRIMARY-COLOR;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
 .page-navigation-arrow:active > StIcon {
-  transition-duration: 100ms;
   background-color: ACCENT-DISABLED_HOVER;
   color: TEXT-PRIMARY-COLOR;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
