@@ -1,4 +1,4 @@
-/* Raw shell theme for GNOME DE
+/* Raw Marble shell theme for GNOME DE
 Copyright (C) 2023  Vladyslav Hroshev
 
 This program is free software: you can redistribute it and/or modify
@@ -31,6 +31,10 @@ stage {
   font-size: 14px;
 }
 
+#panel:overview{
+  background-color: transparent;
+}
+
 #panel .screencast-indicator,
 #panel .remote-access-indicator {
   color: #cd9309; }
@@ -57,7 +61,7 @@ stage {
   color: TEXT-PRIMARY-COLOR;
   border-radius: 14px;
   border: 4px solid transparent;
-  background-color: ACCENT-DISABLED;
+  background-color: ACCENT-DISABLED-COLOR;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 .clock-display StIcon{
@@ -74,7 +78,7 @@ stage {
 .panel-button:active,
 .panel-button:overview, /* activites */
 .panel-button:active .clock{
-  background-color: ACCENT-DIS_HOVER;
+  background-color: ACCENT-DISABLED_HOVER;
 }
 
 #panel .power-status.panel-status-indicators-box {
@@ -122,7 +126,7 @@ stage {
 }
 
 .popup-menu-item:focus, .popup-menu-item:hover, .popup-menu-item:checked {
-  background-color: ACCENT-DISABLED !important;
+  background-color: ACCENT-DISABLED-COLOR !important;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
@@ -131,7 +135,7 @@ stage {
 }
 
 .popup-menu-item:active {
-  background-color: ACCENT-DIS_HOVER;
+  background-color: ACCENT-DISABLED_HOVER;
   color: TEXT-PRIMARY-COLOR;
 }
 
@@ -142,7 +146,7 @@ stage {
 }
 
 .popup-sub-menu {
-  background-color: ACCENT-DISABLED;
+  background-color: ACCENT-DISABLED-COLOR;
   color: TEXT-PRIMARY-COLOR;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
   border-radius: 0 0 12px 12px;
@@ -160,7 +164,7 @@ stage {
 }
 
 .popup-sub-menu .popup-menu-item:hover, .popup-sub-menu .popup-menu-item:focus {
-  background-color: ACCENT-DIS_HOVER !important;
+  background-color: ACCENT-DISABLED_HOVER !important;
 }
 
 .popup-menu-item:insensitive { color: TEXT-DISABLED-COLOR; margin: 0; }
@@ -186,12 +190,12 @@ stage {
 
 .datemenu-today-button:hover {
   transition-duration: 100ms;
-  background-color: ACCENT-DISABLED;
+  background-color: ACCENT-DISABLED-COLOR;
 }
 
 .datemenu-today-button:focus {
   transition-duration: 100ms;
-  background-color: ACCENT-DISABLED;
+  background-color: ACCENT-DISABLED-COLOR;
   box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
 }
 
@@ -221,14 +225,14 @@ stage {
 .calendar-day-base:selected:hover,
 .calendar .calendar-month-header .pager-button:hover,
 .calendar .calendar-month-header .pager-button:focus {
-  background-color: ACCENT-DIS_HOVER;
+  background-color: ACCENT-DISABLED_HOVER;
   color: TEXT-PRIMARY-COLOR;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
 .calendar-day-base:active,
 .calendar-day-base:selected {
-  background: ACCENT-DIS_HOVER;
+  background: ACCENT-DISABLED_HOVER;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
@@ -283,7 +287,7 @@ stage {
 
 .events-button:active,
 .world-clock-button:active,
-.weather-button:active { background-color: ACCENT-DIS_HOVER; }
+.weather-button:active { background-color: ACCENT-DISABLED_HOVER; }
 
 .world-clocks-button .world-clocks-time,
 .world-clocks-button .world-clocks-city,
@@ -329,17 +333,17 @@ stage {
 .message-close-button{
   border-radius: 9px;
   color: TEXT-PRIMARY-COLOR;
-  background-color: ACCENT-DIS_HOVER;
+  background-color: ACCENT-DISABLED-COLOR;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+  transition-duration: 100ms;
+}
+
+.message-close-button:hover {
+  background-color: ACCENT-DISABLED_HOVER;
 }
 
 .message-close-button:active {
   color: TEXT-SECONDARY-COLOR;
-}
-
-.message-media-control:active{
-  background-color: ACCENT-COLOR;
-  color: #0000;
 }
 
 
@@ -351,7 +355,7 @@ stage {
   color: TEXT-PRIMARY-COLOR;
   transition-duration: 100ms;}
   .message-media-control:hover {
-    background-color: ACCENT-DIS_HOVER;
+    background-color: ACCENT-DISABLED-COLOR;
     box-shadow: inset 0 0 0 1px BORDER-SHADOW;
     color: TEXT-PRIMARY-COLOR; }
   .message-media-control:insensitive {
@@ -390,7 +394,7 @@ stage {
 /* Toggles */
 .toggle-switch{
   background-image: url("./toggle-off.svg");
-  background-color: ACCENT-DIS_HOVER;
+  background-color: ACCENT-DISABLED_HOVER;
   border-radius: 10px;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW !important;
 }
@@ -407,11 +411,11 @@ stage {
 }
 
 .dnd-button .toggle-switch {
-  background-color: ACCENT-DISABLED;
+  background-color: ACCENT-DISABLED-COLOR;
 }
 
 .dnd-button:hover .toggle-switch {
-  background-color: ACCENT-DIS_HOVER;
+  background-color: ACCENT-DISABLED_HOVER;
 }
 
 .dnd-button .toggle-switch:checked {
@@ -433,7 +437,7 @@ stage {
 
 .button{
   color: TEXT-PRIMARY-COLOR;
-  background-color: ACCENT-DISABLED;
+  background-color: ACCENT-DISABLED-COLOR;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW; 
 }
 
@@ -443,7 +447,7 @@ stage {
 }
 
 .button:hover, .button:active {
-  background-color: ACCENT-DIS_HOVER;
+  background-color: ACCENT-DISABLED_HOVER;
 }
 
 .message-list-clear-button{
@@ -470,7 +474,7 @@ stage {
 }
 
 .icon-button {
-  background-color: ACCENT-DISABLED;
+  background-color: ACCENT-DISABLED-COLOR;
   color: TEXT-PRIMARY-COLOR;
   transition-duration: 100ms;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
@@ -478,13 +482,13 @@ stage {
 
 .icon-button:hover,
 .quick-toggle:hover {
-	background-color: ACCENT-DIS_HOVER;
+	background-color: ACCENT-DISABLED_HOVER;
 }
 
 .quick-toggle { 
 	color: TEXT-PRIMARY-COLOR;
 	border-radius: 12px;
-	background: ACCENT-DISABLED;
+	background: ACCENT-DISABLED-COLOR;
 	transition-duration: 100ms;
 }
 
@@ -511,7 +515,7 @@ stage {
 .quick-toggle-arrow { border-radius: 0 12px 12px 0; }
 .quick-slider .icon-button{ box-shadow: inset 0 0 0 1px BORDER-SHADOW; }
 .quick-slider .icon-button:hover{ 
-  background-color: ACCENT-DIS_HOVER;
+  background-color: ACCENT-DISABLED_HOVER;
   color: TEXT-PRIMARY-COLOR;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
@@ -547,7 +551,7 @@ stage {
 .level {
   height: 16px;
   -barlevel-height: 16px;
-  -barlevel-background-color: ACCENT-DISABLED;
+  -barlevel-background-color: ACCENT-DISABLED-COLOR;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
   /* fill */
   -barlevel-active-background-color: ACCENT-COLOR;
@@ -582,7 +586,7 @@ StScrollBar {
 .workspace-thumbnail {
   border: none;
   /* border-radius: 9px; */
-  background-color: SECTION-COLOR;
+  background-color: ACCENT-DISABLED-COLOR;
   border: 1px solid BORDER-SHADOW;
 }
 
@@ -603,28 +607,13 @@ StScrollBar {
 
 
 /* overview */
-/* REMOVE THIS STYLE FOR BLUR MY SHELL */
-.controls-manager, .workspace-animation {
+#overviewGroup, .workspace-animation {
   background-color: BACKGROUND-COLOR;
 }
 
 .workspace-background {
   border-radius: 20px;
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
-}
-
-.window-close {
-  background-color: ACCENT-DISABLED;
-  color: TEXT-PRIMARY-COLOR;
-  border-radius: 21px;
-  padding: 3px;
-  height: 28px;
-  width: 28px;
-  transition-duration: 300ms;
-}
-  
-.window-close:hover {
-  background-color: ACCENT-DIS_HOVER;
 }
 
 .window-caption {
@@ -651,11 +640,11 @@ StScrollBar {
 .show-apps:focus .overview-icon,
 .app-well-app.app-folder .overview-icon {
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
-  background-color: ACCENT-DISABLED;
+  background-color: ACCENT-DISABLED-COLOR;
 }
 
 .app-well-app.app-folder .overview-icon {
-  background-color: ACCENT-DIS_HOVER;
+  background-color: ACCENT-DISABLED_HOVER;
 }
 
 .app-well-app:drop .overview-icon, .grid-search-result:drop .overview-icon,
@@ -673,7 +662,7 @@ StScrollBar {
 
 .app-folder-dialog .app-well-app:hover .overview-icon,
 .app-folder-dialog .app-well-app:focus .overview-icon {
-  background-color: ACCENT-DISABLED;
+  background-color: ACCENT-DISABLED-COLOR;
   box-shadow: inset 1px solid BORDER-SHADOW;
 }
 
@@ -689,20 +678,20 @@ StScrollBar {
 .app-folder-dialog .folder-name-container .folder-name-entry {
   font-weight: 700;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
-  background-color: ACCENT-DISABLED;
+  background-color: ACCENT-DISABLED-COLOR;
   selection-background-color: ACCENT-COLOR;
   selected-color: TEXT-PRIMARY-COLOR; /* ubuntu fix */
 }
 
 .app-folder-dialog .folder-name-container .edit-folder-button {
   border-radius: 12px;
-  background-color: ACCENT-DISABLED;
+  background-color: ACCENT-DISABLED-COLOR;
   color: TEXT-PRIMARY-COLOR;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
 .app-folder-dialog .folder-name-container .edit-folder-button:hover {
-  background-color: ACCENT-DIS_HOVER;
+  background-color: ACCENT-DISABLED_HOVER;
 }
 
 .app-folder-dialog .folder-name-container .edit-folder-button:focus { box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important; }
@@ -711,14 +700,14 @@ StScrollBar {
 
 .page-navigation-arrow:hover > StIcon {
   transition-duration: 100ms;
-  background-color: ACCENT-DISABLED;
+  background-color: ACCENT-DISABLED-COLOR;
   color:TEXT-PRIMARY-COLOR;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
 .page-navigation-arrow:active > StIcon {
   transition-duration: 100ms;
-  background-color: ACCENT-DIS_HOVER;
+  background-color: ACCENT-DISABLED_HOVER;
   color: TEXT-PRIMARY-COLOR;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
@@ -743,7 +732,14 @@ StScrollBar {
 #dashtodockContainer #dash .dash-background { 
   border: none;
   border-radius: 18px; /* ubuntu fix */
+  transition-duration: 250ms;
 }
+
+#dashtodockContainer.overview #dash .dash-background {
+  box-shadow: inset 0 0 0 1.5px BORDER-MENU-SHADOW;
+  background-color: DASH_OVERVIEW;
+}
+
 
 .dash-label {
   background-color: BACKGROUND-COLOR;
@@ -809,10 +805,10 @@ StScrollBar {
 }
 
 /* animation fix */
-#dashtodockContainer.bottom.overview #dash .dash-background, #dashtodockContainer.bottom.overview.dashtodock #dash .dash-background, #dashtodockContainer.bottom.overview.shrink #dash .dash-background,
-#dashtodockContainer.top.overview #dash .dash-background, #dashtodockContainer.top.overview.dashtodock #dash .dash-background, #dashtodockContainer.top.overview.shrink #dash .dash-background,
-#dashtodockContainer.left.overview #dash .dash-background, #dashtodockContainer.left.overview.dashtodock #dash .dash-background, #dashtodockContainer.left.overview.shrink #dash .dash-background,
-#dashtodockContainer.right.overview #dash .dash-background, #dashtodockContainer.right.overview.dashtodock #dash .dash-background, #dashtodockContainer.right.overview.shrink #dash .dash-background {
+#dashtodockContainer.bottom.extended.overview #dash .dash-background, #dashtodockContainer.bottom.extended.overview.dashtodock #dash .dash-background, #dashtodockContainer.bottom.extended.overview.shrink #dash .dash-background,
+#dashtodockContainer.top.extended.overview #dash .dash-background, #dashtodockContainer.top.extended.overview.dashtodock #dash .dash-background, #dashtodockContainer.top.extended.overview.shrink #dash .dash-background,
+#dashtodockContainer.left.extended.overview #dash .dash-background, #dashtodockContainer.left.extended.overview.dashtodock #dash .dash-background, #dashtodockContainer.left.extended.overview.shrink #dash .dash-background,
+#dashtodockContainer.right.extended.overview #dash .dash-background, #dashtodockContainer.right.extended.overview.dashtodock #dash .dash-background, #dashtodockContainer.right.extended.overview.shrink #dash .dash-background {
   background-color: BACKGROUND-COLOR; }
 
 #dash .app-well-app:hover .app-well-app-running-dot { width: 15px; }
@@ -875,12 +871,12 @@ StEntry:focus {
 .list-search-result:focus, .search-provider-icon:focus,
 .list-search-result:hover, .search-provider-icon:hover,
 .list-search-result:selected, .search-provider-icon:selected {
-  background-color: ACCENT-DIS_HOVER;
+  background-color: ACCENT-DISABLED_HOVER;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
 .list-search-result:active, .search-provider-icon:active{
-  background-color: ACCENT-DIS_HOVER;
+  background-color: ACCENT-DISABLED_HOVER;
   color: TEXT-PRIMARY-COLOR;
 }
 
@@ -909,7 +905,7 @@ StEntry:focus {
 .switcher-list .item-box:hover,
 .switcher-list .item-box:focus,
 .switcher-list .item-box:selected{
-  background-color: ACCENT-DISABLED;
+  background-color: ACCENT-DISABLED-COLOR;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
@@ -917,7 +913,7 @@ StEntry:focus {
   padding: 10px 0 !important;
   border-radius: 10px !important;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
-  background-color: ACCENT-DISABLED;
+  background-color: ACCENT-DISABLED-COLOR;
   color:TEXT-PRIMARY-COLOR;
   animation-duration: 100ms;
 }
@@ -942,7 +938,7 @@ StEntry:focus {
 .modal-dialog-linked-button:focus,
 .notification-button:hover,
 .notification-button:focus {
-  background: ACCENT-DIS_HOVER;
+  background: ACCENT-DISABLED_HOVER;
   color: TEXT-PRIMARY-COLOR;
 }
 
@@ -996,14 +992,14 @@ StEntry:focus {
 .screenshot-ui-show-pointer-button:checked, .screenshot-ui-type-button:checked,
 .screenshot-ui-show-pointer-button:checked:hover, .screenshot-ui-type-button:checked:hover,
 .screenshot-ui-show-pointer-button:checked:focus, .screenshot-ui-type-button:checked:focus {
-  background-color: ACCENT-DIS_HOVER;
+  background-color: ACCENT-DISABLED_HOVER;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
   color: TEXT-PRIMARY-COLOR;
 }
 
 .screenshot-ui-show-pointer-button:hover, .screenshot-ui-type-button:hover,
 .screenshot-ui-show-pointer-button:focus, .screenshot-ui-type-button:focus {
-  background: ACCENT-DISABLED;
+  background: ACCENT-DISABLED-COLOR;
   color: TEXT-PRIMARY-COLOR;
 }
 
@@ -1055,7 +1051,7 @@ StEntry:focus {
   .screenshot-ui-capture-button:cast:active .screenshot-ui-capture-button-circle { background-color: #a11722;}
 
 .screenshot-ui-shot-cast-container {
-  background-color: ACCENT-DISABLED;
+  background-color: ACCENT-DISABLED-COLOR;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
@@ -1065,7 +1061,7 @@ StEntry:focus {
 }
 
 .screenshot-ui-shot-cast-button:hover, .screenshot-ui-shot-cast-button:focus, .screenshot-ui-shot-cast-button:active {
-  background-color: ACCENT-DIS_HOVER;
+  background-color: ACCENT-DISABLED_HOVER;
 }
 
 .screenshot-ui-shot-cast-button:checked {
@@ -1091,7 +1087,7 @@ StEntry:focus {
 }
 
 .window-close, .screenshot-ui-close-button {
-  background-color: ACCENT-DISABLED;
+  background-color: CLOSE-BUTTON-COLOR;
   color: TEXT-PRIMARY-COLOR;
   border: 1px solid BORDER-SHADOW;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
@@ -1099,5 +1095,5 @@ StEntry:focus {
 }
 
 .window-close:hover, .screenshot-ui-close-button:hover {
-  background-color: ACCENT-DIS_HOVER;
+  background-color: CLOSE-BUTTON_HOVER;
 }
