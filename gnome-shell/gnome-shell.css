@@ -85,7 +85,7 @@ stage {
   font-size: 12px;
 }
 
-/* clock fix */
+/* date-menu-mod */
 .clock-display{
   background-color: transparent !important;
   box-shadow: none !important;
@@ -94,6 +94,23 @@ stage {
 .clock{
   margin: 0 !important;
 }
+
+/* clock fix by Aylur's widgets */
+#panel .panel-button.clock-display{
+  -natural-hpadding: 0;
+  -minimum-hpadding: 0;
+}
+.datemenu-calendar-column{ padding-left: 0; padding-right: 0; } /* if notifications are hidden, make the column centered */
+.datemenu-user{ padding: 30px;}
+.datemenu-user > StButton{
+  width: 160px;
+  height: 160px;
+  padding: 2px;
+  border-radius: 99px;
+  margin-bottom: 12px;
+}
+.datemenu-user > StButton > StWidget{ border-radius: 99px; }
+.datemenu-levels{ spacing: 8px; }
 
 
 /* Activities Ripple */
@@ -533,6 +550,28 @@ stage {
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
+/* Aylur's widgets */
+.quick-settings.tweaked .media,
+.quick-settings.tweaked .message,
+.popup-menu-content .message,
+.quick-settings.tweaked .quick-container {
+  background-color: SECTION-COLOR;
+  border-radius: 15px;
+  border: none;
+}
+
+.quick-settings.tweaked .quick-container .quick-slider { margin: 2.5px 0 2.5px 0; }
+.quick-settings.tweaked .quick-container .quick-slider:first-child { margin: 0 0 2.5px 0; }
+.quick-settings.tweaked .quick-container .quick-slider:last-child { margin: 2.5px 0 0 0; }
+.quick-settings.tweaked .quick-container .quick-slider:first-child:last-child { margin: 0; }
+
+.usage-level StIcon{ width: 1.29em; }
+
+.level-bar {
+  padding: 0;
+  background-color: ACCENT-DISABLED-COLOR;
+}
+
 
 /* Notifications */
 .notification-banner{
@@ -575,7 +614,7 @@ StScrollBar {
     border-radius: 8px;
     background-color: SCROLLBAR-COLOR;
     border: 3px solid transparent;
-    transition: 500ms all ease; }
+    transition-duration: 100ms; }
     StScrollBar StButton#vhandle:hover, StScrollBar StButton#hhandle:hover {
       background-color: SCROLLBAR_HOVER; }
     StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
