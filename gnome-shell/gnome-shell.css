@@ -1139,3 +1139,36 @@ StEntry:focus {
 .window-close:hover, .screenshot-ui-close-button:hover {
   background-color: CLOSE-BUTTON_HOVER;
 }
+
+
+/* Looking Glass | R.I.P. custom colors & light mode */
+#LookingGlassDialog {
+  border-radius: 14px;
+  margin: 5px;
+  background-color: #191919;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+#LookingGlassDialog .notebook-tab, #LookingGlassDialog > #Toolbar .lg-toolbar-button { border-radius: 9px; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03); }
+
+#LookingGlassDialog > #Toolbar .lg-toolbar-button, #LookingGlassDialog .notebook-tab:selected { background-color: rgba(255, 255, 255, 0.08); }
+#LookingGlassDialog > #Toolbar .lg-toolbar-button:hover { background-color: rgba(255, 255, 255, 0.13); }
+
+.lg-dialog StEntry {
+  background-color: rgba(48, 48, 48, 0.6);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.2);
+  min-height: 16px;
+  selection-background-color: ACCENT-COLOR;
+  selected-color: #fff; }
+
+.lg-extension {
+  border-radius: 12px;
+}
+
+.lg-debug-flag-button .toggle-switch {
+  margin: 5px;
+  border-radius: 10px;
+  height: 26px;
+  padding: 0; }
