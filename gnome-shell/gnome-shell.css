@@ -130,16 +130,12 @@ stage {
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
 }
 
+.candidate-popup-content {
+  padding: 13.5px 16px;
+}
+
 .popup-menu-item, .app-menu {
   margin: 2.5px 0 2.5px 0;
-}
-
-.popup-menu-item:first-child {
-  margin: 0 0 2.5px 0;
-}
-
-.popup-menu-item:last-child {
-  margin: 2.5px 0 0 0;
 }
 
 .popup-menu-item:focus, .popup-menu-item:hover, .popup-menu-item:checked {
@@ -274,7 +270,7 @@ stage {
 
 /* events */
 .calendar {
-  border-radius: 12px;
+  border-radius: 14px;
   background-color: SECTION-COLOR;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW !important;
   padding: 5px;
@@ -286,7 +282,7 @@ stage {
 .weather-button {
   background-color: SECTION-COLOR;
   color: TEXT-SECONDARY-COLOR;
-  border-radius: 12px;
+  border-radius: 14px;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
@@ -314,15 +310,18 @@ stage {
 
 
 /* message-list */
-.message-list{
+.message-list {
   border: none;
-  padding: 5px 0 0 5px;
+  padding: 0;
 }
 
-.message{
+.message-list-sections:ltr {
+  margin-right: 4px; }
+
+.message {
   background: BACKGROUND-COLOR;
   color: TEXT-PRIMARY-COLOR;
-  border-radius: 12px;
+  border-radius: 16px;
   border: none;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
@@ -332,7 +331,7 @@ stage {
 }
 
 .message-list .message {
-  background: SECTION-COLOR;
+  background-color: SECTION-COLOR;
 }
 
 .message .message-body, .message-title {
@@ -409,13 +408,13 @@ stage {
 
 
 /* Toggles */
-.toggle-switch{
+.toggle-switch {
   background-image: url("./toggle-off.svg");
   background-color: ACCENT-DISABLED_HOVER;
   border-radius: 10px;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW !important;
 }
-.toggle-switch:checked{
+.toggle-switch:checked {
   background-image: url("./toggle-on.svg");
   background-color: ACCENT-COLOR;
 }
@@ -452,13 +451,13 @@ stage {
 }
 
 
-.button{
+.button {
   color: TEXT-PRIMARY-COLOR;
   background-color: ACCENT-DISABLED-COLOR;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW; 
 }
 
-.button:insensitive{
+.button:insensitive {
   box-shadow: none;
   color: TEXT-SECONDARY-COLOR;
 }
@@ -467,22 +466,16 @@ stage {
   background-color: ACCENT-DISABLED_HOVER;
 }
 
-.message-list-clear-button{
+.message-list-clear-button {
   border-radius: 9px;
+  background-color: SECTION-COLOR;
+  padding: 3px 15px;
   color: TEXT-PRIMARY-COLOR;
 }
 
 .message-list-clear-button:focus {
   box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
 }
-
-
-.system-menu-action {
-  border-radius: 32px;
-  box-shadow: inset 0 0 0 1px BORDER-MENU-SHADOW;
-  padding: 13px;
-}
-
 
 /* quick-settings */
 .quick-settings {
@@ -530,9 +523,15 @@ stage {
 }
 
 .quick-toggle-arrow { border-radius: 0 12px 12px 0; }
-.quick-slider .icon-button{ box-shadow: inset 0 0 0 1px BORDER-SHADOW; }
-.quick-slider .icon-button:hover{ 
-  background-color: ACCENT-DISABLED_HOVER;
+
+.quick-slider .icon-button {
+  background-color: BACKGROUND-COLOR;
+  box-shadow: none;
+  transition-duration: 150ms;
+}
+
+.quick-slider .icon-button:hover { 
+  background-color: ACCENT-DISABLED-COLOR;
   color: TEXT-PRIMARY-COLOR;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
@@ -549,23 +548,6 @@ stage {
   border-radius: 15px;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
-
-/* Aylur's widgets */
-.quick-settings.tweaked .media,
-.quick-settings.tweaked .message,
-.popup-menu-content .message,
-.quick-settings.tweaked .quick-container {
-  background-color: SECTION-COLOR;
-  border-radius: 15px;
-  border: none;
-}
-
-.quick-settings.tweaked .quick-container .quick-slider { margin: 2.5px 0 2.5px 0; }
-.quick-settings.tweaked .quick-container .quick-slider:first-child { margin: 0 0 2.5px 0; }
-.quick-settings.tweaked .quick-container .quick-slider:last-child { margin: 2.5px 0 0 0; }
-.quick-settings.tweaked .quick-container .quick-slider:first-child:last-child { margin: 0; }
-
-.usage-level StIcon{ width: 1.29em; }
 
 .level-bar {
   padding: 0;
@@ -1022,7 +1004,7 @@ StEntry:focus {
   border-radius: 22px;
   background-color: BACKGROUND-COLOR;
   border: 0; /* ubuntu fix */ 
-  box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+  box-shadow: inset 0 0 0 1px BORDER-MENU-SHADOW;
   color: TEXT-PRIMARY-COLOR;
 }
 
@@ -1172,3 +1154,26 @@ StEntry:focus {
   border-radius: 10px;
   height: 26px;
   padding: 0; }
+
+
+/* Aylur's widgets */
+.quick-settings.tweaked .media,
+.quick-settings.tweaked .message,
+.popup-menu-content .message,
+.quick-settings.tweaked .quick-container {
+  background-color: SECTION-COLOR;
+  border-radius: 16px;
+  border: none;
+}
+
+.quick-settings.tweaked .quick-container .quick-slider { margin: 2.5px 0 2.5px 0; }
+.quick-settings.tweaked .quick-container .quick-slider:first-child { margin: 0 0 2.5px 0; }
+.quick-settings.tweaked .quick-container .quick-slider:last-child { margin: 2.5px 0 0 0; }
+.quick-settings.tweaked .quick-container .quick-slider:first-child:last-child { margin: 0; }
+
+.quick-settings.tweaked .media { font-weight: 500; }
+
+.quick-settings.adjusted .quick-toggle .quick-toggle-arrow:ltr { border-radius: 0 36px 36px 0; }
+.quick-settings.adjusted .quick-toggle .quick-toggle-arrow:rtl { border-radius: 36px 0 0 36px; }
+
+.usage-level StIcon{ width: 1.29em; }
