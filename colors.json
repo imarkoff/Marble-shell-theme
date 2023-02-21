@@ -4,8 +4,8 @@
             "replace" : "ACCENT-COLOR",
 
             "light" : {
-                "s" : 75,
-                "l" : 75,
+                "s" : 52,
+                "l" : 67,
                 "a" : 1
             },
 
@@ -14,15 +14,14 @@
                 "l" : 26,
                 "a" : 1
             }
-            
         },
 
         "accent_hover" : {
             "replace" : "ACCENT_HOVER",
 
             "light" : {
-                "s" : 70,
-                "l" : 70,
+                "s" : 50,
+                "l" : 60,
                 "a" : 1
             },
 
@@ -37,7 +36,7 @@
             "replace" : "ACCENT-DISABLED-COLOR",
             
             "light" : {
-                "s" : 35,
+                "s" : 40,
                 "l" : 90,
                 "a" : 1
             },
@@ -115,8 +114,8 @@
             "replace" : "BACKGROUND-COLOR",
 
             "light" : {
-                "s" : 40,
-                "l" : 98,
+                "s" : 64,
+                "l" : 97,
                 "a" : 1
             },
 
