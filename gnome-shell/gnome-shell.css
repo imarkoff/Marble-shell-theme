@@ -366,8 +366,8 @@ stage {
 /* Media Controls */
 .message-media-control {
   border-radius: 12px;
-  padding: 0 18px;
-  margin: 16px 1px;
+  padding: 0 14px;
+  margin: 20px 2px;
   color: TEXT-PRIMARY-COLOR;
   transition-duration: 100ms;}
   .message-media-control:hover {
@@ -381,7 +381,22 @@ stage {
   .message-media-control:last-child:rtl {
     margin-left: 12px; }
   .message-media-control StIcon {
-    icon-size: 1.09em; }
+    icon-size: 1.09em;
+  }
+
+.media-message-cover-icon {
+  icon-size: 3.2em !important;
+  border-radius: 12px;
+}
+
+.media-message-cover-icon.fallback {
+  color: TEXT-PRIMARY-COLOR;
+  background-color: ACCENT-DISABLED_HOVER;
+  box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+  border-radius: 12px;
+  icon-size: 1.6em !important;
+  padding: 0.79em;
+}
 
 
 /* Check Boxes */
