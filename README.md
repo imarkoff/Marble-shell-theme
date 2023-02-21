@@ -55,31 +55,39 @@ python install.py
 6. Select shell theme you want.
 
 ## Installation tweaks
+
 #### Install default color
-| Option | Theme mode (optional) | Description |
-| ------------ | ------------ | ------------ |
-| -A, --all |  | Install all available accent colors. Light & dark mode. |
-| --red |  | red theme only |
-| --pink |  | pink theme only |
-| --purple |  | purple theme only |
-| --blue |  | blue theme only |
-| --green |  | green theme only |
-| --yellow |  | pink theme only |
-|--gray |  | gray theme only |
+You can install several themes in one string: `python install.py --red --green --blue`
+
+| Option        | Theme mode (optional) | Description                                              |
+|---------------|-----------------------|----------------------------------------------------------|
+| -A, --all     |                       |  Install all available accent colors. Light & dark mode. |
+| --red         |                       | red theme only                                           |
+| --pink        |                       | pink theme only                                          |
+| --purple      |                       | purple theme only                                        |
+| --blue        |                       | blue theme only                                          |
+| --green       |                       | green theme only                                         |
+| --yellow      |                       | pink theme only                                          |
+| --gray        |                       | gray theme only                                          |
+
 #### Install custom color
-| Option | Hue degree | Theme name (optional) | Theme mode (optional) | Description |
-| ------------ | ------------ | ------------ | ------------ | ------------ |
-| --hue |  |  |  |Generate theme from Hue prompt [0 - 360] |
-#### Theme mode
-| Option | Secondary option | Description |
-| ------------ | ------------ | ------------ |
-|  | light | light theme only |
-|  | dark | dark theme only |
+| Option | Hue degree | Secondary option (optional) | Description                              |
+|--------|------------|-----------------------------|------------------------------------------|
+| --hue  | (0 - 360)  |                             | Generate theme from Hue prompt [0 - 360] |
+|        |            | --name=NAME                 | Custom theme name                        |
+
+#### Optional theme tweaks
+| Option  | Secondary option | Description                                                |
+|---------|------------------|------------------------------------------------------------|
+| --mode= | light / dark     | light / dark theme only                                    |
+| --sat=  | (0 - 250)%       | custom color saturation (<100% - reduce, >100% - increase) |
+
 #### Examples
-| Command | Description |
-| ------------ | ------------ |
-| -A | Install all accent colors with light & dark mode |
-| --all dark | Install all accent colors with dark mode only |
-| --purple light | Install purple accent color with light mode only |
-| --hue 180 | Install hue=180 accent color with light & dark mode |
-| --hue 145 coldgreen dark | Install hue=145 coldgreen accent color with dark mode only |
+| Command                                        | Description                                                          |
+|------------------------------------------------|----------------------------------------------------------------------|
+| -A                                             | Install all accent colors with light & dark mode                     |
+| --all --mode dark                              | Install all accent colors with dark mode only                        |
+| --purple --mode=light                          | Install purple accent color with light mode only                     |
+| --hue 150 --name coldgreen                     | Install custom coldgreen accent color, light & dark mode             |
+| --red --green --sat=70                         | red, green accent colors, 70% of the stock saturation                |
+| --hue=200 --name=grayblue --sat=50 --mode=dark | custom grayblue accent color, 50% of the stock saturation, dark mode |
