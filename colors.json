@@ -415,22 +415,32 @@
     
     "colors" : {
         "red" : {
-            "h" : 0
+            "h" : 0,
+            "s" : null
         },
         "yellow" : {
-            "h" : 40
+            "h" : 40,
+            "s" : null
         },
         "green" : {
-            "h" : 135
+            "h" : 135,
+            "s" : null
         },
         "blue" : {
-            "h" : 210
+            "h" : 210,
+            "s" : null
         },
         "purple" : {
-            "h" : 275
+            "h" : 275,
+            "s" : null
         },
         "pink" : {
-            "h" : 295
+            "h" : 295,
+            "s" : null
+        },
+        "gray" : {
+            "h" : 0,
+            "s" : 0
         }
     }
 }

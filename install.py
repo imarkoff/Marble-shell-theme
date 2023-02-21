@@ -18,34 +18,8 @@
 import colorsys
 import os
 import json
-
-
-def print_help():
-    """ Print usage documentation """
-
-    print("Default colors\n"
-          "-A, --all\tInstall all available accent colors. Light & dark mode.\n"
-          "--red\t\tred theme only\n"
-          "--pink\t\tpink theme only\n"
-          "--purple\tpurple theme only\n"
-          "--blue\t\tblue theme only\n"
-          "--green\t\tgreen theme only\n"
-          "--yellow\tpink theme only\n"
-          "--gray\t\tgray theme only")
-
-    print("\nCustom Hue colors:\n"
-          "--hue\tHUE_DEGREE\tTHEME_NAME[optional]\tTHEME_MODE[optional]\nGenerate theme from Hue prompt [0 - 360]")
-
-    print("\nTheme mode:\n"
-          "\tlight light theme only\n"
-          "\tdark  dark theme only")
-
-    print("\nExample:\n"
-          "-A\t\t\tInstall all accent colors with light & dark mode\n"
-          "--all dark\t\tInstall all accent colors with dark mode only\n"
-          "--purple light\t\tInstall purple accent color with light mode only\n"
-          "--hue 180\t\tInstall hue=180 accent color with light & dark mode\n"
-          "--hue 140 coldgreen dark\tInstall hue=140 coldgreen accent color with dark mode only")
+import argparse
+import textwrap
 
 
 def destination_return(path_name, theme_mode):
@@ -56,7 +30,7 @@ def destination_return(path_name, theme_mode):
     :return: copied files' folder location
     """
 
-    return f"~/.local/share/themes/Marble-shell-{path_name}-{theme_mode}/gnome-shell"
+    return f"~/.themes/Marble-{path_name}-{theme_mode}/gnome-shell"
 
 
 def copy_files(source, destination):
@@ -69,7 +43,7 @@ def copy_files(source, destination):
     destinationDirs = destination.split("/")
     loopCreateDirs = f"{destinationDirs[0]}/"
 
-    # create every folder
+    # create necessary folders
     for i in range(1, len(destinationDirs)):
         loopCreateDirs += f"{destinationDirs[i]}/"
         os.system(f"mkdir -p {loopCreateDirs}")
@@ -93,10 +67,10 @@ def apply_theme_to_file(hue, destination, theme_mode, apply_file, sat=None):
         # colorsys works in range(0, 1)
         h = hue / 360
         for element in colors["elements"]:
-            
             # convert to range(0, 1)
             lightness = int(colors["elements"][element][theme_mode]["l"]) / 100
-            saturation = int(colors["elements"][element][theme_mode]["s"]) / 100 if sat is None else sat
+            saturation = int(colors["elements"][element][theme_mode]["s"]) / 100 if sat is None else int(
+                colors["elements"][element][theme_mode]["s"]) * (sat / 100) / 100
             alpha = colors["elements"][element][theme_mode]["a"]
 
             # convert hsl to rgb and multiple every item
@@ -123,101 +97,151 @@ def apply_theme(hue, destination, theme_mode, sat=None):
         apply_theme_to_file(hue, destination, theme_mode, apply_file, sat=sat)
 
 
-def install_color(hue, path_name, theme_mode, sat=None):
+def install_color(hue, name, theme_mode, sat=None):
     """
     Copy files and generate theme with different accent color
     :param hue
-    :param path_name: color name
-    :param theme_mode: theme name (light or dark)
+    :param name: theme name
+    :param theme_mode: light or dark mode
     :param sat: color saturation (optional)
     """
 
-    print(f"Creating {path_name} {theme_mode} theme...", end=" ")
-    
+    print(f"Creating {name} {', '.join(theme_mode)} theme...", end=" ")
+
     try:
-        copy_files("./gnome-shell", destination_return(path_name, theme_mode))
-        apply_theme(hue, destination_return(path_name, theme_mode), theme_mode, sat=sat)
-    
+        for mode in theme_mode:
+            copy_files("./gnome-shell", destination_return(name, mode))
+            apply_theme(hue, destination_return(name, mode), mode, sat=sat)
+
     except Exception as err:
         print("\nError: " + str(err))
 
     else:
         print("Done.")
 
-def install_all(theme_mode):
-    """
-    Install all accent colors listed in "colors", colors.json
-    :param theme_mode: theme name (light or dark)
-    """
 
-    # install hue colors listed in colors.json 
-    for color in colors["colors"]:
-        install_color(colors["colors"][color]["h"], color, theme_mode)
-    
-    # install gray color separately
-    install_color(0, "gray", theme_mode, sat=0)
+def remove_files():
+    # Define the paths of the folders to be deleted
+    paths = ["~/.themes", "~/.local/share/themes"]
+
+    # Ask for confirmation before deleting
+    confirmation = input(f"Do you want to delete all \"Marble\" folders in {' and in '.join(paths)}? (y/N) ")
+
+    # If the user confirms, delete the folder
+    if confirmation == "y":
+
+        # Loop through the paths
+        for path in paths:
+
+            # Check if the path exists
+            if os.path.exists(os.path.expanduser(path)):
+
+                # Get the list of folders in the path
+                folders = os.listdir(os.path.expanduser(path))
+
+                # Loop through the folders
+                found_folder = False
+
+                # Loop through the folders
+                for folder in folders:
+
+                    # Check if the folder starts with "Marble"
+                    if folder.startswith("Marble"):
+                        folder_path = os.path.join(os.path.expanduser(path), folder)
+                        print(f"Deleting folder {folder_path}...", end='')
+
+                        try:
+                            os.system(f"rm -r {folder_path}")
+
+                        except Exception as e:
+                            print(f"Error deleting folder {folder_path}: {e}")
+
+                        else:
+                            found_folder = True
+                            print("Done.")
+
+                if not found_folder:
+                    print(f"No folders starting with \"Marble\" found in {path}.")
+
+            else:
+                print(f"The path {path} does not exist.")
 
 
 def main():
-    user_input = input("\n>>> ").lower().split()
-    userInputLength = len(user_input)
+    parser = argparse.ArgumentParser(prog="python install.py",
+                                     formatter_class=argparse.RawDescriptionHelpFormatter,
+                                     epilog=textwrap.dedent('''
+                Examples:
+                  -a                            all accent colors, light & dark mode
+                  --all --mode dark             all accent colors, dark mode
+                  --purple --mode=light         purple accent color, light mode
+                  --hue 150 --name coldgreen    custom coldgreen accent color, light & dark mode
+                  --red --green --sat=70        red, green accent colors, 70% of stock saturation
+                  --hue=200 --name=grayblue --sat=50 --mode=dark
+                                custom grayblue accent color, 50% of stock saturation, dark mode
+                '''))
 
-    # i'll rewrite it later
-    match user_input[0]:
-        case "-a" | "--all":
-            if userInputLength == 1 or user_input[1] != "light" and user_input[1] != "dark":
-                install_all("light")
-                install_all("dark")
-            else:
-                install_all(user_input[1])
+    # Add default arguments
+    parser.add_argument('-r', '--remove', action='store_true', help='remove all "Marble" themes')
 
-        case "--red" | "--pink" | "--purple" | "--blue" | "--green" | "--yellow":
-            path_name = user_input[0][2:len(user_input[0])]
-            hue = colors["colors"][path_name]["h"]
+    # Add arguments for default accent colors
+    default_args = parser.add_argument_group('Install default theme')
+    default_args.add_argument('-a', '--all', action='store_true', help='all available accent colors')
+    default_args.add_argument('--red', action='store_true', help='red theme only')
+    default_args.add_argument('--pink', action='store_true', help='pink theme only')
+    default_args.add_argument('--purple', action='store_true', help='purple theme only')
+    default_args.add_argument('--blue', action='store_true', help='blue theme only')
+    default_args.add_argument('--green', action='store_true', help='green theme only')
+    default_args.add_argument('--yellow', action='store_true', help='yellow theme only')
+    default_args.add_argument('--gray', action='store_true', help='gray theme only')
 
-            if userInputLength == 1 or user_input[1] != "light" and user_input[1] != "dark":
-                install_color(hue, path_name, "light")
-                install_color(hue, path_name, "dark")
-            else:
-                install_color(hue, path_name, user_input[1])
+    # Add arguments for custom accent colors
+    custom_args = parser.add_argument_group('Install custom color theme')
+    custom_args.add_argument('--hue', type=int, choices=range(0, 361), help='generate theme from Hue prompt',
+                             metavar='(0 - 360)')
+    custom_args.add_argument('--name', nargs='?', help='theme name (optional)')
 
-        case "--gray" | "--grey":
-            if userInputLength == 1 or user_input[1] != "light" and user_input[1] != "dark":
-                install_color(0, "gray", "light", sat=0)
-                install_color(0, "gray", "dark", sat=0)
-            else:
-                install_color(0, "gray", user_input[1], sat=0)
+    # Add arguments for optional theme tweaks
+    color_tweaks = parser.add_argument_group('Optional theme tweaks')
+    color_tweaks.add_argument('--mode', choices=['light', 'dark'], help='select a specific theme mode to install')
+    color_tweaks.add_argument('--sat', type=int, choices=range(0, 251),
+                              help='custom color saturation (<100%% - reduce, >100%% - increase)', metavar='(0 - 250)%')
 
-        case "--hue":
-            if not user_input[1].isdigit():
-                print("Incorrect hue degree. It must be integer, not string.", end="")
-                main()
+    args = parser.parse_args()
 
-            elif int(user_input[1]) not in range(0, 360):
-                print("Incorrect hue degree. The integer must be from 0 to 360.", end="")
-                main()
+    mode = [args.mode] if args.mode else ['light', 'dark']
 
-            elif userInputLength == 2 and user_input[2] != "light" and user_input[2] != "dark":
-                install_color(int(user_input[1]), user_input[1], "light")
-                install_color(int(user_input[1]), user_input[1], "dark")
+    # Process the arguments and perform the installation accordingly
+    if args.remove:
+        remove_files()
 
-            elif userInputLength == 2 and user_input[2] == "light" or \
-                    userInputLength == 2 and user_input[2] == "dark":
-                install_color(int(user_input[1]), user_input[1], user_input[2])
+    elif args.all:
+        # install hue colors listed in colors.json
+        for color in colors["colors"]:
+            hue = colors["colors"][color]["h"]
+            sat = colors["colors"][color]["s"] if colors["colors"][color]["s"] is not None else args.sat
 
-            elif userInputLength == 3 or user_input[3] != "light" and user_input[3] != "dark":
-                install_color(int(user_input[1]), user_input[2], "light")
-                install_color(int(user_input[1]), user_input[2], "dark")
+            install_color(hue, color, mode, sat)
 
-            elif user_input[3] == "light" or user_input[3] == "dark":
-                install_color(int(user_input[1]), user_input[2], user_input[3])
+    elif args.red or args.pink or args.purple or args.blue or args.green or args.yellow or args.gray:
+        for color_name in colors["colors"]:
+            if getattr(args, color_name):
+                hue = colors["colors"][color_name]["h"]
+                sat = colors["colors"][color_name]["s"] if colors["colors"][color_name]["s"] is not None else args.sat
 
+                install_color(hue, color_name, mode, sat)
+
+    elif args.hue:
+        hue = args.hue
+        theme_name = args.name if args.name else f'hue{hue}'
+
+        install_color(hue, theme_name, mode, args.sat)
+
+    else:
+        print('No arguments specified. Use -h or --help to see the available options.')
 
 
 if __name__ == "__main__":
-
-    print_help()
-
-    colors = json.load(open("colors.json"))   # used as database for replacing colors, files which must be generated
+    colors = json.load(open("colors.json"))  # used as database for replacing colors, files which must be generated
 
     main()
