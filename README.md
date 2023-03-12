@@ -35,10 +35,10 @@ Wallpaper: https://www.androidpolice.com/chromebook-chrome-os-wallpapers/#radian
 ![Dash look](./readme-images/dash.png?raw=true "Dash look")
 
 ## Requirements
-- GNOME 43+. I do not guarantee correct functionality on older versions.
+- GNOME 43, 44. I do not guarantee correct functionality on other versions.
 - [User Themes](https://extensions.gnome.org/extension/19/user-themes/ "User Themes") extension.
 - [GNOME Tweaks](https://gitlab.gnome.org/GNOME/gnome-tweaks "GNOME Tweaks").
-- Python 3.10+.
+- Python 3.2+.
 
 ## Installation
 1. Open terminal.
@@ -48,10 +48,10 @@ git clone https://github.com/imarkoff/Marble-shell-theme.git && cd Marble-shell-
 ```
 3. Run the program: 
 ```shell
-python install.py
+python install.py -h
 ```
 4. Follow instructions inside the program.
-5. After successful file creation open up GNOME Tweaks, go to `Appearance - Themes - Shell`.
+5. After successful file creation open GNOME Tweaks, go to `Appearance - Themes - Shell`.
 6. Select shell theme you want.
 
 ## Installation tweaks
@@ -67,7 +67,7 @@ You can install several themes in one string: `python install.py --red --green -
 | --purple      |                       | purple theme only                                        |
 | --blue        |                       | blue theme only                                          |
 | --green       |                       | green theme only                                         |
-| --yellow      |                       | pink theme only                                          |
+| --yellow      |                       | yellow theme only                                        |
 | --gray        |                       | gray theme only                                          |
 
 #### Install custom color
