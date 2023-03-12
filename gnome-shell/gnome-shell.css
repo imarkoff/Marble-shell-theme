@@ -197,9 +197,16 @@ stage {
 
 
 /* calendar */
-#calendarArea{ padding: 0; }
+#calendarArea { padding: 0; }
 
-.datemenu-calendar-column{ margin: 0px; }
+.datemenu-calendar-column {
+  spacing: 5px; }
+  .datemenu-calendar-column:ltr {
+    padding-left: 6px; }
+  .datemenu-calendar-column:rtl {
+    padding-right: 6px; }
+  .datemenu-calendar-column .datemenu-displays-box {
+    spacing: 5px; }
 
 /* calendar header */
 .datemenu-today-button {
@@ -323,7 +330,10 @@ stage {
 }
 
 .message-list-sections:ltr {
-  margin-right: 4px; }
+  margin-right: 0px; }
+.message-list-sections:rtl {
+  margin-left: 0px;
+}
 
 .message {
   background: BACKGROUND-COLOR;
