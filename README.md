@@ -14,15 +14,15 @@ Shell theme for GNOME DE. Based on https://www.pling.com/p/1939902/.
 
 Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 
-Wallpaper: https://www.androidpolice.com/chromebook-chrome-os-wallpapers/#radiance
-
-#### Overview
+#### Overview (Pasta [white](https://addons.opera.com/en/wallpapers/details/pasta-white/) / [night](https://addons.opera.com/en/wallpapers/details/pasta-night/))
 ![Overview look](./readme-images/overview.png?raw=true "Overview look")
 #### Panel
 ![Panel look](./readme-images/panel.png?raw=true "Panel look")
-#### Quick settings
+#### Quick settings ([Fresh green leaves with fragile veins](https://www.pexels.com/photo/fresh-green-leaves-with-fragile-veins-6423448/))
 ![Quick settings look](./readme-images/qs.png?raw=true "Quick settings look")
-#### Calendar & notifications
+#### Modal dialog ([Wide Angle Photography of Mountain](https://www.pexels.com/photo/wide-angle-photography-of-mountain-1612559/))
+![Modal dialog look](./readme-images/modal.png "Modal dialog look")
+#### Calendar & notifications ([Wallpaper](https://www.zedge.net/wallpaper/7e10d448-6440-405d-a847-30b6146eeb55))
 ![Calendar & notifications look](./readme-images/notifications.png?raw=true)
 
 #### Dash ([Dash To Dock](https://extensions.gnome.org/extension/307/dash-to-dock/ "Dash To Dock"))
