@@ -132,7 +132,7 @@ stage {
 }
 
 .popup-menu-item, .app-menu {
-  margin: 3px 1.5px;
+  margin: 3px 0;
 }
 
 .popup-menu-item:focus, .popup-menu-item:hover, .popup-menu-item:checked {
@@ -171,7 +171,7 @@ stage {
   color: TEXT-PRIMARY-COLOR;
   box-shadow: inset 0 0 0 1px BORDER-SHADOW;
   border-radius: 0 0 12px 12px;
-  margin: 0 1.5px 2px 1.5px;
+  margin: 0 0 2px 0;
 }
 
 .popup-sub-menu .popup-menu-item {
