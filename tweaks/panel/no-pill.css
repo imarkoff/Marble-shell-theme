@@ -1,0 +1,14 @@
+.panel-button,
+.clock,
+.clock-display StIcon {
+	background-color: transparent;
+	box-shadow: none;
+}
+.panel-button:hover,
+.panel-button:hover .clock,
+.panel-button:active,
+.panel-button:overview, /* activites */
+.panel-button:active .clock {
+	background-color: ACCENT-DISABLED_HOVER;
+    box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}

@@ -84,6 +84,19 @@ def apply_theme_to_file(hue, destination, theme_mode, apply_file, sat=None):
         file.write(edit_file)
 
 
+def generate_file():
+    gnome_shell = open("./gnome-shell/gnome-shell.css", "w")
+
+    for file in os.listdir("./css/"):
+        gnome_shell.write(open('./css/'+ file).read() + '\n')
+
+    gnome_shell.close()
+
+
+def write_to_file(file, edit_file):
+    open(edit_file, 'a').write('\n' + open(file).read())
+
+
 def apply_theme(hue, destination, theme_mode, sat=None):
     """
     Apply theme to all files listed in "apply-theme-files" (colors.json)
@@ -111,6 +124,7 @@ def install_color(hue, name, theme_mode, sat=None):
     try:
         for mode in theme_mode:
             copy_files("./gnome-shell", destination_return(name, mode))
+            
             apply_theme(hue, destination_return(name, mode), mode, sat=sat)
 
     except Exception as err:
@@ -118,6 +132,7 @@ def install_color(hue, name, theme_mode, sat=None):
 
     else:
         print("Done.")
+        os.remove("./gnome-shell/gnome-shell.css") 
 
 
 def remove_files():
@@ -201,6 +216,12 @@ def main():
                              metavar='(0 - 360)')
     custom_args.add_argument('--name', nargs='?', help='theme name (optional)')
 
+    # Add arguments for panel tweaks
+    panel_args = parser.add_argument_group('Panel tweaks')
+    panel_args.add_argument('--def_panel_size', action='store_true', help='set default panel size')
+    panel_args.add_argument('--no_pill', action='store_true', help='remove panel button background')
+    panel_args.add_argument('--panel_text', action='store_true', help='custom panel HEXA text color')
+
     # Add arguments for optional theme tweaks
     color_tweaks = parser.add_argument_group('Optional theme tweaks')
     color_tweaks.add_argument('--mode', choices=['light', 'dark'], help='select a specific theme mode to install')
@@ -210,6 +231,15 @@ def main():
     args = parser.parse_args()
 
     mode = [args.mode] if args.mode else ['light', 'dark']
+
+    generate_file()
+
+    if args.def_panel_size:
+        write_to_file("./tweaks/panel/def-size.css", "./gnome-shell/gnome-shell.css")
+
+    if args.no_pill:
+        write_to_file("./tweaks/panel/no-pill.css", "./gnome-shell/gnome-shell.css")
+    
 
     # Process the arguments and perform the installation accordingly
     if args.remove:
@@ -242,6 +272,6 @@ def main():
 
 
 if __name__ == "__main__":
-    colors = json.load(open("colors.json"))  # used as database for replacing colors, files which must be generated
+    colors = json.load(open("colors.json"))  # used as database for replacing colors
 
     main()

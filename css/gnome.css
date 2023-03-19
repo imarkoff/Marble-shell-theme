@@ -1,0 +1,1431 @@
+stage {
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.workspace-background {
+	border: 1px solid BORDER-SHADOW;
+}
+
+/* Activities Ripple */
+.ripple-box {
+	background-color: ACCENT-OPACITY-COLOR;
+	box-shadow: 0 0 2px 2px ACCENT-OPACITY-COLOR;
+}
+
+
+/* POPOVERS */
+.popup-menu-content,
+.candidate-popup-content {
+	color: TEXT-PRIMARY-COLOR;
+	background: BACKGROUND-COLOR;
+	padding: 10px;
+	border-radius: 20px;
+	border: 1px solid BORDER-MENU-SHADOW;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+}
+
+.popup-menu-item,
+.app-menu {
+	margin: 3px 0;
+}
+
+.popup-menu-item:focus,
+.popup-menu-item:hover,
+.popup-menu-item:checked {
+	background-color: ACCENT-DISABLED-COLOR !important;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW !important;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.popup-menu-item:checked {
+	border-radius: 12px 12px 0 0;
+}
+
+.popup-menu-item:active {
+	background-color: ACCENT-DISABLED_HOVER;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+/* 44 separator margin fix */
+.popup-separator-menu-item {
+	padding: 0 !important;
+}
+
+.popup-separator-menu-item .popup-separator-menu-item-separator {
+	height: 1px;
+	margin: 6px 0;
+	background-color: SEPARATOR-COLOR;
+}
+
+.popup-separator-menu-item-separator:ltr {
+	margin-right: 4.5px;
+}
+
+.popup-separator-menu-item-separator:rtl {
+	margin-left: 4.5px;
+}
+
+.popup-sub-menu {
+	background-color: ACCENT-DISABLED-COLOR;
+	color: TEXT-PRIMARY-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	border-radius: 0 0 12px 12px;
+	margin: 0 0 2px 0;
+}
+
+.popup-sub-menu .popup-menu-item {
+	margin: 0;
+	color: TEXT-PRIMARY-COLOR;
+
+}
+
+.popup-sub-menu .popup-menu-item:last-child {
+	border-radius: 0 0 12px 12px;
+}
+
+.popup-sub-menu .popup-menu-item:hover,
+.popup-sub-menu .popup-menu-item:focus {
+	background-color: ACCENT-DISABLED_HOVER !important;
+}
+
+.popup-menu-item:insensitive {
+	color: TEXT-DISABLED-COLOR;
+	margin: 0;
+}
+
+.popup-inactive-menu-item {
+	color: TEXT-PRIMARY-COLOR;
+	background-color: transparent;
+}
+
+.popup-inactive-menu-item:insensitive {
+	color: TEXT-SECONDARY-COLOR !important;
+}
+
+.calendar .calendar-nonwork-day {
+	color: TEXT-PRIMARY-COLOR;
+}
+
+
+/* calendar */
+#calendarArea {
+	padding: 0;
+}
+
+.datemenu-calendar-column {
+	spacing: 5px;
+}
+
+.datemenu-calendar-column:ltr {
+	padding-left: 6px;
+}
+
+.datemenu-calendar-column:rtl {
+	padding-right: 6px;
+}
+
+.datemenu-calendar-column .datemenu-displays-box {
+	spacing: 5px;
+}
+
+/* calendar header */
+.datemenu-today-button {
+	color: TEXT-SECONDARY-COLOR;
+	background-color: none;
+	border-radius: 12px;
+}
+
+.datemenu-today-button:hover {
+	transition-duration: 100ms;
+	background-color: ACCENT-DISABLED-COLOR;
+}
+
+.datemenu-today-button:focus {
+	transition-duration: 100ms;
+	background-color: ACCENT-DISABLED-COLOR;
+	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
+}
+
+.day-label {
+	font-weight: 600;
+}
+
+.date-label {
+	font-weight: 700;
+}
+
+/* calendar-days */
+.calendar-day-base,
+.calendar-month-header .pager-button {
+	color: TEXT-PRIMARY-COLOR;
+	border-radius: 10px;
+}
+
+.calendar-month-label {
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.calendar-day-base,
+.calendar .calendar-month-header .pager-button {
+	transition-duration: 100ms;
+}
+
+.calendar-day-base:hover,
+.calendar-day-base:focus,
+.calendar-day-base:active:hover,
+.calendar-day-base:selected:hover,
+.calendar .calendar-month-header .pager-button:hover,
+.calendar .calendar-month-header .pager-button:focus {
+	background-color: ACCENT-DISABLED_HOVER;
+	color: TEXT-PRIMARY-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.calendar-day-base:active,
+.calendar-day-base:selected {
+	background: ACCENT-DISABLED_HOVER;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.calendar-today,
+.calendar-today:selected {
+	background-color: ACCENT-COLOR;
+	color: TEXT-PRIMARY-COLOR !important;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.calendar-today:hover,
+.calendar-today:selected:hover {
+	background-color: ACCENT_HOVER;
+}
+
+.calendar .calendar-day-with-events {
+	background-image: url("calendar-today.svg");
+	background-size: contain;
+	font-weight: 700;
+}
+
+
+/* events */
+.calendar {
+	border-radius: 14px;
+	background-color: SECTION-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW !important;
+	padding: 5px;
+}
+
+
+.events-button,
+.world-clocks-button,
+.weather-button {
+	background-color: SECTION-COLOR;
+	color: TEXT-SECONDARY-COLOR;
+	border-radius: 14px;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.events-button:hover,
+.world-clocks-button:hover,
+.weather-button:hover {
+	background-color: ACCENT-DISABLED-COLOR;
+}
+
+.events-button:focus,
+.world-clocks-button:focus,
+.weather-button:focus {
+	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
+}
+
+.weather-button .weather-header,
+.events-button .events-title,
+.world-clocks-button .world-clocks-header {
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.events-button .event-time {
+	color: TEXT-SECONDARY-COLOR;
+}
+
+.events-button:active,
+.world-clock-button:active,
+.weather-button:active {
+	background-color: ACCENT-DISABLED_HOVER;
+}
+
+.world-clocks-button .world-clocks-time,
+.world-clocks-button .world-clocks-city,
+.world-clocks-button .world-clocks-timezone {
+	color: TEXT-SECONDARY-COLOR;
+}
+
+.weather-button .weather-forecast-time {
+	color: TEXT-SECONDARY-COLOR;
+}
+
+
+/* message-list */
+.message-list {
+	border: none;
+	padding: 0;
+}
+
+.message-list-sections:ltr {
+	margin-right: 0px;
+}
+
+.message-list-sections:rtl {
+	margin-left: 0px;
+}
+
+.message {
+	background: BACKGROUND-COLOR;
+	color: TEXT-PRIMARY-COLOR;
+	border-radius: 18px;
+	border: none;
+	box-shadow: inset 0 0 0 1px BORDER-MENU-SHADOW;
+}
+
+.message:focus {
+	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
+}
+
+.message-list .message {
+	background-color: SECTION-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	transition-duration: 100ms;
+}
+
+.message-list .message:hover {
+	background-color: ACCENT-DISABLED-COLOR;
+}
+
+.message .message-body,
+.message-title {
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.message-dialog-content .message-dialog-title {
+	font-weight: 700;
+}
+
+.message .message-secondary-bin>.event-time {
+	color: TEXT-SECONDARY-COLOR;
+}
+
+.message-close-button {
+	border-radius: 9px;
+	color: TEXT-PRIMARY-COLOR;
+	background-color: ACCENT-DISABLED-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	transition-duration: 100ms;
+}
+
+.message-close-button:hover {
+	background-color: ACCENT-DISABLED_HOVER;
+}
+
+.message-close-button:active {
+	color: TEXT-SECONDARY-COLOR;
+}
+
+
+/* Media Controls */
+.message-media-control {
+	border-radius: 12px;
+	padding: 0 14px;
+	margin: 20px 2px;
+	color: TEXT-PRIMARY-COLOR;
+	transition-duration: 100ms;
+}
+
+.message-media-control:hover {
+	background-color: ACCENT-DISABLED-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.message-media-control:insensitive {
+	color: TEXT-DISABLED-COLOR
+}
+
+.message-media-control:last-child:ltr {
+	margin-right: 20px;
+}
+
+.message-media-control:last-child:rtl {
+	margin-left: 12px;
+}
+
+.message-media-control StIcon {
+	icon-size: 1.09em;
+}
+
+.media-message-cover-icon {
+	icon-size: 3.2em !important;
+	border-radius: 12px;
+}
+
+.media-message-cover-icon.fallback {
+	color: TEXT-PRIMARY-COLOR;
+	background-color: ACCENT-DISABLED_HOVER;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	border-radius: 12px;
+	icon-size: 1.6em !important;
+	padding: 0.79em;
+}
+
+
+/* Check Boxes */
+.check-box StBoxLayout {
+	spacing: .8em;
+}
+
+.check-box StBin {
+	width: 24px;
+	height: 24px;
+	background-image: url("checkbox-off.svg");
+}
+
+.check-box:focus StBin {
+	background-image: url("checkbox-off-focused.svg");
+}
+
+.check-box:checked StBin {
+	background-image: url("checkbox.svg");
+}
+
+.check-box:focus:checked StBin {
+	background-image: url("checkbox-focused.svg");
+}
+
+
+/* Toggles */
+.toggle-switch {
+	background-image: url("./toggle-off.svg");
+	background-color: ACCENT-DISABLED_HOVER;
+	border-radius: 10px;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW !important;
+}
+
+.toggle-switch:checked {
+	background-image: url("./toggle-on.svg");
+	background-color: ACCENT-COLOR;
+}
+
+
+/* Do Not Distrub toggle */
+.dnd-button {
+	width: 48px;
+	border-radius: 10px;
+}
+
+.dnd-button .toggle-switch {
+	background-color: ACCENT-DISABLED-COLOR;
+}
+
+.dnd-button:hover .toggle-switch {
+	background-color: ACCENT-DISABLED_HOVER;
+}
+
+.dnd-button .toggle-switch:checked {
+	background-color: ACCENT-COLOR;
+}
+
+.dnd-button:hover .toggle-switch:checked {
+	background-color: ACCENT_HOVER;
+}
+
+.dnd-button:focus {
+	border-color: transparent;
+}
+
+.dnd-button:focus .toggle-switch {
+	box-shadow: inset 0 0 0 1px ACCENT-SECONDARY-COLOR !important;
+}
+
+
+.button {
+	color: TEXT-PRIMARY-COLOR;
+	background-color: ACCENT-DISABLED-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.button:insensitive {
+	box-shadow: none;
+	color: TEXT-SECONDARY-COLOR;
+}
+
+.button:hover,
+.button:active {
+	background-color: ACCENT-DISABLED_HOVER;
+}
+
+.message-list-clear-button {
+	border-radius: 9px;
+	background-color: SECTION-COLOR;
+	padding: 3px 15px;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.message-list-clear-button:focus {
+	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
+}
+
+/* quick-settings */
+.quick-settings {
+	padding: 18px;
+	border-radius: 24px;
+}
+
+.icon-button {
+	background-color: ACCENT-DISABLED-COLOR;
+	color: TEXT-PRIMARY-COLOR;
+	transition-duration: 100ms;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.icon-button:hover {
+	background-color: ACCENT-DISABLED_HOVER;
+}
+
+
+.quick-toggle,
+.quick-menu-toggle .quick-toggle {
+	color: TEXT-PRIMARY-COLOR;
+	border-radius: 15px;
+	background-color: ACCENT-DISABLED-COLOR;
+	transition-duration: 100ms;
+}
+
+.quick-menu-toggle .quick-toggle:ltr {
+	border-radius: 15px 0 0 15px;
+}
+
+.quick-menu-toggle .quick-toggle:rtl {
+	border-radius: 0 15px 15px 0;
+}
+
+.quick-menu-toggle .quick-toggle:last-child {
+	border-radius: 15px;
+}
+
+.quick-menu-toggle .quick-toggle-arrow:ltr {
+	border-radius: 0 15px 15px 0;
+}
+
+.quick-menu-toggle .quicl-toggle-arrow:rtl {
+	border-radius: 15px 0 0 15px;
+}
+
+.quick-toggle:hover,
+.quick-menu-toggle .quick-toggle:hover,
+.quick-menu-toggle .quick-toggle-arrow:hover {
+	background-color: ACCENT-DISABLED_HOVER;
+}
+
+.quick-toggle:checked,
+.quick-menu-toggle .quick-toggle:checked,
+.quick-menu-toggle .quick-toggle-arrow:checked {
+	color: TEXT-PRIMARY-COLOR;
+	background-color: ACCENT-COLOR;
+}
+
+.quick-toggle:checked:hover,
+.quick-menu-toggle .quick-toggle:checked:hover,
+.quick-menu-toggle .quick-toggle-arrow:checked:hover {
+	background-color: ACCENT_HOVER;
+}
+
+.quick-menu-toggle .quick-toggle-arrow:ltr {
+	margin-left: 1px;
+}
+
+.quick-menu-toggle .quick-toggle-arrow:rtl {
+	margin-right: 1px;
+}
+
+.quick-slider .slider-bin {
+	padding: 2px 1px;
+	margin: 0px;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.quick-slider .slider-bin:focus {
+	background-color: ACCENT-DISABLED-COLOR;
+}
+
+.icon-button:focus,
+.quick-toggle:focus,
+.slider-bin:focus {
+	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
+}
+
+.quick-toggle .quick-toggle-label {
+	font-weight: 600;
+}
+
+.quick-slider .icon-button {
+	background-color: BACKGROUND-COLOR;
+	box-shadow: none;
+	padding: 6px;
+	border-radius: 11px;
+	transition-duration: 150ms;
+}
+
+.quick-slider .icon-button:hover {
+	background-color: ACCENT-DISABLED-COLOR;
+	color: TEXT-PRIMARY-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.quick-toggle-menu {
+	background-color: BACKGROUND-COLOR;
+	border-radius: 20px;
+	color: TEXT-PRIMARY-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+/* connect / disconnect text color */
+.device-subtitle {
+	color: TEXT-SECONDARY-COLOR;
+}
+
+.quick-toggle-menu .header .icon {
+	background-color: ACCENT-COLOR;
+	border-radius: 12px;
+	icon-size: 1.4em;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.level-bar {
+	padding: 0;
+	background-color: ACCENT-DISABLED-COLOR;
+}
+
+/* background apps */
+.background-apps-quick-toggle {
+	background-color: transparent;
+}
+
+.background-apps-quick-toggle:hover {
+	background-color: ACCENT-DISABLED-COLOR;
+}
+
+.background-apps-quick-toggle:focus {
+	background-color: ACCENT-DISABLED-COLOR;
+	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR;
+}
+
+.background-app-item .title {
+	color: TEXT-PRIMARY-COLOR;
+	font-weight: 600;
+}
+
+.background-app-item .close-button {
+	color: TEXT-PRIMARY-COLOR;
+	background-color: ACCENT-DISABLED-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.background-app-item .close-button:hover {
+	background-color: ACCENT-DISABLED_HOVER;
+}
+
+
+/* Notifications */
+.notification-banner {
+	background-color: BACKGROUND-COLOR;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.notification-button:active {
+	background-color: ACCENT-COLOR;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+
+/* slider */
+.slider,
+.level {
+	height: 16px;
+	-barlevel-height: 16px;
+	-barlevel-background-color: ACCENT-DISABLED-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	/* fill */
+	-barlevel-active-background-color: ACCENT-COLOR;
+	/* overfill */
+	-barlevel-overdrive-color: #c01c28;
+	-barlevel-overdrive-separator-width: 2px;
+	-slider-handle-radius: 7px;
+}
+
+
+/* Scroll bar */
+StScrollBar {
+	padding: 0;
+}
+
+StScrollView StScrollBar {
+	min-width: 8px;
+	min-height: 8px;
+}
+
+StScrollBar StBin#trough {
+	border-radius: 0;
+	background-color: transparent;
+}
+
+StScrollBar StButton#vhandle,
+StScrollBar StButton#hhandle {
+	border-radius: 8px;
+	background-color: SCROLLBAR-COLOR;
+	border: 3px solid transparent;
+	transition-duration: 100ms;
+}
+
+StScrollBar StButton#vhandle:hover,
+StScrollBar StButton#hhandle:hover {
+	background-color: SCROLLBAR_HOVER;
+}
+
+StScrollBar StButton#vhandle:active,
+StScrollBar StButton#hhandle:active {
+	background-color: SCROLLBAR_ACTIVE;
+}
+
+
+/* overview-ws-thumbnail */
+.workspace-thumbnail {
+	border: none;
+	/* border-radius: 9px; */
+	background-color: ACCENT-DISABLED-COLOR;
+	border: 1px solid BORDER-SHADOW;
+}
+
+.workspace-thumbnails .placeholder {
+	background-image: url("workspace-placeholder.svg");
+	background-size: contain;
+	width: 18px;
+}
+
+.workspace-thumbnail-indicator {
+	background-color: ACCENT-OPACITY-COLOR;
+	border-color: TEXT-DISABLED-COLOR;
+	border-width: 1px;
+	border-radius: 3px;
+}
+
+
+/* overview */
+#overviewGroup,
+.workspace-animation {
+	background-color: BACKGROUND-COLOR;
+}
+
+.workspace-background {
+	border-radius: 20px;
+	box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
+}
+
+.window-caption {
+	spacing: 20px;
+	border-radius: 10px;
+	color: TEXT-PRIMARY-COLOR;
+	background-color: BACKGROUND-COLOR;
+	border: 1px solid BORDER-SHADOW;
+	padding: 4px 8px;
+}
+
+
+/* App icons */
+.app-well-app.app-folder .overview-icon,
+.app-folder.grid-search-result .overview-icon,
+.app-well-app .overview-icon,
+.grid-search-result .overview-icon {
+	box-shadow: inset 0 0 0 0px rgba(255, 255, 255, 0);
+	/* fix default dash focused box-shadow*/
+	transition-duration: 100ms;
+	border-radius: 20px;
+	color: TEXT-PRIMARY-COLOR;
+	/* ubuntu fix */
+}
+
+.app-well-app:hover .overview-icon,
+.app-well-app:focus .overview-icon,
+.app-well-app:selected .overview-icon,
+.show-apps:hover .overview-icon,
+.show-apps:focus .overview-icon,
+.app-well-app.app-folder .overview-icon {
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	background-color: ACCENT-DISABLED-COLOR;
+}
+
+.app-well-app.app-folder .overview-icon {
+	background-color: ACCENT-DISABLED_HOVER;
+}
+
+.app-well-app:drop .overview-icon,
+.grid-search-result:drop .overview-icon,
+.app-well-app.app-folder:drop .overview-icon,
+.app-folder.grid-search-result:drop .overview-icon {
+	border: 2px solid ACCENT-SECONDARY-COLOR;
+	background-color: ACCENT-OPACITY-COLOR;
+}
+
+
+/* folder dialog */
+.app-folder-dialog {
+	border-radius: 32px;
+	background-color: BACKGROUND-COLOR;
+	border: none;
+	box-shadow: inset 0 0 0 1px BORDER-MENU-SHADOW;
+}
+
+.app-folder-dialog .app-well-app:hover .overview-icon,
+.app-folder-dialog .app-well-app:focus .overview-icon {
+	background-color: ACCENT-DISABLED-COLOR;
+	box-shadow: inset 1px solid BORDER-SHADOW;
+}
+
+.app-folder-dialog .folder-name-container {
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.app-folder-dialog .folder-name-container .folder-name-label {
+	padding: 5px 7px;
+	color: TEXT-PRIMARY-COLOR;
+	font-weight: 700;
+	transition-duration: 100ms;
+}
+
+.app-folder-dialog .folder-name-container .folder-name-entry {
+	font-weight: 700;
+	border: none;
+	box-shadow: inset 0 0 0 1px BORDER-MENU-SHADOW;
+	background-color: ACCENT-DISABLED-COLOR;
+	selection-background-color: ACCENT-COLOR;
+	selected-color: TEXT-PRIMARY-COLOR;
+	/* ubuntu fix */
+}
+
+.app-folder-dialog .folder-name-container .edit-folder-button {
+	border-radius: 12px;
+	background-color: ACCENT-DISABLED-COLOR;
+	color: TEXT-PRIMARY-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.app-folder-dialog .folder-name-container .edit-folder-button:hover {
+	background-color: ACCENT-DISABLED_HOVER;
+}
+
+.app-folder-dialog .folder-name-container .edit-folder-button:focus {
+	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
+}
+
+.page-indicator .page-indicator-icon {
+	background-color: TEXT-SECONDARY-COLOR;
+}
+
+.page-navigation-arrow {
+	border-radius: 99px;
+	color: TEXT-PRIMARY-COLOR;
+	transition-duration: 100ms;
+}
+
+.page-navigation-arrow>StIcon {
+	margin: 0;
+}
+
+.page-navigation-arrow:hover {
+	background-color: ACCENT-DISABLED-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.page-navigation-arrow:hover>StIcon {
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.page-navigation-arrow:active {
+	background-color: ACCENT-DISABLED_HOVER;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.page-navigation-hint.next:ltr,
+.page-navigation-hint.previous:rtl {
+	background-gradient-start: PAGE-NAV-HINT;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.page-navigation-hint.previous:ltr,
+.page-navigation-hint.next:rtl {
+	background-gradient-end: PAGE-NAV-HINT;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+
+/* Dash */
+#dash .dash-background {
+	background-color: DASH-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-MENU-SHADOW;
+	padding: 4px 2px 4px 2px;
+	border-radius: 21px;
+}
+
+#dashtodockContainer #dash .dash-background {
+	border: none;
+	border-radius: 18px;
+	/* ubuntu fix */
+	transition-duration: 250ms;
+}
+
+#dashtodockContainer.overview #dash .dash-background {
+	box-shadow: inset 0 0 0 1.5px BORDER-MENU-SHADOW;
+	background-color: DASH_OVERVIEW;
+}
+
+
+.dash-label {
+	background-color: BACKGROUND-COLOR;
+	color: TEXT-PRIMARY-COLOR;
+	border-radius: 11px;
+	border: none;
+	/* ubuntu fix */
+	box-shadow: inset 0 0 0 1px BORDER-MENU-SHADOW;
+}
+
+.app-well-app-running-dot {
+	width: 10px;
+	height: 5px;
+	border-radius: 5px;
+	background: ACCENT-SECONDARY-COLOR;
+	transition-duration: 100ms;
+}
+
+#dash .app-well-app-running-dot {
+	margin-bottom: 6px;
+}
+
+.dash-item-container .app-well-app .overview-icon,
+.dash-item-container .show-apps .overview-icon {
+	border-radius: 21px;
+}
+
+#dash .app-well-app:hover .overview-icon,
+#dash .app-well-app:focus .overview-icon,
+#dash .app-well-app:selected .overview-icon,
+#dash .show-apps:hover .overview-icon,
+#dash .show-apps:focus .overview-icon {
+	box-shadow: inset 0 0 4px 1px WELL-APP-SELECTED;
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ubuntu fix */
+#dashtodockContainer #dash .app-well-app:hover .overview-icon,
+#dashtodockContainer #dash .app-well-app:focus .overview-icon,
+#dashtodockContainer #dash .app-well-app:selected .overview-icon,
+#dashtodockContainer #dash .show-apps:hover .overview-icon,
+#dashtodockContainer #dash .show-apps:focus .overview-icon,
+#dashtodockContainer .show-apps:selected .overview-icon,
+#dashtodockContainer .show-apps:selected:hover .overview-icon,
+#dashtodockContainer .show-apps:active .overview-icon,
+#dashtodockContainer .show-apps:checked .overview-icon,
+#dashtodockContainer .app-well-app.focused .overview-icon {
+	border-radius: 15px;
+	/* ubuntu fix*/
+}
+
+#dashtodockContainer .app-well-app.focused .overview-icon,
+.show-apps:selected .overview-icon,
+.show-apps:selected:hover .overview-icon,
+.show-apps:active .overview-icon,
+.show-apps:checked .overview-icon {
+	box-shadow: inset 0 0 4px 1px WELL-APP-SELECTED;
+}
+
+/* ubuntu fix */
+#dashtodockContainer.bottom.extended #dash .dash-background,
+#dashtodockContainer.bottom.extended.dashtodock #dash .dash-background,
+#dashtodockContainer.bottom.extended.shrink #dash .dash-background,
+#dashtodockContainer.top.extended #dash .dash-background,
+#dashtodockContainer.top.extended.dashtodock #dash .dash-background,
+#dashtodockContainer.top.extended.shrink #dash .dash-background,
+#dashtodockContainer.left.extended #dash .dash-background,
+#dashtodockContainer.left.extended.dashtodock #dash .dash-background,
+#dashtodockContainer.left.extended.shrink #dash .dash-background,
+#dashtodockContainer.right.extended #dash .dash-background,
+#dashtodockContainer.right.extended.dashtodock #dash .dash-background,
+#dashtodockContainer.right.extended.shrink #dash .dash-background {
+	border-radius: 0;
+	background-color: DASH-COLOR;
+	box-shadow: none;
+	transition-duration: 250ms;
+}
+
+/* animation fix */
+#dashtodockContainer.bottom.extended.overview #dash .dash-background,
+#dashtodockContainer.bottom.extended.overview.dashtodock #dash .dash-background,
+#dashtodockContainer.bottom.extended.overview.shrink #dash .dash-background,
+#dashtodockContainer.top.extended.overview #dash .dash-background,
+#dashtodockContainer.top.extended.overview.dashtodock #dash .dash-background,
+#dashtodockContainer.top.extended.overview.shrink #dash .dash-background,
+#dashtodockContainer.left.extended.overview #dash .dash-background,
+#dashtodockContainer.left.extended.overview.dashtodock #dash .dash-background,
+#dashtodockContainer.left.extended.overview.shrink #dash .dash-background,
+#dashtodockContainer.right.extended.overview #dash .dash-background,
+#dashtodockContainer.right.extended.overview.dashtodock #dash .dash-background,
+#dashtodockContainer.right.extended.overview.shrink #dash .dash-background {
+	background-color: BACKGROUND-COLOR;
+}
+
+#dash .app-well-app:hover .app-well-app-running-dot {
+	width: 15px;
+}
+
+#dashtodockContainer .app-well-app.focused .app-well-app-running-dot {
+	width: 20px;
+}
+
+.dash-separator {
+	box-shadow: 0 0 0 0.25px TEXT-DISABLED-COLOR;
+}
+
+.show-apps .overview-icon {
+	color: SHOW-APPS-ICON-COLOR;
+}
+
+
+/* Search */
+StEntry {
+	border-radius: 13px;
+	padding: 8px;
+	transition-duration: 100ms;
+	border: 1px solid BORDER-SHADOW;
+	background-color: SECTION-COLOR;
+	color: TEXT-SECONDARY-COLOR;
+	selection-background-color: ACCENT-COLOR;
+	selected-color: TEXT-PRIMARY-COLOR;
+	/* ubuntu fix */
+}
+
+StEntry StLabel {
+	color: TEXT-PRIMARY-COLOR;
+}
+
+StEntry StLabel:insensitive {
+	color: TEXT-SECONDARY-COLOR;
+}
+
+StEntry:hover,
+StEntry:focus,
+StEntry:active {
+	border: 1px solid TEXT-DISABLED-COLOR;
+	background-color: ACCENT-DISABLED-COLOR;
+	box-shadow: none;
+}
+
+StEntry:focus {
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.search-section-content {
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	border-radius: 15px;
+	border: none;
+	background-color: SECTION-COLOR;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.list-search-result .list-search-result-title {
+	color: TEXT-PRIMARY-COLOR;
+}
+
+/* ubuntu fix */
+
+.list-search-result .list-search-result-description {
+	color: TEXT-SECONDARY-COLOR;
+}
+
+.search-provider-icon .list-search-provider-content .list-search-provider-details {
+	width: 120px;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.list-search-result:focus,
+.search-provider-icon:focus,
+.list-search-result:hover,
+.search-provider-icon:hover,
+.list-search-result:selected,
+.search-provider-icon:selected {
+	background-color: ACCENT-DISABLED_HOVER;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.list-search-result:active,
+.search-provider-icon:active {
+	background-color: ACCENT-DISABLED_HOVER;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+
+/* OSD */
+.modal-dialog {
+	border-radius: 18px;
+	background-color: BACKGROUND-COLOR;
+	border: none;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.switcher-list,
+.resize-popup,
+.workspace-switcher,
+.osd-window {
+	border-radius: 18px;
+	background: BACKGROUND-COLOR;
+	color: TEXT-PRIMARY-COLOR;
+	box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.05);
+	border: none;
+	box-shadow: inset 0 0 0 1px BORDER-MENU-SHADOW;
+}
+
+.ws-switcher-indicator {
+	background-color: TEXT-SECONDARY-COLOR;
+}
+
+.switcher-list .item-box:hover,
+.switcher-list .item-box:focus,
+.switcher-list .item-box:selected {
+	background-color: ACCENT-DISABLED-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.modal-dialog-linked-button,
+.notification-button,
+.hotplug-notification-item {
+	padding: 10px 0 !important;
+	border-radius: 12px !important;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	background-color: ACCENT-DISABLED-COLOR;
+	color: TEXT-PRIMARY-COLOR;
+	animation-duration: 100ms;
+}
+
+.modal-dialog-linked-button:first-child,
+.notification-button:first-child,
+.hotplug-notification-item:first-child {
+	margin: 0 6px 12px 12px !important;
+}
+
+.modal-dialog-linked-button:last-child,
+.notification-button:last-child,
+.hotplug-notification-item:last-child {
+	margin: 0 12px 12px 6px !important;
+}
+
+.modal-dialog-linked-button:first-child:last-child,
+.notification-button:first-child:last-child,
+.hotplug-notification-item:first-child:last-child {
+	margin: 0 12px 12px 12px !important;
+}
+
+.modal-dialog-linked-button,
+.notification-button,
+.hotplug-notification-item {
+	margin: 0 6px 12px 6px !important;
+}
+
+.modal-dialog-linked-button:hover,
+.modal-dialog-linked-button:focus,
+.notification-button:hover,
+.notification-button:focus {
+	background: ACCENT-DISABLED_HOVER;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.modal-dialog-linked-button:last-child {
+	background-color: ACCENT-COLOR;
+}
+
+.modal-dialog-linked-button:last-child:hover,
+.modal-dialog-linked-button:last-child:focus {
+	background-color: ACCENT_HOVER;
+}
+
+.modal-dialog .modal-dialog-linked-button:focus,
+.hotplug-notification-item:focus,
+.notification-banner .notification-button:focus {
+	animation-duration: 100ms;
+	box-shadow: inset 0 0 0 1px TEXT-DISABLED-COLOR !important;
+}
+
+.modal-dialog .modal-dialog-linked-button:focus:hover,
+.hotplug-notification-item:focus:hover,
+.notification-banner .notification-button:focus:hover,
+.modal-dialog .modal-dialog-linked-button:focus:active,
+.hotplug-notification-item:focus:active,
+.notification-banner .notification-button:focus:active {
+	box-shadow: inset 0 0 0 1px TEXT-SECONDARY-COLOR !important;
+}
+
+.modal-dialog .modal-dialog-linked-button:insensitive,
+.hotplug-notification-item:insensitive,
+.notification-banner .notification-button:insensitive {
+	color: TEXT-SECONDARY-COLOR;
+	background-color: ACCENT_HOVER;
+}
+
+.prompt-dialog-password-entry {
+	background-color: SECTION-COLOR;
+}
+
+.nm-dialog-scroll-view {
+	border: 1px solid BORDER-SHADOW;
+}
+
+.nm-dialog-item:selected {
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+
+/* screenshot ui */
+.screenshot-ui-panel {
+	border-radius: 22px;
+	background-color: BACKGROUND-COLOR;
+	border: 0;
+	/* ubuntu fix */
+	box-shadow: inset 0 0 0 1px BORDER-MENU-SHADOW;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.screenshot-ui-show-pointer-button,
+.screenshot-ui-type-button {
+	border-radius: 15px;
+	transition-duration: 100ms;
+}
+
+.screenshot-ui-show-pointer-button:checked,
+.screenshot-ui-type-button:checked,
+.screenshot-ui-show-pointer-button:checked:hover,
+.screenshot-ui-type-button:checked:hover,
+.screenshot-ui-show-pointer-button:checked:focus,
+.screenshot-ui-type-button:checked:focus {
+	background-color: ACCENT-DISABLED_HOVER;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.screenshot-ui-show-pointer-button:hover,
+.screenshot-ui-type-button:hover,
+.screenshot-ui-show-pointer-button:focus,
+.screenshot-ui-type-button:focus {
+	background: ACCENT-DISABLED-COLOR;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.screenshot-ui-show-pointer-button:insensitive,
+.screenshot-ui-type-button:insensitive {
+	color: TEXT-DISABLED-COLOR;
+}
+
+.screenshot-ui-show-pointer-button:hover,
+.screenshot-ui-type-button:hover,
+.screenshot-ui-show-pointer-button:active,
+.screenshot-ui-type-button:active {
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.screenshot-ui-window-selector {
+	background-color: SECTION-COLOR;
+}
+
+.screenshot-ui-window-selector-window:hover .screenshot-ui-window-selector-window-border {
+	border-color: ACCENT-COLOR;
+}
+
+.screenshot-ui-window-selector-window:checked .screenshot-ui-window-selector-window-border {
+	border-color: ACCENT-COLOR;
+	background-color: ACCENT-OPACITY-COLOR;
+}
+
+.screenshot-ui-window-selector-window:checked .screenshot-ui-window-selector-check {
+	color: TEXT-PRIMARY-COLOR;
+	background-color: ACCENT-COLOR;
+}
+
+.screenshot-ui-capture-button {
+	width: 36px;
+	height: 36px;
+	border-radius: 99px;
+	border: 4px ACCENT-SECONDARY-COLOR;
+	padding: 4px;
+}
+
+.screenshot-ui-capture-button .screenshot-ui-capture-button-circle {
+	background-color: ACCENT-SECONDARY-COLOR;
+	transition-duration: 100ms;
+	border-radius: 99px;
+}
+
+.screenshot-ui-capture-button .screenshot-ui-capture-button-circle:hover,
+.screenshot-ui-capture-button .screenshot-ui-capture-button-circle:focus {
+	background-color: ACCENT-SECONDARY_HOVER;
+}
+
+.screenshot-ui-capture-button:hover .screenshot-ui-capture-button-circle,
+.screenshot-ui-capture-button:focus .screenshot-ui-capture-button-circle {
+	background-color: ACCENT-SECONDARY_HOVER;
+}
+
+.screenshot-ui-capture-button:cast .screenshot-ui-capture-button-circle {
+	background-color: #c01c28;
+}
+
+.screenshot-ui-capture-button:cast:hover .screenshot-ui-capture-button-circle,
+.screenshot-ui-capture-button:cast:focus .screenshot-ui-capture-button-circle {
+	background-color: #d61f2d;
+}
+
+.screenshot-ui-capture-button:cast:active .screenshot-ui-capture-button-circle {
+	background-color: #a11722;
+}
+
+.screenshot-ui-shot-cast-container {
+	background-color: ACCENT-DISABLED-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.screenshot-ui-shot-cast-button {
+	background-color: transparent;
+	transition-duration: 100ms;
+}
+
+.screenshot-ui-shot-cast-button:hover,
+.screenshot-ui-shot-cast-button:focus,
+.screenshot-ui-shot-cast-button:active {
+	background-color: ACCENT-DISABLED_HOVER;
+}
+
+.screenshot-ui-shot-cast-button:checked {
+	background-color: ACCENT-SECONDARY-COLOR;
+	color: TEXT-INVERTED-COLOR;
+}
+
+.screenshot-ui-tooltip {
+	color: TEXT-PRIMARY-COLOR;
+	background-color: BACKGROUND-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	border-radius: 10px;
+	padding: 6px 12px;
+	text-align: center;
+	-y-offset: 24px;
+}
+
+
+/* Tiled window previews */
+.tile-preview {
+	background-color: ACCENT-OPACITY-COLOR;
+	border: 1px solid ACCENT-COLOR;
+}
+
+.window-close,
+.screenshot-ui-close-button {
+	background-color: CLOSE-BUTTON-COLOR;
+	color: TEXT-PRIMARY-COLOR;
+	border: 1px solid BORDER-SHADOW;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+	transition-duration: 100ms;
+}
+
+.window-close:hover,
+.screenshot-ui-close-button:hover {
+	background-color: CLOSE-BUTTON_HOVER;
+}
+
+
+/* Looking Glass | R.I.P. custom colors & light mode */
+#LookingGlassDialog {
+	border-radius: 14px;
+	margin: 5px;
+	background-color: #191919;
+	border: 1px solid rgba(255, 255, 255, 0.06);
+	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+#LookingGlassDialog .notebook-tab,
+#LookingGlassDialog>#Toolbar .lg-toolbar-button {
+	border-radius: 9px;
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+#LookingGlassDialog>#Toolbar .lg-toolbar-button,
+#LookingGlassDialog .notebook-tab:selected {
+	background-color: rgba(255, 255, 255, 0.08);
+}
+
+#LookingGlassDialog>#Toolbar .lg-toolbar-button:hover {
+	background-color: rgba(255, 255, 255, 0.13);
+}
+
+.lg-dialog StEntry {
+	background-color: rgba(48, 48, 48, 0.6);
+	color: white;
+	border-color: rgba(255, 255, 255, 0.2);
+	min-height: 16px;
+	selection-background-color: ACCENT-COLOR;
+	selected-color: #fff;
+}
+
+.lg-extension {
+	border-radius: 12px;
+}
+
+.lg-debug-flag-button .toggle-switch {
+	margin: 5px;
+	border-radius: 10px;
+	height: 26px;
+	padding: 0;
+}
+
+
+/* Aylur's widgets */
+.quick-settings.tweaked .media,
+.quick-settings.tweaked .message,
+.popup-menu-content .message,
+.quick-settings.tweaked .quick-container {
+	background-color: SECTION-COLOR;
+	border-radius: 16px;
+	border: none;
+}
+
+.quick-settings.tweaked .quick-container .quick-slider {
+	margin: 2.5px 0 2.5px 0;
+}
+
+.quick-settings.tweaked .quick-container .quick-slider:first-child {
+	margin: 0 0 2.5px 0;
+}
+
+.quick-settings.tweaked .quick-container .quick-slider:last-child {
+	margin: 2.5px 0 0 0;
+}
+
+.quick-settings.tweaked .quick-container .quick-slider:first-child:last-child {
+	margin: 0;
+}
+
+.quick-settings.tweaked .media {
+	font-weight: 500;
+}
+
+.quick-settings.adjusted .quick-toggle .quick-toggle-arrow:ltr {
+	border-radius: 0 36px 36px 0;
+}
+
+.quick-settings.adjusted .quick-toggle .quick-toggle-arrow:rtl {
+	border-radius: 36px 0 0 36px;
+}
+
+.usage-level StIcon {
+	width: 1.29em;
+}
