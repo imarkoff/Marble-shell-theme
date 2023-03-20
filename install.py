@@ -51,7 +51,7 @@ def copy_files(source, destination):
     os.system(f"cp -aT {source} {destination}")
 
 
-def apply_theme_to_file(hue, destination, theme_mode, apply_file, sat=None):
+def apply_colors(hue, destination, theme_mode, apply_file, sat=None):
     """
     Install accent colors from colors.json to different file
     :param hue
@@ -107,7 +107,7 @@ def apply_theme(hue, destination, theme_mode, sat=None):
     """
 
     for apply_file in os.listdir("./gnome-shell/"):
-        apply_theme_to_file(hue, destination, theme_mode, apply_file, sat=sat)
+        apply_colors(hue, destination, theme_mode, apply_file, sat=sat)
 
 
 def install_color(hue, name, theme_mode, sat=None):
@@ -132,7 +132,6 @@ def install_color(hue, name, theme_mode, sat=None):
 
     else:
         print("Done.")
-        os.remove("./gnome-shell/gnome-shell.css") 
 
 
 def remove_files():
@@ -215,12 +214,12 @@ def main():
     custom_args.add_argument('--hue', type=int, choices=range(0, 361), help='generate theme from Hue prompt',
                              metavar='(0 - 360)')
     custom_args.add_argument('--name', nargs='?', help='theme name (optional)')
-
+  
     # Add arguments for panel tweaks
     panel_args = parser.add_argument_group('Panel tweaks')
-    panel_args.add_argument('--def_panel_size', action='store_true', help='set default panel size')
-    panel_args.add_argument('--no_pill', action='store_true', help='remove panel button background')
-    panel_args.add_argument('--panel_text', action='store_true', help='custom panel HEXA text color')
+    panel_args.add_argument('--panel_default_size', action='store_true', help='set default panel size')
+    panel_args.add_argument('--panel_no_pill', action='store_true', help='remove panel button background')
+    panel_args.add_argument('--panel_text_color', type=str, nargs='?', help='custom panel HEXA text color')
 
     # Add arguments for optional theme tweaks
     color_tweaks = parser.add_argument_group('Optional theme tweaks')
@@ -234,12 +233,32 @@ def main():
 
     generate_file()
 
-    if args.def_panel_size:
+
+    if args.panel_default_size:
         write_to_file("./tweaks/panel/def-size.css", "./gnome-shell/gnome-shell.css")
 
-    if args.no_pill:
+    if args.panel_no_pill:
         write_to_file("./tweaks/panel/no-pill.css", "./gnome-shell/gnome-shell.css")
-    
+
+    if args.panel_text_color and len(args.panel_text_color) in range(6, 10):
+        try:
+            args.panel_text_color = args.panel_text_color.lstrip('#') + "ff"
+            int(args.panel_text_color[:], 16)
+
+        except ValueError:
+            print(f'Error: Invalid HEXA color code: {args.panel_text_color}')
+        
+        else:
+            print(f'Panel HEXA color code: {args.panel_text_color}')
+            
+            open('./gnome-shell/gnome-shell.css', 'a')\
+                .write(".panel-button,\
+                        .clock,\
+                        .clock-display StIcon {\
+                            color: rgba(" +
+                            ', '.join(str(int(args.panel_text_color[i:i+2], 16)) for i in (0, 2, 4)) +
+                            ', ' + str(int(args.panel_text_color[6:8], 16) / 255) + ");\
+                        }")
 
     # Process the arguments and perform the installation accordingly
     if args.remove:
@@ -275,3 +294,5 @@ if __name__ == "__main__":
     colors = json.load(open("colors.json"))  # used as database for replacing colors
 
     main()
+
+    os.remove("./gnome-shell/gnome-shell.css")
