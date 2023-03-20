@@ -22,102 +22,23 @@ import argparse
 import textwrap
 
 
-def destination_return(path_name, theme_mode):
+def generate_file(folder, final_file):
     """
-    Copied/modified gnome-shell theme location
-    :param path_name: color name
-    :param theme_mode: theme name (light or dark)
-    :return: copied files' folder location
-    """
-
-    return f"~/.themes/Marble-{path_name}-{theme_mode}/gnome-shell"
-
-
-def copy_files(source, destination):
-    """
-    Copy files from the source to another directory
-    :param source: where files will be copied
-    :param destination: where files will be pasted
+    Combines all files in a folder into a single file
+    :param folder: source folder
+    :param final_file: location where file will be created
     """
 
-    destinationDirs = destination.split("/")
-    loopCreateDirs = f"{destinationDirs[0]}/"
+    opened_file = open(final_file, "w")
 
-    # create necessary folders
-    for i in range(1, len(destinationDirs)):
-        loopCreateDirs += f"{destinationDirs[i]}/"
-        os.system(f"mkdir -p {loopCreateDirs}")
+    for file in os.listdir(folder):
+        opened_file.write(open(folder + file).read() + '\n')
 
-    os.system(f"cp -aT {source} {destination}")
+    opened_file.close()
 
 
-def apply_theme_to_file(hue, destination, theme_mode, apply_file, sat=None):
-    """
-    Install accent colors from colors.json to different file
-    :param hue
-    :param destination: file directory
-    :param theme_mode: theme name (light or dark)
-    :param apply_file: file name
-    :param sat: color saturation (optional)
-    """
-
-    with open(os.path.expanduser(f"{destination}/{apply_file}"), "r") as file:
-        edit_file = file.read()
-
-        # colorsys works in range(0, 1)
-        h = hue / 360
-        for element in colors["elements"]:
-            # convert to range(0, 1)
-            lightness = int(colors["elements"][element][theme_mode]["l"]) / 100
-            saturation = int(colors["elements"][element][theme_mode]["s"]) / 100 if sat is None else int(
-                colors["elements"][element][theme_mode]["s"]) * (sat / 100) / 100
-            alpha = colors["elements"][element][theme_mode]["a"]
-
-            # convert hsl to rgb and multiple every item
-            red, green, blue = [int(item * 256) for item in colorsys.hls_to_rgb(h, lightness, saturation)]
-
-            replace_keyword = colors["elements"][element]["replace"]
-
-            edit_file = edit_file.replace(replace_keyword, f"rgba({red}, {green}, {blue}, {alpha})")
-
-    with open(os.path.expanduser(f"{destination}/{apply_file}"), "w") as file:
-        file.write(edit_file)
-
-
-def apply_theme(hue, destination, theme_mode, sat=None):
-    """
-    Apply theme to all files listed in "apply-theme-files" (colors.json)
-    :param hue
-    :param destination: file directory
-    :param theme_mode: theme name (light or dark)
-    :param sat: color saturation (optional)
-    """
-
-    for apply_file in os.listdir("./gnome-shell/"):
-        apply_theme_to_file(hue, destination, theme_mode, apply_file, sat=sat)
-
-
-def install_color(hue, name, theme_mode, sat=None):
-    """
-    Copy files and generate theme with different accent color
-    :param hue
-    :param name: theme name
-    :param theme_mode: light or dark mode
-    :param sat: color saturation (optional)
-    """
-
-    print(f"Creating {name} {', '.join(theme_mode)} theme...", end=" ")
-
-    try:
-        for mode in theme_mode:
-            copy_files("./gnome-shell", destination_return(name, mode))
-            apply_theme(hue, destination_return(name, mode), mode, sat=sat)
-
-    except Exception as err:
-        print("\nError: " + str(err))
-
-    else:
-        print("Done.")
+def concatenate_files(file, edit_file):
+    open(edit_file, 'a').write('\n' + open(file).read())
 
 
 def remove_files():
@@ -167,6 +88,126 @@ def remove_files():
                 print(f"The path {path} does not exist.")
 
 
+def destination_return(path_name, theme_mode):
+    """
+    Copied/modified gnome-shell theme location
+    :param path_name: color name
+    :param theme_mode: theme name (light or dark)
+    :return: copied files' folder location
+    """
+
+    return f"~/.themes/Marble-{path_name}-{theme_mode}/gnome-shell"
+
+
+def copy_files(source, destination):
+    """
+    Copy files from the source to another directory
+    :param source: where files will be copied
+    :param destination: where files will be pasted
+    """
+
+    destination_dirs = destination.split("/")
+    loop_create_dirs = f"{destination_dirs[0]}/"
+
+    # create necessary folders
+    for i in range(1, len(destination_dirs)):
+        loop_create_dirs += f"{destination_dirs[i]}/"
+        os.system(f"mkdir -p {loop_create_dirs}")
+
+    os.system(f"cp -aT {source} {destination}")
+
+
+def apply_colors(hue, destination, theme_mode, apply_file, sat=None):
+    """
+    Install accent colors from colors.json to different file
+    :param hue
+    :param destination: file directory
+    :param theme_mode: theme name (light or dark)
+    :param apply_file: file name
+    :param sat: color saturation (optional)
+    """
+
+    with open(os.path.expanduser(f"{destination}/{apply_file}"), "r") as file:
+        edit_file = file.read()
+
+        # colorsys works in range(0, 1)
+        h = hue / 360
+        for element in colors["elements"]:
+            # convert to range(0, 1)
+            lightness = int(colors["elements"][element][theme_mode]["l"]) / 100
+            saturation = int(colors["elements"][element][theme_mode]["s"]) / 100 if sat is None else int(
+                colors["elements"][element][theme_mode]["s"]) * (sat / 100) / 100
+            alpha = colors["elements"][element][theme_mode]["a"]
+
+            # convert hsl to rgb and multiple every item
+            red, green, blue = [int(item * 256) for item in colorsys.hls_to_rgb(h, lightness, saturation)]
+
+            replace_keyword = colors["elements"][element]["replace"]
+
+            edit_file = edit_file.replace(replace_keyword, f"rgba({red}, {green}, {blue}, {alpha})")
+
+    with open(os.path.expanduser(f"{destination}/{apply_file}"), "w") as file:
+        file.write(edit_file)
+
+
+def apply_theme(hue, destination, theme_mode, sat=None):
+    """
+    Apply theme to all files listed in "apply-theme-files" (colors.json)
+    :param hue
+    :param destination: file directory
+    :param theme_mode: theme name (light or dark)
+    :param sat: color saturation (optional)
+    """
+
+    for apply_file in os.listdir("./gnome-shell/"):
+        apply_colors(hue, destination, theme_mode, apply_file, sat=sat)
+
+
+def install_color(hue, name, theme_mode, sat=None):
+    """
+    Copy files and generate theme with different accent color
+    :param hue
+    :param name: theme name
+    :param theme_mode: light or dark mode
+    :param sat: color saturation (optional)
+    """
+
+    print(f"Creating {name} {', '.join(theme_mode)} theme...", end=" ")
+
+    try:
+        for mode in theme_mode:
+            copy_files("./gnome-shell", destination_return(name, mode))
+
+            apply_theme(hue, destination_return(name, mode), mode, sat=sat)
+
+    except Exception as err:
+        print("\nError: " + str(err))
+
+    else:
+        print("Done.")
+
+
+def hex_to_rgba(hex_color):
+    """
+    Convert hex(a) to rgba
+    :param hex_color: input value
+    """
+
+    try:
+        if len(hex_color) in range(6, 10):
+            hex_color = hex_color.lstrip('#') + "ff"
+            # is convertable
+            int(hex_color[:], 16)
+        else:
+            raise ValueError
+        
+    except ValueError:
+        raise ValueError(f'Error: Invalid HEX color code: {hex_color}')
+
+    else:
+        return int(hex_color[0:2], 16), int(hex_color[2:4], 16), int(hex_color[4:6], 16), int(hex_color[6:8], 16) / 255
+
+
 def main():
     parser = argparse.ArgumentParser(prog="python install.py",
                                      formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -207,9 +248,31 @@ def main():
     color_tweaks.add_argument('--sat', type=int, choices=range(0, 251),
                               help='custom color saturation (<100%% - reduce, >100%% - increase)', metavar='(0 - 250)%')
 
+    # Add arguments for panel tweaks
+    panel_args = parser.add_argument_group('Panel tweaks')
+    panel_args.add_argument('-Pds', '--panel_default_size', action='store_true', help='set default panel size')
+    panel_args.add_argument('-Pnp', '--panel_no_pill', action='store_true', help='remove panel button background')
+    panel_args.add_argument('-Ptc', '--panel_text_color', type=str, nargs='?', help='custom panel HEX(A) text color')
+    
     args = parser.parse_args()
 
     mode = [args.mode] if args.mode else ['light', 'dark']
+
+    generate_file("./css/", gnome_shell_css)
+
+    if args.panel_default_size:
+        concatenate_files("./tweaks/panel/def-size.css", gnome_shell_css)
+
+    if args.panel_no_pill:
+        concatenate_files("./tweaks/panel/no-pill.css", gnome_shell_css)
+
+    if args.panel_text_color:
+        open('./gnome-shell/gnome-shell.css', 'a') \
+            .write(".panel-button,\
+                    .clock,\
+                    .clock-display StIcon {\
+                        color: rgba(" + ', '.join(map(str, hex_to_rgba(args.panel_text_color))) + ");\
+                    }")
 
     # Process the arguments and perform the installation accordingly
     if args.remove:
@@ -242,6 +305,9 @@ def main():
 
 
 if __name__ == "__main__":
-    colors = json.load(open("colors.json"))  # used as database for replacing colors, files which must be generated
+    gnome_shell_css = "./gnome-shell/gnome-shell.css"
+    colors = json.load(open("colors.json"))  # used as database for replacing colors
 
     main()
+
+    os.remove("./gnome-shell/gnome-shell.css")
