@@ -59,28 +59,28 @@ python install.py -h
 #### Install default color
 You can install several themes in one string: `python install.py --red --green --blue`
 
-| Option        | Theme mode (optional) | Description                                              |
-|---------------|-----------------------|----------------------------------------------------------|
-| -A, --all     |                       |  Install all available accent colors. Light & dark mode. |
-| --red         |                       | red theme only                                           |
-| --pink        |                       | pink theme only                                          |
-| --purple      |                       | purple theme only                                        |
-| --blue        |                       | blue theme only                                          |
-| --green       |                       | green theme only                                         |
-| --yellow      |                       | yellow theme only                                        |
-| --gray        |                       | gray theme only                                          |
+| Option    | Description                                            |
+|-----------|--------------------------------------------------------|
+| -A, --all | Install all available accent colors, light & dark mode |
+| --red     | red theme only                                         |
+| --pink    | pink theme only                                        |
+| --purple  | purple theme only                                      |
+| --blue    | blue theme only                                        |
+| --green   | green theme only                                       |
+| --yellow  | yellow theme only                                      |
+| --gray    | gray theme only                                        |
 
 #### Install custom color
-| Option | Hue degree | Secondary option (optional) | Description                              |
-|--------|------------|-----------------------------|------------------------------------------|
-| --hue  | (0 - 360)  |                             | Generate theme from Hue prompt [0 - 360] |
-|        |            | --name=NAME                 | Custom theme name                        |
+| Option | Secondary option (optional) | Description                              |
+|--------|-----------------------------|------------------------------------------|
+| --hue  | (0 - 360)                   | Generate theme from Hue prompt [0 - 360] |
+| --name | --name=NAME                 | Custom theme name                        |
 
 #### Optional theme tweaks
-| Option  | Secondary option | Description                                                |
-|---------|------------------|------------------------------------------------------------|
-| --mode= | light / dark     | light / dark theme only                                    |
-| --sat=  | (0 - 250)%       | custom color saturation (<100% - reduce, >100% - increase) |
+| Option | Secondary option | Description                                                |
+|--------|------------------|------------------------------------------------------------|
+| --mode | light / dark     | light / dark theme only                                    |
+| --sat  | (0 - 250)%       | custom color saturation (<100% - reduce, >100% - increase) |
 
 #### Panel tweaks
 ![Panel default size](./readme-images/tweaks/panel-default-size.png "Panel default size")
