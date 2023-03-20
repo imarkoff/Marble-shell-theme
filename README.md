@@ -35,13 +35,13 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 ![Dash look](./readme-images/dash.png?raw=true "Dash look")
 
 ## Requirements
-- GNOME 43, 44. I do not guarantee correct functionality on other versions.
+- GNOME 43, 44. I don't guarantee correct functionality on other versions.
 - [User Themes](https://extensions.gnome.org/extension/19/user-themes/ "User Themes") extension.
 - [GNOME Tweaks](https://gitlab.gnome.org/GNOME/gnome-tweaks "GNOME Tweaks").
 - Python 3.2+.
 
 ## Installation
-1. Open terminal.
+1. Open the terminal.
 2. Clone git and change directory:
 ```shell
 git clone https://github.com/imarkoff/Marble-shell-theme.git && cd Marble-shell-theme
@@ -81,6 +81,15 @@ You can install several themes in one string: `python install.py --red --green -
 |---------|------------------|------------------------------------------------------------|
 | --mode= | light / dark     | light / dark theme only                                    |
 | --sat=  | (0 - 250)%       | custom color saturation (<100% - reduce, >100% - increase) |
+
+#### Panel tweaks
+![Panel default size](./readme-images/tweaks/panel-default-size.png "Panel default size")
+![Panel without buttons background](./readme-images/tweaks/panel-no-pill.png "Panel without buttons background")
+| Option                     | Secondary option | Description                    |
+|----------------------------|------------------|--------------------------------|
+| -Pds, --panel_default_size |                  | set default panel size         |
+| -Pnp, --panel_no_pill      |                  | remove panel button background |
+| -Ptc, --panel_text_color   | #abcdef          | custom panel HEX(A) text color |
 
 #### Examples
 | Command                                        | Description                                                          |
