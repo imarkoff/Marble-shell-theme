@@ -310,4 +310,4 @@ if __name__ == "__main__":
 
     main()
 
-    os.remove("./gnome-shell/gnome-shell.css")
+    os.remove(gnome_shell_css)
