@@ -832,6 +832,7 @@ StScrollBar StButton#hhandle:active {
 .workspace-background {
 	border-radius: 20px;
 	box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
+	border: 0 solid transparent;
 }
 
 .window-caption {
