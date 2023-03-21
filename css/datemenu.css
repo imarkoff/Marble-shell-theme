@@ -107,7 +107,11 @@
 }
 
 .calendar .calendar-nonwork-day {
-	color: TEXT-PRIMARY-COLOR;
+	color: TEXT-SECONDARY-COLOR;
+}
+
+.calendar .calendar-other-month-day {
+	color: TEXT-DISABLED-COLOR;
 }
 
 
