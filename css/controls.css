@@ -1,0 +1,145 @@
+/* Check Boxes */
+.check-box StBoxLayout {
+	spacing: .8em;
+}
+
+.check-box StBin {
+	width: 24px;
+	height: 24px;
+	background-image: url("checkbox-off.svg");
+}
+
+.check-box:focus StBin {
+	background-image: url("checkbox-off-focused.svg");
+}
+
+.check-box:checked StBin {
+	background-image: url("checkbox.svg");
+}
+
+.check-box:focus:checked StBin {
+	background-image: url("checkbox-focused.svg");
+}
+
+
+/* Toggles */
+.toggle-switch {
+	background-image: url("./toggle-off.svg");
+	background-color: ACCENT-DISABLED_HOVER;
+	border-radius: 10px;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW !important;
+}
+
+.toggle-switch:checked {
+	background-image: url("./toggle-on.svg");
+	background-color: ACCENT-COLOR;
+}
+
+
+/* Do Not Distrub toggle */
+.dnd-button {
+	width: 48px;
+	border-radius: 10px;
+}
+
+.dnd-button .toggle-switch {
+	background-color: ACCENT-DISABLED-COLOR;
+}
+
+.dnd-button:hover .toggle-switch {
+	background-color: ACCENT-DISABLED_HOVER;
+}
+
+.dnd-button .toggle-switch:checked {
+	background-color: ACCENT-COLOR;
+}
+
+.dnd-button:hover .toggle-switch:checked {
+	background-color: ACCENT_HOVER;
+}
+
+.dnd-button:focus {
+	border-color: transparent;
+}
+
+.dnd-button:focus .toggle-switch {
+	box-shadow: inset 0 0 0 1px ACCENT-SECONDARY-COLOR !important;
+}
+
+
+.button {
+	color: TEXT-PRIMARY-COLOR;
+	background-color: ACCENT-DISABLED-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.button:insensitive {
+	box-shadow: none;
+	color: TEXT-SECONDARY-COLOR;
+}
+
+.button:hover,
+.button:active {
+	background-color: ACCENT-DISABLED_HOVER;
+}
+
+.message-list-clear-button {
+	border-radius: 9px;
+	background-color: SECTION-COLOR;
+	padding: 3px 15px;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.message-list-clear-button:focus {
+	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
+}
+
+
+/* slider */
+.slider,
+.level {
+	height: 16px;
+	-barlevel-height: 16px;
+	-barlevel-background-color: ACCENT-DISABLED-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	/* fill */
+	-barlevel-active-background-color: ACCENT-COLOR;
+	/* overfill */
+	-barlevel-overdrive-color: #c01c28;
+	-barlevel-overdrive-separator-width: 2px;
+	-slider-handle-radius: 7px;
+}
+
+
+/* Scroll bar */
+StScrollBar {
+	padding: 0;
+}
+
+StScrollView StScrollBar {
+	min-width: 8px;
+	min-height: 8px;
+}
+
+StScrollBar StBin#trough {
+	border-radius: 0;
+	background-color: transparent;
+}
+
+StScrollBar StButton#vhandle,
+StScrollBar StButton#hhandle {
+	border-radius: 8px;
+	background-color: SCROLLBAR-COLOR;
+	border: 3px solid transparent;
+	transition-duration: 100ms;
+}
+
+StScrollBar StButton#vhandle:hover,
+StScrollBar StButton#hhandle:hover {
+	background-color: SCROLLBAR_HOVER;
+}
+
+StScrollBar StButton#vhandle:active,
+StScrollBar StButton#hhandle:active {
+	background-color: SCROLLBAR_ACTIVE;
+}

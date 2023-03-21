@@ -1,0 +1,123 @@
+/* datemenu message-list */
+.message-list {
+	border: none;
+	padding: 0;
+}
+
+.message-list-sections:ltr {
+	margin-right: 0px;
+}
+
+.message-list-sections:rtl {
+	margin-left: 0px;
+}
+
+
+.message {
+	background: BACKGROUND-COLOR;
+	color: TEXT-PRIMARY-COLOR;
+	border-radius: 18px;
+	border: none;
+	box-shadow: inset 0 0 0 1px BORDER-MENU-SHADOW;
+}
+
+.message:focus {
+	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
+}
+
+.message-list .message {
+	background-color: SECTION-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	transition-duration: 100ms;
+}
+
+.message-list .message:hover {
+	background-color: ACCENT-DISABLED-COLOR;
+}
+
+.message .message-body,
+.message-title {
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.message-dialog-content .message-dialog-title {
+	font-weight: 700;
+}
+
+.message .message-secondary-bin>.event-time {
+	color: TEXT-SECONDARY-COLOR;
+}
+
+.message-close-button {
+	border-radius: 9px;
+	color: TEXT-PRIMARY-COLOR;
+	background-color: ACCENT-DISABLED-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	transition-duration: 100ms;
+}
+
+.message-close-button:hover {
+	background-color: ACCENT-DISABLED_HOVER;
+}
+
+.message-close-button:active {
+	color: TEXT-SECONDARY-COLOR;
+}
+
+
+/* Media Controls */
+.message-media-control {
+	border-radius: 12px;
+	padding: 0 14px;
+	margin: 20px 2px;
+	color: TEXT-PRIMARY-COLOR;
+	transition-duration: 100ms;
+}
+
+.message-media-control:hover {
+	background-color: ACCENT-DISABLED-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.message-media-control:insensitive {
+	color: TEXT-DISABLED-COLOR
+}
+
+.message-media-control:last-child:ltr {
+	margin-right: 20px;
+}
+
+.message-media-control:last-child:rtl {
+	margin-left: 12px;
+}
+
+.message-media-control StIcon {
+	icon-size: 1.09em;
+}
+
+.media-message-cover-icon {
+	icon-size: 3.2em !important;
+	border-radius: 12px;
+}
+
+.media-message-cover-icon.fallback {
+	color: TEXT-PRIMARY-COLOR;
+	background-color: ACCENT-DISABLED_HOVER;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	border-radius: 12px;
+	icon-size: 1.6em !important;
+	padding: 0.79em;
+}
+
+
+/* Notifications */
+.notification-banner {
+	background-color: BACKGROUND-COLOR;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.notification-button:active {
+	background-color: ACCENT-COLOR;
+	color: TEXT-PRIMARY-COLOR;
+}

@@ -1,0 +1,31 @@
+/* Search */
+StEntry {
+	border-radius: 13px;
+	padding: 8px;
+	transition-duration: 100ms;
+	border: 1px solid BORDER-SHADOW;
+	background-color: SECTION-COLOR;
+	color: TEXT-SECONDARY-COLOR;
+	selection-background-color: ACCENT-COLOR;
+	selected-color: TEXT-PRIMARY-COLOR;
+}
+
+StEntry StLabel {
+	color: TEXT-PRIMARY-COLOR;
+}
+
+StEntry StLabel:insensitive {
+	color: TEXT-SECONDARY-COLOR;
+}
+
+StEntry:hover,
+StEntry:focus,
+StEntry:active {
+	border: 1px solid TEXT-DISABLED-COLOR;
+	background-color: ACCENT-DISABLED-COLOR;
+	box-shadow: none;
+}
+
+StEntry:focus {
+	color: TEXT-PRIMARY-COLOR;
+}

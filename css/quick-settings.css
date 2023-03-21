@@ -1,0 +1,159 @@
+/* quick-settings */
+.quick-settings {
+	padding: 18px;
+	border-radius: 24px;
+}
+
+.icon-button {
+	background-color: ACCENT-DISABLED-COLOR;
+	color: TEXT-PRIMARY-COLOR;
+	transition-duration: 100ms;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.icon-button:hover {
+	background-color: ACCENT-DISABLED_HOVER;
+}
+
+
+.quick-toggle,
+.quick-menu-toggle .quick-toggle {
+	color: TEXT-PRIMARY-COLOR;
+	border-radius: 15px;
+	background-color: ACCENT-DISABLED-COLOR;
+	transition-duration: 100ms;
+}
+
+.quick-menu-toggle .quick-toggle:ltr {
+	border-radius: 15px 0 0 15px;
+}
+
+.quick-menu-toggle .quick-toggle:rtl {
+	border-radius: 0 15px 15px 0;
+}
+
+.quick-menu-toggle .quick-toggle:last-child {
+	border-radius: 15px;
+}
+
+.quick-menu-toggle .quick-toggle-arrow:ltr {
+	border-radius: 0 15px 15px 0;
+}
+
+.quick-menu-toggle .quicl-toggle-arrow:rtl {
+	border-radius: 15px 0 0 15px;
+}
+
+.quick-toggle:hover,
+.quick-menu-toggle .quick-toggle:hover,
+.quick-menu-toggle .quick-toggle-arrow:hover {
+	background-color: ACCENT-DISABLED_HOVER;
+}
+
+.quick-toggle:checked,
+.quick-menu-toggle .quick-toggle:checked,
+.quick-menu-toggle .quick-toggle-arrow:checked {
+	color: TEXT-PRIMARY-COLOR;
+	background-color: ACCENT-COLOR;
+}
+
+.quick-toggle:checked:hover,
+.quick-menu-toggle .quick-toggle:checked:hover,
+.quick-menu-toggle .quick-toggle-arrow:checked:hover {
+	background-color: ACCENT_HOVER;
+}
+
+.quick-menu-toggle .quick-toggle-arrow:ltr {
+	margin-left: 1px;
+}
+
+.quick-menu-toggle .quick-toggle-arrow:rtl {
+	margin-right: 1px;
+}
+
+.quick-slider .slider-bin {
+	padding: 2px 1px;
+	margin: 0px;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.quick-slider .slider-bin:focus {
+	background-color: ACCENT-DISABLED-COLOR;
+}
+
+.icon-button:focus,
+.quick-toggle:focus,
+.slider-bin:focus {
+	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
+}
+
+.quick-toggle .quick-toggle-label {
+	font-weight: 600;
+}
+
+.quick-slider .icon-button {
+	background-color: BACKGROUND-COLOR;
+	box-shadow: none;
+	padding: 6px;
+	border-radius: 11px;
+	transition-duration: 150ms;
+}
+
+.quick-slider .icon-button:hover {
+	background-color: ACCENT-DISABLED-COLOR;
+	color: TEXT-PRIMARY-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.quick-toggle-menu {
+	background-color: BACKGROUND-COLOR;
+	border-radius: 20px;
+	color: TEXT-PRIMARY-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+/* connect / disconnect text color */
+.device-subtitle {
+	color: TEXT-SECONDARY-COLOR;
+}
+
+.quick-toggle-menu .header .icon {
+	background-color: ACCENT-COLOR;
+	border-radius: 12px;
+	icon-size: 1.4em;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.level-bar {
+	padding: 0;
+	background-color: ACCENT-DISABLED-COLOR;
+}
+
+/* background apps */
+.background-apps-quick-toggle {
+	background-color: transparent;
+}
+
+.background-apps-quick-toggle:hover {
+	background-color: ACCENT-DISABLED-COLOR;
+}
+
+.background-apps-quick-toggle:focus {
+	background-color: ACCENT-DISABLED-COLOR;
+	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR;
+}
+
+.background-app-item .title {
+	color: TEXT-PRIMARY-COLOR;
+	font-weight: 600;
+}
+
+.background-app-item .close-button {
+	color: TEXT-PRIMARY-COLOR;
+	background-color: ACCENT-DISABLED-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.background-app-item .close-button:hover {
+	background-color: ACCENT-DISABLED_HOVER;
+}

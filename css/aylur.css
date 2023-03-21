@@ -1,0 +1,41 @@
+/* Aylur's widgets */
+.quick-settings.tweaked .media,
+.quick-settings.tweaked .message,
+.popup-menu-content .message,
+.quick-settings.tweaked .quick-container {
+	background-color: SECTION-COLOR;
+	border-radius: 16px;
+	border: none;
+}
+
+.quick-settings.tweaked .quick-container .quick-slider {
+	margin: 2.5px 0 2.5px 0;
+}
+
+.quick-settings.tweaked .quick-container .quick-slider:first-child {
+	margin: 0 0 2.5px 0;
+}
+
+.quick-settings.tweaked .quick-container .quick-slider:last-child {
+	margin: 2.5px 0 0 0;
+}
+
+.quick-settings.tweaked .quick-container .quick-slider:first-child:last-child {
+	margin: 0;
+}
+
+.quick-settings.tweaked .media {
+	font-weight: 500;
+}
+
+.quick-settings.adjusted .quick-toggle .quick-toggle-arrow:ltr {
+	border-radius: 0 36px 36px 0;
+}
+
+.quick-settings.adjusted .quick-toggle .quick-toggle-arrow:rtl {
+	border-radius: 36px 0 0 36px;
+}
+
+.usage-level StIcon {
+	width: 1.29em;
+}

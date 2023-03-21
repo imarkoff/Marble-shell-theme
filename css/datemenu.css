@@ -1,0 +1,160 @@
+/* calendar */
+#calendarArea {
+	padding: 0;
+}
+
+.datemenu-calendar-column {
+	spacing: 5px;
+}
+
+.datemenu-calendar-column:ltr {
+	padding-left: 6px;
+}
+
+.datemenu-calendar-column:rtl {
+	padding-right: 6px;
+}
+
+.datemenu-calendar-column .datemenu-displays-box {
+	spacing: 5px;
+}
+
+
+.calendar {
+	border-radius: 14px;
+	background-color: SECTION-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW !important;
+	padding: 5px;
+}
+
+
+/* calendar header */
+.datemenu-today-button {
+	color: TEXT-SECONDARY-COLOR;
+	background-color: none;
+	border-radius: 12px;
+}
+
+.datemenu-today-button:hover {
+	transition-duration: 100ms;
+	background-color: ACCENT-DISABLED-COLOR;
+}
+
+.datemenu-today-button:focus {
+	transition-duration: 100ms;
+	background-color: ACCENT-DISABLED-COLOR;
+	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
+}
+
+.day-label {
+	font-weight: 600;
+}
+
+.date-label {
+	font-weight: 700;
+}
+
+
+/* calendar-days */
+.calendar-day-base,
+.calendar-month-header .pager-button {
+	color: TEXT-PRIMARY-COLOR;
+	border-radius: 10px;
+}
+
+.calendar-month-label {
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.calendar-day-base,
+.calendar .calendar-month-header .pager-button {
+	transition-duration: 100ms;
+}
+
+.calendar-day-base:hover,
+.calendar-day-base:focus,
+.calendar-day-base:active:hover,
+.calendar-day-base:selected:hover,
+.calendar .calendar-month-header .pager-button:hover,
+.calendar .calendar-month-header .pager-button:focus {
+	background-color: ACCENT-DISABLED_HOVER;
+	color: TEXT-PRIMARY-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.calendar-day-base:active,
+.calendar-day-base:selected {
+	background: ACCENT-DISABLED_HOVER;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.calendar-today,
+.calendar-today:selected {
+	background-color: ACCENT-COLOR;
+	color: TEXT-PRIMARY-COLOR !important;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.calendar-today:hover,
+.calendar-today:selected:hover {
+	background-color: ACCENT_HOVER;
+}
+
+.calendar .calendar-day-with-events {
+	background-image: url("calendar-today.svg");
+	background-size: contain;
+	font-weight: 700;
+}
+
+.calendar .calendar-nonwork-day {
+	color: TEXT-PRIMARY-COLOR;
+}
+
+
+/* events */
+.events-button,
+.world-clocks-button,
+.weather-button {
+	background-color: SECTION-COLOR;
+	color: TEXT-SECONDARY-COLOR;
+	border-radius: 14px;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.events-button:hover,
+.world-clocks-button:hover,
+.weather-button:hover {
+	background-color: ACCENT-DISABLED-COLOR;
+}
+
+.events-button:focus,
+.world-clocks-button:focus,
+.weather-button:focus {
+	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
+}
+
+.weather-button .weather-header,
+.events-button .events-title,
+.world-clocks-button .world-clocks-header {
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.events-button .event-time {
+	color: TEXT-SECONDARY-COLOR;
+}
+
+.events-button:active,
+.world-clock-button:active,
+.weather-button:active {
+	background-color: ACCENT-DISABLED_HOVER;
+}
+
+.world-clocks-button .world-clocks-time,
+.world-clocks-button .world-clocks-city,
+.world-clocks-button .world-clocks-timezone {
+	color: TEXT-SECONDARY-COLOR;
+}
+
+.weather-button .weather-forecast-time {
+	color: TEXT-SECONDARY-COLOR;
+}
