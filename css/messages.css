@@ -121,3 +121,6 @@
 	background-color: ACCENT-COLOR;
 	color: TEXT-PRIMARY-COLOR;
 }
+
+
+.url-highlighter { link-color: ACCENT-SECONDARY-COLOR; }
