@@ -5,7 +5,7 @@
 	font-size: 14px;
 }
 
-#panel:overview {
+#panel:overview, #panel.unlock-screen, #panel.login-screen {
 	background-color: transparent;
 }
 
