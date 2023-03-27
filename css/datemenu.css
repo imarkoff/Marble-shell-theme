@@ -101,7 +101,7 @@
 }
 
 .calendar .calendar-day-with-events {
-	background-image: url("calendar-today.svg");
+	background-image: url("calendar-event.svg");
 	background-size: contain;
 	font-weight: 700;
 }
@@ -112,6 +112,11 @@
 
 .calendar .calendar-other-month-day {
 	color: TEXT-DISABLED-COLOR;
+}
+
+.calendar .calendar-other-month-day.calendar-day-with-events {
+	background-image: url("calendar-event-disabled.svg");
+	background-size: contain;
 }
 
 
