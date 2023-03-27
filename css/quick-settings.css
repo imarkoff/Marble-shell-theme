@@ -38,10 +38,12 @@
 
 .quick-menu-toggle .quick-toggle-arrow:ltr {
 	border-radius: 0 15px 15px 0;
+	border-left-width: 2px;
 }
 
 .quick-menu-toggle .quicl-toggle-arrow:rtl {
 	border-radius: 15px 0 0 15px;
+	border-right-width: 2px;
 }
 
 .quick-toggle:hover,
@@ -55,20 +57,13 @@
 .quick-menu-toggle .quick-toggle-arrow:checked {
 	color: TEXT-PRIMARY-COLOR;
 	background-color: ACCENT-COLOR;
+	border-color: transparent;
 }
 
 .quick-toggle:checked:hover,
 .quick-menu-toggle .quick-toggle:checked:hover,
 .quick-menu-toggle .quick-toggle-arrow:checked:hover {
 	background-color: ACCENT_HOVER;
-}
-
-.quick-menu-toggle .quick-toggle-arrow:ltr {
-	margin-left: 1px;
-}
-
-.quick-menu-toggle .quick-toggle-arrow:rtl {
-	margin-right: 1px;
 }
 
 .quick-slider .slider-bin {
