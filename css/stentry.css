@@ -29,3 +29,12 @@ StEntry:active {
 StEntry:focus {
 	color: TEXT-PRIMARY-COLOR;
 }
+
+
+.unlock-dialog StEntry {
+	border: none !important;
+}
+
+.unlock-dialog StEntry:focus {
+	box-shadow: inset 0 0 0 1px TEXT-DISABLED-COLOR;
+}
