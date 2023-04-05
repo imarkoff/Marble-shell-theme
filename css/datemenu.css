@@ -42,7 +42,7 @@
 
 .datemenu-today-button:focus {
 	transition-duration: 100ms;
-	background-color: ACCENT-DISABLED-COLOR;
+	background-color: ACCENT-OPACITY-COLOR;
 	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
 }
 
@@ -72,14 +72,18 @@
 }
 
 .calendar-day-base:hover,
-.calendar-day-base:focus,
 .calendar-day-base:active:hover,
 .calendar-day-base:selected:hover,
-.calendar .calendar-month-header .pager-button:hover,
-.calendar .calendar-month-header .pager-button:focus {
+.calendar .calendar-month-header .pager-button:hover {
 	background-color: ACCENT-DISABLED_HOVER;
 	color: TEXT-PRIMARY-COLOR;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.calendar-day-base:focus,
+.calendar .calendar-month-header .pager-button:focus {
+	background-color: ACCENT-OPACITY-COLOR;
+	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR;
 }
 
 .calendar-day-base:active,
@@ -139,6 +143,7 @@
 .events-button:focus,
 .world-clocks-button:focus,
 .weather-button:focus {
+	background-color: ACCENT-OPACITY-COLOR;
 	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
 }
 

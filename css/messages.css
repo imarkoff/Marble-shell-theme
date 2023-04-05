@@ -21,9 +21,6 @@
 	box-shadow: inset 0 0 0 1px BORDER-MENU-SHADOW;
 }
 
-.message:focus {
-	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
-}
 
 .message-list .message {
 	background-color: SECTION-COLOR;
@@ -33,6 +30,11 @@
 
 .message-list .message:hover {
 	background-color: ACCENT-DISABLED-COLOR;
+}
+
+.message-list .message:focus {
+	background-color: ACCENT-OPACITY-COLOR;
+	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
 }
 
 .message .message-body,
