@@ -70,6 +70,7 @@
 .button {
 	color: TEXT-PRIMARY-COLOR;
 	background-color: ACCENT-DISABLED-COLOR;
+	border-radius: 9px;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
@@ -83,15 +84,13 @@
 	background-color: ACCENT-DISABLED_HOVER;
 }
 
-.message-list-clear-button {
-	border-radius: 9px;
-	background-color: SECTION-COLOR;
-	padding: 3px 15px;
-	color: TEXT-PRIMARY-COLOR;
+.button:focus {
+	background-color: ACCENT-OPACITY-COLOR;
+	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
 }
 
-.message-list-clear-button:focus {
-	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
+.message-list-controls .button {
+	padding: 3px 15px;
 }
 
 
