@@ -12,6 +12,7 @@
 .popup-menu-item,
 .app-menu {
 	margin: 3px 0;
+	transition-duration: 150ms;
 }
 
 .popup-menu-item:focus,
