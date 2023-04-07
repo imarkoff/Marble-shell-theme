@@ -148,12 +148,11 @@
 
 
 .dash-label {
-	background-color: BACKGROUND-COLOR;
+	background-color: SECTION-COLOR;
 	color: TEXT-PRIMARY-COLOR;
-	border-radius: 11px;
-	border: none;
-	/* ubuntu fix */
-	box-shadow: inset 0 0 0 1px BORDER-MENU-SHADOW;
+	border-radius: 12px;
+	border: 1px solid BORDER-MENU-SHADOW;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.08);
 }
 
 .app-well-app-running-dot {

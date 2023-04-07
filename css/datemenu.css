@@ -92,6 +92,7 @@
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
+
 .calendar-today,
 .calendar-today:selected {
 	background-color: ACCENT-COLOR;
