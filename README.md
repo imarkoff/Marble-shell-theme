@@ -1,8 +1,6 @@
 # Marble shell theme
 Shell theme for GNOME DE. Based on https://www.pling.com/p/1939902/.
 
-## Screenshots
-
 ![Available colors:](https://shields.io/badge/-Available%20colors:-0d1117?style=flat-square)
 ![red](https://shields.io/badge/-red-red?style=flat-square)
 ![yellow](https://shields.io/badge/-yellow-yellow?style=flat-square)
@@ -12,14 +10,19 @@ Shell theme for GNOME DE. Based on https://www.pling.com/p/1939902/.
 ![pink](https://shields.io/badge/-pink-pink?style=flat-square)
 ![or different Hue color.](https://shields.io/badge/-or%20different%20Hue%20color.-0d1117?style=flat-square)
 
-Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
+## 🏞 Screenshots
 
+<details><summary>Click me 🐈</summary>
+
+Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 #### Overview (Pasta [white](https://addons.opera.com/en/wallpapers/details/pasta-white/) / [night](https://addons.opera.com/en/wallpapers/details/pasta-night/))
 ![Overview look](./readme-images/overview.png?raw=true "Overview look")
+
 #### Panel
 ![Panel look](./readme-images/panel.png?raw=true "Panel look")
 #### Quick settings ([Fresh green leaves with fragile veins](https://www.pexels.com/photo/fresh-green-leaves-with-fragile-veins-6423448/))
 ![Quick settings look](./readme-images/qs.png?raw=true "Quick settings look")
+
 #### Modal dialog ([Wide Angle Photography of Mountain](https://www.pexels.com/photo/wide-angle-photography-of-mountain-1612559/))
 ![Modal dialog look](./readme-images/modal.png "Modal dialog look")
 #### Calendar & notifications ([Wallpaper](https://www.zedge.net/wallpaper/7e10d448-6440-405d-a847-30b6146eeb55))
@@ -31,37 +34,38 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 - Appearance:
   - Shrink the dash.
   - Default opacity.
-
 ![Dash look](./readme-images/dash.png?raw=true "Dash look")
 
-## Requirements
+</details>
+
+## 🚧 Requirements
 - GNOME 43, 44. I don't guarantee correct functionality on other versions.
 - [User Themes](https://extensions.gnome.org/extension/19/user-themes/ "User Themes") extension.
 - [GNOME Tweaks](https://gitlab.gnome.org/GNOME/gnome-tweaks "GNOME Tweaks").
 - Python 3.2+.
 
-## Installation
+## 💡 Installation
 1. Open the terminal.
 2. Clone git and change directory:
 ```shell
-git clone https://github.com/imarkoff/Marble-shell-theme.git && cd Marble-shell-theme
+git clone https://github.com/imarkoff/Marble-shell-theme.git
+cd Marble-shell-theme
 ```
-3. Run the program documentation: 
+3. Run the program (install all accent colors, light & dark mode): 
 ```shell
-python install.py -h
+python install.py -a
 ```
-4. Follow instructions inside the program.
-5. After successful file creation open GNOME Tweaks, go to `Appearance - Themes - Shell`.
-6. Select shell theme you want.
+4. After successful file creation open GNOME Tweaks, go to `Appearance - Themes - Shell`.
+5. Select shell theme you want.
 
-## Installation tweaks
+## 🏮 Installation tweaks
 
 #### Install default color
 You can install several themes in one string: `python install.py --red --green --blue`
 
 | Option    | Description                         |
 |-----------|-------------------------------------|
-| -A, --all | Install all available accent colors |
+| -a, --all | Install all available accent colors |
 | --red     | red theme only                      |
 | --pink    | pink theme only                     |
 | --purple  | purple theme only                   |
@@ -94,7 +98,7 @@ You can install several themes in one string: `python install.py --red --green -
 #### Examples
 | Command                                        | Description                                                          |
 |------------------------------------------------|----------------------------------------------------------------------|
-| -A                                             | Install all accent colors with light & dark mode                     |
+| -a                                             | Install all accent colors with light & dark mode                     |
 | --all --mode dark                              | Install all accent colors with dark mode only                        |
 | --purple --mode=light                          | Install purple accent color with light mode only                     |
 | --hue 150 --name coldgreen                     | Install custom coldgreen accent color, light & dark mode             |
