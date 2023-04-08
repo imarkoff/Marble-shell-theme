@@ -79,7 +79,7 @@
 
 .message-media-control:hover {
 	background-color: ACCENT-DISABLED-COLOR;
-	border: 1px solid BORDER-SHADOW;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 	color: TEXT-PRIMARY-COLOR;
 }
 
