@@ -258,7 +258,7 @@ def main():
 
     mode = [args.mode] if args.mode else ['light', 'dark']
 
-    generate_file("./css/", gnome_shell_css)
+    generate_file("./css/gnome-shell/", gnome_shell_css)
 
     if args.panel_default_size:
         concatenate_files("./tweaks/panel/def-size.css", gnome_shell_css)
