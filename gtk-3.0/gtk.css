@@ -1,0 +1,268 @@
+@define-color blue_1 #99c1f1;
+@define-color blue_2 #62a0ea;
+@define-color blue_3 #3584e4;
+@define-color blue_4 #1c71d8;
+@define-color blue_5 #1a5fb4;
+@define-color green_1 #8ff0a4;
+@define-color green_2 #57e389;
+@define-color green_3 #33d17a;
+@define-color green_4 #2ec27e;
+@define-color green_5 #26a269;
+@define-color yellow_1 #f9f06b;
+@define-color yellow_2 #f8e45c;
+@define-color yellow_3 #f6d32d;
+@define-color yellow_4 #f5c211;
+@define-color yellow_5 #e5a50a;
+@define-color orange_1 #ffbe6f;
+@define-color orange_2 #ffa348;
+@define-color orange_3 #ff7800;
+@define-color orange_4 #e66100;
+@define-color orange_5 #c64600;
+@define-color red_1 #f66151;
+@define-color red_2 #ed333b;
+@define-color red_3 #e01b24;
+@define-color red_4 #c01c28;
+@define-color red_5 #a51d2d;
+@define-color purple_1 #dc8add;
+@define-color purple_2 #c061cb;
+@define-color purple_3 #9141ac;
+@define-color purple_4 #813d9c;
+@define-color purple_5 #613583;
+@define-color brown_1 #cdab8f;
+@define-color brown_2 #b5835a;
+@define-color brown_3 #986a44;
+@define-color brown_4 #865e3c;
+@define-color brown_5 #63452c;
+@define-color light_1 #ffffff;
+@define-color light_2 #f6f5f4;
+@define-color light_3 #deddda;
+@define-color light_4 #c0bfbc;
+@define-color light_5 #9a9996;
+@define-color dark_1 #77767b;
+@define-color dark_2 #5e5c64;
+@define-color dark_3 #3d3846;
+@define-color dark_4 #241f31;
+@define-color dark_5 #000000;
+@define-color accent_bg_color @blue_3;
+@define-color accent_fg_color white;
+@define-color accent_color @blue_4;
+@define-color destructive_bg_color @red_3;
+@define-color destructive_fg_color white;
+@define-color destructive_color @red_4;
+@define-color success_bg_color @green_4;
+@define-color success_fg_color white;
+@define-color success_color #1b8553;
+@define-color warning_bg_color @yellow_5;
+@define-color warning_fg_color rgba(0, 0, 0, 0.8);
+@define-color warning_color #9c6e03;
+@define-color error_bg_color @red_3;
+@define-color error_fg_color white;
+@define-color error_color @red_4;
+@define-color window_bg_color BACKGROUND-COLOR;
+@define-color window_fg_color TEXT-PRIMARY-COLOR;
+@define-color view_bg_color #ffffff;
+@define-color view_fg_color #333333;
+@define-color headerbar_bg_color SECTION-COLOR;
+@define-color headerbar_fg_color #2f2f2f;
+@define-color headerbar_border_color rgba(0, 0, 0, 0.8);
+@define-color headerbar_backdrop_color @window_bg_color;
+@define-color headerbar_shade_color rgba(0, 0, 0, 0.07);
+@define-color card_bg_color #ffffff;
+@define-color card_fg_color #333333;
+@define-color card_shade_color rgba(0, 0, 0, 0.07);
+@define-color dialog_bg_color #fafafa;
+@define-color dialog_fg_color #323232;
+@define-color popover_bg_color BACKGROUND-COLOR;
+@define-color popover_fg_color #333333;
+@define-color thumbnail_bg_color #ffffff;
+@define-color thumbnail_fg_color rgba(0, 0, 0, 0.8);
+@define-color shade_color BORDER-SHADOW;
+@define-color scrollbar_outline_color white;
+@define-color incognito_bg_color #d7e3f0;
+* {
+    padding: 0;
+    -GtkToolButton-icon-spacing: 4;
+    -GtkTextView-error-underline-color: @error_bg_color;
+    -GtkScrolledWindow-scrollbar-spacing: 0;
+    -GtkToolItemGroup-expander-size: 11;
+    -GtkWidget-text-handle-width: 20;
+    -GtkWidget-text-handle-height: 24;
+    -GtkDialog-button-spacing: 4;
+    -GtkDialog-action-area-border: 0;
+    outline-color: alpha(currentColor,0.3);
+    outline-style: dashed;
+    outline-offset: -3px;
+    outline-width: 1px;
+    -gtk-outline-radius: 4px;
+    -gtk-secondary-caret-color: @accent_bg_color;
+}
+
+decoration {
+    border-radius: 15px;
+    box-shadow: 0 3px 12px 1px rgba(0, 0, 0, 0.3), 0 0 0 1px BORDER-MENU-SHADOW;
+}
+window, dialog {
+    border-radius: 0 0 15px 15px;
+}
+
+dialog viewport {
+    border-radius: 10px;
+    border: 1px solid BORDER-MENU-SHADOW;
+    background-color: SECTION-COLOR;
+}
+
+.background { color: @window_fg_color; background-color: @window_bg_color; }
+.gtkstyle-fallback { color: @window_fg_color; background-color: @window_bg_color; }
+
+.titlebar:not(headerbar), headerbar { 
+    padding: 0 8px;
+    min-height: 46px; 
+    border-width: 0 0 1px; 
+    border-style: solid; 
+    border-color: @headerbar_shade_color; 
+    border-radius: 15px 15px 0 0;
+    background-color: @headerbar_bg_color;
+    transition-duration: 200ms;
+}
+
+.titlebar:not(headerbar) separator.titlebutton, headerbar separator.titlebutton { opacity: 0; }
+
+window.maximized headerbar, window.maximized .titlebar, window.maximized window.background.csd decoration, window.maximized {
+    border-radius: 0;
+}
+
+.titlebar:backdrop:not(headerbar), headerbar:backdrop { background-color: @headerbar_backdrop_color; background-image: none; transition: 200ms ease-out; }
+
+.titlebar:not(headerbar) .title, headerbar .title { padding-left: 12px; padding-right: 12px; font-weight: bold; }
+
+.titlebar:not(headerbar) .subtitle, headerbar .subtitle { font-size: smaller; padding-left: 12px; padding-right: 12px; }
+
+headerbar button {
+    padding: 6px;
+    border-radius: 10px;
+    transition-duration: 150ms;
+    border: 1px solid transparent;
+}
+headerbar button:hover,
+headerbar button:checked,
+headerbar button.titlebutton:hover {
+    background-color: ACCENT-DISABLED_HOVER;
+    border: 1px solid @shade_color;
+}
+
+headerbar button.titlebutton {
+    background-color: ACCENT-DISABLED-COLOR;
+    padding: 4px;
+    margin: 2.5px;
+    border-radius: 99px;
+    border: 1px solid @shade_color;
+}
+
+stackswitcher button {
+    background-color: ACCENT-DISABLED-COLOR;
+    border: 1px solid @shade_color;
+    padding: 5px 15px;
+    border-radius: 0;
+    font-weight: 500;
+    transition-duration: 150ms;
+}
+
+stackswitcher button:backdrop {
+    color: TEXT-SECONDARY-COLOR;
+}
+
+stackswitcher button:hover, stackswitcher button:checked {
+    background-color: ACCENT-DISABLED_HOVER;
+}
+
+stackswitcher button:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+stackswitcher button:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+stackswitcher button:nth-child(even) {
+    border-left: none;
+    border-right: none;
+}
+
+menubar { min-height: 16px; padding: 4px; }
+
+menubar > menuitem, .menubar > menuitem { 
+    border-radius: 7px;
+    padding: 2px 8px;
+    border: 1px solid transparent;
+}
+
+menubar > menuitem:hover, .menubar > menuitem:hover {
+    background-color: ACCENT-DISABLED-COLOR;
+    border: 1px solid BORDER-SHADOW;
+}
+
+.background.popup { background-color: transparent; }
+
+menu,
+.menu, 
+.context-menu { 
+  margin: 4px; 
+  padding: 6px; 
+  background-clip: border-box;
+  border-radius: 12px;
+  border: 1px solid BORDER-SHADOW;
+  background-color: @popover_bg_color;
+}
+
+
+menu menuitem,
+.menu menuitem,
+.context-menu menuitem {
+    padding: 4px 6px;
+    border-radius: 9px;
+    border: 1px solid transparent;
+    transition-duration: 100ms;
+}
+
+menuitem accelerator { color: TEXT-SECONDARY-COLOR; }
+
+menu menuitem:hover,
+.menu menuitem:hover,
+.context-menu menuitem:hover {
+    background-color: ACCENT-DISABLED-COLOR;
+    border-color: BORDER-SHADOW;
+}
+
+menu menuitem:disabled, .menu menuitem:disabled, .context-menu menuitem:disabled { color: TEXT-DISABLED-COLOR; }
+
+menuitem check, menuitem radio { min-height: 16px; min-width: 16px; }
+menuitem check:dir(ltr), menuitem radio:dir(ltr) { margin-right: 7px; }
+menuitem check:dir(rtl), menuitem radio:dir(rtl) { margin-left: 7px; }
+
+menu > arrow, .menu > arrow, .context-menu > arrow {
+    border-color: transparent;
+    background-color: transparent;
+    background-image: none;
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0);
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+    min-height: 16px;
+    min-width: 16px;
+    padding: 4px;
+    background-color: @popover_bg_color;
+    border-radius: 0;
+}
+
+separator {
+    background-color: SEPARATOR-COLOR; 
+    min-width: 1px; 
+    min-height: 1px; 
+}
+
+menu separator, .menu separator, .context-menu separator { margin: 6px 3px; }
+
+menu menuitem arrow, .menu menuitem arrow, .context-menu menuitem arrow { min-height: 16px; min-width: 16px; }
+menu menuitem arrow:dir(ltr), .menu menuitem arrow:dir(ltr), .context-menu menuitem arrow:dir(ltr) { -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); margin-left: 10px; }
+menu menuitem arrow:dir(rtl), .menu menuitem arrow:dir(rtl), .context-menu menuitem arrow:dir(rtl) { -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl"); margin-right: 10px; }
+menu > arrow.top, .menu > arrow.top, .context-menu > arrow.top { margin-top: -4px; border-bottom: 1px solid SEPARATOR-COLOR; border-top-right-radius: 8px; border-top-left-radius: 8px; -gtk-icon-source: -gtk-icontheme("pan-up-symbolic"); }
+menu > arrow.bottom, .menu > arrow.bottom, .context-menu > arrow.bottom { margin-top: 8px; margin-bottom: -12px; border-top: 1px solid SEPARATOR-COLOR; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }

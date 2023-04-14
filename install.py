@@ -150,7 +150,7 @@ def apply_colors(hue, destination, theme_mode, apply_file, sat=None):
         file.write(edit_file)
 
 
-def apply_theme(hue, destination, theme_mode, sat=None):
+def apply_theme(hue, destination, dest_folder, theme_mode, sat=None):
     """
     Apply theme to all files listed in "apply-theme-files" (colors.json)
     :param hue
@@ -159,7 +159,7 @@ def apply_theme(hue, destination, theme_mode, sat=None):
     :param sat: color saturation (optional)
     """
 
-    for apply_file in os.listdir("./gnome-shell/"):
+    for apply_file in os.listdir(dest_folder):
         apply_colors(hue, destination, theme_mode, apply_file, sat=sat)
 
 
@@ -176,9 +176,11 @@ def install_color(hue, name, theme_mode, sat=None):
 
     try:
         for mode in theme_mode:
+            copy_files("./gtk-3.0", f"~/.themes/Marble-{name}-{mode}/gtk-3.0")
             copy_files("./gnome-shell", destination_return(name, mode))
 
-            apply_theme(hue, destination_return(name, mode), mode, sat=sat)
+            apply_theme(hue, f"~/.themes/Marble-{name}-{mode}/gtk-3.0", './gtk-3.0/', mode, sat=sat)
+            apply_theme(hue, destination_return(name, mode), './gnome-shell/', mode, sat=sat)
 
     except Exception as err:
         print("\nError: " + str(err))
