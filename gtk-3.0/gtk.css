@@ -114,6 +114,8 @@ dialog viewport {
 .background { color: @window_fg_color; background-color: @window_bg_color; }
 .gtkstyle-fallback { color: @window_fg_color; background-color: @window_bg_color; }
 
+
+/* header */
 .titlebar:not(headerbar), headerbar { 
     padding: 0 8px;
     min-height: 46px; 
@@ -188,6 +190,8 @@ stackswitcher button:nth-child(even) {
     border-right: none;
 }
 
+
+/* menu */
 menubar { min-height: 16px; padding: 4px; }
 
 menubar > menuitem, .menubar > menuitem { 
@@ -266,3 +270,57 @@ menu menuitem arrow:dir(ltr), .menu menuitem arrow:dir(ltr), .context-menu menui
 menu menuitem arrow:dir(rtl), .menu menuitem arrow:dir(rtl), .context-menu menuitem arrow:dir(rtl) { -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl"); margin-right: 10px; }
 menu > arrow.top, .menu > arrow.top, .context-menu > arrow.top { margin-top: -4px; border-bottom: 1px solid SEPARATOR-COLOR; border-top-right-radius: 8px; border-top-left-radius: 8px; -gtk-icon-source: -gtk-icontheme("pan-up-symbolic"); }
 menu > arrow.bottom, .menu > arrow.bottom, .context-menu > arrow.bottom { margin-top: 8px; margin-bottom: -12px; border-top: 1px solid SEPARATOR-COLOR; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
+
+
+/* popovers */
+popover.background {
+    padding: 2px;
+    background-color: @popover_bg_color;
+    border: 1px solid BORDER-MENU-SHADOW;
+    box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.09), 0 2px 8px 3px rgba(0, 0, 0, 0.05);
+}
+
+popover.menu > stack { margin: -6px; }
+
+popover.background button { 
+    outline-color: mix(currentColor,mix(currentColor,@popover_bg_color,0.9),0.7);
+    background-color: ACCENT-DISABLED-COLOR;
+    padding: 8px;
+    border: 1px solid BORDER-SHADOW;
+    transition-duration: 150ms;
+    -gtk-outline-radius: 0px;
+}
+
+popover.background button:hover, popover.background button:focus {
+    background-color: ACCENT-DISABLED_HOVER;
+}
+
+popover.background button:first-child {
+    border-radius: 10px 0 0 10px;
+    -gtk-outline-top-left-radius: 9px;
+    -gtk-outline-bottom-left-radius: 9px;
+
+}
+
+popover.background button:last-child {
+    border-radius: 0 10px 10px 0;
+    -gtk-outline-top-right-radius: 9px;
+    -gtk-outline-bottom-right-radius: 9px;
+}
+
+popover.background modelbutton.flat {
+    padding: 4px 16px 4px 16px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    transition-duration: 150ms;
+    -gtk-outline-radius: 8px;
+}
+
+popover.background modelbutton.flat:hover {
+    background-color: ACCENT-DISABLED-COLOR;
+    border: 1px solid BORDER-SHADOW;
+}
+
+popover.background modelbutton.flat:disabled {
+    color: TEXT-DISABLED-COLOR;
+}
