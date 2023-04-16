@@ -127,7 +127,7 @@ def apply_colors(hue, destination, theme_mode, apply_file, sat=None):
     :param sat: color saturation (optional)
     """
 
-    with open(os.path.expanduser(f"{destination}/{apply_file}"), "r") as file:
+    with open(os.path.expanduser(f"{destination}/{apply_file}"), "rb") as file:
         edit_file = file.read()
 
         # colorsys works in range(0, 1)
@@ -144,9 +144,9 @@ def apply_colors(hue, destination, theme_mode, apply_file, sat=None):
 
             replace_keyword = colors["elements"][element]["replace"]
 
-            edit_file = edit_file.replace(replace_keyword, f"rgba({red}, {green}, {blue}, {alpha})")
+            edit_file = edit_file.replace(replace_keyword.encode(), f"rgba({red}, {green}, {blue}, {alpha})".encode())
 
-    with open(os.path.expanduser(f"{destination}/{apply_file}"), "w") as file:
+    with open(os.path.expanduser(f"{destination}/{apply_file}"), "wb") as file:
         file.write(edit_file)
 
 

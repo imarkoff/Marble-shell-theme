@@ -93,7 +93,7 @@
     outline-style: dashed;
     outline-offset: -3px;
     outline-width: 1px;
-    -gtk-outline-radius: 4px;
+    -gtk-outline-radius: 10px;
     -gtk-secondary-caret-color: @accent_bg_color;
 }
 
@@ -160,7 +160,7 @@ headerbar button.titlebutton {
     border: 1px solid @shade_color;
 }
 
-stackswitcher button {
+stackswitcher.linked button {
     background-color: ACCENT-DISABLED-COLOR;
     border: 1px solid @shade_color;
     padding: 5px 15px;
@@ -177,18 +177,22 @@ stackswitcher button:hover, stackswitcher button:checked {
     background-color: ACCENT-DISABLED_HOVER;
 }
 
-stackswitcher button:first-child {
+stackswitcher.linked button:first-child {
     border-radius: 10px 0 0 10px;
 }
 
-stackswitcher button:last-child {
+stackswitcher.linked button:last-child {
     border-radius: 0 10px 10px 0;
 }
 
-stackswitcher button:nth-child(even) {
+stackswitcher.linked button:nth-child(even) {
     border-left: none;
     border-right: none;
 }
+
+
+/* label */
+label:insensitive { color: TEXT-DISABLED-COLOR; }
 
 
 /* menu */
@@ -239,9 +243,8 @@ menu menuitem:hover,
 
 menu menuitem:disabled, .menu menuitem:disabled, .context-menu menuitem:disabled { color: TEXT-DISABLED-COLOR; }
 
-menuitem check, menuitem radio { min-height: 16px; min-width: 16px; }
-menuitem check:dir(ltr), menuitem radio:dir(ltr) { margin-right: 7px; }
-menuitem check:dir(rtl), menuitem radio:dir(rtl) { margin-left: 7px; }
+menuitem check:dir(ltr), menuitem radio:dir(ltr) { margin-right: 7px; margin-left: 0; }
+menuitem check:dir(rtl), menuitem radio:dir(rtl) { margin-left: 7px; margin-right: 0; }
 
 menu > arrow, .menu > arrow, .context-menu > arrow {
     border-color: transparent;
@@ -309,7 +312,7 @@ popover.background button:last-child {
 }
 
 popover.background modelbutton.flat {
-    padding: 4px 16px 4px 16px;
+    padding: 4px 7px 4px 7px;
     border: 1px solid transparent;
     border-radius: 9px;
     transition-duration: 150ms;
@@ -323,4 +326,179 @@ popover.background modelbutton.flat:hover {
 
 popover.background modelbutton.flat:disabled {
     color: TEXT-DISABLED-COLOR;
+}
+
+modelbutton.flat arrow.left { -gtk-icon-source: -gtk-icontheme("go-previous-symbolic"); }
+modelbutton.flat arrow.right { -gtk-icon-source: -gtk-icontheme("go-next-symbolic"); }
+
+popover check.left:dir(rtl), popover radio.left:dir(rtl) { margin-left: 0; margin-right: 12px; }
+popover check.right:dir(ltr), popover radio.right:dir(ltr) { margin-left: 12px; margin-right: 0; }
+
+
+/* check-, radio- button */
+check, radio {
+    border: 2px solid TEXT-DISABLED-COLOR;
+    margin: 0 4px;
+    min-height: 12px;
+    min-width: 12px;
+    color: transparent;
+    padding: 1px;
+    transition-duration: 150ms;
+}
+
+check { border-radius: 6px; -gtk-icon-source: image(-gtk-recolor(url("check-symbolic.svg")), -gtk-recolor(url("check-symbolic.symbolic.png"))); }
+radio { border-radius: 100%; -gtk-icon-source: image(-gtk-recolor(url("bullet-symbolic.svg")), -gtk-recolor(url("bullet-symbolic.symbolic.png"))); }
+check:indeterminate, radio:indeterminate { -gtk-icon-source: image(-gtk-recolor(url("dash-symbolic.svg")), -gtk-recolor(url("dash-symbolic.symbolic.png"))); }
+
+check:hover, radio:hover, check:focus, radio:focus {
+    color: TEXT-DISABLED-COLOR;
+    background-color: alpha(ACCENT-COLOR, 0.3);
+    border-color: BORDER-MENU-SHADOW;
+}
+check:disabled, radio:disabled {
+    border-color: alpha(TEXT-DISABLED-COLOR, 0.25);
+}
+
+check:checked, check:indeterminate,
+radio:checked, radio:indeterminate {
+    color: TEXT-PRIMARY-COLOR;
+    background-color: ACCENT-COLOR;
+    border-color: transparent;
+}
+check:checked:hover, check:indeterminate:hover, check:checked:focus,
+radio:checked:hover, radio:indeterminate:hover, radio:checked:focus {
+    color: TEXT-SECONDARY-COLOR;
+    background-color: ACCENT_HOVER;
+    border-color: BORDER-MENU-SHADOW;
+}
+check:checked:disabled, check:indeterminate:disabled,
+radio:checked:disabled, radio:indeterminate:disabled {
+    background-color: alpha(ACCENT-COLOR, 0.5);
+    color: TEXT-SECONDARY-COLOR;
+    border-color: transparent;
+}
+
+checkbutton label:insensitive, radiobutton label:insensitive { color: TEXT-DISABLED-COLOR; }
+
+checkbutton.text-button, radiobutton.text-button {
+    padding: 2px 0;
+    outline-offset: 0;
+    -gtk-outline-radius: 8px;
+}
+checkbutton.text-button:dir(ltr), radiobutton.text-button:dir(ltr) { padding-right: 4px; }
+checkbutton.text-button:dir(rtl), radiobutton.text-button:dir(rtl) { padding-left: 4px; }
+
+
+/* spinner */
+@keyframes spin { to { -gtk-icon-transform: rotate(1turn); } }
+
+spinner { opacity: 0; -gtk-icon-source: -gtk-icontheme("process-working-symbolic"); }
+
+spinner:backdrop { color: TEXT-DISABLED-COLOR; }
+
+spinner:checked { opacity: 1; animation: spin 1s linear infinite; }
+spinner:checked:disabled { opacity: 0.4; }
+
+
+/* entry / spinbutton */
+spinbutton, entry {
+    min-height: 32px;
+    border: 1px solid BORDER-SHADOW;
+    border-radius: 10px;
+    transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background-color: ACCENT-DISABLED-COLOR;
+    caret-color: TEXT-SECONDARY-COLOR;
+}
+
+entry { padding-left: 8px; padding-right: 8px; }
+
+entry:focus { border: 1px solid ACCENT-SECONDARY-COLOR; }
+
+box:not(.vertical) > entry:first-child { border-radius: 10px 0 0 10px; }
+box:not(.vertical) > entry:last-child { border-radius: 0 10px 10px 0; }
+
+box.linked:not(.horizontal) > entry:first-child { border-radius: 10px 10px 0 0; }
+box.linked:not(.horizontal) > entry { border-radius: 0; }
+box.linked:not(.horizontal) > entry:last-child { border-radius: 0 0 10px 10px; }
+
+entry:disabled, spinbutton:disabled {
+    color: TEXT-DISABLED-COLOR;
+    background-color: alpha(ACCENT-DISABLED-COLOR, 0.5);
+}
+
+
+/* combobox button */
+combobox button {
+    background-color: ACCENT-DISABLED-COLOR;
+    min-height: 32px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border: 1px solid BORDER-SHADOW;
+    border-radius: 10px;
+    -gtk-outline-radius: 10px;
+}
+
+combobox button:disabled { color: TEXT-DISABLED-COLOR; background-color: alpha(ACCENT-DISABLED-COLOR, 0.5); }
+
+.linked:not(.vertical) > combobox > box > button.combo {
+    -gtk-outline-radius: 0;
+    border-radius: 0;
+}
+
+.linked:not(.vertical) > combobox:only-child > box > button.combo, combobox button:only-child, combobox button:first-child:last-child { border-radius: 10px; -gtk-outline-radius: 10px; }
+.linked:not(.vertical) > combobox:first-child > box > button.combo, combobox button:first-child { border-radius: 10px 0 0 10px; -gtk-outline-radius: 8px 0 0 8px; }
+.linked:not(.vertical) > combobox:last-child > box > button.combo, combobox button:last-child { border-radius: 0 10px 10px 0; -gtk-outline-radius: 0 8px 8px 0; }
+
+combobox arrow { -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); min-height: 16px; min-width: 16px; }
+
+
+/* spinbutton */
+spinbutton:focus { border: 1px solid ACCENT-SECONDARY-COLOR; }
+
+spinbutton entry, spinbutton entry:disabled { background-color: transparent; border: none; }
+spinbutton entry:focus { border: none; }
+
+spinbutton entry { min-height: 32px; min-width: 32px; border-radius: 0; }
+spinbutton button { min-height: 32px; min-width: 32px; padding: 0; transition-duration: 200ms; }
+
+spinbutton button:hover { background-color: ACCENT-DISABLED_HOVER; }
+spinbutton button:active { background-color: mix(ACCENT-DISABLED_HOVER, ACCENT-COLOR, 0.2); }
+spinbutton button:disabled { color: TEXT-DISABLED-COLOR; background-color: SECTION-COLOR; }
+
+spinbutton:not(.vertical) entry, spinbutton:not(.vertical) entry:disabled, spinbutton:not(.vertical) entry:focus, spinbutton:not(.vertical) button { border-right: 1px solid BORDER-SHADOW; }
+spinbutton:not(.vertical) entry:last-child, spinbutton:not(.vertical) button:last-child { border-right: none; }
+spinbutton:not(.vertical) button:first-child, spinbutton:not(.vertical):dir(rtl) button.up { border-radius: 9px 0 0 9px; }
+spinbutton:not(.vertical) button:last-child { border-radius: 0 9px 9px 0; }
+
+spinbutton.vertical entry, spinbutton.vertical entry:disabled, spinbutton.vertical entry:focus, spinbutton.vertical button { border-bottom: 1px solid BORDER-SHADOW; }
+spinbutton.vertical entry:last-child, spinbutton.vertical button:last-child { border-bottom: none; }
+spinbutton.vertical button.up { border-radius: 9px 9px 0 0; }
+spinbutton.vertical button:last-child { border-radius: 0 0 9px 9px; }
+
+
+/* button */
+.linked > button {
+    background-color: ACCENT-DISABLED-COLOR;
+    border: 1px solid BORDER-SHADOW;
+}
+
+.linked:not(.vertical):not(stackswitcher) > button:not(.combo) {
+    padding-left: 8px;
+    padding-right: 8px;
+    min-height: 32px;
+}
+
+.linked:not(.vertical) > button:first-child:last-child:not(.combo), .linked:not(.vertical) > button:only-child:not(.combo) {
+    border-radius: 10px;
+    -gtk-outline-radius: 8px;
+}
+
+.linked:not(.vertical) > button:first-child:not(:last-child):not(.combo) {
+    border-radius: 10px 0 0 10px;
+    -gtk-outline-radius: 8px 0 0 8px;
+}
+
+.linked:not(.vertical) > button:last-child:not(:first-child):not(.combo) {
+    border-radius: 0 10px 10px 0;
+    -gtk-outline-radius: 0 8px 8px 0;
 }
