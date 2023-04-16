@@ -477,28 +477,29 @@ spinbutton.vertical button:last-child { border-radius: 0 0 9px 9px; }
 
 
 /* button */
-.linked > button {
+.linked:not(.vertical):not(stackswitcher) > button {
+    padding-left: 8px;
+    padding-right: 8px;
+    min-height: 32px;
     background-color: ACCENT-DISABLED-COLOR;
     border: 1px solid BORDER-SHADOW;
 }
 
-.linked:not(.vertical):not(stackswitcher) > button:not(.combo) {
-    padding-left: 8px;
-    padding-right: 8px;
-    min-height: 32px;
+.linked:not(.vertical):not(stackswitcher) > button:disabled {
+    background-color: alpha(ACCENT-DISABLED-COLOR, 0.5);
 }
 
-.linked:not(.vertical) > button:first-child:last-child:not(.combo), .linked:not(.vertical) > button:only-child:not(.combo) {
+.linked:not(.vertical) > button:only-child {
     border-radius: 10px;
     -gtk-outline-radius: 8px;
 }
 
-.linked:not(.vertical) > button:first-child:not(:last-child):not(.combo) {
+.linked:not(.vertical) > button:first-child:not(:last-child) {
     border-radius: 10px 0 0 10px;
     -gtk-outline-radius: 8px 0 0 8px;
 }
 
-.linked:not(.vertical) > button:last-child:not(:first-child):not(.combo) {
+.linked:not(.vertical) > button:last-child:not(:first-child) {
     border-radius: 0 10px 10px 0;
     -gtk-outline-radius: 0 8px 8px 0;
 }
