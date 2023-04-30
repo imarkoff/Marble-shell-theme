@@ -3,6 +3,7 @@
 	background-color: BACKGROUND-COLOR;
 	height: 38px;
 	font-size: 14px;
+	box-shadow: none;
 }
 
 #panel:overview, #panel.unlock-screen, #panel.login-screen {
@@ -56,6 +57,12 @@
 /* activites */
 .panel-button:active .clock {
 	background-color: ACCENT-DISABLED_HOVER;
+}
+
+#panel.unlock-screen .panel-button,
+#panel.login-screen .panel-button,
+#panel:overview .panel-button {
+	color: TEXT-PRIMARY-COLOR !important;
 }
 
 #panel .power-status.panel-status-indicators-box {

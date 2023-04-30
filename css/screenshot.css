@@ -9,6 +9,7 @@
 
 .screenshot-ui-show-pointer-button,
 .screenshot-ui-type-button {
+	color: TEXT-PRIMARY-COLOR;
 	border-radius: 15px;
 	transition-duration: 100ms;
 }

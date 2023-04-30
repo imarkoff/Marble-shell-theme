@@ -88,14 +88,16 @@
 	background-color: TEXT-SECONDARY-COLOR;
 }
 
+
+/* page arrow */
 .page-navigation-arrow {
 	border-radius: 99px;
-	color: TEXT-PRIMARY-COLOR;
 	transition-duration: 100ms;
 }
 
-.page-navigation-arrow>StIcon {
+.page-navigation-arrow > StIcon {
 	margin: 0;
+	color: TEXT-PRIMARY-COLOR;
 }
 
 .page-navigation-arrow:hover {
