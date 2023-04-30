@@ -148,28 +148,24 @@
 	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
 }
 
-.weather-button .weather-header,
-.events-button .events-title,
-.world-clocks-button .world-clocks-header {
-	color: TEXT-PRIMARY-COLOR;
-}
-
-.events-button .event-time {
-	color: TEXT-SECONDARY-COLOR;
-}
-
 .events-button:active,
 .world-clock-button:active,
 .weather-button:active {
 	background-color: ACCENT-DISABLED_HOVER;
 }
 
-.world-clocks-button .world-clocks-time,
-.world-clocks-button .world-clocks-city,
-.world-clocks-button .world-clocks-timezone {
+.weather-button .weather-header,
+.events-button .events-title,
+.world-clocks-button .world-clocks-header {
 	color: TEXT-SECONDARY-COLOR;
 }
 
-.weather-button .weather-forecast-time {
-	color: TEXT-SECONDARY-COLOR;
-}
+.events-button .events-list { color: TEXT-PRIMARY-COLOR; }
+.events-button .event-time { color: TEXT-SECONDARY-COLOR; }
+
+
+.world-clocks-button .world-clocks-time { color: TEXT-PRIMARY-COLOR; }
+.world-clocks-button .world-clocks-city,
+.world-clocks-button .world-clocks-timezone { color: TEXT-SECONDARY-COLOR; }
+
+.weather-button .weather-forecast-time {color: TEXT-SECONDARY-COLOR; }
