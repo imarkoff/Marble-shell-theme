@@ -1,0 +1,16 @@
+<svg height="28" width="23" xmlns="http://www.w3.org/2000/svg">
+<g
+     style="display:inline"
+     id="g59"
+     transform="matrix(1.3538292,0,0,1.3538292,-2.4309332,-1.7435917)"><path
+       d="m 388,342 c -2.207,0 -4,1.793 -4,4 0,2.207 1.793,4 4,4 2.208,0 4,-1.793 4,-4 0,-2.207 -1.792,-4 -4,-4 z"
+       style="color:#bebebe;font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:medium;line-height:normal;font-family:'Andale Mono';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.389;marker:none"
+       transform="translate(-381,-339)"
+       id="path57" /></g>
+<path
+     id="rect658"
+     style="display:inline;fill:#bebebe;fill-opacity:1;stroke-width:2.06045"
+     d="M 11.406769,4.171029 C 10.577699,4.212137 10.201088,5.0062697 9.6788849,5.4951463 7.2579983,8.1348246 6.7253136,8.6835873 4.2631958,11.286649 3.101769,12.506559 2.054652,13.256652 2.054652,15.008488 c -0.00148,0.0091 -0.00414,0.483824 -0.00414,0.02742 v 2.067705 c 0.00116,4.107416 2.7355287,6.729761 7.0051944,6.727499 h 5.2123706 c 3.581869,0 6.68103,-2.979059 6.681411,-6.428505 v -1.363374 c -5.97e-4,-0.02615 -0.002,-0.05228 -0.0042,-0.07835 0,-2.23901 -0.04001,-2.467385 -2.185761,-4.666732 C 16.005813,8.3734396 15.194839,7.4809756 12.4551,4.5471097 12.184367,4.2847559 11.79187,4.1499723 11.406769,4.171029 Z"
+     sodipodi:nodetypes="cccccccccccccc"
+     inkscape:label="rect658" />
+</svg>
