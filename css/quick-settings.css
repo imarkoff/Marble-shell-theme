@@ -103,8 +103,9 @@
 .quick-toggle-menu {
 	background-color: BACKGROUND-COLOR !important;
 	color: TEXT-PRIMARY-COLOR !important;
-	border-radius: 20px;
+	border-radius: 18px;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+  	margin: 12px auto;
 }
 
 /* connect / disconnect text color */
