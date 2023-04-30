@@ -113,10 +113,15 @@
 }
 
 .quick-toggle-menu .header .icon {
-	background-color: ACCENT-COLOR;
+	background-color: ACCENT-DISABLED_HOVER;
+	color: TEXT-PRIMARY-COLOR;
 	border-radius: 12px;
 	icon-size: 1.4em;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.quick-toggle-menu .header .icon.active {
+	background-color: ACCENT-COLOR;
 }
 
 .level-bar {
