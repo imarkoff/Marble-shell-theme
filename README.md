@@ -87,13 +87,30 @@ You can install several themes in one string: `python install.py --red --green -
 | --sat  | (0 - 250)        | custom color saturation (<100% - reduce, >100% - increase) |
 
 #### Panel tweaks
+
+**Panel default size**
+
 ![Panel default size](./readme-images/tweaks/panel-default-size.png "Panel default size")
+
+**Panel without button background**
+
 ![Panel without buttons background](./readme-images/tweaks/panel-no-pill.png "Panel without buttons background")
+
 | Option                     | Secondary option | Description                    |
 |----------------------------|------------------|--------------------------------|
 | -Pds, --panel_default_size |                  | set default panel size         |
 | -Pnp, --panel_no_pill      |                  | remove panel button background |
 | -Ptc, --panel_text_color   | #abcdef          | custom panel HEX(A) text color |
+
+#### Overview tweaks
+
+**Launchpad icon**
+
+![Dash with launchpad icon](./readme-images/tweaks/dash-with-launchpad.png "Dash with launchpad icon")
+
+| Command     | Description                                   |
+|-------------|-----------------------------------------------|
+| --launchpad | Change Show Apps icon to MacOS Launchpad icon |
 
 #### Examples
 | Command                                        | Description                                                          |

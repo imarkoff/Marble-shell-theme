@@ -127,6 +127,9 @@ def apply_colors(hue, destination, theme_mode, apply_file, sat=None):
     :param sat: color saturation (optional)
     """
 
+    if (not apply_file.lower().endswith(('.css', '.svg'))):
+        return
+
     with open(os.path.expanduser(f"{destination}/{apply_file}"), "r") as file:
         edit_file = file.read()
 
@@ -222,10 +225,10 @@ def main():
                                 custom grayblue accent color, 50% of stock saturation, dark mode
                 '''))
 
-    # Add default arguments
+    # Default arguments
     parser.add_argument('-r', '--remove', action='store_true', help='remove all "Marble" themes')
 
-    # Add arguments for default accent colors
+    # Default accent colors
     default_args = parser.add_argument_group('Install default theme')
     default_args.add_argument('-a', '--all', action='store_true', help='all available accent colors')
     default_args.add_argument('--red', action='store_true', help='red theme only')
@@ -236,23 +239,27 @@ def main():
     default_args.add_argument('--yellow', action='store_true', help='yellow theme only')
     default_args.add_argument('--gray', action='store_true', help='gray theme only')
 
-    # Add arguments for custom accent colors
+    # Custom accent colors
     custom_args = parser.add_argument_group('Install custom color theme')
     custom_args.add_argument('--hue', type=int, choices=range(0, 361), help='generate theme from Hue prompt',
                              metavar='(0 - 360)')
     custom_args.add_argument('--name', nargs='?', help='theme name (optional)')
 
-    # Add arguments for optional theme tweaks
+    # Optional theme tweaks
     color_tweaks = parser.add_argument_group('Optional theme tweaks')
     color_tweaks.add_argument('--mode', choices=['light', 'dark'], help='select a specific theme mode to install')
     color_tweaks.add_argument('--sat', type=int, choices=range(0, 251),
                               help='custom color saturation (<100%% - reduce, >100%% - increase)', metavar='(0 - 250)%')
 
-    # Add arguments for panel tweaks
+    # Panel tweaks
     panel_args = parser.add_argument_group('Panel tweaks')
     panel_args.add_argument('-Pds', '--panel_default_size', action='store_true', help='set default panel size')
     panel_args.add_argument('-Pnp', '--panel_no_pill', action='store_true', help='remove panel button background')
     panel_args.add_argument('-Ptc', '--panel_text_color', type=str, nargs='?', help='custom panel HEX(A) text color')
+
+    # Overview tweaks
+    overview_args = parser.add_argument_group('Overview tweaks')
+    overview_args.add_argument('--launchpad', action='store_true', help='change Show Apps icon to MacOS Launchpad icon')
     
     args = parser.parse_args()
 
@@ -260,6 +267,7 @@ def main():
 
     generate_file("./css/", gnome_shell_css)
 
+    # panel tweaks
     if args.panel_default_size:
         concatenate_files("./tweaks/panel/def-size.css", gnome_shell_css)
 
@@ -273,6 +281,11 @@ def main():
                     .clock-display StIcon {\
                         color: rgba(" + ', '.join(map(str, hex_to_rgba(args.panel_text_color))) + ");\
                     }")
+
+    # dock tweaks
+    if args.launchpad:
+        concatenate_files("./tweaks/launchpad/launchpad.css", gnome_shell_css)
+        os.system("cp ./tweaks/launchpad/launchpad.png ./gnome-shell/")
 
     # Process the arguments and perform the installation accordingly
     if args.remove:
@@ -311,3 +324,5 @@ if __name__ == "__main__":
     main()
 
     os.remove(gnome_shell_css)
+    if os.path.exists("./gnome-shell/launchpad.png"):
+        os.remove("./gnome-shell/launchpad.png")
