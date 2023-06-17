@@ -64,7 +64,7 @@
 .popup-sub-menu .popup-menu-item {
 	margin: 0;
 	color: TEXT-PRIMARY-COLOR;
-
+	background-color: transparent;
 }
 
 .popup-sub-menu .popup-menu-item:last-child {
