@@ -69,16 +69,22 @@
 
 
 /* if first button: margin-right: 12px/2 */
-.modal-dialog-linked-button:first-child,
-.notification-button:first-child,
-.hotplug-notification-item:first-child {
+.modal-dialog-linked-button:ltr:first-child,
+.notification-button:ltr:first-child,
+.hotplug-notification-item:ltr:first-child,
+.modal-dialog-linked-button:rtl:last-child,
+.notification-button:rtl:last-child,
+.hotplug-notification-item:rtl:last-child {
 	margin: 0 6px 12px 12px !important;
 }
 
 /* if last button: margin-left: 12px/2 */
-.modal-dialog-linked-button:last-child,
-.notification-button:last-child,
-.hotplug-notification-item:last-child {
+.modal-dialog-linked-button:ltr:last-child,
+.notification-button:ltr:last-child,
+.hotplug-notification-item:ltr:last-child,
+.modal-dialog-linked-button:rtl:first-child,
+.notification-button:rtl:first-child,
+.hotplug-notification-item:rtl:first-child {
 	margin: 0 12px 12px 6px !important;
 }
 
