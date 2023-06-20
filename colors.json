@@ -1,6 +1,7 @@
 {
     "elements" : {
-        "accent-color": {
+        "accent-color" : {
+            "_comment" : "Active buttons/toggles",
             "replace" : "ACCENT-COLOR",
 
             "light" : {
@@ -15,8 +16,8 @@
                 "a" : 1
             }
         },
-
         "accent_hover" : {
+            "_comment" : "Hover color in active buttons/toggles",
             "replace" : "ACCENT_HOVER",
 
             "light" : {
@@ -33,6 +34,7 @@
         },
 
         "accent-disabled" : {
+            "_comment" : "Buttons / disabled toggles",
             "replace" : "ACCENT-DISABLED-COLOR",
             
             "light" : {
@@ -48,6 +50,7 @@
             }
         },
         "accent-disabled_hover" : {
+            "_comment" : "Hover color in buttons / disabled toggles",
             "replace" : "ACCENT-DISABLED_HOVER",
 
             "light" : {
@@ -64,6 +67,7 @@
         },
 
         "accent-secondary-color" : {
+            "_comment" : "Capture button in Screenshot UI, checkboxes; borders when focusing on element",
             "replace" : "ACCENT-SECONDARY-COLOR",
             
             "light" : {
@@ -79,6 +83,7 @@
             }
         },
         "accent-secondary_hover" : {
+            "_comment" : "Secondary accent color on hover",
             "replace" : "ACCENT-SECONDARY_HOVER",
 
             "light" : {
@@ -95,6 +100,7 @@
         },
         
         "accent-opacity-color" : {
+            "_comment" : "Accent color, but with transparency. Used in selected workspace indicator / tiled windows / window selection (Screenshot UI)",
             "replace": "ACCENT-OPACITY-COLOR",
             
             "light" : {
@@ -111,6 +117,7 @@
         },
 
         "background-color" : {
+            "_comment" : "Background color. Used in overview, panel, different menus...",
             "replace" : "BACKGROUND-COLOR",
 
             "light" : {
@@ -127,6 +134,7 @@
         },
         
         "dash-color" : {
+            "_comment" : "Special color for dash background",
             "replace" : "DASH-COLOR",
 
             "light" : {
@@ -142,6 +150,7 @@
             }
         },
         "dash_overview" : {
+            "_comment" : "Dash backround when in overview",
             "replace" : "DASH_OVERVIEW",
 
             "light" : {
@@ -158,6 +167,7 @@
         },
 
         "well-app-selected" : {
+            "_comment" : "Running app dot",
             "replace" : "WELL-APP-SELECTED",
 
             "light" : {
@@ -174,6 +184,7 @@
         },
 
         "text-primary-color" : {
+            "_comment" : "Used as primary color in text",
             "replace" : "TEXT-PRIMARY-COLOR",
             
             "light" : {
@@ -188,8 +199,8 @@
                 "a" : 1
             }
         },
-
         "text-secondary-color" : {
+            "_comment" : "Item description, time stamp",
             "replace" : "TEXT-SECONDARY-COLOR",
 
             "light" : {
@@ -204,8 +215,8 @@
                 "a" : 0.67
             }
         },
-
         "text-disabled-color" : {
+            "_comment" : "No notifications, Searching..., etc. labels",
             "replace" : "TEXT-DISABLED-COLOR",
 
             "light" : {
@@ -222,6 +233,7 @@
         },
 
         "text-inverted-color": {
+            "_comment" : "Screenshot UI shot/cast button",
             "replace" : "TEXT-INVERTED-COLOR",
 
             "light" : {
@@ -238,6 +250,7 @@
         },
 
         "border-shadow" : {
+            "_comment" : "Used as border in buttons",
             "replace" : "BORDER-SHADOW",
 
             "light" : {
@@ -252,8 +265,8 @@
                 "a" : 0.03
             }
         },
-
         "border-menu-shadow" : {
+            "_comment" : "Used as border in menus",
             "replace" : "BORDER-MENU-SHADOW",
 
             "light" : {
@@ -270,6 +283,7 @@
         },
 
         "separator-color" : {
+            "_comment" : "Color for separators",
             "replace" : "SEPARATOR-COLOR",
 
             "light" : {
@@ -286,6 +300,7 @@
         },
 
         "show-apps-icon-color" : {
+            "_comment" : "Dash: Show Apps icon",
             "replace" : "SHOW-APPS-ICON-COLOR",
 
             "light" : {
@@ -302,6 +317,7 @@
         },
 
         "scrollbar-color" : {
+            "_comment" : "Special color for scrollbars",
             "replace" : "SCROLLBAR-COLOR",
 
             "light" : {
@@ -348,6 +364,7 @@
         },
         
         "page-nav-hint" : {
+            "_comment" : "Left and right hints on edges of the screen when dragging app icon ",
             "replace" : "PAGE-NAV-HINT",
 
             "light" : {
@@ -364,6 +381,7 @@
         },
     
         "section-color" : {
+            "_comment" : "Same as ACCENT-DISABLED-COLOR, but less contrast and has no transparency",
             "replace" : "SECTION-COLOR",
 
             "light" : {
@@ -380,6 +398,7 @@
         },
 
         "close-button-color" : {
+            "_comment" : "Same as ACCENT-DISABLED-COLOR, but has no transparency",
             "replace" : "CLOSE-BUTTON-COLOR",
 
             "light" : {
@@ -395,6 +414,7 @@
             }
         },
         "close-button_hover" : {
+            "_comment" : "Same as ACCENT-DISABLED_HOVER, but has no transparency",
             "replace" : "CLOSE-BUTTON_HOVER",
 
             "light" : {
