@@ -1,4 +1,5 @@
-/* Search */
+/* Entries */
+
 StEntry {
 	border-radius: 13px;
 	padding: 8px;
@@ -10,10 +11,12 @@ StEntry {
 	selected-color: TEXT-PRIMARY-COLOR;
 }
 
+/* icon in entry */
 StEntry StLabel {
 	color: TEXT-PRIMARY-COLOR;
 }
 
+/* change icon color if entry not selected */
 StEntry StLabel:insensitive {
 	color: TEXT-SECONDARY-COLOR;
 }
@@ -31,6 +34,7 @@ StEntry:focus {
 }
 
 
+/* Entry in lock screen */
 .unlock-dialog StEntry {
 	border: none !important;
 }

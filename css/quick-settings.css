@@ -1,9 +1,13 @@
-/* quick-settings */
+/* Quick Settings */
+
+/* QS section */
 .quick-settings {
 	padding: 18px;
 	border-radius: 24px;
 }
 
+
+/* screenshot / settings / lock / power options; part of quick-toggle-arrow [44+] */
 .icon-button {
 	background-color: ACCENT-DISABLED-COLOR;
 	color: TEXT-PRIMARY-COLOR;
@@ -15,33 +19,43 @@
 	background-color: ACCENT-DISABLED_HOVER;
 }
 
+.icon-button:focus,
+.quick-toggle:focus,
+.slider-bin:focus {
+	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
+}
 
-.quick-toggle,
-.quick-menu-toggle .quick-toggle {
+
+/* toggles in QS */
+.quick-toggle, /* 43 */
+.quick-menu-toggle .quick-toggle { /* 44+ */
 	color: TEXT-PRIMARY-COLOR;
 	border-radius: 15px;
 	background-color: ACCENT-DISABLED-COLOR;
 	transition-duration: 100ms;
 }
 
-.quick-menu-toggle .quick-toggle:ltr {
-	border-radius: 15px 0 0 15px;
+/* toggle name */
+.quick-toggle .quick-toggle-label {
+	font-weight: 600;
 }
 
-.quick-menu-toggle .quick-toggle:rtl {
-	border-radius: 0 15px 15px 0;
-}
+/* adjust borders if quick toggle has expandable menu button (quick-toggle-arrow)[44+] */
+.quick-menu-toggle .quick-toggle:ltr { border-radius: 15px 0 0 15px; }
+.quick-menu-toggle .quick-toggle:rtl { border-radius: 0 15px 15px 0; }
 
+/* if quick toggle has no expandable menu button (quick-toggle-arrow)[44+] */
 .quick-menu-toggle .quick-toggle:last-child {
 	border-radius: 15px;
 }
 
+/* adjust borders in expandable menu button */
 .quick-menu-toggle .quick-toggle-arrow:ltr {
 	border-radius: 0 15px 15px 0;
 	border-left-width: 2px;
 }
 
-.quick-menu-toggle .quicl-toggle-arrow:rtl {
+.quick-menu-toggle .quick-toggle-arrow:rtl {
 	border-radius: 15px 0 0 15px;
 	border-right-width: 2px;
 }
@@ -66,9 +80,12 @@
 	background-color: ACCENT_HOVER;
 }
 
+
+/* quick slider section */
+/* fix margins in quick slider dection */
 .quick-slider .slider-bin {
 	padding: 2px 1px;
-	margin: 0px;
+	margin: 0;
 	color: TEXT-PRIMARY-COLOR;
 }
 
@@ -76,18 +93,9 @@
 	background-color: ACCENT-DISABLED-COLOR;
 }
 
-.icon-button:focus,
-.quick-toggle:focus,
-.slider-bin:focus {
-	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
-}
-
-.quick-toggle .quick-toggle-label {
-	font-weight: 600;
-}
-
+/* quick slider icon */
 .quick-slider .icon-button {
-	background-color: BACKGROUND-COLOR;
+	background-color: transparent;
 	box-shadow: none;
 	padding: 6px;
 	border-radius: 11px;
@@ -100,19 +108,19 @@
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
+
+/* expanded menu */
+/* overrides because of 
+https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0ecd66efd50a1#fb75f14505e58d3bc51f2498ef328d1405d89e83_94_95 */
 .quick-toggle-menu {
-	background-color: BACKGROUND-COLOR !important;
+	background-color: BACKGROUND-COLOR !important; 
 	color: TEXT-PRIMARY-COLOR !important;
 	border-radius: 18px;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
   	margin: 12px auto;
 }
 
-/* connect / disconnect text color */
-.device-subtitle {
-	color: TEXT-SECONDARY-COLOR;
-}
-
+/* header icon in expanded menu */
 .quick-toggle-menu .header .icon {
 	background-color: ACCENT-DISABLED_HOVER;
 	color: TEXT-PRIMARY-COLOR;
@@ -125,12 +133,15 @@
 	background-color: ACCENT-COLOR;
 }
 
-.level-bar {
-	padding: 0;
-	background-color: ACCENT-DISABLED-COLOR;
+/* connect / disconnect text color (expanded menu) */
+.device-subtitle {
+	color: TEXT-SECONDARY-COLOR;
 }
 
+
 /* background apps */
+
+/* make toggle transparent in QS */
 .background-apps-quick-toggle {
 	background-color: transparent;
 }
@@ -144,11 +155,13 @@
 	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR;
 }
 
+/* background app name */
 .background-app-item .title {
 	color: TEXT-PRIMARY-COLOR;
 	font-weight: 600;
 }
 
+/* close button */
 .background-app-item .close-button {
 	color: TEXT-PRIMARY-COLOR;
 	background-color: ACCENT-DISABLED-COLOR;

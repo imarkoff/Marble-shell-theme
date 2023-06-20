@@ -1,8 +1,10 @@
-/* default panel size */
-#panel{
+/* Set default panel size */
+
+#panel {
   height: 2.2em;
   font-size: 15px;
 }
+
 .panel-button,
 .clock,
 .clock-display StIcon {

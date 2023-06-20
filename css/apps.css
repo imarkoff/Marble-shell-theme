@@ -1,30 +1,48 @@
-/* App icons */
-.app-well-app.app-folder .overview-icon,
-.app-folder.grid-search-result .overview-icon,
+/* Apps / Dash */
+
+/* apps / folders / apps & folders in search */
 .app-well-app .overview-icon,
-.grid-search-result .overview-icon {
-	box-shadow: inset 0 0 0 0px rgba(255, 255, 255, 0);
-	/* fix default dash focused box-shadow*/
+.app-well-app.app-folder .overview-icon,
+.grid-search-result .overview-icon,
+.app-folder.grid-search-result .overview-icon {
+	box-shadow: inset 0 0 0 0px rgba(255, 255, 255, 0); /* fix default dash focused box-shadow*/
 	transition-duration: 100ms;
 	border-radius: 20px;
 	color: TEXT-PRIMARY-COLOR;
-	/* ubuntu fix */
 }
 
-.app-well-app:hover .overview-icon,
-.app-well-app:focus .overview-icon,
-.app-well-app:selected .overview-icon,
-.show-apps:hover .overview-icon,
-.show-apps:focus .overview-icon,
-.app-well-app.app-folder .overview-icon {
-	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
-	background-color: ACCENT-DISABLED-COLOR;
+/* Show Apps icon */
+.show-apps .overview-icon {
+	color: SHOW-APPS-ICON-COLOR;
 }
 
+/* folders */
 .app-well-app.app-folder .overview-icon {
 	background-color: ACCENT-DISABLED_HOVER;
 }
 
+
+.app-well-app:hover .overview-icon,
+.app-well-app:focus .overview-icon,
+.app-well-app:selected .overview-icon,
+.app-well-app.app-folder .overview-icon,
+.show-apps:hover .overview-icon,
+.show-apps:focus .overview-icon {
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	background-color: ACCENT-DISABLED-COLOR;
+}
+
+/* app icons effects in dash */
+#dash .app-well-app:hover .overview-icon,
+#dash .app-well-app:focus .overview-icon,
+#dash .app-well-app:selected .overview-icon,
+#dash .show-apps:hover .overview-icon,
+#dash .show-apps:focus .overview-icon {
+	box-shadow: inset 0 0 4px 1px WELL-APP-SELECTED;
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* effect when creating new folder */
 .app-well-app:drop .overview-icon,
 .grid-search-result:drop .overview-icon,
 .app-well-app.app-folder:drop .overview-icon,
@@ -34,7 +52,9 @@
 }
 
 
-/* folder dialog */
+/* Collapsed folders */
+
+/* collapsed folder dialog */
 .app-folder-dialog {
 	border-radius: 32px;
 	background-color: BACKGROUND-COLOR;
@@ -43,16 +63,7 @@
 	box-shadow: inset 0 0 0 1px BORDER-MENU-SHADOW;
 }
 
-.app-folder-dialog .app-well-app:hover .overview-icon,
-.app-folder-dialog .app-well-app:focus .overview-icon {
-	background-color: ACCENT-DISABLED-COLOR;
-	box-shadow: inset 1px solid BORDER-SHADOW;
-}
-
-.app-folder-dialog .folder-name-container {
-	color: TEXT-PRIMARY-COLOR;
-}
-
+/* folder title */
 .app-folder-dialog .folder-name-container .folder-name-label {
 	padding: 5px 7px;
 	color: TEXT-PRIMARY-COLOR;
@@ -60,6 +71,7 @@
 	transition-duration: 100ms;
 }
 
+/* folder title when editing */
 .app-folder-dialog .folder-name-container .folder-name-entry {
 	font-weight: 700;
 	border: none;
@@ -67,9 +79,9 @@
 	background-color: ACCENT-DISABLED-COLOR;
 	selection-background-color: ACCENT-COLOR;
 	selected-color: TEXT-PRIMARY-COLOR;
-	/* ubuntu fix */
 }
 
+/* edit folder name button */
 .app-folder-dialog .folder-name-container .edit-folder-button {
 	border-radius: 12px;
 	background-color: ACCENT-DISABLED-COLOR;
@@ -85,12 +97,14 @@
 	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
 }
 
+
 .page-indicator .page-indicator-icon {
 	background-color: TEXT-SECONDARY-COLOR;
 }
 
 
-/* page arrow */
+/* Page arrow */
+
 .page-navigation-arrow {
 	border-radius: 99px;
 	transition-duration: 100ms;
@@ -116,6 +130,8 @@
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
+
+/* left and right hints on edges of the screen when dragging app icon */
 .page-navigation-hint.next:ltr,
 .page-navigation-hint.previous:rtl {
 	background-gradient-start: PAGE-NAV-HINT;
@@ -130,6 +146,7 @@
 
 
 /* Dash */
+
 #dash .dash-background {
 	background-color: DASH-COLOR;
 	box-shadow: inset 0 0 0 1px BORDER-MENU-SHADOW;
@@ -137,19 +154,20 @@
 	border-radius: 21px;
 }
 
+/* if used Dash to Dock extension */
 #dashtodockContainer #dash .dash-background {
 	border: none;
 	border-radius: 18px;
-	/* ubuntu fix */
 	transition-duration: 250ms;
 }
 
+/* when dash in overview */
 #dashtodockContainer.overview #dash .dash-background {
 	box-shadow: inset 0 0 0 1.5px BORDER-MENU-SHADOW;
 	background-color: DASH_OVERVIEW;
 }
 
-
+/* popup label when hovering the app in dash */
 .dash-label {
 	background-color: SECTION-COLOR;
 	color: TEXT-PRIMARY-COLOR;
@@ -158,6 +176,8 @@
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.08);
 }
 
+
+/* pill below if app is running */
 .app-well-app-running-dot {
 	width: 10px;
 	height: 5px;
@@ -166,23 +186,32 @@
 	transition-duration: 100ms;
 }
 
+#dash .app-well-app:hover .app-well-app-running-dot {
+	width: 15px;
+}
+
+#dashtodockContainer .app-well-app.focused .app-well-app-running-dot {
+	width: 20px;
+}
+
+/* pill when default dash (not dash to dock) */
 #dash .app-well-app-running-dot {
 	margin-bottom: 6px;
 }
 
+
+/* elements in dash */
 .dash-item-container .app-well-app .overview-icon,
 .dash-item-container .show-apps .overview-icon {
 	border-radius: 21px;
 }
 
-#dash .app-well-app:hover .overview-icon,
-#dash .app-well-app:focus .overview-icon,
-#dash .app-well-app:selected .overview-icon,
-#dash .show-apps:hover .overview-icon,
-#dash .show-apps:focus .overview-icon {
-	box-shadow: inset 0 0 4px 1px WELL-APP-SELECTED;
-	background-color: rgba(255, 255, 255, 0.1);
+
+/* pinned apps | running apps */
+.dash-separator {
+	box-shadow: 0 0 0 0.25px TEXT-DISABLED-COLOR;
 }
+
 
 /* ubuntu fix */
 #dashtodockContainer #dash .app-well-app:hover .overview-icon,
@@ -196,7 +225,6 @@
 #dashtodockContainer .show-apps:checked .overview-icon,
 #dashtodockContainer .app-well-app.focused .overview-icon {
 	border-radius: 15px;
-	/* ubuntu fix*/
 }
 
 #dashtodockContainer .app-well-app.focused .overview-icon,
@@ -226,7 +254,7 @@
 	transition-duration: 250ms;
 }
 
-/* animation fix */
+/* animation fix when extended dash */
 #dashtodockContainer.bottom.extended.overview #dash .dash-background,
 #dashtodockContainer.bottom.extended.overview.dashtodock #dash .dash-background,
 #dashtodockContainer.bottom.extended.overview.shrink #dash .dash-background,
@@ -240,20 +268,4 @@
 #dashtodockContainer.right.extended.overview.dashtodock #dash .dash-background,
 #dashtodockContainer.right.extended.overview.shrink #dash .dash-background {
 	background-color: BACKGROUND-COLOR;
-}
-
-#dash .app-well-app:hover .app-well-app-running-dot {
-	width: 15px;
-}
-
-#dashtodockContainer .app-well-app.focused .app-well-app-running-dot {
-	width: 20px;
-}
-
-.dash-separator {
-	box-shadow: 0 0 0 0.25px TEXT-DISABLED-COLOR;
-}
-
-.show-apps .overview-icon {
-	color: SHOW-APPS-ICON-COLOR;
 }

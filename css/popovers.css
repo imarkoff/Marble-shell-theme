@@ -1,16 +1,17 @@
 /* Popovers */
-.popup-menu-content,
-.candidate-popup-content {
+
+.popup-menu-content, /* popover content */
+.candidate-popup-content { /* IBus Candidate Popup (i dunno how to call it) */
 	color: TEXT-PRIMARY-COLOR;
-	background: BACKGROUND-COLOR;
+	background: BACKGROUND-COLOR; 
 	padding: 10px;
 	border-radius: 20px;
 	border: 1px solid BORDER-MENU-SHADOW;
-	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);	
 }
 
-.popup-menu-item,
-.app-menu {
+.popup-menu-item, /* menu items */
+.app-menu { /* right-click (and panel) app menu */
 	margin: 3px 0;
 	transition-duration: 150ms;
 }
@@ -37,22 +38,19 @@
 	padding: 0 !important;
 }
 
+/* separator in popup menu */
 .popup-separator-menu-item .popup-separator-menu-item-separator {
 	height: 1px;
 	margin: 6px 0;
 	background-color: SEPARATOR-COLOR;
 }
 
-.popup-separator-menu-item-separator:ltr {
-	margin-right: 4.5px;
-}
-
-.popup-separator-menu-item-separator:rtl {
-	margin-left: 4.5px;
-}
+/* fix margins in separators */
+.popup-separator-menu-item-separator:ltr { margin-right: 4.5px; }
+.popup-separator-menu-item-separator:rtl { margin-left: 4.5px; }
 
 
-/* Popup sub menu */
+/* popover submenus */
 .popup-sub-menu {
 	background-color: ACCENT-DISABLED-COLOR;
 	color: TEXT-PRIMARY-COLOR;
@@ -61,12 +59,14 @@
 	margin: 0 0 2px 0;
 }
 
+/* submenu items */
 .popup-sub-menu .popup-menu-item {
 	margin: 0;
 	color: TEXT-PRIMARY-COLOR;
 	background-color: transparent;
 }
 
+/* make rounded borders for last element */
 .popup-sub-menu .popup-menu-item:last-child {
 	border-radius: 0 0 12px 12px;
 }
@@ -81,6 +81,7 @@
 	margin: 0;
 }
 
+/* all other graphical elements (sliders), OpenWeather Extension */
 .popup-inactive-menu-item {
 	color: TEXT-PRIMARY-COLOR;
 	background-color: transparent;

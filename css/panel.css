@@ -1,4 +1,5 @@
 /* Panel */
+
 #panel {
 	background-color: BACKGROUND-COLOR;
 	height: 36px;
@@ -6,34 +7,16 @@
 	box-shadow: none;
 }
 
+/* panel in overview, lock screen */
 #panel:overview, #panel.unlock-screen, #panel.login-screen {
 	background-color: transparent;
 }
 
-#panel .screencast-indicator,
-#panel .remote-access-indicator {
-	color: #cd9309;
-}
 
-#panel .panel-button.screen-recording-indicator {
-	background: #c01c28;
-}
-
-#panel .panel-button.screen-sharing-indicator {
-	background: #cd9309;
-}
-
-#panel .panel-button.screen-recording-indicator:hover {
-	background: rgba(192, 28, 40, 0.9);
-}
-
-#panel .panel-button.screen-sharing-indicator:hover {
-	background: rgba(205, 147, 9, 0.9);
-}
-
+/* panel buttons */
 .panel-button,
-.clock,
-.clock-display StIcon {
+.panel-button .clock, /* Date & clock */
+.clock-display StIcon { /* DND / new messages icon */
 	color: TEXT-PRIMARY-COLOR;
 	border-radius: 14px;
 	border: 4px solid transparent;
@@ -41,73 +24,62 @@
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
-.clock-display StIcon {
-	padding: 8px;
-	margin: 0;
-}
-
-#panel .power-status.panel-status-indicators-box StIcon {
-	font-size: 14px;
-}
-
 .panel-button:hover,
-.panel-button:hover .clock,
+.panel-button:hover .clock, 
 .panel-button:active,
-.panel-button:overview,
-/* activites */
 .panel-button:active .clock {
 	background-color: ACCENT-DISABLED_HOVER;
 }
 
+
+/*  indicator for active */
+#panel .screencast-indicator,
+#panel .remote-access-indicator,
+#panel .panel-button.screen-sharing-indicator { /* when sharing screen */
+	color: #cd9309;
+}
+
+#panel .panel-button.screen-sharing-indicator:hover {
+	background: rgba(205, 147, 9, 0.9);
+}
+
+/* indicator when recording screen */
+#panel .panel-button.screen-recording-indicator {
+	background: #c01c28;
+}
+
+#panel .panel-button.screen-recording-indicator:hover {
+	background: rgba(192, 28, 40, 0.9);
+}
+
+
+/* battery percentage */
+#panel .power-status.panel-status-indicators-box {
+	font-size: 12px;
+}
+
+/* battery icon */
+#panel .power-status.panel-status-indicators-box StIcon {
+	font-size: 14px;
+}
+
+
+/* panel buttons in lock screen / overview */
 #panel.unlock-screen .panel-button,
 #panel.login-screen .panel-button,
 #panel:overview .panel-button {
 	color: TEXT-PRIMARY-COLOR !important;
 }
 
-#panel .power-status.panel-status-indicators-box {
-	font-size: 12px;
-}
 
-/* date-menu-mod */
-.clock-display {
+/* panel clock fix. remove additional background */
+.clock-display { 
 	background-color: transparent !important;
 	box-shadow: none !important;
-	border: none !important;
 }
 
-.clock {
-	margin: 0 !important;
-}
-
-/* clock fix by Aylur's widgets */
-#panel .panel-button.clock-display {
-	-natural-hpadding: 0;
-	-minimum-hpadding: 0;
-}
-
-.datemenu-calendar-column {
-	padding-left: 0;
-	padding-right: 0;
-}
-
-/* if notifications are hidden, make the column centered */
-.datemenu-user {
-	padding: 30px;
-}
-
-.datemenu-user>StButton {
-	width: 160px;
-	height: 160px;
-	padding: 2px;
-	border-radius: 99px;
-	margin-bottom: 12px;
-}
-
-.datemenu-user>StButton>StWidget {
-	border-radius: 99px;
-}
-
-.datemenu-levels {
-	spacing: 8px;
+/* additional background for DND / new messages icon */
+.clock-display StIcon { 
+	padding: 8px;
+	margin: 0;
 }

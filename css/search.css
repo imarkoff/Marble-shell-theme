@@ -1,0 +1,41 @@
+/* Search */
+
+/* founded results content section */
+.search-section-content {	
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	border-radius: 15px;
+	border: none;
+	background-color: SECTION-COLOR;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+/* provider section label */
+.search-provider-icon .list-search-provider-content .list-search-provider-details {
+	width: 120px;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+/* search result listitem -> item title (with leading icon) */
+.list-search-result .list-search-result-title {
+	color: TEXT-PRIMARY-COLOR;
+}
+/* search result listitem -> item description */
+.list-search-result .list-search-result-description {
+	color: TEXT-SECONDARY-COLOR;
+}
+
+.list-search-result:focus,
+.search-provider-icon:focus,
+.list-search-result:hover,
+.search-provider-icon:hover,
+.list-search-result:selected,
+.search-provider-icon:selected {
+	background-color: ACCENT-DISABLED_HOVER;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.list-search-result:active,
+.search-provider-icon:active {
+	background-color: ACCENT-DISABLED_HOVER;
+	color: TEXT-PRIMARY-COLOR;
+}

@@ -1,3 +1,5 @@
+/* Change Show Apps icon to MacOS Launchpad icon */
+
 .show-apps .show-apps-icon {
     color: transparent;
     background-image: url("launchpad.png");

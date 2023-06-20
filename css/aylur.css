@@ -1,4 +1,6 @@
-/* Aylur's widgets */
+/* Aylur's widgets extension */
+
+/* adjust media / message / slider container in quick settings */
 .quick-settings.tweaked .media,
 .quick-settings.tweaked .message,
 .quick-settings.tweaked .quick-container {
@@ -8,6 +10,7 @@
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
+/* ajust sliders margins */
 .quick-settings.tweaked .quick-container .quick-slider {
 	margin: 2.5px 0 2.5px 0;
 }
@@ -24,10 +27,13 @@
 	margin: 0;
 }
 
+
 .quick-settings.tweaked .media {
 	font-weight: 500;
 }
 
+
+/* adjust roundness in quick toggle arrow */
 .quick-settings.adjusted .quick-toggle .quick-toggle-arrow:ltr {
 	border-radius: 0 36px 36px 0;
 }
@@ -36,6 +42,14 @@
 	border-radius: 36px 0 0 36px;
 }
 
+
+/* system usage  */
+.level-bar {
+	padding: 0;
+	background-color: ACCENT-DISABLED-COLOR;
+}
+
+/* system usage levels */
 .usage-level StIcon {
 	width: 1.29em;
 }

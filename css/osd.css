@@ -1,8 +1,9 @@
 /* OSD */
-.switcher-list,
-.resize-popup,
-.workspace-switcher,
-.osd-window {
+
+.switcher-list, /* alt + tab */
+.resize-popup, /* i dunno what is that :( */
+.workspace-switcher, /* ctrl + alt + arr_left/arr_right  */
+.osd-window /* volume/brightness/.. switcher */ {
 	color: TEXT-PRIMARY-COLOR;
 	background-color: BACKGROUND-COLOR;
 	border: 1px solid BORDER-MENU-SHADOW;
@@ -10,18 +11,25 @@
 	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.07);
 }
 
+/* alt + tab */
 .switcher-list { border-radius: 24px; }
 
-.ws-switcher-indicator {
-	background-color: TEXT-SECONDARY-COLOR;
+/* ruuning apps in switcher list */
+.switcher-list .item-box {
+	border-radius: 20px;
 }
 
-.switcher-list .item-box { border-radius: 20px; }
 .switcher-list .item-box:hover,
 .switcher-list .item-box:focus,
 .switcher-list .item-box:selected {
 	background-color: ACCENT-DISABLED-COLOR;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+
+/* ctrl + alt + arr_left/arr_right */
+.ws-switcher-indicator {
+	background-color: TEXT-SECONDARY-COLOR;
 }
 
 
@@ -34,8 +42,20 @@
 	color: TEXT-PRIMARY-COLOR;
 }
 
-.user-icon.user-avatar { box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25); }
 
+/* user avatar */
+.user-icon.user-avatar {
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+
+/* password entry */
+.prompt-dialog-password-entry {
+	background-color: SECTION-COLOR;
+}
+
+
+/* button in modals */
 .modal-dialog-linked-button,
 .notification-button,
 .hotplug-notification-item {
@@ -47,29 +67,35 @@
 	animation-duration: 100ms;
 }
 
+
+/* if first button: margin-right: 12px/2 */
 .modal-dialog-linked-button:first-child,
 .notification-button:first-child,
 .hotplug-notification-item:first-child {
 	margin: 0 6px 12px 12px !important;
 }
 
+/* if last button: margin-left: 12px/2 */
 .modal-dialog-linked-button:last-child,
 .notification-button:last-child,
 .hotplug-notification-item:last-child {
 	margin: 0 12px 12px 6px !important;
 }
 
+/* if only button: normal margin */
 .modal-dialog-linked-button:first-child:last-child,
 .notification-button:first-child:last-child,
 .hotplug-notification-item:first-child:last-child {
 	margin: 0 12px 12px 12px !important;
 }
 
+/* else: margin-right/left: 12px/2 */
 .modal-dialog-linked-button,
 .notification-button,
 .hotplug-notification-item {
 	margin: 0 6px 12px 6px !important;
 }
+
 
 .modal-dialog-linked-button:hover,
 .modal-dialog-linked-button:focus,
@@ -88,19 +114,19 @@
 	background-color: ACCENT_HOVER;
 }
 
-.modal-dialog .modal-dialog-linked-button:focus,
+.modal-dialog-linked-button:focus,
 .hotplug-notification-item:focus,
-.notification-banner .notification-button:focus {
+.notification-button:focus {
 	animation-duration: 100ms;
 	box-shadow: inset 0 0 0 1px TEXT-DISABLED-COLOR !important;
 }
 
-.modal-dialog .modal-dialog-linked-button:focus:hover,
+.modal-dialog-linked-button:focus:hover,
 .hotplug-notification-item:focus:hover,
-.notification-banner .notification-button:focus:hover,
-.modal-dialog .modal-dialog-linked-button:focus:active,
+.notification-button:focus:hover,
+.modal-dialog-linked-button:focus:active,
 .hotplug-notification-item:focus:active,
-.notification-banner .notification-button:focus:active {
+.notification-button:focus:active {
 	box-shadow: inset 0 0 0 1px TEXT-SECONDARY-COLOR !important;
 }
 
@@ -109,17 +135,4 @@
 .notification-banner .notification-button:insensitive {
 	color: TEXT-SECONDARY-COLOR;
 	background-color: ACCENT_HOVER;
-}
-
-
-.prompt-dialog-password-entry {
-	background-color: SECTION-COLOR;
-}
-
-.nm-dialog-scroll-view {
-	border: 1px solid BORDER-SHADOW;
-}
-
-.nm-dialog-item:selected {
-	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
