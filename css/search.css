@@ -1,5 +1,13 @@
 /* Search */
 
+
+/* "no results" text */
+.search-statustext {
+  color: TEXT-DISABLED-COLOR;
+  font-weight: 700;
+}
+
+
 /* founded results content section */
 .search-section-content {	
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;

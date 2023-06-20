@@ -6,6 +6,12 @@
 	padding: 0;
 }
 
+/* "No Notifications" text */
+.message-list-placeholder {
+	color: TEXT-DISABLED-COLOR;
+	font-weight: 700;
+}
+
 /* remove right margin in message list section (datemenu) */
 .message-list-sections:ltr { margin-right: 0px; }
 .message-list-sections:rtl { margin-left: 0px; }
@@ -110,5 +116,5 @@
 }
 
 
-/* url color */
+/* URLs in messages */
 .url-highlighter { link-color: ACCENT-SECONDARY-COLOR; }
