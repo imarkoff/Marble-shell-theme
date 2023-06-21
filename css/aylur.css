@@ -53,3 +53,11 @@
 .usage-level StIcon {
 	width: 1.29em;
 }
+
+
+/* dynamic-panel */
+#panel.dynamic.floating .panel-button, 
+#panel.dynamic.floating .panel-button .clock, /* Date & clock */
+#panel.dynamic.floating .clock-display StIcon { /* DND / new messages icon */
+    border-radius: 99px;
+}
