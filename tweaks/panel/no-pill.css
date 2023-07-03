@@ -1,8 +1,8 @@
 /* Remove additional background in panel buttons */
 
 .panel-button,
-.clock,
-.clock-display StIcon {
+.panel-button .clock, /* Date & clock */
+.clock-display StIcon { /* DND / new messages icon */
 	background-color: transparent;
 	box-shadow: none;
 }
