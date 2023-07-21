@@ -71,7 +71,6 @@
 }
 
 .calendar-day-base:hover,
-.calendar-day-base:active:hover,
 .calendar-day-base:selected:hover,
 .calendar .calendar-month-header .pager-button:hover {
 	background-color: ACCENT-DISABLED_HOVER;
@@ -85,7 +84,6 @@
 	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR;
 }
 
-.calendar-day-base:active,
 .calendar-day-base:selected {
 	background: ACCENT-DISABLED_HOVER;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
@@ -94,21 +92,28 @@
 /* today button */
 .calendar-today,
 .calendar-today:selected {
-	background-color: ACCENT-COLOR;
-	color: TEXT-PRIMARY-COLOR !important;
+	background-color: BUTTON-COLOR;
+	color: BUTTON-TEXT-COLOR !important;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
 .calendar-today:hover,
-.calendar-today:selected:hover {
-	background-color: ACCENT_HOVER;
-}
+.calendar-today:selected:hover,
+.calendar-today:focus,
+.calendar-today:selected:focus {
+	background-color: BUTTON_HOVER;
+} 
 
 /* if day has event */
 .calendar .calendar-day-with-events {
 	background-image: url("calendar-event.svg");
 	background-size: contain;
 	font-weight: 700;
+}
+
+.calendar .calendar-today.calendar-day-with-events {
+	background-image: url("calendar-event-today.svg");
+	background-size: contain;
 }
 
 /* weekend day button */

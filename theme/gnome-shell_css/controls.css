@@ -34,7 +34,7 @@
 
 .toggle-switch:checked {
 	background-image: url("./toggle-on.svg");
-	background-color: ACCENT-COLOR;
+	background-color: BUTTON-COLOR;
 }
 
 
@@ -54,11 +54,11 @@
 }
 
 .dnd-button .toggle-switch:checked {
-	background-color: ACCENT-COLOR;
+	background-color: BUTTON-COLOR;
 }
 
 .dnd-button:hover .toggle-switch:checked {
-	background-color: ACCENT_HOVER;
+	background-color: BUTTON_HOVER;
 }
 
 .dnd-button:focus {
@@ -109,7 +109,7 @@
 	-barlevel-background-color: ACCENT-DISABLED-COLOR;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 	/* fill */
-	-barlevel-active-background-color: ACCENT-COLOR;
+	-barlevel-active-background-color: BUTTON-COLOR;
 	/* overfill */
 	-barlevel-overdrive-color: #c01c28;
 	-barlevel-overdrive-separator-width: 2px;

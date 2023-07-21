@@ -69,15 +69,15 @@
 .quick-toggle:checked,
 .quick-menu-toggle .quick-toggle:checked,
 .quick-menu-toggle .quick-toggle-arrow:checked {
-	color: TEXT-PRIMARY-COLOR;
-	background-color: ACCENT-COLOR;
+	color: BUTTON-TEXT-COLOR;
+	background-color: BUTTON-COLOR;
 	border-color: transparent;
 }
 
 .quick-toggle:checked:hover,
 .quick-menu-toggle .quick-toggle:checked:hover,
 .quick-menu-toggle .quick-toggle-arrow:checked:hover {
-	background-color: ACCENT_HOVER;
+	background-color: BUTTON_HOVER;
 }
 
 
@@ -86,7 +86,7 @@
 .quick-slider .slider-bin {
 	padding: 2px 1px;
 	margin: 0;
-	color: TEXT-PRIMARY-COLOR;
+	color: BUTTON-TEXT-COLOR;
 }
 
 .quick-slider .slider-bin:focus {
@@ -130,7 +130,8 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 }
 
 .quick-toggle-menu .header .icon.active {
-	background-color: ACCENT-COLOR;
+	background-color: BUTTON-COLOR;
+	color: BUTTON-TEXT-COLOR;
 }
 
 /* connect / disconnect text color (expanded menu) */

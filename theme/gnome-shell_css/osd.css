@@ -112,12 +112,13 @@
 }
 
 .modal-dialog-linked-button:last-child {
-	background-color: ACCENT-COLOR;
+	background-color: BUTTON-COLOR;
+	color: BUTTON-TEXT-COLOR;
 }
 
 .modal-dialog-linked-button:last-child:hover,
 .modal-dialog-linked-button:last-child:focus {
-	background-color: ACCENT_HOVER;
+	background-color: BUTTON_HOVER;
 }
 
 .modal-dialog-linked-button:focus,
@@ -139,6 +140,6 @@
 .modal-dialog .modal-dialog-linked-button:insensitive,
 .hotplug-notification-item:insensitive,
 .notification-banner .notification-button:insensitive {
-	color: TEXT-SECONDARY-COLOR;
-	background-color: ACCENT_HOVER;
+	color: BUTTON-TEXT_SECONDARY;
+	background-color: BUTTON_INSENSITIVE;
 }

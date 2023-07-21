@@ -59,7 +59,7 @@
 /* Tiled window previews */
 .tile-preview {
 	background-color: ACCENT-OPACITY-COLOR;
-	border: 1px solid ACCENT-COLOR;
+	border: 1px solid BUTTON-COLOR;
 }
 
 /* .windows-close in screenshot.css */

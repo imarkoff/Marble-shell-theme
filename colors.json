@@ -1,6 +1,28 @@
 {
     "elements" : {
-        "accent-color" : {
+        "BUTTON-COLOR" : {
+            "_comment" : "Color for buttons. Replaced by ACCENT-COLOR / ACCENT-FILLED-COLOR",
+            "default" : "ACCENT-COLOR"
+        },
+        "BUTTON_HOVER" : {
+            "_comment" : "Hover color for buttons.",
+            "default" : "ACCENT_HOVER"
+        },
+        "BUTTON_INSENSITIVE" : {
+            "_comment" : "Color of disabled buttons",
+            "default" : "ACCENT_INSENSITIVE"
+        },
+
+        "BUTTON-TEXT-COLOR" : {
+            "_comment" : "Text color for buttons",
+            "default" : "TEXT-PRIMARY-COLOR"
+        },
+        "BUTTON-TEXT_SECONDARY" : {
+            "_comment" : "Text color for buttons",
+            "default" : "TEXT-SECONDARY-COLOR"
+        },
+
+        "ACCENT-COLOR" : {
             "_comment" : "Active buttons/toggles",
             "replace" : "ACCENT-COLOR",
 
@@ -16,9 +38,8 @@
                 "a" : 1
             }
         },
-        "accent_hover" : {
+        "ACCENT_HOVER" : {
             "_comment" : "Hover color in active buttons/toggles",
-            "replace" : "ACCENT_HOVER",
 
             "light" : {
                 "s" : 50,
@@ -32,10 +53,24 @@
                 "a" : 1
             }
         },
+        "ACCENT_INSENSITIVE" : {
+            "_comment" : "Accent color for insensitive elements",
+            
+            "light" : {
+                "s" : 52,
+                "l" : 50,
+                "a" : 0.5
+            },
 
-        "accent-disabled" : {
+            "dark" : {
+                "s" : 42,
+                "l" : 26,
+                "a" : 0.6
+            }
+        },
+
+        "ACCENT-DISABLED-COLOR" : {
             "_comment" : "Buttons / disabled toggles",
-            "replace" : "ACCENT-DISABLED-COLOR",
             
             "light" : {
                 "s" : 40,
@@ -49,9 +84,8 @@
                 "a" : 0.08
             }
         },
-        "accent-disabled_hover" : {
+        "ACCENT-DISABLED_HOVER" : {
             "_comment" : "Hover color in buttons / disabled toggles",
-            "replace" : "ACCENT-DISABLED_HOVER",
 
             "light" : {
                 "s" : 35,
@@ -66,9 +100,8 @@
             }
         },
 
-        "accent-secondary-color" : {
+        "ACCENT-SECONDARY-COLOR" : {
             "_comment" : "Capture button in Screenshot UI, checkboxes; borders when focusing on element",
-            "replace" : "ACCENT-SECONDARY-COLOR",
             
             "light" : {
                 "s" : 20,
@@ -82,9 +115,8 @@
                 "a" : 1
             }
         },
-        "accent-secondary_hover" : {
+        "ACCENT-SECONDARY_HOVER" : {
             "_comment" : "Secondary accent color on hover",
-            "replace" : "ACCENT-SECONDARY_HOVER",
 
             "light" : {
                 "s" : 20,
@@ -99,9 +131,8 @@
             }
         },
         
-        "accent-opacity-color" : {
+        "ACCENT-OPACITY-COLOR" : {
             "_comment" : "Accent color, but with transparency. Used in selected workspace indicator / tiled windows / window selection (Screenshot UI)",
-            "replace": "ACCENT-OPACITY-COLOR",
             
             "light" : {
                 "s" : 78,
@@ -116,9 +147,54 @@
             }
         },
 
-        "background-color" : {
+        "ACCENT-FILLED-COLOR" : {
+            "_comment" : "Accent color but more vibrant",
+
+            "light" : {
+                "s" : 76,
+                "l" : 68,
+                "a" : 1
+            },
+
+            "dark" : {
+                "s" : 76,
+                "l" : 68,
+                "a" : 1
+            }
+        },
+        "ACCENT-FILLED_HOVER" : {
+            "_comment" : "Hover effect for accent filled color",
+
+            "light" : {
+                "s" : 70,
+                "l" : 60,
+                "a" : 1
+            },
+
+            "dark" : {
+                "s" : 80,
+                "l" : 75,
+                "a" : 1
+            }
+        },
+        "ACCENT-FILLED_INSENSITIVE" : {
+            "_comment" : "Vibrant color for insensitive elements",
+
+            "light" : {
+                "s" : 76,
+                "l" : 40,
+                "a" : 0.4
+            },
+
+            "dark" : {
+                "s" : 76,
+                "l" : 68,
+                "a" : 0.5
+            }
+        },
+
+        "BACKGROUND-COLOR" : {
             "_comment" : "Background color. Used in overview, panel, different menus...",
-            "replace" : "BACKGROUND-COLOR",
 
             "light" : {
                 "s" : 64,
@@ -133,9 +209,8 @@
             }
         },
         
-        "dash-color" : {
-            "_comment" : "Special color for dash background",
-            "replace" : "DASH-COLOR",
+        "DASH-COLOR" : {
+            "_comment" : "Special background color for dash",
 
             "light" : {
                 "s" : 40,
@@ -149,9 +224,8 @@
                 "a" : 0.7
             }
         },
-        "dash_overview" : {
-            "_comment" : "Dash backround when in overview",
-            "replace" : "DASH_OVERVIEW",
+        "DASH_OVERVIEW" : {
+            "_comment" : "Dash background when in overview",
 
             "light" : {
                 "s" : 60,
@@ -166,9 +240,8 @@
             }
         },
 
-        "well-app-selected" : {
+        "WELL-APP-SELECTED" : {
             "_comment" : "Running app dot",
-            "replace" : "WELL-APP-SELECTED",
 
             "light" : {
                 "s" : 20,
@@ -183,9 +256,8 @@
             }
         },
 
-        "text-primary-color" : {
+        "TEXT-PRIMARY-COLOR" : {
             "_comment" : "Used as primary color in text",
-            "replace" : "TEXT-PRIMARY-COLOR",
             
             "light" : {
                 "s" : 71,
@@ -199,9 +271,8 @@
                 "a" : 1
             }
         },
-        "text-secondary-color" : {
+        "TEXT-SECONDARY-COLOR" : {
             "_comment" : "Item description, time stamp",
-            "replace" : "TEXT-SECONDARY-COLOR",
 
             "light" : {
                 "s" : 71,
@@ -215,9 +286,8 @@
                 "a" : 0.67
             }
         },
-        "text-disabled-color" : {
+        "TEXT-DISABLED-COLOR" : {
             "_comment" : "No notifications, Searching..., etc. labels",
-            "replace" : "TEXT-DISABLED-COLOR",
 
             "light" : {
                 "s" : 71,
@@ -232,9 +302,8 @@
             }
         },
 
-        "text-inverted-color": {
+        "TEXT-INVERTED-COLOR": {
             "_comment" : "Screenshot UI shot/cast button",
-            "replace" : "TEXT-INVERTED-COLOR",
 
             "light" : {
                 "s" : 65,
@@ -249,9 +318,51 @@
             }
         },
 
-        "border-shadow" : {
+        "TEXT-WHITE-COLOR" : {
+            
+            "light" : {
+                "s" : 65,
+                "l" : 95,
+                "a" : 1
+            },
+
+            "dark" : {
+                "s" : 65,
+                "l" : 95,
+                "a" : 1
+            }
+        },
+        "TEXT-BLACK-COLOR" : {
+
+            "light" : {
+                "s" : 71,
+                "l" : 10,
+                "a" : 0.87
+            },
+
+            "dark" : {
+                "s" : 71,
+                "l" : 10,
+                "a" : 0.87
+            }
+        },
+        "TEXT-BLACK_SECONDARY" : {
+
+            "light" : {
+                "s" : 71,
+                "l" : 10,
+                "a" : 0.6
+            },
+
+            "dark" : {
+                "s" : 71,
+                "l" : 10,
+                "a" : 0.67
+            }
+        },
+
+        "BORDER-SHADOW" : {
             "_comment" : "Used as border in buttons",
-            "replace" : "BORDER-SHADOW",
 
             "light" : {
                 "s" : 0,
@@ -265,9 +376,8 @@
                 "a" : 0.03
             }
         },
-        "border-menu-shadow" : {
+        "BORDER-MENU-SHADOW" : {
             "_comment" : "Used as border in menus",
-            "replace" : "BORDER-MENU-SHADOW",
 
             "light" : {
                 "s" : 0,
@@ -282,9 +392,8 @@
             }
         },
 
-        "separator-color" : {
+        "SEPARATOR-COLOR" : {
             "_comment" : "Color for separators",
-            "replace" : "SEPARATOR-COLOR",
 
             "light" : {
                 "s" : 0,
@@ -299,9 +408,8 @@
             }
         },
 
-        "show-apps-icon-color" : {
+        "SHOW-APPS-ICON-COLOR" : {
             "_comment" : "Dash: Show Apps icon",
-            "replace" : "SHOW-APPS-ICON-COLOR",
 
             "light" : {
                 "s" : 4,
@@ -316,9 +424,8 @@
             }
         },
 
-        "scrollbar-color" : {
+        "SCROLLBAR-COLOR" : {
             "_comment" : "Special color for scrollbars",
-            "replace" : "SCROLLBAR-COLOR",
 
             "light" : {
                 "s" : 20,
@@ -332,8 +439,7 @@
                 "a" : 0.75
             }
         },
-        "scrollbar_hover" : {
-            "replace" : "SCROLLBAR_HOVER",
+        "SCROLLBAR_HOVER" : {
 
             "light" : {
                 "s" : 20,
@@ -347,8 +453,7 @@
                 "a" : 1
             }
         },
-        "scrollbar_active" : {
-            "replace" : "SCROLLBAR_ACTIVE",
+        "SCROLLBAR_ACTIVE" : {
 
             "light" : {
                 "s" : 20,
@@ -363,9 +468,8 @@
             }
         },
         
-        "page-nav-hint" : {
+        "PAGE-NAV-HINT" : {
             "_comment" : "Left and right hints on edges of the screen when dragging app icon ",
-            "replace" : "PAGE-NAV-HINT",
 
             "light" : {
                 "s" : 95,
@@ -380,9 +484,8 @@
             }
         },
     
-        "section-color" : {
+        "SECTION-COLOR" : {
             "_comment" : "Same as ACCENT-DISABLED-COLOR, but less contrast and has no transparency",
-            "replace" : "SECTION-COLOR",
 
             "light" : {
                 "s" : 45,
@@ -397,9 +500,8 @@
             }
         },
 
-        "close-button-color" : {
+        "BUTTON-CLOSE-COLOR" : {
             "_comment" : "Same as ACCENT-DISABLED-COLOR, but has no transparency",
-            "replace" : "CLOSE-BUTTON-COLOR",
 
             "light" : {
                 "s" : 35,
@@ -413,9 +515,8 @@
                 "a" : 1
             }
         },
-        "close-button_hover" : {
+        "BUTTON-CLOSE_HOVER" : {
             "_comment" : "Same as ACCENT-DISABLED_HOVER, but has no transparency",
-            "replace" : "CLOSE-BUTTON_HOVER",
 
             "light" : {
                 "s" : 35,

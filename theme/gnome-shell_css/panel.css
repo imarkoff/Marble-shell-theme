@@ -10,6 +10,7 @@
 /* panel in overview, lock screen */
 #panel:overview, #panel.unlock-screen, #panel.login-screen {
 	background-color: transparent;
+	transition-duration: 0.25s;
 }
 
 
@@ -36,7 +37,7 @@
 #panel .screencast-indicator,
 #panel .remote-access-indicator,
 #panel .panel-button.screen-sharing-indicator { /* when sharing screen */
-	color: #cd9309;
+	background: #cd9309;
 }
 
 #panel .panel-button.screen-sharing-indicator:hover {

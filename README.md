@@ -20,7 +20,7 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 
 #### Panel
 ![Panel look](./readme-images/panel.png?raw=true "Panel look")
-#### Quick settings ([Fresh green leaves with fragile veins](https://www.pexels.com/photo/fresh-green-leaves-with-fragile-veins-6423448/))
+#### Quick settings ([Fresh green leaves with fragile veins](https://www.pexels.com/photo/fresh-green-leaves-with-fragile-veins-6423448/) / [Close-Up Photo of Wrinkled Parchment Paper](https://www.pexels.com/photo/close-up-photo-of-wrinkled-parchment-paper-7233131/))
 ![Quick settings look](./readme-images/qs.png?raw=true "Quick settings look")
 
 #### Modal dialog ([Wide Angle Photography of Mountain](https://www.pexels.com/photo/wide-angle-photography-of-mountain-1612559/))
@@ -47,16 +47,21 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 ## 💡 Installation
 1. Open the terminal.
 2. Clone git and change directory:
-```shell
-git clone https://github.com/imarkoff/Marble-shell-theme.git
-cd Marble-shell-theme
-```
+   ```shell
+   git clone https://github.com/imarkoff/Marble-shell-theme.git
+   cd Marble-shell-theme
+   ```
 3. Run the program (install all accent colors, light & dark mode): 
-```shell
-python install.py -a
-```
+   ```shell
+   python install.py -a
+   ```
+   - [vibrant](./readme-images/qs.png) active button colors:
+      ```shell
+      python istall.py -a --filled
+      ``` 
 4. After successful file creation open GNOME Tweaks, go to `Appearance - Themes - Shell`.
 5. Select shell theme you want.
+
 
 ## 🏮 Installation tweaks
 
@@ -79,6 +84,11 @@ You can install several themes in one string: `python install.py --red --green -
 |--------|------------------|------------------------------------------|
 | --hue  | (0 - 360)        | Generate theme from Hue prompt [0 - 360] |
 | --name | NAME             | Custom theme name                        |
+
+#### Theme colors
+| Option   | Description                    |
+|----------|--------------------------------|
+| --filled | Make accent color [more vibrant](./readme-images/qs.png?raw=true) |
 
 #### Optional theme tweaks
 | Option | Secondary option | Description                                                |

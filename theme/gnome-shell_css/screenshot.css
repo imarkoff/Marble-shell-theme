@@ -55,18 +55,18 @@
 
 /* window border when selecting */
 .screenshot-ui-window-selector-window:hover .screenshot-ui-window-selector-window-border {
-	border-color: ACCENT-COLOR;
+	border-color: BUTTON-COLOR;
 }
 
 .screenshot-ui-window-selector-window:checked .screenshot-ui-window-selector-window-border {
-	border-color: ACCENT-COLOR;
+	border-color: BUTTON-COLOR;
 	background-color: ACCENT-OPACITY-COLOR;
 }
 
 /* check icon when selected window */
 .screenshot-ui-window-selector-window:checked .screenshot-ui-window-selector-check {
-	color: TEXT-PRIMARY-COLOR;
-	background-color: ACCENT-COLOR;
+	color: BUTTON-TEXT-COLOR;
+	background-color: BUTTON-COLOR;
 }
 
 
@@ -149,7 +149,7 @@
 
 .window-close, /* close button (Overview - Workspaces - Selected window) */
 .screenshot-ui-close-button { /* close button (Screenshot UI) */
-	background-color: CLOSE-BUTTON-COLOR;
+	background-color: BUTTON-CLOSE-COLOR;
 	color: TEXT-PRIMARY-COLOR;
 	border: 1px solid BORDER-SHADOW;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
@@ -158,5 +158,5 @@
 
 .window-close:hover,
 .screenshot-ui-close-button:hover {
-	background-color: CLOSE-BUTTON_HOVER;
+	background-color: BUTTON-CLOSE_HOVER;
 }
