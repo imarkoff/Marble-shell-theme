@@ -55,7 +55,7 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
    ```shell
    python install.py -a
    ```
-   - [vibrant](./readme-images/qs.png) active button colors:
+   - [more vibrant color](./readme-images/qs.png?raw=true) in active buttons:
       ```shell
       python istall.py -a --filled
       ``` 
