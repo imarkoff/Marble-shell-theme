@@ -1,7 +1,7 @@
 /* Panel */
 
 #panel {
-	background-color: BACKGROUND-COLOR;
+	background-color: BACKGROUND-OPAQUE-COLOR;
 	height: 36px;
 	font-size: 14px;
 	box-shadow: none;

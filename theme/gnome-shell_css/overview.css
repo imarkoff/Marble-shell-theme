@@ -2,7 +2,7 @@
 
 #overviewGroup, /* overview background */
 .workspace-animation { /* spacing between worspaces (ctrl+alt+arr_left/right / 3 fingers gesture) */
-	background-color: BACKGROUND-COLOR;
+	background-color: BACKGROUND-OPAQUE-COLOR;
 }
 
 /* workspaces */

@@ -208,6 +208,21 @@
                 "a" : 0.95
             }
         },
+        "BACKGROUND-OPAQUE-COLOR" : {
+            "_comment" : "Background color panel and overview (fix flickering)",
+
+            "light" : {
+                "s" : 64,
+                "l" : 97,
+                "a" : 1
+            },
+
+            "dark" : {
+                "s" : 7,
+                "l" : 8,
+                "a" : 1
+            }
+        },
         
         "DASH-COLOR" : {
             "_comment" : "Special background color for dash",
