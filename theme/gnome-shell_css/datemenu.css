@@ -131,6 +131,13 @@
 	background-size: contain;
 }
 
+.calendar .calendar-week-number {
+	background-color: ACCENT-DISABLED-COLOR;
+	color: TEXT-SECONDARY-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	border-radius: 7px;
+}
+
 
 /* Events / World clocks / weather section */
 
