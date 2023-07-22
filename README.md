@@ -39,14 +39,14 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 </details>
 
 ## 🚧 Requirements
-- GNOME 43, 44. I don't guarantee correct functionality on other versions.
+- GNOME 43, 44. Correct functionality on other versions is not guaranteed.
 - [User Themes](https://extensions.gnome.org/extension/19/user-themes/ "User Themes") extension.
 - [GNOME Tweaks](https://gitlab.gnome.org/GNOME/gnome-tweaks "GNOME Tweaks").
 - Python 3.2+.
 
 ## 💡 Installation
 1. Open the terminal.
-2. Clone git and change directory:
+2. Clone the git repository and change the directory:
    ```shell
    git clone https://github.com/imarkoff/Marble-shell-theme.git
    cd Marble-shell-theme
@@ -57,10 +57,10 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
    ```
    - [more vibrant color](./readme-images/qs.png?raw=true) in active buttons:
       ```shell
-      python istall.py -a --filled
+      python install.py -a --filled
       ``` 
 4. After successful file creation open GNOME Tweaks, go to `Appearance - Themes - Shell`.
-5. Select shell theme you want.
+5. Select the shell theme you want.
 
 
 ## 🏮 Installation tweaks
