@@ -15,7 +15,7 @@ Shell theme for GNOME DE. Based on https://www.pling.com/p/1939902/.
 <details><summary>Click me 🐈</summary>
 
 Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
-#### Overview (Pasta [white](https://addons.opera.com/en/wallpapers/details/pasta-white/) / [night](https://addons.opera.com/en/wallpapers/details/pasta-night/))
+#### Overview [[Blur My Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/) / Light / Dark] (Pasta [white](https://addons.opera.com/en/wallpapers/details/pasta-white/) / [night](https://addons.opera.com/en/wallpapers/details/pasta-night/))
 ![Overview look](./readme-images/overview.png?raw=true "Overview look")
 
 #### Panel
@@ -34,6 +34,7 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 - Appearance:
   - Shrink the dash.
   - Default opacity.
+
 ![Dash look](./readme-images/dash.png?raw=true "Dash look")
 
 </details>
