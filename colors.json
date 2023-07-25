@@ -75,7 +75,7 @@
             "light" : {
                 "s" : 40,
                 "l" : 90,
-                "a" : 1
+                "a" : 0.9
             },
             
             "dark" : {
@@ -90,7 +90,7 @@
             "light" : {
                 "s" : 35,
                 "l" : 85,
-                "a" : 1
+                "a" : 0.95
             },
 
             "dark" : {
@@ -197,9 +197,9 @@
             "_comment" : "Background color. Used in overview, panel, different menus...",
 
             "light" : {
-                "s" : 64,
+                "s" : 50,
                 "l" : 97,
-                "a" : 1
+                "a" : 0.92
             },
 
             "dark" : {
@@ -212,7 +212,7 @@
             "_comment" : "Background color panel and overview (fix flickering)",
 
             "light" : {
-                "s" : 64,
+                "s" : 50,
                 "l" : 97,
                 "a" : 1
             },
@@ -505,7 +505,7 @@
             "light" : {
                 "s" : 45,
                 "l" : 92,
-                "a" : 1
+                "a" : 0.8
             },
 
             "dark" : {
