@@ -32,6 +32,10 @@
 	background-color: ACCENT-DISABLED_HOVER;
 }
 
+/* workspaces indicator in activities button (45+) */
+#panel .workspace-dot {
+	background-color: TEXT-PRIMARY-COLOR;
+}
 
 /*  indicator for active */
 #panel .screencast-indicator,
