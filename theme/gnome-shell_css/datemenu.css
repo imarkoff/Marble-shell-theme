@@ -62,6 +62,11 @@
 	color: TEXT-PRIMARY-COLOR;
 }
 
+/* day of week heading */
+.calendar-day.calendar-day-heading {
+	color: TEXT-SECONDARY-COLOR;
+}
+
 /* day buttons, prev/next month button */
 .calendar-day,
 .calendar-month-header .pager-button {
