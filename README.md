@@ -15,8 +15,10 @@ Shell theme for GNOME DE. Based on https://www.pling.com/p/1939902/.
 <details><summary>Click me 🐈</summary>
 
 Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
-#### Overview [[Blur My Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/) / Light / Dark] (Pasta [white](https://addons.opera.com/en/wallpapers/details/pasta-white/) / [night](https://addons.opera.com/en/wallpapers/details/pasta-night/))
-![Overview look](./readme-images/overview.png?raw=true "Overview look")
+#### Overview [[Blur My Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/) / Light / Dark] (Fold [light](https://gitlab.gnome.org/GNOME/gnome-backgrounds/-/raw/gnome-45/backgrounds/fold-l.jpg?ref_type=heads) / [dark](https://gitlab.gnome.org/GNOME/gnome-backgrounds/-/raw/gnome-45/backgrounds/fold-d.jpg?ref_type=heads))
+![Overview with Blur My Shell](./readme-images/overview_blur-my-shell.png?raw=true "Overview with Blur My Shell")
+![Overview in light mode](./readme-images/overview_light.png?raw=true "Overview in light mode")
+![Overview in dark mode](./readme-images/overview_dark.png?raw=true "Overview in dark mode")
 
 #### Panel
 ![Panel look](./readme-images/panel.png?raw=true "Panel look")
@@ -40,7 +42,7 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 </details>
 
 ## 🚧 Requirements
-- GNOME 43, 44. Correct functionality on other versions is not guaranteed.
+- GNOME 43, 44, 45. Correct functionality on other versions is not guaranteed.
 - [User Themes](https://extensions.gnome.org/extension/19/user-themes/ "User Themes") extension.
 - [GNOME Tweaks](https://gitlab.gnome.org/GNOME/gnome-tweaks "GNOME Tweaks").
 - Python 3.2+.
