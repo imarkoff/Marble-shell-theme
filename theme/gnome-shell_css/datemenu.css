@@ -63,28 +63,28 @@
 }
 
 /* day buttons, prev/next month button */
-.calendar-day-base,
+.calendar-day,
 .calendar-month-header .pager-button {
 	color: TEXT-PRIMARY-COLOR;
 	border-radius: 10px;
 	transition-duration: 100ms;
 }
 
-.calendar-day-base:hover,
-.calendar-day-base:selected:hover,
+.calendar-day:hover,
+.calendar-day:selected:hover,
 .calendar .calendar-month-header .pager-button:hover {
 	background-color: ACCENT-DISABLED_HOVER;
 	color: TEXT-PRIMARY-COLOR;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
-.calendar-day-base:focus,
+.calendar-day:focus,
 .calendar .calendar-month-header .pager-button:focus {
 	background-color: ACCENT-OPACITY-COLOR;
-	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR;
+	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
 }
 
-.calendar-day-base:selected {
+.calendar-day:selected {
 	background: ACCENT-DISABLED_HOVER;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
@@ -117,16 +117,19 @@
 }
 
 /* weekend day button */
-.calendar .calendar-nonwork-day {
+.calendar .calendar-nonwork-day, /* up to 44 */
+.calendar-weekend { /* 45+ */
 	color: TEXT-SECONDARY-COLOR;
 }
 
 /* other month day button */
-.calendar .calendar-other-month-day {
-	color: TEXT-DISABLED-COLOR;
+.calendar .calendar-other-month-day, /* up to 44 */
+.calendar-other-month { /* 45+ */
+	color: TEXT-DISABLED-COLOR !important;
 }
 
-.calendar .calendar-other-month-day.calendar-day-with-events {
+.calendar .calendar-other-month-day.calendar-day-with-events, /* up to 44 */
+.calendar-other-month.calendar-day-with-events { /* 45+ */
 	background-image: url("calendar-event-disabled.svg");
 	background-size: contain;
 }
