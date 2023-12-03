@@ -49,6 +49,10 @@
 	border-radius: 15px;
 }
 
+.quick-menu-toggle .quick-toggle-arrow {
+	border-color: transparent;
+}
+
 /* adjust borders in expandable menu button */
 .quick-menu-toggle .quick-toggle-arrow:ltr {
 	border-radius: 0 15px 15px 0;
