@@ -113,16 +113,6 @@ def main():
 
         gnome_shell_theme *= f"{config.tweaks_folder}/launchpad/launchpad.png"
 
-    # color tweaks
-    if args.filled:
-        for apply_file in os.listdir(f"{temp_gnome_folder}/"):
-            replace_keywords(f"{temp_gnome_folder}/{apply_file}",
-                             ("BUTTON-COLOR", "ACCENT-FILLED-COLOR"),
-                             ("BUTTON_HOVER", "ACCENT-FILLED_HOVER"),
-                             ("BUTTON_INSENSITIVE", "ACCENT-FILLED_INSENSITIVE"),
-                             ("BUTTON-TEXT-COLOR", "TEXT-BLACK-COLOR"),
-                             ("BUTTON-TEXT_SECONDARY", "TEXT-BLACK_SECONDARY"))
-
     # what argument colors defined
     if args.all:
         # install hue colors listed in colors.json
