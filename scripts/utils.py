@@ -12,7 +12,8 @@ def generate_file(folder, final_file):
     opened_file = open(final_file, "w")
 
     for file in os.listdir(folder):
-        opened_file.write(open(folder + file).read() + '\n')
+        with open(folder + file) as f:
+            opened_file.write(f.read() + '\n')
 
     opened_file.close()
 
@@ -24,7 +25,11 @@ def concatenate_files(edit_file, file):
     :param file: file you want to append
     """
 
-    open(edit_file, 'a').write('\n' + open(file).read())
+    with open(file, 'r') as read_file:
+        file_content = read_file.read()
+
+    with open(edit_file, 'a') as write_file:
+        write_file.write('\n' + file_content)
 
 
 def remove_files():
