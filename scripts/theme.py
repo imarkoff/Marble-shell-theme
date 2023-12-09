@@ -2,7 +2,6 @@ import os
 import shutil
 import colorsys  # colorsys.hls_to_rgb(h, l, s)
 
-from . import config     # name of folders and files
 from .utils import (
     replace_keywords,    # replace keywords in file
     copy_files,          # copy files from source to destination
