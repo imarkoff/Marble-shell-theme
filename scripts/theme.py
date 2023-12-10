@@ -123,19 +123,23 @@ class Theme:
         for apply_file in os.listdir(f"{source}/"):
             self.__apply_colors(hue, destination, theme_mode, apply_file, sat=sat)
 
-    def install(self, hue, name, sat=None):
+    def install(self, hue, name, sat=None, destination=None):
         """
         Copy files and generate theme with different accent color
         :param hue
         :param name: theme name
         :param sat: color saturation (optional)
+        :param destination: folder where theme will be installed
         """
+
+        is_dest = bool(destination)
 
         print(f"Creating {name} {', '.join(self.mode)} theme...", end=" ")
 
         try:
             for mode in self.mode:
-                destination = destination_return(self.destination_folder, name, mode, self.theme_type)
+                if not is_dest:
+                    destination = destination_return(self.destination_folder, name, mode, self.theme_type)
 
                 copy_files(self.temp_folder + '/', destination)
                 self.__apply_theme(hue, self.temp_folder, destination, mode, sat=sat)
@@ -145,3 +149,12 @@ class Theme:
 
         else:
             print("Done.")
+
+    def add_to_start(self, content):
+        """
+        Add content to the start of main styles
+        :param content: content to add
+        """
+
+        with open(self.main_styles, 'r+') as main_styles:
+            main_styles.write(content + '\n' + main_styles.read())

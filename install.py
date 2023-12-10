@@ -18,6 +18,7 @@
 import json       # working with json files
 import os         # system commands, working with files
 import argparse   # command-line options
+import shutil
 import textwrap   # example text in argparse
 
 from scripts import config     # folder and files definitions
@@ -27,6 +28,7 @@ from scripts.utils import (
     hex_to_rgba)   # convert HEX to RGBA
 
 from scripts.theme import Theme
+from scripts.gdm import GlobalTheme
 
 
 def main():
@@ -70,6 +72,10 @@ def main():
     color_tweaks.add_argument('--sat', type=int, choices=range(0, 251),
                               help='custom color saturation (<100%% - reduce, >100%% - increase)', metavar='(0 - 250)%')
 
+    gdm_theming = parser.add_argument_group('GDM theming')
+    gdm_theming.add_argument('--gdm', action='store_true', help='install GDM theme. \
+                                Requires root privileges. You must specify a specific color.')
+
     panel_args = parser.add_argument_group('Panel tweaks')
     panel_args.add_argument('-Pds', '--panel_default_size', action='store_true', help='set default panel size')
     panel_args.add_argument('-Pnp', '--panel_no_pill', action='store_true', help='remove panel button background')
@@ -82,69 +88,106 @@ def main():
 
     colors = json.load(open(config.colors_json))
 
-    gnome_shell_theme = Theme("gnome-shell", colors, f"{config.raw_theme_folder}/{config.gnome_folder}",
-                              config.themes_folder, config.temp_folder,
-                              mode=args.mode, is_filled=args.filled)
+    if args.gdm:
+        gdm_status = 1
+        if os.geteuid() != 0:
+            print("You must run this script as root to install GDM theme.")
+            return 1
 
-    # remove marble theme
-    if args.remove:
-        remove_files()
+        if args.all:
+            print("Error: You can't install all colors for GDM theme. Use specific color.")
+            return 1
 
-    # panel tweaks
-    if args.panel_default_size:
-        with open(f"{config.tweaks_folder}/panel/def-size.css", "r") as f:
-            gnome_shell_theme += f.read()
+        gdm_theme = GlobalTheme(colors, f"{config.raw_theme_folder}/{config.gnome_folder}",
+                                config.global_gnome_shell_theme, config.gnome_shell_gresource,
+                                config.temp_folder, is_filled=args.filled)
 
-    if args.panel_no_pill:
-        with open(f"{config.tweaks_folder}/panel/no-pill.css", "r") as f:
-            gnome_shell_theme += f.read()
+        if args.red or args.pink or args.purple or args.blue or args.green or args.yellow or args.gray:
+            for color in colors["colors"]:
+                if getattr(args, color):
+                    hue = colors["colors"][color]["h"]
+                    sat = colors["colors"][color]["s"] if colors["colors"][color]["s"] is not None else args.sat
 
-    if args.panel_text_color:
-        gnome_shell_theme += ".panel-button,\
-                    .clock,\
-                    .clock-display StIcon {\
-                        color: rgba(" + ', '.join(map(str, hex_to_rgba(args.panel_text_color))) + ");\
-                    }"
+                    gdm_status = gdm_theme.install(hue, sat)
 
-    # dock tweaks
-    if args.launchpad:
-        with open(f"{config.tweaks_folder}/launchpad/launchpad.css", "r") as f:
-            gnome_shell_theme += f.read()
+        elif args.hue:
+            hue = args.hue
 
-        gnome_shell_theme *= f"{config.tweaks_folder}/launchpad/launchpad.png"
+            gdm_status = gdm_theme.install(hue, args.sat)
 
-    # what argument colors defined
-    if args.all:
-        # install hue colors listed in colors.json
-        for color in colors["colors"]:
-            hue = colors["colors"][color]["h"]
-            # if saturation already defined in color (gray)
-            sat = colors["colors"][color]["s"] if colors["colors"][color]["s"] is not None else args.sat
+        else:
+            print('No color arguments specified. Use -h or --help to see the available options.')
 
-            gnome_shell_theme.install(hue, color, sat)
+        if gdm_status == 0:
+            print("\nGDM theme installed successfully.")
+            print("You need to restart gdm.service to apply changes.")
+            print("Run \"systemctl restart gdm.service\" to restart GDM.")
 
-    elif args.red or args.pink or args.purple or args.blue or args.green or args.yellow or args.gray:
-        # install selected colors
-        for color in colors["colors"]:
-            if getattr(args, color):  # if argument name is in defined colors
+    # if not GDM theme
+    else:
+        # remove marble theme
+        if args.remove:
+            remove_files()
+
+        gnome_shell_theme = Theme("gnome-shell", colors, f"{config.raw_theme_folder}/{config.gnome_folder}",
+                                  config.themes_folder, config.temp_folder,
+                                  mode=args.mode, is_filled=args.filled)
+
+        # panel tweaks
+        if args.panel_default_size:
+            with open(f"{config.tweaks_folder}/panel/def-size.css", "r") as f:
+                gnome_shell_theme += f.read()
+
+        if args.panel_no_pill:
+            with open(f"{config.tweaks_folder}/panel/no-pill.css", "r") as f:
+                gnome_shell_theme += f.read()
+
+        if args.panel_text_color:
+            gnome_shell_theme += ".panel-button,\
+                        .clock,\
+                        .clock-display StIcon {\
+                            color: rgba(" + ', '.join(map(str, hex_to_rgba(args.panel_text_color))) + ");\
+                        }"
+
+        # dock tweaks
+        if args.launchpad:
+            with open(f"{config.tweaks_folder}/launchpad/launchpad.css", "r") as f:
+                gnome_shell_theme += f.read()
+
+            gnome_shell_theme *= f"{config.tweaks_folder}/launchpad/launchpad.png"
+
+        # what argument colors defined
+        if args.all:
+            # install hue colors listed in colors.json
+            for color in colors["colors"]:
                 hue = colors["colors"][color]["h"]
                 # if saturation already defined in color (gray)
                 sat = colors["colors"][color]["s"] if colors["colors"][color]["s"] is not None else args.sat
 
                 gnome_shell_theme.install(hue, color, sat)
 
-    # custom color
-    elif args.hue:
-        hue = args.hue
-        theme_name = args.name if args.name else f'hue{hue}'  # if defined name
+        elif args.red or args.pink or args.purple or args.blue or args.green or args.yellow or args.gray:
+            # install selected colors
+            for color in colors["colors"]:
+                if getattr(args, color):  # if argument name is in defined colors
+                    hue = colors["colors"][color]["h"]
+                    # if saturation already defined in color (gray)
+                    sat = colors["colors"][color]["s"] if colors["colors"][color]["s"] is not None else args.sat
 
-        gnome_shell_theme.install(hue, theme_name, args.sat)
+                    gnome_shell_theme.install(hue, color, sat)
 
-    else:
-        print('No arguments or no color arguments specified. Use -h or --help to see the available options.')
+        # custom color
+        elif args.hue:
+            hue = args.hue
+            theme_name = args.name if args.name else f'hue{hue}'  # if defined name
+
+            gnome_shell_theme.install(hue, theme_name, args.sat)
+
+        else:
+            print('No arguments or no color arguments specified. Use -h or --help to see the available options.')
 
 
 if __name__ == "__main__":
     main()
 
-    os.system(f"rm -r {config.temp_folder}")
+    shutil.rmtree(config.temp_folder, ignore_errors=True)

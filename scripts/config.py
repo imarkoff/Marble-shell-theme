@@ -7,6 +7,11 @@ themes_folder = "~/.themes"
 raw_theme_folder = "theme"
 scripts_folder = "scripts"
 
+# GDM definitions
+global_gnome_shell_theme = "/usr/share/gnome-shell"
+gnome_shell_gresource = "gnome-shell-theme.gresource"
+extracted_gdm_folder = "theme"
+
 # files definitions
 gnome_shell_css = f"{temp_gnome_folder}/gnome-shell.css"
 colors_json = "colors.json"
