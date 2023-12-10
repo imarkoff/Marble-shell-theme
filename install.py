@@ -102,6 +102,12 @@ def main():
                                 config.global_gnome_shell_theme, config.gnome_shell_gresource,
                                 config.temp_folder, is_filled=args.filled)
 
+        if args.remove:
+            gdm_rm_status = gdm_theme.remove()
+            if gdm_rm_status == 0:
+                print("GDM theme removed successfully.")
+            return 0
+
         if args.red or args.pink or args.purple or args.blue or args.green or args.yellow or args.gray:
             for color in colors["colors"]:
                 if getattr(args, color):

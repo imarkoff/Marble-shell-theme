@@ -28,6 +28,7 @@ class GlobalTheme:
         self.backup_file = f"{self.destination_file}.backup"
         self.backup_trigger = "\n/* Marble theme */\n"  # trigger to check if theme is installed
         self.extracted_theme = f"{self.temp_folder}/{config.extracted_gdm_folder}"
+        self.gst = f"{self.destination_folder}/{self.destination_file}"  # use backup file if theme is installed
 
         os.makedirs(self.temp_folder, exist_ok=True)  # create temp folder
 
@@ -147,8 +148,6 @@ class GlobalTheme:
         :param sat: color saturation
         """
 
-        # use backup file if theme is installed
-        self.gst = f"{self.destination_folder}/{self.destination_file}"
         if self.__is_installed():
             print("Theme is installed. Reinstalling...")
             self.gst += ".backup"
@@ -175,5 +174,29 @@ class GlobalTheme:
         print("Installing theme...")
         os.system(f"sudo mv {self.extracted_theme}/{self.destination_file} "
                   f"{self.destination_folder}/{self.destination_file}")
+
+        return 0
+
+    def remove(self):
+        """
+        Remove installed theme
+        """
+
+        # use backup file if theme is installed
+        if self.__is_installed():
+            print("Theme is installed. Removing...")
+
+            if os.path.isfile(f"{self.destination_folder}/{self.backup_file}"):
+                subprocess.run(f"sudo mv {self.backup_file} {self.destination_file}",
+                               shell=True, cwd=self.destination_folder)
+
+            else:
+                print("Backup file not found. Try reinstalling gnome-shell package.")
+                return 1
+
+        else:
+            print("Theme is not installed. Nothing to remove.")
+            print("If theme is still installed globally, try reinstalling gnome-shell package.")
+            return 1
 
         return 0
