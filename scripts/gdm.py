@@ -172,7 +172,7 @@ class GlobalTheme:
 
         # install theme
         print("Installing theme...")
-        os.system(f"sudo mv {self.extracted_theme}/{self.destination_file} "
+        os.system(f"sudo cp -f {self.extracted_theme}/{self.destination_file} "
                   f"{self.destination_folder}/{self.destination_file}")
 
         return 0
