@@ -3,7 +3,7 @@ import subprocess
 import shutil
 
 from .theme import Theme
-from .utils import label_files
+from .utils import label_files, remove_properties, remove_keywords
 from . import config
 
 
@@ -29,6 +29,8 @@ class GlobalTheme:
         self.backup_trigger = "\n/* Marble theme */\n"  # trigger to check if theme is installed
         self.extracted_theme = f"{self.temp_folder}/{config.extracted_gdm_folder}"
         self.gst = f"{self.destination_folder}/{self.destination_file}"  # use backup file if theme is installed
+        self.extracted_light_theme = f"{self.extracted_theme}/gnome-shell-light.css"
+        self.extracted_dark_theme = f"{self.extracted_theme}/gnome-shell-dark.css"
 
         os.makedirs(self.temp_folder, exist_ok=True)  # create temp folder
 
@@ -102,6 +104,15 @@ class GlobalTheme:
 
         # add -light label to light theme files because they are installed to the same folder
         label_files(self.light_theme.temp_folder, "light", self.light_theme.main_styles)
+
+        # remove !important from the gnome file
+        remove_keywords(self.extracted_light_theme, "!important")
+        remove_keywords(self.extracted_dark_theme, "!important")
+
+        # remove properties from the gnome file
+        props_to_remove = ("background-color", "color", "box-shadow", "border-radius")
+        remove_properties(self.extracted_light_theme, *props_to_remove)
+        remove_properties(self.extracted_dark_theme, *props_to_remove)
 
         # add gnome styles to the start of the file
         self.__add_gnome_styles(self.light_theme)
