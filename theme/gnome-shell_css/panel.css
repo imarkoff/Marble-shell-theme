@@ -20,7 +20,7 @@
 .clock-display StIcon { /* DND / new messages icon */
 	color: TEXT-PRIMARY-COLOR;
 	border-radius: 14px;
-	border: 4px solid transparent;
+	border: 4px solid transparent !important;
 	background-color: ACCENT-DISABLED-COLOR;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
@@ -35,6 +35,7 @@
 /* workspaces indicator in activities button (45+) */
 #panel .workspace-dot {
 	background-color: TEXT-PRIMARY-COLOR;
+	border-radius: 99px;
 }
 
 /*  indicator for active */

@@ -81,6 +81,7 @@
 .button:insensitive {
 	box-shadow: none;
 	color: TEXT-SECONDARY-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
 .button:hover,
@@ -104,12 +105,10 @@
 
 .slider,
 .level {
-	height: 16px;
 	-barlevel-height: 16px;
 	-barlevel-background-color: ACCENT-DISABLED-COLOR;
-	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
-	/* fill */
 	-barlevel-active-background-color: BUTTON-COLOR;
+	-barlevel-border-width: 0px;
 	/* overfill */
 	-barlevel-overdrive-color: #c01c28;
 	-barlevel-overdrive-separator-width: 2px;

@@ -13,6 +13,7 @@
 .popup-menu-item, /* menu items */
 .app-menu { /* right-click (and panel) app menu */
 	margin: 3px 0;
+	border-radius: 12px;
 	transition-duration: 150ms;
 }
 
@@ -64,6 +65,7 @@
 	margin: 0;
 	color: TEXT-PRIMARY-COLOR;
 	background-color: transparent;
+	border-radius: 0;
 }
 
 /* make rounded borders for last element */
