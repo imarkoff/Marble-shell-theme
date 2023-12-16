@@ -157,4 +157,7 @@ class Theme:
         """
 
         with open(self.main_styles, 'r+') as main_styles:
-            main_styles.write(content + '\n' + main_styles.read())
+            main_content = main_styles.read()
+
+            main_styles.seek(0)
+            main_styles.write(content + '\n' + main_content)
