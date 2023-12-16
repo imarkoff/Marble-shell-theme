@@ -1,0 +1,179 @@
+/* Lock Screen / Login screen */
+
+#lockDialogGroup {
+    background-color: #000;
+}
+
+.login-dialog {
+    background-color: BACKGROUND-OPAQUE-COLOR;
+}
+
+
+.login-dialog .caps-lock-warning-label,
+.login-dialog .login-dialog-message-warning,
+.unlock-dialog .caps-lock-warning-label,
+.unlock-dialog .login-dialog-message-warning {
+  color: TEXT-SECONDARY-COLOR;
+}
+
+
+/* not listed button */
+.login-dialog-not-listed-label {
+    color: TEXT-SECONDARY-COLOR;
+}
+.login-dialog-not-listed-button:focus .login-dialog-not-listed-label, 
+.login-dialog-not-listed-button:hover .login-dialog-not-listed-label {
+    color: TEXT-PRIMARY-COLOR; 
+}
+.login-dialog-not-listed-button:focus .login-dialog-not-listed-label {
+    text-decoration: underline;
+}
+
+
+/* users button */
+.login-dialog-user-list .login-dialog-user-list-item {
+    background-color: SECTION-COLOR;
+    border-radius: 20px;
+    box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.login-dialog-user-list:expanded .login-dialog-user-list-item {
+    transition-duration: 200ms;
+}
+
+.login-dialog-user-list:expanded .login-dialog-user-list-item:hover {
+    background-color: ACCENT-LOGIN-COLOR;
+}
+
+.login-dialog-user-list:expanded .login-dialog-user-list-item:focus,
+.login-dialog-user-list:expanded .login-dialog-user-list-item:selected {
+    background-color: ACCENT-LOGIN-COLOR;
+    /* color: BUTTON-TEXT-COLOR; don't work*/
+    box-shadow: inset 0 0 0 1px BORDER-MENU-SHADOW;
+}
+
+.login-dialog-user-list:expanded .login-dialog-user-list-item:focus:hover,
+.login-dialog-user-list:expanded .login-dialog-user-list-item:selected:hover {
+    background-color: ACCENT-LOGIN_HOVER;
+}
+
+
+/* login buttons */
+.login-dialog-button.cancel-button,
+.login-dialog-button.switch-user-button,
+.login-dialog-button.login-dialog-session-list-button {
+    background-color: ACCENT-DISABLED-COLOR;
+    color: TEXT-PRIMARY-COLOR;
+    box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+    border-radius: 99px;
+    transition-duration: 100ms;
+}
+
+.login-dialog-button.cancel-button:hover,
+.login-dialog-button.switch-user-button:hover,
+.login-dialog-button.login-dialog-session-list-button:hover {
+    background-color: ACCENT-DISABLED_HOVER;
+}
+
+.login-dialog-button.cancel-button:focus,
+.login-dialog-button.switch-user-button:focus,
+.login-dialog-button.login-dialog-session-list-button:focus {
+    background-color: ACCENT-DISABLED_HOVER;
+    box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
+}
+
+.login-dialog-button.cancel-button:focus:active,
+.login-dialog-button.switch-user-button:focus:active,
+.login-dialog-button.login-dialog-session-list-button:focus:active,
+.login-dialog-button.cancel-button:focus:hover,
+.login-dialog-button.switch-user-button:focus:hover,
+.login-dialog-button.login-dialog-session-list-button:focus:hover {
+    background-color: ACCENT-DISABLED_HOVER;
+    box-shadow: inset 0 0 0 1px ACCENT-SECONDARY-COLOR !important;
+}
+
+.login-dialog-button.cancel-button:active,
+.login-dialog-button.switch-user-button:active,
+.login-dialog-button.login-dialog-session-list-button:active {
+    background-color: ACCENT-DISABLED_HOVER;
+}
+
+
+/* password */
+.login-dialog-prompt-entry {
+    background-color: ACCENT-DISABLED-COLOR;
+    border: none;
+    box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}
+
+.login-dialog-prompt-entry:focus {
+    background-color: ACCENT-DISABLED-COLOR !important;
+    border: none;
+    box-shadow: inset 0 0 0 1px TEXT-DISABLED-COLOR !important;
+    border-color: TEXT-DISABLED-COLOR;
+}
+
+.login-dialog-prompt-entry:insensitive {
+    background-color: ACCENT-DISABLED-COLOR;
+    color: TEXT-DISABLED-COLOR;
+}
+
+
+/* Clock */
+.unlock-dialog-clock {
+  color: TEXT-PRIMARY-COLOR;
+  spacing: 1em;
+}
+
+.unlock-dialog-clock .unlock-dialog-clock-time {
+    font-feature-settings: "normal";
+    font-weight: 500;
+}
+
+.unlock-dialog-clock .unlock-dialog-clock-date {
+    font-weight: 500;
+    font-size: 16pt;
+}
+
+.unlock-dialog-clock .unlock-dialog-clock-hint {
+    margin-top: 1em;
+    font-weight: 600; 
+    font-size: 10pt;
+    color: TEXT-SECONDARY-COLOR;
+}
+
+
+/* Notifications */
+.unlock-dialog-notifications-container .notification,
+.unlock-dialog-notifications-container .unlock-dialog-notification-source {
+    padding: 12px 16px;
+    box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+    background-color: ACCENT-DISABLED-COLOR;
+    color: TEXT-PRIMARY-COLOR;
+    border-radius: 16px;
+}
+.unlock-dialog-notifications-container .notification.critical,
+.unlock-dialog-notifications-container .unlock-dialog-notification-source.critical {
+    background-color: ACCENT_HOVER; 
+}
+
+/* messages counter */
+.unlock-dialog-notification-count-text {
+    color: TEXT-SECONDARY-COLOR;
+    background-color: ACCENT-DISABLED-COLOR;
+    box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+    border-radius: 99px; 
+}
+
+
+/* User widget */
+.user-widget .user-widget-label {
+    color: TEXT-PRIMARY-COLOR; 
+}
+
+.user-widget.horizontal .user-icon StIcon,
+.user-widget.vertical .user-icon StIcon {
+    color: TEXT-PRIMARY-COLOR;
+    background-color: ACCENT-DISABLED-COLOR;
+    box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+}

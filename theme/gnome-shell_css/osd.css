@@ -42,6 +42,15 @@
 /* ctrl + alt + arr_left/arr_right */
 .ws-switcher-indicator {
 	background-color: TEXT-SECONDARY-COLOR;
+	border-radius: 99px;
+	padding: 2.5px;
+	margin: 7.5px 5px;
+}
+
+.ws-switcher-indicator:active {
+	background-color: TEXT-PRIMARY-COLOR;
+	padding: 5px 20px;
+	margin: 5px;
 }
 
 

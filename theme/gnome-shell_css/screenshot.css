@@ -53,6 +53,10 @@
 	background-color: SECTION-COLOR;
 }
 
+.screenshot-ui-window-selector-window-border {
+	border-radius: 16px;
+}
+
 /* window border when selecting */
 .screenshot-ui-window-selector-window:hover .screenshot-ui-window-selector-window-border {
 	border-color: BUTTON-COLOR;
@@ -63,10 +67,13 @@
 	background-color: ACCENT-OPACITY-COLOR;
 }
 
+.screenshot-ui-window-selector-check { color: transparent; }
+
 /* check icon when selected window */
 .screenshot-ui-window-selector-window:checked .screenshot-ui-window-selector-check {
 	color: BUTTON-TEXT-COLOR;
 	background-color: BUTTON-COLOR;
+	border-radius: 99px;
 }
 
 
@@ -114,12 +121,14 @@
 /* screenshot / screencast buttons section */
 .screenshot-ui-shot-cast-container {
 	background-color: ACCENT-DISABLED-COLOR;
+	border-radius: 99px;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
 /* screenshot / screencast buttons */
 .screenshot-ui-shot-cast-button {
 	background-color: transparent;
+	border-radius: 99px;
 	transition-duration: 100ms;
 }
 
@@ -134,6 +143,32 @@
 	background-color: ACCENT-SECONDARY-COLOR;
 	color: TEXT-INVERTED-COLOR;
 }
+
+.screenshot-ui-area-indicator-shade {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* screen selection borders */
+.screenshot-ui-area-selector-handle {
+	border-radius: 99px;
+	background-color: white;
+	box-shadow: 0 1px 3px 2px rgba(0, 0, 0, 0.05);
+}
+
+
+.screenshot-ui-screen-selector {
+	background-color: rgba(0, 0, 0, 0.5); 
+}
+.screenshot-ui-screen-selector:hover {
+	background-color: rgba(0, 0, 0, 0.3); 
+}
+.screenshot-ui-screen-selector:active {
+	background-color: rgba(0, 0, 0, 0.7); 
+}
+.screenshot-ui-screen-selector:checked {
+	background-color: transparent;
+}
+  
 
 
 /* tooltip for elements */
@@ -152,6 +187,7 @@
 	background-color: BUTTON-CLOSE-COLOR;
 	color: TEXT-PRIMARY-COLOR;
 	border: 1px solid BORDER-SHADOW;
+	border-radius: 99px;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 	transition-duration: 100ms;
 }

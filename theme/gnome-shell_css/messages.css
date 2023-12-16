@@ -2,8 +2,8 @@
 
 /* datemenu message-list */
 .message-list {
-	border: none; /* remove border between messages and calendar section */ 
-	padding: 0;
+	border-color: transparent; /* remove border between messages and calendar section */ 
+	padding: 0 !important;
 }
 
 /* "No Notifications" text */

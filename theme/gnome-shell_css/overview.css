@@ -35,9 +35,8 @@
 
 /* thumbnails on overview (workspaces list under search) */
 .workspace-thumbnail {
-	border: none; /* because of impossibility round fullscreen apps */
-	background-color: ACCENT-DISABLED-COLOR;
-	border: 1px solid BORDER-SHADOW;
+	background-color: ACCENT-DISABLED-COLOR !important;
+	border: 1px solid BORDER-SHADOW !important;
 }
 
 /* drag and drop indicator */

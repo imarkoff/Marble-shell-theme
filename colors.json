@@ -147,6 +147,37 @@
             }
         },
 
+        "ACCENT-LOGIN-COLOR" : {
+            "_comment" : "Accent color for login screen user list",
+            
+            "light" : {
+                "s" : 65,
+                "l" : 65,
+                "a" : 1
+            },
+
+            "dark" : {
+                "s" : 65,
+                "l" : 55,
+                "a" : 1
+            }
+        },
+        "ACCENT-LOGIN_HOVER" : {
+            "_comment" : "Hover color for login screen user list",
+
+            "light" : {
+                "s" : 65,
+                "l" : 55,
+                "a" : 0.8
+            },
+
+            "dark" : {
+                "s" : 65,
+                "l" : 55,
+                "a" : 0.8
+            }
+        },
+
         "ACCENT-FILLED-COLOR" : {
             "_comment" : "Accent color but more vibrant",
 
