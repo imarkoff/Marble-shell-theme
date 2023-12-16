@@ -104,9 +104,9 @@
 
 
 /* Page arrow */
-
 .page-navigation-arrow {
-	border-radius: 99px;
+	border-radius: 15px;
+	padding: 12px;
 	transition-duration: 100ms;
 }
 
