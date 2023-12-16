@@ -66,6 +66,32 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 5. Select the shell theme you want.
 
 
+## 🖥️ GDM theme
+
+![GDM theme](./readme-images/gdm.png?raw=true)
+
+1. Open the terminal.
+2. Go to the directory with the theme.
+3. Run the program with the `--gdm` option
+   ```shell
+   sudo python install.py --gdm (--your color) (--is filled)
+   ```
+    - Example:
+        ```shell
+        sudo python install.py --gdm --blue --filled
+        ```
+4. After successful file restart GDM service:
+   ```shell
+   sudo systemctl restart gdm
+   ```
+
+- 🗑️ If you want to remove the theme, run the program with the `--remove` option:
+    ```shell
+    sudo python install.py --gdm -r
+    ```
+- ☠️ If you got a death screen, you can switch to the console with the `Ctrl + Alt + F3` key combination, log in, go to the `Marble-shell-theme` directory and run the command above. If it doesn't help, try reinstalling `gnome-shell` package.
+
+
 ## 🏮 Installation tweaks
 
 #### Install default color
