@@ -103,7 +103,7 @@ class Theme:
             alpha = self.colors["elements"][element][theme_mode]["a"]
 
             # convert hsl to rgb and multiply every item
-            red, green, blue = [int(item * 256) for item in colorsys.hls_to_rgb(h, lightness, saturation)]
+            red, green, blue = [int(item * 255) for item in colorsys.hls_to_rgb(h, lightness, saturation)]
 
             replaced_colors.append((element, f"rgba({red}, {green}, {blue}, {alpha})"))
 
