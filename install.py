@@ -16,7 +16,6 @@
 
 
 import json       # working with json files
-import os         # system commands, working with files
 import argparse   # command-line options
 import shutil
 import textwrap   # example text in argparse
@@ -31,20 +30,25 @@ from scripts.theme import Theme
 from scripts.gdm import GlobalTheme
 
 
-def main():
+def parse_args():
+    """
+    Parse command-line arguments
+    :return: parsed arguments
+    """
+
     # script description
     parser = argparse.ArgumentParser(prog="python install.py",
                                      formatter_class=argparse.RawDescriptionHelpFormatter,
                                      epilog=textwrap.dedent('''
-                Examples:
-                  -a                            all accent colors, light & dark mode
-                  --all --mode dark             all accent colors, dark mode
-                  --purple --mode=light         purple accent color, light mode
-                  --hue 150 --name coldgreen    custom coldgreen accent color, light & dark mode
-                  --red --green --sat=70        red, green accent colors, 70% of stock saturation
-                  --hue=200 --name=grayblue --sat=50 --mode=dark
-                                custom grayblue accent color, 50% of stock saturation, dark mode
-                '''))
+                    Examples:
+                      -a                            all accent colors, light & dark mode
+                      --all --mode dark             all accent colors, dark mode
+                      --purple --mode=light         purple accent color, light mode
+                      --hue 150 --name coldgreen    custom coldgreen accent color, light & dark mode
+                      --red --green --sat=70        red, green accent colors, 70% of stock saturation
+                      --hue=200 --name=grayblue --sat=50 --mode=dark
+                                    custom grayblue accent color, 50% of stock saturation, dark mode
+                    '''))
 
     # Default arguments
     parser.add_argument('-r', '--remove', action='store_true', help='remove all "Marble" themes')
@@ -74,7 +78,7 @@ def main():
 
     gdm_theming = parser.add_argument_group('GDM theming')
     gdm_theming.add_argument('--gdm', action='store_true', help='install GDM theme. \
-                                Requires root privileges. You must specify a specific color.')
+                                    Requires root privileges. You must specify a specific color.')
 
     panel_args = parser.add_argument_group('Panel tweaks')
     panel_args.add_argument('-Pds', '--panel_default_size', action='store_true', help='set default panel size')
@@ -83,114 +87,148 @@ def main():
 
     overview_args = parser.add_argument_group('Overview tweaks')
     overview_args.add_argument('--launchpad', action='store_true', help='change Show Apps icon to MacOS Launchpad icon')
-    
-    args = parser.parse_args()
 
-    colors = json.load(open(config.colors_json))
+    return parser.parse_args()
 
-    if args.gdm:
-        gdm_status = 1
-        if os.geteuid() != 0:
-            print("You must run this script as root to install GDM theme.")
-            return 1
 
-        if args.all:
-            print("Error: You can't install all colors for GDM theme. Use specific color.")
-            return 1
+def apply_tweaks(args, theme):
+    """
+    Apply theme tweaks
+    :param args: parsed arguments
+    :param theme: Theme object
+    """
 
-        gdm_theme = GlobalTheme(colors, f"{config.raw_theme_folder}/{config.gnome_folder}",
-                                config.global_gnome_shell_theme, config.gnome_shell_gresource,
-                                config.temp_folder, is_filled=args.filled)
+    if args.panel_default_size:
+        with open(f"{config.tweaks_folder}/panel/def-size.css", "r") as f:
+            theme += f.read()
 
-        if args.remove:
-            gdm_rm_status = gdm_theme.remove()
-            if gdm_rm_status == 0:
-                print("GDM theme removed successfully.")
-            return 0
+    if args.panel_no_pill:
+        with open(f"{config.tweaks_folder}/panel/no-pill.css", "r") as f:
+            theme += f.read()
 
-        if args.red or args.pink or args.purple or args.blue or args.green or args.yellow or args.gray:
-            for color in colors["colors"]:
-                if getattr(args, color):
-                    hue = colors["colors"][color]["h"]
-                    sat = colors["colors"][color]["s"] if colors["colors"][color]["s"] is not None else args.sat
+    if args.panel_text_color:
+        theme += ".panel-button,\
+                    .clock,\
+                    .clock-display StIcon {\
+                        color: rgba(" + ', '.join(map(str, hex_to_rgba(args.panel_text_color))) + ");\
+                    }"
 
-                    gdm_status = gdm_theme.install(hue, sat)
+    if args.launchpad:
+        with open(f"{config.tweaks_folder}/launchpad/launchpad.css", "r") as f:
+            theme += f.read()
 
-        elif args.hue:
-            hue = args.hue
+        theme *= f"{config.tweaks_folder}/launchpad/launchpad.png"
 
-            gdm_status = gdm_theme.install(hue, args.sat)
 
-        else:
-            print('No color arguments specified. Use -h or --help to see the available options.')
+def install_theme(theme, hue, theme_name, sat, gdm=False):
+    """
+    Check if GDM and install theme
+    :param theme: object to install
+    :param hue: color hue
+    :param theme_name: future theme name
+    :param sat: color saturation
+    :param gdm: if GDM theme
+    """
 
-        if gdm_status == 0:
-            print("\nGDM theme installed successfully.")
-            print("You need to restart gdm.service to apply changes.")
-            print("Run \"systemctl restart gdm.service\" to restart GDM.")
-
-    # if not GDM theme
+    if gdm:
+        theme.install(hue, sat)
     else:
-        # remove marble theme
-        if args.remove:
-            remove_files()
+        theme.install(hue, theme_name, sat)
 
-        gnome_shell_theme = Theme("gnome-shell", colors, f"{config.raw_theme_folder}/{config.gnome_folder}",
-                                  config.themes_folder, config.temp_folder,
-                                  mode=args.mode, is_filled=args.filled)
 
-        # panel tweaks
-        if args.panel_default_size:
-            with open(f"{config.tweaks_folder}/panel/def-size.css", "r") as f:
-                gnome_shell_theme += f.read()
+def apply_colors(args, theme, colors, gdm=False):
+    """
+    Apply accent colors to the theme
+    :param args: parsed arguments
+    :param theme: Theme object
+    :param colors: colors from colors.json
+    :param gdm: if GDM theme
+    """
 
-        if args.panel_no_pill:
-            with open(f"{config.tweaks_folder}/panel/no-pill.css", "r") as f:
-                gnome_shell_theme += f.read()
+    is_colors = False  # check if any color arguments specified
 
-        if args.panel_text_color:
-            gnome_shell_theme += ".panel-button,\
-                        .clock,\
-                        .clock-display StIcon {\
-                            color: rgba(" + ', '.join(map(str, hex_to_rgba(args.panel_text_color))) + ");\
-                        }"
+    # if custom color
+    if args.hue:
+        hue = args.hue
+        theme_name = args.name if args.name else f'hue{hue}'
 
-        # dock tweaks
-        if args.launchpad:
-            with open(f"{config.tweaks_folder}/launchpad/launchpad.css", "r") as f:
-                gnome_shell_theme += f.read()
+        install_theme(theme, hue, theme_name, args.sat, gdm)
+        return
 
-            gnome_shell_theme *= f"{config.tweaks_folder}/launchpad/launchpad.png"
+    else:
+        for color in colors["colors"]:
+            if args.all or getattr(args, color):
+                is_colors = True
 
-        # what argument colors defined
-        if args.all:
-            # install hue colors listed in colors.json
-            for color in colors["colors"]:
                 hue = colors["colors"][color]["h"]
                 # if saturation already defined in color (gray)
                 sat = colors["colors"][color]["s"] if colors["colors"][color]["s"] is not None else args.sat
 
-                gnome_shell_theme.install(hue, color, sat)
+                install_theme(theme, hue, color, sat, gdm)
+                if gdm:
+                    return
 
-        elif args.red or args.pink or args.purple or args.blue or args.green or args.yellow or args.gray:
-            # install selected colors
-            for color in colors["colors"]:
-                if getattr(args, color):  # if argument name is in defined colors
-                    hue = colors["colors"][color]["h"]
-                    # if saturation already defined in color (gray)
-                    sat = colors["colors"][color]["s"] if colors["colors"][color]["s"] is not None else args.sat
+    if not is_colors:
+        print('No color arguments specified. Use -h or --help to see the available options.')
 
-                    gnome_shell_theme.install(hue, color, sat)
 
-        # custom color
-        elif args.hue:
-            hue = args.hue
-            theme_name = args.name if args.name else f'hue{hue}'  # if defined name
+def global_theme(args, colors):
+    """
+    Apply GDM theme
+    :param args: parsed arguments
+    :param colors: colors from colors.json
+    """
 
-            gnome_shell_theme.install(hue, theme_name, args.sat)
+    gdm_theme = GlobalTheme(colors, f"{config.raw_theme_folder}/{config.gnome_folder}",
+                            config.global_gnome_shell_theme, config.gnome_shell_gresource,
+                            config.temp_folder, is_filled=args.filled)
 
-        else:
-            print('No arguments or no color arguments specified. Use -h or --help to see the available options.')
+    if args.remove:
+        gdm_rm_status = gdm_theme.remove()
+        if gdm_rm_status == 0:
+            print("GDM theme removed successfully.")
+        return 0
+
+    try:
+        apply_colors(args, gdm_theme, colors, gdm=True)
+    except Exception as e:
+        print(f"Error: {e}")
+        return 1
+    else:
+        print("\nGDM theme installed successfully.")
+        print("You need to restart gdm.service to apply changes.")
+        print("Run \"systemctl restart gdm.service\" to restart GDM.")
+
+
+def local_theme(args, colors):
+    """
+    Apply local theme
+    :param args: parsed arguments
+    :param colors: colors from colors.json
+    """
+
+    if args.remove:
+        remove_files()
+
+    gnome_shell_theme = Theme("gnome-shell", colors, f"{config.raw_theme_folder}/{config.gnome_folder}",
+                              config.themes_folder, config.temp_folder,
+                              mode=args.mode, is_filled=args.filled)
+
+    apply_tweaks(args, gnome_shell_theme)
+    apply_colors(args, gnome_shell_theme, colors)
+
+
+def main():
+    args = parse_args()
+
+    colors = json.load(open(config.colors_json))
+
+    if args.gdm:
+        global_theme(args, colors)
+
+    # if not GDM theme
+    else:
+        local_theme(args, colors)
 
 
 if __name__ == "__main__":
