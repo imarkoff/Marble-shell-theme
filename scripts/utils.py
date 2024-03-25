@@ -157,8 +157,10 @@ def label_files(directory, label, *args):
     """
 
     # Open all files
-    files = [open(file, 'r+') for file in args]
-    read_files = [file.read() for file in files]
+    files = [open(file, 'r') for file in args]
+    read_files = []
+
+    filenames = []
 
     for filename in os.listdir(directory):
         # Skip if the file is already labeled
@@ -172,13 +174,19 @@ def label_files(directory, label, *args):
         new_filename = f"{name}-{label}{extension}"
         os.rename(os.path.join(directory, filename), os.path.join(directory, new_filename))
 
-        # Replace the filename in all files
-        for file in read_files:
-            file.replace(filename, new_filename)
+        filenames.append((filename, new_filename))
+
+    # Replace the filename in all files
+    for i, file in enumerate(files):
+        read_file = file.read()
+        read_file.replace(filenames[i][0], filenames[i][1])
+        read_files.append(read_file)
+        file.close()
+
+    write_files = [open(file, 'w') for file in args]
 
     # Write the changes to the files and close them
-    for i, file in enumerate(files):
-        file.seek(0)
+    for i, file in enumerate(write_files):
         file.write(read_files[i])
         file.close()
 
@@ -192,7 +200,7 @@ def remove_properties(file, *args):
 
     new_content = ""
 
-    with open(file, "r+") as read_file:
+    with open(file, "r") as read_file:
         content = read_file.read()
 
         for line in content.splitlines():
@@ -201,8 +209,8 @@ def remove_properties(file, *args):
             elif "}" in line:
                 new_content += "}\n"
 
-        read_file.seek(0)
-        read_file.write(new_content)
+    with open(file, "w") as write_file:
+        write_file.write(new_content)
 
 
 def remove_keywords(file, *args):
@@ -212,12 +220,11 @@ def remove_keywords(file, *args):
     :param args: keywords to remove
     """
 
-    with open(file, "r+") as read_file:
+    with open(file, "r") as read_file:
         content = read_file.read()
 
         for arg in args:
             content = content.replace(arg, "")
 
-        read_file.seek(0)
-        read_file.write(content)
-        
+    with open(file, "w") as write_file:
+        write_file.write(content)

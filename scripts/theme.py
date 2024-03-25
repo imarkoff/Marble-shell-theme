@@ -156,8 +156,8 @@ class Theme:
         :param content: content to add
         """
 
-        with open(self.main_styles, 'r+') as main_styles:
+        with open(self.main_styles, 'r') as main_styles:
             main_content = main_styles.read()
 
-            main_styles.seek(0)
+        with open(self.main_styles, 'w') as main_styles:
             main_styles.write(content + '\n' + main_content)
