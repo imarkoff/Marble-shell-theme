@@ -4,7 +4,7 @@
 .candidate-popup-content { /* IBus Candidate Popup (i dunno how to call it) */
 	color: TEXT-PRIMARY-COLOR;
 	background: BACKGROUND-COLOR; 
-	padding: 10px;
+	padding: 8px;
 	border-radius: 20px;
 	border: 1px solid BORDER-MENU-SHADOW;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);	
@@ -14,8 +14,13 @@
 .app-menu { /* right-click (and panel) app menu */
 	margin: 3px 0;
 	border-radius: 12px;
+	padding: 8px 10px;
 	transition-duration: 150ms;
 }
+
+.popup-menu-item:first-child { margin: 0 0 3px 0; }
+.popup-menu-item:last-child { margin: 3px 0 0 0; }
+.popup-menu-item:first-child:last-child { margin: 0; }
 
 .popup-menu-item:focus,
 .popup-menu-item:hover,
@@ -36,19 +41,14 @@
 
 /* 44 separator margin fix */
 .popup-separator-menu-item {
-	padding: 0 !important;
+	padding: 5px !important;
 }
 
 /* separator in popup menu */
 .popup-separator-menu-item .popup-separator-menu-item-separator {
 	height: 1px;
-	margin: 6px 0;
 	background-color: SEPARATOR-COLOR;
 }
-
-/* fix margins in separators */
-.popup-separator-menu-item-separator:ltr { margin-right: 4.5px; }
-.popup-separator-menu-item-separator:rtl { margin-left: 4.5px; }
 
 
 /* popover submenus */
