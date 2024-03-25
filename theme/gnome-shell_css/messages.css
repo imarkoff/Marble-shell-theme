@@ -6,6 +6,10 @@
 	padding: 0 !important;
 }
 
+/* dnd and clear button */
+.message-list-controls:ltr { padding: auto 0 auto auto; }
+.message-list-controls:rtl { padding: auto auto auto 0; }
+
 /* "No Notifications" text */
 .message-list-placeholder {
 	color: TEXT-DISABLED-COLOR;
@@ -13,8 +17,8 @@
 }
 
 /* remove right margin in message list section (datemenu) */
-.message-list-sections:ltr { margin-right: 0px; }
-.message-list-sections:rtl { margin-left: 0px; }
+.message-list-sections:ltr { margin-right: 0; }
+.message-list-sections:rtl { margin-left: 0; }
 
 
 /* popup messages */

@@ -10,8 +10,9 @@
 	spacing: 5px;
 }
 
-.datemenu-calendar-column:ltr { padding-left: 6px; }
-.datemenu-calendar-column:rtl {	padding-right: 6px; }
+/* let's bring back issue #1 */
+.datemenu-calendar-column:ltr { padding-left: 0; }
+.datemenu-calendar-column:rtl {	padding-right: 0; }
 
 .datemenu-calendar-column .datemenu-displays-box {
 	spacing: 5px;
