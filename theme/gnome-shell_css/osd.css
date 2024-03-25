@@ -17,6 +17,8 @@
 /* running apps in switcher list */
 .switcher-list .item-box {
 	border-radius: 20px;
+	color: TEXT-PRIMARY-COLOR;
+	background-color: transparent;
 }
 
 .switcher-list .item-box:hover,
