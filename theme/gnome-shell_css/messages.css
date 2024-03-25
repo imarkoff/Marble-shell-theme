@@ -119,13 +119,21 @@
 	border-radius: 12px;
 }
 
+.media-message .message-icon { /* 46+ */
+	border-radius: 12px !important;
+}
+
 /* when there is no artwork */
-.media-message-cover-icon.fallback {
+.media-message-cover-icon.fallback,
+.media-message .message-icon.message-themed-icon { /* 46+ */
 	color: TEXT-PRIMARY-COLOR;
 	background-color: ACCENT-DISABLED_HOVER;
 	border: 1px solid BORDER-SHADOW;
-	border-radius: 12px;
+	border-radius: 15px;
 	icon-size: 1.6em !important;
+}
+
+.media-message-cover-icon.fallback {
 	padding: 0.79em;
 }
 
