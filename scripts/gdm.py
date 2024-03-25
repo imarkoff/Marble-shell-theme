@@ -183,8 +183,10 @@ class GlobalTheme:
 
         # install theme
         print("Installing theme...")
-        os.system(f"sudo cp -f {self.extracted_theme}/{self.destination_file} "
-                  f"{self.destination_folder}/{self.destination_file}")
+        subprocess.run(["sudo", "cp", "-f", 
+                        f"{self.extracted_theme}/{self.destination_file}", 
+                        f"{self.destination_folder}/{self.destination_file}"], 
+                       check=True)
 
         return 0
 
