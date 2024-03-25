@@ -58,25 +58,38 @@
 }
 
 /* month header */
-.calendar-month-label {
-	color: TEXT-PRIMARY-COLOR;
+.calendar-month-header .calendar-month-label {
+	color: TEXT-PRIMARY-COLOR !important;
+	padding: 0;
+	background-color: transparent; /* 46+ */
+}
+
+.calendar-month-header .pager-button {
+	height: 2.2em;
+	width: 2.2em;
 }
 
 /* day of week heading */
-.calendar-day.calendar-day-heading {
+.calendar-day.calendar-day-heading,
+.calendar .calendar-day-heading /* 46+ */ {
 	color: TEXT-SECONDARY-COLOR;
+	background-color: transparent;
 }
 
 /* day buttons, prev/next month button */
 .calendar-day,
 .calendar-month-header .pager-button {
 	color: TEXT-PRIMARY-COLOR;
+	background-color: transparent; /* 46+ */
 	border-radius: 10px;
+	padding: 0;
 	transition-duration: 100ms;
 }
 
 .calendar-day:hover,
 .calendar-day:selected:hover,
+.calendar .calendar-day-heading:hover, /* 46+ */
+.calendar .calendar-day-heading:selected:hover, /* 46+ */
 .calendar .calendar-month-header .pager-button:hover {
 	background-color: ACCENT-DISABLED_HOVER;
 	color: TEXT-PRIMARY-COLOR;
@@ -84,12 +97,14 @@
 }
 
 .calendar-day:focus,
+.calendar .calendar-day-heading:focus, /* 46+ */
 .calendar .calendar-month-header .pager-button:focus {
 	background-color: ACCENT-OPACITY-COLOR;
-	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
+	box-shadow: inset 0 0 0 1.5px ACCENT-SECONDARY-COLOR !important;
 }
 
-.calendar-day:selected {
+.calendar-day:selected,
+.calendar .calendar-day-heading:selected /* 46+ */ {
 	background: ACCENT-DISABLED_HOVER;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
@@ -192,7 +207,9 @@
 .events-button .event-time {
 	color: TEXT-SECONDARY-COLOR;
 }
-
+.events-button .events-box .events-list .event-placeholder { /* if no events, 46+ */
+	color: TEXT-DISABLED-COLOR;
+}
 
 /* World clocks section */
 .world-clocks-button .world-clocks-time {

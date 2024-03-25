@@ -58,21 +58,33 @@
 	color: TEXT-SECONDARY-COLOR;
 }
 
+/* message title on 46+ */
+.message .message-header .message-source-icon,
+.message .message-header .message-header-content .message-source-title,
+.message .message-header .message-header-content .event-time {
+	color: TEXT-SECONDARY-COLOR;
+}
 
-/* close button */
-.message-close-button {
-	border-radius: 9px;
+
+/* close button, expand button (46+) */
+.message-close-button,
+.message-expand-button {
+	border-radius: 99px;
+	padding: 5px;
+	margin: 0px;
 	color: TEXT-PRIMARY-COLOR;
 	background-color: ACCENT-DISABLED-COLOR;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 	transition-duration: 100ms;
 }
 
-.message-close-button:hover {
+.message-close-button:hover,
+.message-expand-button:hover {
 	background-color: ACCENT-DISABLED_HOVER;
 }
 
-.message-close-button:active {
+.message-close-button:active,
+.message-expand-button:active {
 	color: TEXT-SECONDARY-COLOR;
 }
 
@@ -80,8 +92,9 @@
 /* Media Controls */
 .message-media-control {
 	border-radius: 12px;
-	padding: 0 14px;
-	margin: 20px 2px;
+	/* currently disabled because of 46 */
+	/* padding: 0 14px; */
+	/* margin: 20px 2px; */
 	color: TEXT-PRIMARY-COLOR;
 	transition-duration: 100ms;
 }
@@ -95,8 +108,9 @@
 .message-media-control:insensitive { color: TEXT-DISABLED-COLOR; }
 
 /* fix margin for last button */
-.message-media-control:last-child:ltr { margin-right: 20px; }
-.message-media-control:last-child:rtl {	margin-left: 12px; }
+/* currently disabled because of 46 */
+/* .message-media-control:last-child:ltr { margin-right: 20px; }
+.message-media-control:last-child:rtl {	margin-left: 12px; } */
 
 
 /* album art */

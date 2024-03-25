@@ -12,6 +12,7 @@
 .screenshot-ui-show-pointer-button, /* show pointer */
 .screenshot-ui-type-button { /* Selection / Screen / Window */
 	color: TEXT-PRIMARY-COLOR;
+	background-color: transparent;
 	border-radius: 15px;
 	transition-duration: 100ms;
 }

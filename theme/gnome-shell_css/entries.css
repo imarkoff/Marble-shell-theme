@@ -27,7 +27,7 @@ StEntry:focus,
 StEntry:active {
 	border: 1px solid TEXT-DISABLED-COLOR;
 	background-color: ACCENT-DISABLED-COLOR;
-	box-shadow: none;
+	box-shadow: none !important;
 }
 
 StEntry:focus {
