@@ -15,7 +15,7 @@ Shell theme for GNOME DE. Based on https://www.pling.com/p/1939902/.
 <details><summary>Click me 🐈</summary>
 
 Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
-#### Overview [[Blur My Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/) / Light / Dark] (Fold [light](https://gitlab.gnome.org/GNOME/gnome-backgrounds/-/raw/gnome-45/backgrounds/fold-l.jpg?ref_type=heads) / [dark](https://gitlab.gnome.org/GNOME/gnome-backgrounds/-/raw/gnome-45/backgrounds/fold-d.jpg?ref_type=heads))
+#### Overview [[Blur My Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/) / Light / Dark] ([Amber](https://gitlab.gnome.org/GNOME/gnome-backgrounds/-/tree/46.0/backgrounds?ref_type=tags))
 ![Overview with Blur My Shell](./readme-images/overview_blur-my-shell.png?raw=true "Overview with Blur My Shell")
 ![Overview in light mode](./readme-images/overview_light.png?raw=true "Overview in light mode")
 ![Overview in dark mode](./readme-images/overview_dark.png?raw=true "Overview in dark mode")
@@ -26,9 +26,9 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 ![Quick settings look](./readme-images/qs.png?raw=true "Quick settings look")
 
 #### Modal dialog ([Wide Angle Photography of Mountain](https://www.pexels.com/photo/wide-angle-photography-of-mountain-1612559/))
-![Modal dialog look](./readme-images/modal.png "Modal dialog look")
-#### Calendar & notifications ([Wallpaper](https://www.zedge.net/wallpaper/7e10d448-6440-405d-a847-30b6146eeb55))
-![Calendar & notifications look](./readme-images/notifications.png?raw=true)
+![Modal dialog look](./readme-images/modal.png?raw=true "Modal dialog look")
+#### Calendar & notifications ([Sand Dunes](https://4kwallpapers.com/nature/sand-dunes-desert-landscape-evening-windows-10x-microsoft-3287.html))
+![Calendar & notifications look](./readme-images/datemenu.jpg?raw=true)
 
 #### Dash ([Dash To Dock](https://extensions.gnome.org/extension/307/dash-to-dock/ "Dash To Dock"))
 - Position and size:
@@ -42,12 +42,15 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 </details>
 
 ## 🚧 Requirements
-- GNOME 43, 44, 45. Correct functionality on other versions is not guaranteed.
+- GNOME 43-46. Correct functionality on other versions is not guaranteed.
 - [User Themes](https://extensions.gnome.org/extension/19/user-themes/ "User Themes") extension.
-- [GNOME Tweaks](https://gitlab.gnome.org/GNOME/gnome-tweaks "GNOME Tweaks").
 - Python 3.2+.
 
 ## 💡 Installation
+
+> [!IMPORTANT]  
+> If you have another theme installed globally (changed the appearance of the login window (GDM)), please remove it before installing this theme.
+
 1. Open the terminal.
 2. Clone the git repository and change the directory:
    ```shell
@@ -62,13 +65,20 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
       ```shell
       python install.py -a --filled
       ``` 
-4. After successful file creation open GNOME Tweaks, go to `Appearance - Themes - Shell`.
+4. After successful file creation open Extensions app, go to `User Themes - ··· - Settings`.
+![User Themes in Extensions](./readme-images/user-themes-settings.png)
 5. Select the shell theme you want.
 
 
 ## 🖥️ GDM theme
 
 ![GDM theme](./readme-images/gdm.png?raw=true)
+
+> [!NOTE]  
+> This theme only supports GNOME Display Manager. Ubuntu Display Manager is currently not supported.
+
+> [!WARNING]  
+> I am not responsible for any damage caused by the installation of the theme. If you have any problems, please open an issue.
 
 1. Open the terminal.
 2. Go to the directory with the theme.
@@ -85,7 +95,7 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
    sudo systemctl restart gdm
    ```
 
-- 🗑️ If you want to remove the theme, run the program with the `--remove` option:
+- 🗑️ If you want to remove the theme or theme is broken, run the program with the `--remove` option:
     ```shell
     sudo python install.py --gdm -r
     ```
