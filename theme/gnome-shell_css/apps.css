@@ -2,7 +2,7 @@
 
 /* apps / folders / apps & folders in search */
 .app-well-app .overview-icon,
-.app-well-app.app-folder .overview-icon,
+.app-well-app.app-folder,
 .grid-search-result .overview-icon,
 .app-folder.grid-search-result .overview-icon,
 #dash .dash-item-container .overview-tile .overview-icon,
@@ -31,21 +31,20 @@
 .app-well-app.app-folder .overview-icon,
 .app-folder /* 46+ */ {
 	background-color: ACCENT-DISABLED_HOVER;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
 
 .app-well-app:hover .overview-icon,
 .app-well-app:focus .overview-icon,
 .app-well-app:selected .overview-icon,
-.app-well-app.app-folder .overview-icon,
-.app-folder, /* 46+ */
 .show-apps:hover .overview-icon,
 .show-apps:focus .overview-icon,
 .overview-tile:hover,
 .overview-tile:focus,
 .overview-tile:selected {
-	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 	background-color: ACCENT-DISABLED-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
 .overview-tile:focus {
