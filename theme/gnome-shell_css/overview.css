@@ -37,6 +37,7 @@
 /* thumbnails on overview (workspaces list under search) */
 .workspace-thumbnail {
 	background-color: ACCENT-DISABLED-COLOR !important;
+	border-radius: 4px;
 	border: 1px solid BORDER-SHADOW !important;
 }
 
