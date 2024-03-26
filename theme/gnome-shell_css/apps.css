@@ -127,6 +127,7 @@
 
 
 .page-indicator .page-indicator-icon {
+	border-radius: 99px;
 	background-color: TEXT-SECONDARY-COLOR;
 }
 
