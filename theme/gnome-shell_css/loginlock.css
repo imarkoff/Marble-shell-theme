@@ -8,6 +8,12 @@
     background-color: BACKGROUND-OPAQUE-COLOR;
 }
 
+/* fixes color of process-working */
+.login-dialog,
+.unlock-dialog {
+    color: TEXT-PRIMARY-COLOR;
+}
+
 
 .login-dialog .caps-lock-warning-label,
 .login-dialog .login-dialog-message-warning,
@@ -102,6 +108,7 @@
 /* password */
 .login-dialog-prompt-entry {
     background-color: ACCENT-DISABLED-COLOR;
+    color: TEXT-PRIMARY-COLOR;
     border: none;
     box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
