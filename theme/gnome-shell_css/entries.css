@@ -6,10 +6,18 @@ StEntry,
 	padding: 8px;
 	transition-duration: 100ms;
 	border: 1px solid BORDER-SHADOW;
-	background-color: SECTION-COLOR;
 	color: TEXT-SECONDARY-COLOR;
 	selection-background-color: ACCENT-COLOR;
 	selected-color: TEXT-PRIMARY-COLOR;
+}
+
+StEntry {
+	background-color: ACCENT-DISABLED-COLOR;
+}
+
+.search-entry {
+	background-color: SECTION-COLOR;
+
 }
 
 /* icon in entry */
