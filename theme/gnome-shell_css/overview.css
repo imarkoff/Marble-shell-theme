@@ -19,7 +19,7 @@
 	spacing: 20px;
 	border-radius: 12px;
 	color: TEXT-PRIMARY-COLOR;
-	background-color: SECTION-COLOR;
+	background-color: SECTION-OPAQUE-COLOR;
 	border: 1px solid BORDER-SHADOW;
 	padding: 4px 8px;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.08);

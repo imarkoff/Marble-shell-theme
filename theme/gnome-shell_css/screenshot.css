@@ -51,7 +51,7 @@
 
 /* window selection backround */
 .screenshot-ui-window-selector {
-	background-color: SECTION-COLOR;
+	background-color: SECTION-OPAQUE-COLOR;
 }
 
 .screenshot-ui-window-selector-window-border {
@@ -175,7 +175,7 @@
 /* tooltip for elements */
 .screenshot-ui-tooltip {
 	color: TEXT-PRIMARY-COLOR;
-	background-color: SECTION-COLOR;
+	background-color: SECTION-OPAQUE-COLOR;
 	padding: 6px 12px;
 	border: 1px solid BORDER-SHADOW;
 	border-radius: 12px;

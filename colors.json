@@ -540,6 +540,21 @@
             },
 
             "dark" : {
+                "s" : 5,
+                "l" : 25,
+                "a" : 0.2
+            }
+        },
+        "SECTION-OPAQUE-COLOR" : {
+            "_comment" : "Same as SECTION-COLOR, but has no transparency",
+
+            "light" : {
+                "s" : 45,
+                "l" : 92,
+                "a" : 0.8
+            },
+
+            "dark" : {
                 "s" : 6,
                 "l" : 12,
                 "a" : 0.9
