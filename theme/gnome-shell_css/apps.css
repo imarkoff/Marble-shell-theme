@@ -199,7 +199,7 @@
 
 /* popup label when hovering the app in dash */
 .dash-label {
-	background-color: SECTION-COLOR;
+	background-color: SECTION-OPAQUE-COLOR;
 	color: TEXT-PRIMARY-COLOR;
 	border-radius: 12px;
 	border: 1px solid BORDER-MENU-SHADOW;
