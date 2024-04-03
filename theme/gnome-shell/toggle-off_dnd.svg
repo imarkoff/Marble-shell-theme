@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   width="33.23077"
-   height="18"
+   width="40"
+   height="21.666666"
    version="1.1"
    id="svg2"
-   sodipodi:docname="toggle-off_popup.svg"
+   sodipodi:docname="toggle-off_dnd.svg"
    inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -21,17 +21,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="16.9375"
+     inkscape:zoom="19.229167"
      inkscape:cx="24"
-     inkscape:cy="13.01845"
+     inkscape:cy="12.975081"
      inkscape:window-width="1920"
      inkscape:window-height="1007"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg2" />
+     inkscape:current-layer="g2" />
   <g
-     transform="matrix(-0.69230769,0,0,0.69230769,0,-201.58615)"
+     transform="matrix(-0.83333333,0,0,0.83333333,0,-242.54999)"
      id="g2">
     <rect
        style="fill:#ff0000;fill-opacity:0;stroke:none;stroke-width:1;marker:none"
@@ -43,13 +43,14 @@
        ry="4"
        id="rect1" />
     <rect
-       style="fill-opacity:1;stroke:none;stroke-width:0.90909;marker:none"
+       style="fill-opacity:1;stroke:none;stroke-width:0.999999;marker:none"
        fill="TEXT-SECONDARY-COLOR"
        x="-23"
-       y="294.17999"
+       y="294.06"
        width="20"
        height="20"
-       id="rect2"
-       ry="10" />
+       rx="8"
+       ry="8"
+       id="rect2" />
   </g>
 </svg>

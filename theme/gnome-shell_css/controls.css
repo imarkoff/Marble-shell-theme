@@ -27,8 +27,11 @@
 
 .toggle-switch {
 	background-image: url("./toggle-off.svg");
+	/* size same as svg */
+	height: 18px;
+	width: 33.2px;
 	background-color: ACCENT-DISABLED_HOVER;
-	border-radius: 10px;
+	border-radius: 99px;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW !important;
 }
 
@@ -41,12 +44,17 @@
 /* Do Not Distrub toggle */
 
 .dnd-button {
-	width: 48px;
 	border-radius: 10px;
 }
 
 .dnd-button .toggle-switch {
+	/* size same as svg */
+	width: 40px;
+	height: 21.7px;
+	border-radius: 9px;
+	background-image: url("./toggle-off_dnd.svg");
 	background-color: ACCENT-DISABLED-COLOR;
+	transition-duration: 100ms;
 }
 
 .dnd-button:hover .toggle-switch {
@@ -54,6 +62,7 @@
 }
 
 .dnd-button .toggle-switch:checked {
+	background-image: url("./toggle-on_dnd.svg");
 	background-color: BUTTON-COLOR;
 }
 
@@ -76,6 +85,7 @@
 	color: TEXT-PRIMARY-COLOR;
 	background-color: ACCENT-DISABLED-COLOR;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	transition-duration: 100ms;
 }
 
 .button:insensitive {
@@ -100,6 +110,9 @@
 	border-radius: 10px;
 }
 
+.message-list-clear-button:insensitive {
+	background-color: SECTION-COLOR;
+}
 
 /* Sliders */
 
