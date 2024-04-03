@@ -217,7 +217,7 @@
 }
 
 #dash .app-grid-running-dot {
-	margin-bottom: 12px;
+	margin-bottom: 12px !important; /* override because of gdm */
 }
 
 #dash .app-well-app:hover .app-well-app-running-dot,

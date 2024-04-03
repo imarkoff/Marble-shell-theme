@@ -61,20 +61,21 @@
 /* month header */
 .calendar-month-header .calendar-month-label {
 	color: TEXT-PRIMARY-COLOR !important;
-	padding: 0;
+	padding: 0 !important; /* override because of gdm */
 	background-color: transparent; /* 46+ */
 }
 
-.calendar-month-header .pager-button {
-	height: 2.2em;
-	width: 2.2em;
+.calendar-month-header .pager-button { /* override because of gdm */
+	height: 2.2em !important;
+	width: 2.2em !important;
 }
 
-/* day of week heading */
+/* days of week */
 .calendar-day.calendar-day-heading,
 .calendar .calendar-day-heading /* 46+ */ {
 	color: TEXT-SECONDARY-COLOR;
 	background-color: transparent;
+	border-radius: 8px;
 }
 
 /* day buttons, prev/next month button */
@@ -127,13 +128,13 @@
 
 /* if day has event */
 .calendar .calendar-day-with-events {
-	background-image: url("calendar-event.svg");
+	background-image: url("./calendar-event.svg");
 	background-size: contain;
 	font-weight: 700;
 }
 
 .calendar .calendar-today.calendar-day-with-events {
-	background-image: url("calendar-event-today.svg");
+	background-image: url("./calendar-event-today.svg") !important; /* override because of gdm */
 	background-size: contain;
 }
 
@@ -151,7 +152,7 @@
 
 .calendar .calendar-other-month-day.calendar-day-with-events, /* up to 44 */
 .calendar-other-month.calendar-day-with-events { /* 45+ */
-	background-image: url("calendar-event-disabled.svg");
+	background-image: url("./calendar-event-disabled.svg") !important; /* override because of gdm */
 	background-size: contain;
 }
 
