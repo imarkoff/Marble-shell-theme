@@ -173,6 +173,7 @@
 	color: TEXT-SECONDARY-COLOR;
 	border-radius: 14px;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	transition-duration: 125ms;
 }
 
 .events-button:hover,
