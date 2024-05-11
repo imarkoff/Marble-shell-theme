@@ -8,6 +8,10 @@
             "_comment" : "Hover color for buttons.",
             "default" : "ACCENT_HOVER"
         },
+        "BUTTON_ACTIVE" : {
+            "_comment" : "Hover color for buttons.",
+            "default" : "ACCENT_ACTIVE"
+        },
         "BUTTON_INSENSITIVE" : {
             "_comment" : "Color of disabled buttons",
             "default" : "ACCENT_INSENSITIVE"
@@ -50,6 +54,21 @@
             "dark" : {
                 "s" : 66,
                 "l" : 22,
+                "a" : 1
+            }
+        },
+        "ACCENT_ACTIVE" : {
+            "_comment" : "Active color in active buttons/toggles",
+
+            "light" : {
+                "s" : 48,
+                "l" : 52,
+                "a" : 1
+            },
+
+            "dark" : {
+                "s" : 72,
+                "l" : 18,
                 "a" : 1
             }
         },
@@ -97,6 +116,21 @@
                 "s" : 40,
                 "l" : 85,
                 "a" : 0.13
+            }
+        },
+        "ACCENT-DISABLED_ACTIVE" : {
+            "_comment" : "Hover color in buttons / disabled toggles",
+
+            "light" : {
+                "s" : 35,
+                "l" : 80,
+                "a" : 0.95
+            },
+
+            "dark" : {
+                "s" : 40,
+                "l" : 85,
+                "a" : 0.2
             }
         },
 
@@ -205,6 +239,21 @@
             "dark" : {
                 "s" : 80,
                 "l" : 75,
+                "a" : 1
+            }
+        },
+        "ACCENT-FILLED_ACTIVE" : {
+            "_comment" : "Active effect for accent filled color",
+
+            "light" : {
+                "s" : 65,
+                "l" : 55,
+                "a" : 1
+            },
+
+            "dark" : {
+                "s" : 100,
+                "l" : 82,
                 "a" : 1
             }
         },

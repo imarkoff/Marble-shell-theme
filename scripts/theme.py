@@ -41,12 +41,13 @@ class Theme:
                 replace_keywords(f"{self.temp_folder}/{apply_file}",
                                  ("BUTTON-COLOR", "ACCENT-FILLED-COLOR"),
                                  ("BUTTON_HOVER", "ACCENT-FILLED_HOVER"),
+                                 ("BUTTON_ACTIVE", "ACCENT-FILLED_ACTIVE"),
                                  ("BUTTON_INSENSITIVE", "ACCENT-FILLED_INSENSITIVE"),
                                  ("BUTTON-TEXT-COLOR", "TEXT-BLACK-COLOR"),
                                  ("BUTTON-TEXT_SECONDARY", "TEXT-BLACK_SECONDARY"))
 
     def __add__(self, other):
-        """
+        """Z
         Add to main styles another styles
         :param other: styles to add
         :return: new Theme object

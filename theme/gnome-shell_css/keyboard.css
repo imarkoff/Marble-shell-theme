@@ -1,0 +1,96 @@
+/* On-screen keyboard */
+
+/* keyboard background */
+#keyboard {
+    background-color: BACKGROUND-COLOR;
+    color: TEXT-PRIMARY-COLOR;
+    box-shadow: inset 0 1px 0 0 BORDER-MENU-SHADOW;
+}
+
+
+/* keyboard keys */
+.keyboard-key {
+    border-radius: 15px;
+    box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+    background-color: ACCENT-DISABLED-COLOR;
+    color: TEXT-PRIMARY-COLOR;
+    transition-duration: 75ms;
+}
+
+.keyboard-key:hover { background-color: ACCENT-DISABLED_HOVER; }
+.keyboard-key:active { background-color: ACCENT-DISABLED_ACTIVE; }
+.keyboard-key:checked { background-color: ACCENT-FILLED-COLOR; }
+
+
+/* non-character keys */ 
+.keyboard-key.default-key {
+    color: BUTTON-TEXT-COLOR;
+    background-color: BUTTON-COLOR;
+}
+
+.keyboard-key.default-key:hover { background-color: BUTTON_HOVER; }
+
+.keyboard-key.default-key:active,
+.keyboard-key.default-key:checked {
+    background-color: BUTTON_ACTIVE;
+}
+
+/* ctrl / alt / shift */
+.keyboard-key.default-key:latched,
+.keyboard-key.shift-key-uppercase {
+    border-color: BORDER-SHADOW;
+    background-color: BUTTON_ACTIVE;
+}
+
+
+/* long press on key popup */
+.keyboard-subkeys {
+    -arrow-border-radius: 18px;
+    -arrow-background-color: BACKGROUND-COLOR;
+    -arrow-border-width: 1px;
+    -arrow-border-color: BORDER-MENU-SHADOW;
+    color: TEXT-PRIMARY-COLOR;
+    padding: 6px;
+}
+
+
+/* emojis */
+.emoji-page .keyboard-key {
+    background-color: transparent;
+    border: none;
+}
+
+.emoji-page .keyboard-key:hover,
+.emoji-page .keyboard-key:active {
+    background-color: ACCENT-DISABLED_HOVER;
+}
+
+.emoji-panel .keyboard-key:latched {
+    border-color: BORDER-SHADOW;
+    background-color: BUTTON_ACTIVE;
+}
+
+
+/* word suggestions list */
+.word-suggestions {
+    spacing: 12px;
+    min-height: 22pt;
+    padding: 0;
+    padding-top: 6px; /* same as keyboard buttons padding */
+    color: BUTTON-TEXT-COLOR;
+}
+
+/* suggestion button */
+.word-suggestions StButton {
+    border-radius: 10px;
+    padding: 0px 15px;
+    color: TEXT-PRIMARY-COLOR;
+    transition-duration: 100ms;
+}
+
+.word-suggestions StButton:hover,
+.word-suggestions StButton:active,
+.word-suggestions StButton:checked {
+    box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+    background-color: ACCENT-DISABLED-COLOR;
+}
