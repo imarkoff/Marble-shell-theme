@@ -222,6 +222,7 @@
 
 #dash .app-grid-running-dot {
 	margin-bottom: 12px !important; /* override because of gdm */
+	offset-y: 8px; /* 46.2 fix */
 }
 
 #dash .app-well-app:hover .app-well-app-running-dot,
