@@ -29,7 +29,7 @@ from scripts.theme import Theme
 from scripts.gdm import GlobalTheme
 
 
-def parse_args():
+def parse_args(colors):
     """
     Parse command-line arguments
     :return: parsed arguments
@@ -54,13 +54,9 @@ def parse_args():
 
     default_args = parser.add_argument_group('Install default theme')
     default_args.add_argument('-a', '--all', action='store_true', help='all available accent colors')
-    default_args.add_argument('--red', action='store_true', help='red theme only')
-    default_args.add_argument('--pink', action='store_true', help='pink theme only')
-    default_args.add_argument('--purple', action='store_true', help='purple theme only')
-    default_args.add_argument('--blue', action='store_true', help='blue theme only')
-    default_args.add_argument('--green', action='store_true', help='green theme only')
-    default_args.add_argument('--yellow', action='store_true', help='yellow theme only')
-    default_args.add_argument('--gray', action='store_true', help='gray theme only')
+
+    for color in colors["colors"]:
+        default_args.add_argument(f'--{color}', action='store_true', help=f'{color} theme only')
 
     custom_args = parser.add_argument_group('Install custom color theme')
     custom_args.add_argument('--hue', type=int, choices=range(0, 361), help='generate theme from Hue prompt',
@@ -96,27 +92,6 @@ def apply_tweaks(args, theme, colors):
 
     tweaks_manager = TweaksManager()
     tweaks_manager.apply_tweaks(args, theme, colors)
-
-    # if args.panel_default_size:
-    #     with open(f"{config.tweaks_folder}/panel/def-size.css", "r") as f:
-    #         theme += f.read()
-
-    # if args.panel_no_pill:
-    #     with open(f"{config.tweaks_folder}/panel/no-pill.css", "r") as f:
-    #         theme += f.read()
-
-    # if args.panel_text_color:
-    #     theme += ".panel-button,\
-    #                 .clock,\
-    #                 .clock-display StIcon {\
-    #                     color: rgba(" + ', '.join(map(str, hex_to_rgba(args.panel_text_color))) + ");\
-    #                 }"
-
-    # if args.overview:
-    #     with open(f"{config.tweaks_folder}/overview/overview.css", "r") as f:
-    #         theme += f.read()
-
-    #     theme *= f"{config.tweaks_folder}/overview/overview.png"
 
 
 def install_theme(theme, hue, theme_name, sat, gdm=False):
@@ -161,7 +136,7 @@ def apply_colors(args, theme, colors, gdm=False):
 
                 hue = colors["colors"][color]["h"]
                 # if saturation already defined in color (gray)
-                sat = colors["colors"][color]["s"] if colors["colors"][color]["s"] is not None else args.sat
+                sat = colors["colors"][color].get("s", args.sat)
 
                 install_theme(theme, hue, color, sat, gdm)
                 if gdm:
@@ -218,9 +193,9 @@ def local_theme(args, colors):
 
 
 def main():
-    args = parse_args()
-
     colors = json.load(open(config.colors_json))
+
+    args = parse_args(colors)
 
     if args.gdm:
         global_theme(args, colors)
