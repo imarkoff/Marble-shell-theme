@@ -14,4 +14,5 @@ extracted_gdm_folder = "theme"
 
 # files definitions
 gnome_shell_css = f"{temp_gnome_folder}/gnome-shell.css"
+tweak_file = f"./{tweaks_folder}/*/tweak.py"
 colors_json = "colors.json"

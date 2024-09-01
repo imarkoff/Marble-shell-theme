@@ -47,7 +47,7 @@ class Theme:
                                  ("BUTTON-TEXT_SECONDARY", "TEXT-BLACK_SECONDARY"))
 
     def __add__(self, other):
-        """Z
+        """
         Add to main styles another styles
         :param other: styles to add
         :return: new Theme object

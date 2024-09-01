@@ -1,5 +1,5 @@
 # This file installs Marble shell theme for GNOME DE
-# Copyright (C) 2023  Vladyslav Hroshev
+# Copyright (C) 2023-2024  Vladyslav Hroshev
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -20,11 +20,10 @@ import argparse   # command-line options
 import shutil
 import textwrap   # example text in argparse
 
-from scripts import config     # folder and files definitions
+from scripts import config  # folder and files definitions
+from scripts.tweaks_manager import TweaksManager  # load tweaks from files
 
-from scripts.utils import (
-    remove_files,  # delete already installed Marble theme
-    hex_to_rgba)   # convert HEX to RGBA
+from scripts.utils import remove_files  # delete already installed Marble theme
 
 from scripts.theme import Theme
 from scripts.gdm import GlobalTheme
@@ -80,44 +79,44 @@ def parse_args():
     gdm_theming.add_argument('--gdm', action='store_true', help='install GDM theme. \
                                     Requires root privileges. You must specify a specific color.')
 
-    panel_args = parser.add_argument_group('Panel tweaks')
-    panel_args.add_argument('-Pds', '--panel_default_size', action='store_true', help='set default panel size')
-    panel_args.add_argument('-Pnp', '--panel_no_pill', action='store_true', help='remove panel button background')
-    panel_args.add_argument('-Ptc', '--panel_text_color', type=str, nargs='?', help='custom panel HEX(A) text color')
-
-    overview_args = parser.add_argument_group('Overview tweaks')
-    overview_args.add_argument('--launchpad', action='store_true', help='change Show Apps icon to MacOS Launchpad icon')
+    # Dynamically load arguments from each tweak script
+    tweaks_manager = TweaksManager()
+    tweaks_manager.define_arguments(parser)
 
     return parser.parse_args()
 
 
-def apply_tweaks(args, theme):
+def apply_tweaks(args, theme, colors):
     """
     Apply theme tweaks
     :param args: parsed arguments
     :param theme: Theme object
+    :param colors: colors from colors.json
     """
 
-    if args.panel_default_size:
-        with open(f"{config.tweaks_folder}/panel/def-size.css", "r") as f:
-            theme += f.read()
+    tweaks_manager = TweaksManager()
+    tweaks_manager.apply_tweaks(args, theme, colors)
 
-    if args.panel_no_pill:
-        with open(f"{config.tweaks_folder}/panel/no-pill.css", "r") as f:
-            theme += f.read()
+    # if args.panel_default_size:
+    #     with open(f"{config.tweaks_folder}/panel/def-size.css", "r") as f:
+    #         theme += f.read()
 
-    if args.panel_text_color:
-        theme += ".panel-button,\
-                    .clock,\
-                    .clock-display StIcon {\
-                        color: rgba(" + ', '.join(map(str, hex_to_rgba(args.panel_text_color))) + ");\
-                    }"
+    # if args.panel_no_pill:
+    #     with open(f"{config.tweaks_folder}/panel/no-pill.css", "r") as f:
+    #         theme += f.read()
 
-    if args.launchpad:
-        with open(f"{config.tweaks_folder}/launchpad/launchpad.css", "r") as f:
-            theme += f.read()
+    # if args.panel_text_color:
+    #     theme += ".panel-button,\
+    #                 .clock,\
+    #                 .clock-display StIcon {\
+    #                     color: rgba(" + ', '.join(map(str, hex_to_rgba(args.panel_text_color))) + ");\
+    #                 }"
 
-        theme *= f"{config.tweaks_folder}/launchpad/launchpad.png"
+    # if args.overview:
+    #     with open(f"{config.tweaks_folder}/overview/overview.css", "r") as f:
+    #         theme += f.read()
+
+    #     theme *= f"{config.tweaks_folder}/overview/overview.png"
 
 
 def install_theme(theme, hue, theme_name, sat, gdm=False):
@@ -214,7 +213,7 @@ def local_theme(args, colors):
                               config.themes_folder, config.temp_folder,
                               mode=args.mode, is_filled=args.filled)
 
-    apply_tweaks(args, gnome_shell_theme)
+    apply_tweaks(args, gnome_shell_theme, colors)
     apply_colors(args, gnome_shell_theme, colors)
 
 
@@ -226,7 +225,6 @@ def main():
     if args.gdm:
         global_theme(args, colors)
 
-    # if not GDM theme
     else:
         local_theme(args, colors)
 

@@ -159,6 +159,9 @@ class GlobalTheme:
         :param sat: color saturation
         """
 
+        if os.geteuid() != 0:
+            raise Exception("Root privileges required to install GDM theme")
+
         if self.__is_installed():
             print("Theme is installed. Reinstalling...")
             self.gst += ".backup"
