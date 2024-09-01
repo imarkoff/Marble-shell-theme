@@ -642,7 +642,8 @@
         }
         
     },
-    
+
+    "_comment" : "You can add, edit or remove the colors below. 'h' is hue, 's' is saturation.",
     "colors" : {
         "red" : {
             "h" : 0
@@ -658,9 +659,6 @@
         },
         "purple" : {
             "h" : 275
-        },
-        "pink" : {
-            "h" : 295
         },
         "gray" : {
             "h" : 0,
