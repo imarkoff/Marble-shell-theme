@@ -7,7 +7,6 @@ Shell theme for GNOME DE. Based on https://www.pling.com/p/1939902/.
 ![green](https://shields.io/badge/-green-green?style=flat-square)
 ![blue](https://shields.io/badge/-blue-blue?style=flat-square)
 ![purple](https://shields.io/badge/-purple-purple?style=flat-square)
-![pink](https://shields.io/badge/-pink-pink?style=flat-square)
 ![or different Hue color.](https://shields.io/badge/-or%20different%20Hue%20color.-0d1117?style=flat-square)
 
 ## 🏞 Screenshots
@@ -72,7 +71,7 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 
 ## 🖥️ GDM theme
 
-![GDM theme](./readme-images/gdm.png?raw=true)
+![GDM theme](./readme-images/gdm.png)
 
 > [!NOTE]  
 > This theme only supports GNOME Display Manager. Ubuntu Display Manager is currently not supported.
@@ -105,18 +104,22 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 ## 🏮 Installation tweaks
 
 #### Install default color
-You can install several themes in one string: `python install.py --red --green --blue`
 
-| Option    | Description                         |
-|-----------|-------------------------------------|
-| -a, --all | Install all available accent colors |
-| --red     | red theme only                      |
-| --pink    | pink theme only                     |
-| --purple  | purple theme only                   |
-| --blue    | blue theme only                     |
-| --green   | green theme only                    |
-| --yellow  | yellow theme only                   |
-| --gray    | gray theme only                     |
+| Option    | Description                  |
+|-----------|------------------------------|
+| -a, --all | Install all available colors |
+| --red     | red theme only               |
+| --yellow  | yellow theme only            |
+| --green   | green theme only             |
+| --blue    | blue theme only              |
+| --purple  | purple theme only            |
+| --gray    | gray theme only              |
+
+> [!TIP]
+> You can install several themes in one string: `python install.py --red --green --blue`
+
+> [!TIP]
+> If you don't like these colors, you can change them in the `colors.json` file (after the `elements`).
 
 #### Install custom color
 | Option | Secondary option | Description                              |
@@ -125,9 +128,10 @@ You can install several themes in one string: `python install.py --red --green -
 | --name | NAME             | Custom theme name                        |
 
 #### Theme colors
-| Option   | Description                    |
-|----------|--------------------------------|
-| --filled | Make accent color [more vibrant](./readme-images/qs.png?raw=true) |
+| Option       | Description                                                       |
+|--------------|-------------------------------------------------------------------|
+| --filled     | Make accent color [more vibrant](./readme-images/qs.png?raw=true) |
+| -O, --opaque | Make background color opaque (by default is translucent)          | 
 
 #### Optional theme tweaks
 | Option | Secondary option | Description                                                |
@@ -159,7 +163,7 @@ You can install several themes in one string: `python install.py --red --green -
 
 | Command     | Description                                   |
 |-------------|-----------------------------------------------|
-| --launchpad | Change Show Apps icon to MacOS Launchpad icon |
+| --launchpad | Change Show Apps icon to macOS Launchpad icon |
 
 #### Examples
 | Command                                        | Description                                                          |
