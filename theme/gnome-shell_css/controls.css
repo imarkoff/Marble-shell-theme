@@ -26,18 +26,30 @@
 /* Toggles */
 
 .toggle-switch {
-	background-image: url("./toggle-off.svg");
+	/* background-image: url("./toggle-off.svg"); */
 	/* size same as svg */
 	height: 18px;
-	width: 33.2px;
+	width: 33px;
 	background-color: ACCENT-DISABLED_HOVER;
 	border-radius: 99px;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW !important;
 }
 
 .toggle-switch:checked {
-	background-image: url("./toggle-on.svg");
+	/* background-image: url("./toggle-on.svg"); */
 	background-color: BUTTON-COLOR;
+}
+
+.toggle-switch .handle {
+	/* toggle-switch height - handle margin * 2 */
+	width: 14px;
+	height: 14px;
+	margin: 2px;
+	background-color: TEXT-SECONDARY-COLOR;
+}
+
+.toggle-switch:checked .handle {
+	background-color: BUTTON-TEXT-COLOR;
 }
 
 
@@ -50,11 +62,20 @@
 .dnd-button .toggle-switch {
 	/* size same as svg */
 	width: 40px;
-	height: 21.7px;
+	height: 22px;
 	border-radius: 9px;
-	background-image: url("./toggle-off_dnd.svg");
+	/* background-image: url("./toggle-off_dnd.svg"); */
 	background-color: ACCENT-DISABLED-COLOR;
 	transition-duration: 100ms;
+}
+
+/* toggle */
+.dnd-button .toggle-switch .handle {
+	/* toggle-switch height - handle margin * 2 */
+	width: 16px;
+	height: 16px;
+	border-radius: 6px;
+	margin: 3px;
 }
 
 .dnd-button:hover .toggle-switch {
@@ -62,7 +83,7 @@
 }
 
 .dnd-button .toggle-switch:checked {
-	background-image: url("./toggle-on_dnd.svg");
+	/* background-image: url("./toggle-on_dnd.svg"); */
 	background-color: BUTTON-COLOR;
 }
 
