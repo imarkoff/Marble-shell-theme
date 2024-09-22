@@ -65,12 +65,20 @@
 /* Modal dialog */
 .modal-dialog {
 	border-radius: 20px;
+	padding: 0; /* 47+ */
 	background-color: BACKGROUND-COLOR;
 	border: none;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 	color: TEXT-PRIMARY-COLOR;
 }
 
+.modal-dialog .modal-dialog-content-box {
+	margin: 32px 40px; /* bring it back because of https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/a32f735ec09bc3bb0309818cfb15f313338f4c8c */
+}
+
+.end-session-dialog {
+	width: 30em; /* revert changes on 47+ */
+}
 
 /* user avatar */
 .user-icon {
