@@ -139,10 +139,11 @@
 
 .slider,
 .level {
-	-barlevel-height: 16px;
+	color: BUTTON-TEXT-COLOR; /* slider handle color (47+) */
+	-barlevel-height: 14px;
 	-barlevel-background-color: ACCENT-DISABLED-COLOR;
 	-barlevel-active-background-color: BUTTON-COLOR;
-	-barlevel-border-width: 0px;
+	-barlevel-border-width: 0px; /* up to 46 */
 	/* overfill */
 	-barlevel-overdrive-color: #c01c28;
 	-barlevel-overdrive-separator-width: 2px;
