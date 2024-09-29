@@ -2,7 +2,7 @@
 
 /* QS section */
 .quick-settings {
-	padding: 18px;
+	padding: 15px;
 	border-radius: 24px;
 }
 
@@ -93,7 +93,7 @@
 .quick-slider .slider-bin {
 	padding: 4px;
 	margin: 0;
-	color: BUTTON-TEXT-COLOR;
+	color: BUTTON-TEXT-COLOR; /* up tp 46 */
 	border-radius: 99px;
 }
 

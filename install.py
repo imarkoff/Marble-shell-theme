@@ -14,6 +14,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+# TODO: output current GNOME version. Warn if it's not supported
+# TODO: rework checkboxes for GNOME 47
+# TODO: test on older GNOME versions
+# TODO: install theme using only standard colors from settings color picker
 
 import json       # working with json files
 import argparse   # command-line options
@@ -24,6 +28,7 @@ from scripts import config  # folder and files definitions
 from scripts.tweaks_manager import TweaksManager  # load tweaks from files
 
 from scripts.utils import remove_files  # delete already installed Marble theme
+from scripts.utils.gnome import apply_gnome_theme  # apply theme to GNOME shell
 
 from scripts.theme import Theme
 from scripts.gdm import GlobalTheme
@@ -202,6 +207,8 @@ def main():
 
     else:
         local_theme(args, colors)
+        apply_gnome_theme()
+        # TODO: inform user about already applied theme. if not, apply it manually
 
 
 if __name__ == "__main__":
