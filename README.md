@@ -103,6 +103,9 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 
 ## 🏮 Installation tweaks
 
+> [!TIP]
+> Wanna use accent color from your favorite wallpaper? Use [Chromaflow](https://github.com/Felixdiamond/chromaflow).
+
 #### Install default color
 
 | Option    | Description                  |
