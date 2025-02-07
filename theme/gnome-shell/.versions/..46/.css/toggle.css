@@ -1,0 +1,15 @@
+.toggle-switch {
+	background-image: url("./toggle-off.svg");
+}
+
+.toggle-switch:checked {
+	background-image: url("./toggle-on.svg");
+}
+
+.dnd-button .toggle-switch {
+	background-image: url("./toggle-off_dnd.svg");
+}
+
+.dnd-button .toggle-switch:checked {
+	background-image: url("./toggle-on_dnd.svg");
+}

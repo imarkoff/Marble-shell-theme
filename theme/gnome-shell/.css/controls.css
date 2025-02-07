@@ -25,21 +25,20 @@
 
 /* Toggles */
 
+/* .toggle-switch handle styled in ..46, 47.. */
+
 .toggle-switch {
-	background-image: url("./toggle-off.svg");
 	/* size same as svg */
 	height: 18px;
-	width: 33.2px;
+	width: 33px;
 	background-color: ACCENT-DISABLED_HOVER;
 	border-radius: 99px;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW !important;
 }
 
 .toggle-switch:checked {
-	background-image: url("./toggle-on.svg");
 	background-color: BUTTON-COLOR;
 }
-
 
 /* Do Not Distrub toggle */
 
@@ -50,9 +49,8 @@
 .dnd-button .toggle-switch {
 	/* size same as svg */
 	width: 40px;
-	height: 21.7px;
+	height: 22px;
 	border-radius: 9px;
-	background-image: url("./toggle-off_dnd.svg");
 	background-color: ACCENT-DISABLED-COLOR;
 	transition-duration: 100ms;
 }
@@ -62,7 +60,6 @@
 }
 
 .dnd-button .toggle-switch:checked {
-	background-image: url("./toggle-on_dnd.svg");
 	background-color: BUTTON-COLOR;
 }
 
@@ -118,10 +115,11 @@
 
 .slider,
 .level {
-	-barlevel-height: 16px;
+	color: BUTTON-TEXT-COLOR; /* slider handle color (47+) */
+	-barlevel-height: 14px;
 	-barlevel-background-color: ACCENT-DISABLED-COLOR;
 	-barlevel-active-background-color: BUTTON-COLOR;
-	-barlevel-border-width: 0px;
+	-barlevel-border-width: 0px; /* up to 46 */
 	/* overfill */
 	-barlevel-overdrive-color: #c01c28;
 	-barlevel-overdrive-separator-width: 2px;

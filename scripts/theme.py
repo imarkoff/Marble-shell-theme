@@ -33,7 +33,10 @@ class Theme:
 
         # move files to temp folder
         copy_files(self.theme_folder, self.temp_folder)
-        generate_file(f"{self.theme_folder}_css/", self.main_styles)
+        generate_file(f"{self.theme_folder}", self.main_styles)
+        # after generating main styles, remove .css and .versions folders
+        shutil.rmtree(f"{self.temp_folder}/.css/", ignore_errors=True)
+        shutil.rmtree(f"{self.temp_folder}/.versions/", ignore_errors=True)
 
         # if theme is filled
         if is_filled:
