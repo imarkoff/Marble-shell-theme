@@ -7,7 +7,7 @@
 }
 
 
-/* screenshot / settings / lock / power options; part of quick-toggle-arrow [44+] */
+/* screenshot / settings / lock / power options; part of quick-toggle-arrow [44-47] quick-toggle-menu-button [48+] */
 .icon-button {
 	background-color: ACCENT-DISABLED-COLOR;
 	color: TEXT-PRIMARY-COLOR;
@@ -29,7 +29,8 @@
 
 /* toggles in QS */
 .quick-toggle, /* 43 */
-.quick-menu-toggle .quick-toggle { /* 44+ */
+.quick-menu-toggle .quick-toggle, /* 44-47 */
+.quick-toggle-has-menu .quick-toggle{ /* 48+ */
 	color: TEXT-PRIMARY-COLOR;
 	border-radius: 15px;
 	background-color: ACCENT-DISABLED-COLOR;
@@ -41,40 +42,50 @@
 	font-weight: 600;
 }
 
-/* adjust borders if quick toggle has expandable menu button (quick-toggle-arrow)[44+] */
-.quick-menu-toggle .quick-toggle:ltr { border-radius: 15px 0 0 15px; }
-.quick-menu-toggle .quick-toggle:rtl { border-radius: 0 15px 15px 0; }
+/* adjust borders if quick toggle has expandable menu button (quick-toggle-arrow)44-47] (quick-toggle-menu-button)[48+] */
+.quick-menu-toggle .quick-toggle:ltr,
+.quick-toggle-has-menu .quick-toggle:ltr { border-radius: 15px 0 0 15px; }
+.quick-menu-toggle .quick-toggle:rtl,
+.quick-toggle-has-menu .quick-toggle:rtl { border-radius: 0 15px 15px 0; }
 
 /* if quick toggle has no expandable menu button (quick-toggle-arrow)[44+] */
-.quick-menu-toggle .quick-toggle:last-child {
+.quick-menu-toggle .quick-toggle:last-child,
+.quick-toggle-has-menu .quick-toggle:last-child {
 	border-radius: 15px;
 }
 
-.quick-menu-toggle .quick-toggle-arrow {
+.quick-menu-toggle .quick-toggle-arrow,
+.quick-toggle-has-menu .quick-toggle-menu-button {
 	border-color: transparent;
 }
 
 /* adjust borders in expandable menu button */
-.quick-menu-toggle .quick-toggle-arrow:ltr {
+.quick-menu-toggle .quick-toggle-arrow:ltr,
+.quick-toggle-has-menu .quick-toggle-menu-button:ltr {
 	border-radius: 0 15px 15px 0;
 	border-left-width: 2px;
 }
 
-.quick-menu-toggle .quick-toggle-arrow:rtl {
+.quick-menu-toggle .quick-toggle-arrow:rtl,
+.quick-toggle-has-menu .quick-toggle-menu-button:rtl {
 	border-radius: 15px 0 0 15px;
 	border-right-width: 2px;
 }
 
 .quick-toggle:hover,
 .quick-menu-toggle .quick-toggle:hover,
-.quick-menu-toggle .quick-toggle-arrow:hover {
+.quick-menu-toggle .quick-toggle-arrow:hover,
+.quick-toggle-has-menu .quick-toggle:hover,
+.quick-toggle-has-menu .quick-toggle-menu-button:hover {
 	color: TEXT-PRIMARY-COLOR;
 	background-color: ACCENT-DISABLED_HOVER;
 }
 
 .quick-toggle:checked,
 .quick-menu-toggle .quick-toggle:checked,
-.quick-menu-toggle .quick-toggle-arrow:checked {
+.quick-menu-toggle .quick-toggle-arrow:checked,
+.quick-toggle-has-menu .quick-toggle:checked,
+.quick-toggle-has-menu .quick-toggle-menu-button:checked {
 	color: BUTTON-TEXT-COLOR;
 	background-color: BUTTON-COLOR;
 	border-color: transparent;
@@ -82,7 +93,9 @@
 
 .quick-toggle:checked:hover,
 .quick-menu-toggle .quick-toggle:checked:hover,
-.quick-menu-toggle .quick-toggle-arrow:checked:hover {
+.quick-menu-toggle .quick-toggle-arrow:checked:hover,
+.quick-toggle-has-menu .quick-toggle:checked:hover,
+.quick-toggle-has-menu .quick-toggle-menu-button:checked:hover{
 	color: BUTTON-TEXT-COLOR;
 	background-color: BUTTON_HOVER;
 }
