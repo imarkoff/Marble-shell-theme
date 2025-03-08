@@ -1,5 +1,5 @@
 # This file installs Marble shell theme for GNOME DE
-# Copyright (C) 2023-2024  Vladyslav Hroshev
+# Copyright (C) 2023-2025  Vladyslav Hroshev
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,7 +14,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-
 import json       # working with json files
 import argparse   # command-line options
 import shutil
@@ -24,6 +23,7 @@ from scripts import config  # folder and files definitions
 from scripts.tweaks_manager import TweaksManager  # load tweaks from files
 
 from scripts.utils import remove_files  # delete already installed Marble theme
+from scripts.utils.gnome import apply_gnome_theme  # apply theme to GNOME shell
 
 from scripts.theme import Theme
 from scripts.gdm import GlobalTheme
@@ -202,6 +202,8 @@ def main():
 
     else:
         local_theme(args, colors)
+        apply_gnome_theme()
+        # TODO: inform user about already applied theme. if not, apply it manually
 
 
 if __name__ == "__main__":

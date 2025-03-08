@@ -41,7 +41,7 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 </details>
 
 ## 🚧 Requirements
-- GNOME 43-46. Correct functionality on other versions is not guaranteed.
+- GNOME 42-47. Correct functionality on other versions is not guaranteed.
 - [User Themes](https://extensions.gnome.org/extension/19/user-themes/ "User Themes") extension.
 - Python 3.2+.
 
@@ -67,6 +67,13 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 4. After successful file creation open Extensions app, go to `User Themes - ··· - Settings`.
 ![User Themes in Extensions](./readme-images/user-themes-settings.png)
 5. Select the shell theme you want.
+
+> [!TIP]
+> For updating the theme, run the `git pull` command in the `Marble-shell-theme` directory and run the program again. 
+> If Marble theme is used, updates will be applied automatically.
+
+> [!TIP]
+> If you want to install only one color, use the `--red`, `--yellow`, `--green`, `--blue`, `--purple`, `--gray` option.
 
 
 ## 🖥️ GDM theme
