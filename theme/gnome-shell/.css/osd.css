@@ -96,12 +96,17 @@
 
 
 /* button in modals */
-.modal-dialog-linked-button,
+.modal-dialog-linked-button, /* 46 */
+.modal-dialog-button-box .modal-dialog-button, /* 47+ */
 .notification-button {
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 	background-color: ACCENT-DISABLED-COLOR;
 	color: TEXT-PRIMARY-COLOR;
 	animation-duration: 100ms;
+}
+
+.modal-dialog-button-box .modal-dialog-button:focus {
+	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
 }
 
 .modal-dialog-linked-button {
