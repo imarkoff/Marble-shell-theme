@@ -1,5 +1,5 @@
 # This file installs Marble shell theme for GNOME DE
-# Copyright (C) 2023-2024  Vladyslav Hroshev
+# Copyright (C) 2023-2025  Vladyslav Hroshev
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -13,11 +13,6 @@
 
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-# TODO: output current GNOME version. Warn if it's not supported
-# TODO: rework checkboxes for GNOME 47
-# TODO: test on older GNOME versions
-# TODO: install theme using only standard colors from settings color picker
 
 import json       # working with json files
 import argparse   # command-line options
