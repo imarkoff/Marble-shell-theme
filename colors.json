@@ -355,9 +355,9 @@
             "_comment" : "Used as primary color in text",
             
             "light" : {
-                "s" : 71,
-                "l" : 10,
-                "a" : 0.87
+                "s" : 31,
+                "l" : 20,
+                "a" : 1
             },
 
             "dark" : {
@@ -430,15 +430,15 @@
         "TEXT-BLACK-COLOR" : {
 
             "light" : {
-                "s" : 71,
-                "l" : 10,
-                "a" : 0.87
+                "s" : 31,
+                "l" : 20,
+                "a" : 1
             },
 
             "dark" : {
-                "s" : 71,
-                "l" : 10,
-                "a" : 0.87
+                "s" : 31,
+                "l" : 20,
+                "a" : 1
             }
         },
         "TEXT-BLACK_SECONDARY" : {
