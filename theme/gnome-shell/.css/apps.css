@@ -221,7 +221,8 @@
 }
 
 #dash .app-grid-running-dot {
-	offset-y: -4px;
+	margin-bottom: 0 !important;
+	offset-y: -4px !important;
 }
 
 #dash .app-well-app:hover .app-well-app-running-dot,

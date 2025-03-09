@@ -20,18 +20,18 @@
 }
 
 /* allows to shrink horizontal padding for app icons */
-.panel-button { -natural-hpadding: 6px; }
+.panel-button { -natural-hpadding: 6px !important; }
 .panel-status-indicators-box:first-child { padding-left: 3px; }
 .panel-status-indicators-box:last-child { padding-right: 3px; }
 .panel-status-indicators-box:first-child:last-child { padding: 0; }
-.panel-button#panelActivities { -natural-hpadding: 10px; }
+.panel-button#panelActivities { -natural-hpadding: 10px !important; }
 
 /* panel buttons */
 .panel-button,
 .panel-button .clock { /* DND / new messages icon */
 	color: TEXT-PRIMARY-COLOR;
 	border-radius: 9px;
-	border-width: 0px;
+	border-width: 0 !important;
 	background-color: ACCENT-DISABLED-COLOR;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }

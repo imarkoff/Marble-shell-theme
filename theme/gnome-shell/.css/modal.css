@@ -1,0 +1,95 @@
+/* Modal dialog */
+.modal-dialog {
+	border-radius: 20px;
+	padding: 12px;
+	background-color: BACKGROUND-COLOR;
+	border: none;
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.end-session-dialog {
+	width: 28em;
+}
+
+/* user avatar */
+.user-icon {
+	border-radius: 999px;
+	color: TEXT-PRIMARY-COLOR;
+	background-color: ACCENT-DISABLED-COLOR;
+	box-shadow: inset 0 0 0 1px BORDER-MENU-SHADOW;
+}
+
+.user-icon.user-avatar {
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+
+/* password entry */
+.prompt-dialog-password-entry {
+	background-color: SECTION-COLOR;
+}
+
+
+/* button in modals */
+.modal-dialog-linked-button, /* 46 */
+.modal-dialog-button-box .modal-dialog-button, /* 47+ */
+.notification-button {
+	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	border-radius: 12px;
+	background-color: ACCENT-DISABLED-COLOR;
+	color: TEXT-PRIMARY-COLOR;
+	animation-duration: 100ms;
+}
+
+.modal-dialog-button-box .modal-dialog-button:focus {
+	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
+}
+
+.modal-dialog-linked-button {
+	padding: 10px 0;
+	border-radius: 12px;
+}
+
+.notification-button {
+	padding: 7px 12px;
+	border-radius: 10px;
+}
+
+/* see button spacing in ..46 and 47.. */
+
+.modal-dialog-linked-button:hover,
+.modal-dialog-linked-button:focus,
+.notification-button:hover,
+.notification-button:focus {
+	background: ACCENT-DISABLED_HOVER;
+	color: TEXT-PRIMARY-COLOR;
+}
+
+.modal-dialog-linked-button:last-child {
+	background-color: BUTTON-COLOR;
+	color: BUTTON-TEXT-COLOR;
+}
+
+.modal-dialog-linked-button:last-child:hover,
+.modal-dialog-linked-button:last-child:focus {
+	background-color: BUTTON_HOVER;
+}
+
+.modal-dialog-linked-button:focus {
+	animation-duration: 100ms;
+	box-shadow: inset 0 0 0 1px TEXT-DISABLED-COLOR !important;
+}
+
+.modal-dialog-linked-button:focus:hover,
+.notification-button:focus:hover,
+.modal-dialog-linked-button:focus:active,
+.notification-button:focus:active {
+	box-shadow: inset 0 0 0 1px TEXT-SECONDARY-COLOR !important;
+}
+
+.modal-dialog .modal-dialog-linked-button:insensitive,
+.notification-banner .notification-button:insensitive {
+	color: BUTTON-TEXT_SECONDARY;
+	background-color: BUTTON_INSENSITIVE;
+}
