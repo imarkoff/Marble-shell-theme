@@ -1,8 +1,9 @@
 .toggle-switch .handle {
 	/* toggle-switch height - handle margin * 2 */
-	width: 14px;
+	width: 12px;
 	height: 14px;
-	margin: 2px;
+	margin: 3px;
+	border-radius: 99px;
 	background-color: TEXT-SECONDARY-COLOR;
 }
 
