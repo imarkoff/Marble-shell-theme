@@ -104,7 +104,7 @@
 /* clear button */
 .message-list-clear-button {
 	padding: 0 20px;
-	border-radius: 10px;
+	border-radius: 9px;
 }
 
 .message-list-clear-button:insensitive {

@@ -6,17 +6,13 @@
 }
 
 /* Calendar menu side column */
-.datemenu-calendar-column {
-	spacing: 5px;
-}
+.datemenu-calendar-column { spacing: 0px; }
 
 /* let's bring back issue #1 */
-.datemenu-calendar-column:ltr { padding-left: 0; }
-.datemenu-calendar-column:rtl {	padding-right: 0; }
+.datemenu-calendar-column:ltr { margin-left: 0; }
+.datemenu-calendar-column:rtl {	margin-right: 0; }
 
-.datemenu-calendar-column .datemenu-displays-box {
-	spacing: 5px;
-}
+.datemenu-calendar-column .datemenu-displays-box { spacing: 0px; }
 
 
 /* today header button */
