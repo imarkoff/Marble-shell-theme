@@ -42,13 +42,10 @@
 	animation-duration: 100ms;
 }
 
-.modal-dialog-button-box .modal-dialog-button:focus {
-	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
-}
-
-.modal-dialog-linked-button {
-	padding: 10px 0;
-	border-radius: 12px;
+.modal-dialog-linked-button,
+.modal-dialog-button-box .modal-dialog-button {
+	padding: 9px 0;
+	border-radius: 10px;
 }
 
 .notification-button {
@@ -62,34 +59,57 @@
 .modal-dialog-linked-button:focus,
 .notification-button:hover,
 .notification-button:focus {
-	background: ACCENT-DISABLED_HOVER;
+	background-color: ACCENT-DISABLED_HOVER;
 	color: TEXT-PRIMARY-COLOR;
 }
 
-.modal-dialog-linked-button:last-child {
+.modal-dialog-linked-button:ltr:last-child,
+.modal-dialog-linked-button:rtl:first-child,
+.modal-dialog-button-box .modal-dialog-button:ltr:last-child,
+.modal-dialog-button-box .modal-dialog-button:rtl:first-child {
 	background-color: BUTTON-COLOR;
 	color: BUTTON-TEXT-COLOR;
 }
 
-.modal-dialog-linked-button:last-child:hover,
-.modal-dialog-linked-button:last-child:focus {
+.modal-dialog-linked-button:ltr:last-child:hover,
+.modal-dialog-linked-button:ltr:last-child:focus,
+.modal-dialog-linked-button:rtl:first-child:hover,
+.modal-dialog-linked-button:rtl:first-child:focus,
+.modal-dialog-button-box .modal-dialog-button:ltr:last-child:hover,
+.modal-dialog-button-box .modal-dialog-button:ltr:last-child:focus,
+.modal-dialog-button-box .modal-dialog-button:rtl:first-child:hover,
+.modal-dialog-button-box .modal-dialog-button:rtl:first-child:focus {
 	background-color: BUTTON_HOVER;
 }
 
-.modal-dialog-linked-button:focus {
+
+.modal-dialog-linked-button:focus,
+.modal-dialog-button-box .modal-dialog-button:focus{
 	animation-duration: 100ms;
-	box-shadow: inset 0 0 0 1px TEXT-DISABLED-COLOR !important;
+	box-shadow: inset 0 0 0 2px TEXT-DISABLED-COLOR !important;
 }
 
 .modal-dialog-linked-button:focus:hover,
 .notification-button:focus:hover,
+.modal-dialog-button-box .modal-dialog-button:focus:hover,
 .modal-dialog-linked-button:focus:active,
-.notification-button:focus:active {
-	box-shadow: inset 0 0 0 1px TEXT-SECONDARY-COLOR !important;
+.notification-button:focus:active,
+.modal-dialog-button-box .modal-dialog-button:focus:active {
+	box-shadow: inset 0 0 0 2px TEXT-SECONDARY-COLOR !important;
 }
 
 .modal-dialog .modal-dialog-linked-button:insensitive,
-.notification-banner .notification-button:insensitive {
+.notification-banner .notification-button:insensitive,
+.modal-dialog-button-box .modal-dialog-button:insensitive {
 	color: BUTTON-TEXT_SECONDARY;
 	background-color: BUTTON_INSENSITIVE;
+}
+
+
+.modal-dialog-linked-button:ltr:last-child:insensitive,
+.modal-dialog-linked-button:rtl:first-child:insensitive,
+.modal-dialog-button-box .modal-dialog-button:ltr:last-child:insensitive,
+.modal-dialog-button-box .modal-dialog-button:rtl:first-child:insensitive {
+	background-color: BUTTON_INSENSITIVE;
+	color: BUTTON-TEXT_SECONDARY;
 }
