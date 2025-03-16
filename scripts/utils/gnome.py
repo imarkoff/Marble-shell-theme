@@ -1,17 +1,18 @@
 import subprocess
 
-def gnome_version():
+def gnome_version() -> str | None:
     """
     Get gnome-shell version
     """
 
     try:
         output = subprocess.check_output(['gnome-shell', '--version'], text=True).strip()
+        print(output)
         return output.split(' ')[2]
     except subprocess.CalledProcessError:
         return None
 
-def apply_gnome_theme(theme=None):
+def apply_gnome_theme(theme=None) -> bool:
     """
     Apply gnome-shell theme
     :param theme: theme name
@@ -27,6 +28,7 @@ def apply_gnome_theme(theme=None):
 
         subprocess.run(['dconf', 'reset', '/org/gnome/shell/extensions/user-theme/name'], check=True)
         subprocess.run(['dconf', 'write', '/org/gnome/shell/extensions/user-theme/name', f"'{theme}'"], check=True)
+        print(f"Theme '{theme}' applied.")
     except subprocess.CalledProcessError:
         return False
     return True

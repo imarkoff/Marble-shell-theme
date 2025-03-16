@@ -86,6 +86,10 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 > [!WARNING]  
 > I am not responsible for any damage caused by the installation of the theme. If you have any problems, please open an issue.
 
+> [!IMPORTANT]  
+> Install `glib2-devel` package before running the program. 
+> For Debian-based systems, use the `libglib2.0-dev` package.
+
 1. Open the terminal.
 2. Go to the directory with the theme.
 3. Run the program with the `--gdm` option

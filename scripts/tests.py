@@ -4,6 +4,7 @@ import unittest
 import os
 import json
 import shutil
+from unittest.mock import patch
 
 from . import config
 from .theme import Theme
@@ -14,11 +15,22 @@ project_folder = '.'
 
 
 class TestInstall(unittest.TestCase):
+    def setUp(self):
+        # Create necessary directories
+        os.makedirs(f"{project_folder}/{config.raw_theme_folder}/{config.gnome_folder}", exist_ok=True)
+        os.makedirs(f"{tests_folder}/.themes", exist_ok=True)
+        os.makedirs(f"{tests_folder}/.temp", exist_ok=True)
 
-    def test_install_theme(self):
+    def tearDown(self):
+        # Clean up after tests
+        shutil.rmtree(tests_folder, ignore_errors=True)
+
+    @patch('scripts.utils.gnome.subprocess.check_output')
+    def test_install_theme(self, mock_check_output):
         """
         Test if theme is installed correctly (colors are replaced)
         """
+        mock_check_output.return_value = 'GNOME Shell 47.0\n'
 
         # folders
         themes_folder = f"{tests_folder}/.themes"

@@ -127,7 +127,7 @@ def apply_colors(args, theme, colors, gdm=False):
         theme_name = args.name if args.name else f'hue{hue}'
 
         install_theme(theme, hue, theme_name, args.sat, gdm)
-        return
+        return None
 
     else:
         for color in colors["colors"]:
@@ -140,10 +140,13 @@ def apply_colors(args, theme, colors, gdm=False):
 
                 install_theme(theme, hue, color, sat, gdm)
                 if gdm:
-                    return
+                    return None
 
     if not is_colors:
         print('No color arguments specified. Use -h or --help to see the available options.')
+        return 1
+
+    return None
 
 
 def global_theme(args, colors):
@@ -155,20 +158,16 @@ def global_theme(args, colors):
 
     gdm_theme = GlobalTheme(colors, f"{config.raw_theme_folder}/{config.gnome_folder}",
                             config.global_gnome_shell_theme, config.gnome_shell_gresource,
-                            config.temp_folder, is_filled=args.filled)
+                            config.temp_folder, mode=args.mode, is_filled=args.filled)
 
     if args.remove:
         gdm_rm_status = gdm_theme.remove()
         if gdm_rm_status == 0:
             print("GDM theme removed successfully.")
-        return 0
+        return
 
-    try:
-        apply_colors(args, gdm_theme, colors, gdm=True)
-    except Exception as e:
-        print(f"Error: {e}")
-        return 1
-    else:
+
+    if apply_colors(args, gdm_theme, colors, gdm=True) is None:
         print("\nGDM theme installed successfully.")
         print("You need to restart gdm.service to apply changes.")
         print("Run \"systemctl restart gdm.service\" to restart GDM.")
@@ -203,10 +202,10 @@ def main():
     else:
         local_theme(args, colors)
         apply_gnome_theme()
-        # TODO: inform user about already applied theme. if not, apply it manually
 
 
 if __name__ == "__main__":
-    main()
-
-    shutil.rmtree(config.temp_folder, ignore_errors=True)
+    try:
+        main()
+    finally:
+        shutil.rmtree(config.temp_folder, ignore_errors=True)

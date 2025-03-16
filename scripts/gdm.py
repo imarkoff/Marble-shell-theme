@@ -1,21 +1,32 @@
 import os
 import subprocess
-import shutil
 
 from .theme import Theme
-from .utils import label_files, remove_properties, remove_keywords
+from .utils import label_files, remove_properties, remove_keywords, gnome
 from . import config
+
+
+class ThemePrepare:
+    """
+    Theme object prepared for installation
+    """
+
+    def __init__(self, theme, theme_file, should_label=False):
+        self.theme = theme
+        self.theme_file = theme_file
+        self.should_label = should_label
 
 
 class GlobalTheme:
     def __init__(self, colors_json, theme_folder, destination_folder, destination_file, temp_folder,
-                 is_filled=False):
+                 mode=None, is_filled=False):
         """
         Initialize GlobalTheme class
         :param colors_json: location of a json file with colors
         :param theme_folder: raw theme location
         :param destination_folder: folder where themes will be installed
         :param temp_folder: folder where files will be collected
+        :param mode: theme mode (light or dark). applied only for gnome-shell < 44
         :param is_filled: if True, theme will be filled
         """
 
@@ -23,32 +34,40 @@ class GlobalTheme:
         self.theme_folder = theme_folder
         self.destination_folder = destination_folder
         self.destination_file = destination_file
-        self.temp_folder = f"{temp_folder}/gdm"
+        self.temp_folder = os.path.join(temp_folder, "gdm")
 
         self.backup_file = f"{self.destination_file}.backup"
         self.backup_trigger = "\n/* Marble theme */\n"  # trigger to check if theme is installed
-        self.extracted_theme = f"{self.temp_folder}/{config.extracted_gdm_folder}"
-        self.gst = f"{self.destination_folder}/{self.destination_file}"  # use backup file if theme is installed
-        self.extracted_light_theme = f"{self.extracted_theme}/gnome-shell-light.css"
-        self.extracted_dark_theme = f"{self.extracted_theme}/gnome-shell-dark.css"
+        self.extracted_theme = os.path.join(self.temp_folder, config.extracted_gdm_folder)
+        self.gst = os.path.join(self.destination_folder, self.destination_file)  # use backup file if theme is installed
 
-        os.makedirs(self.temp_folder, exist_ok=True)  # create temp folder
+        self.themes: list[ThemePrepare] = []
 
-        # create light and dark themes
-        self.light_theme = Theme("gnome-shell-light", self.colors_json, self.theme_folder,
-                                 self.extracted_theme, self.temp_folder, mode='light', is_filled=is_filled)
-        self.dark_theme = Theme("gnome-shell-dark", self.colors_json, self.theme_folder,
-                                self.extracted_theme, self.temp_folder, mode='dark', is_filled=is_filled)
+        try:
+            gnome_version = gnome.gnome_version()
+            gnome_major = gnome_version.split(".")[0]
+            if int(gnome_major) >= 44:
+                self.themes += [
+                    self.__create_theme("gnome-shell-light", mode='light', should_label=True, is_filled=is_filled),
+                    self.__create_theme("gnome-shell-dark", mode='dark', is_filled=is_filled)
+                ]
+        except Exception as e:
+            print(f"Error: {e}")
+            print("Using single theme.")
 
-    def __del__(self):
-        """
-        Delete temp folder
-        """
+        if not self.themes:
+            self.themes.append(
+                self.__create_theme(
+                    "gnome-shell", mode=mode if mode else 'dark', is_filled=is_filled))
 
-        del self.light_theme
-        del self.dark_theme
 
-        shutil.rmtree(self.temp_folder)
+    def __create_theme(self, theme_type, mode=None, should_label=False, is_filled=False):
+        """Helper to create theme objects"""
+        theme = Theme(theme_type, self.colors_json, self.theme_folder,
+                      self.extracted_theme, self.temp_folder,
+                      mode=mode, is_filled=is_filled)
+        theme_file = os.path.join(self.extracted_theme, f"{theme_type}.css")
+        return ThemePrepare(theme=theme, theme_file=theme_file, should_label=should_label)
 
     def __is_installed(self):
         """
@@ -56,33 +75,37 @@ class GlobalTheme:
         :return: True if theme is installed, False otherwise
         """
 
-        with open(f"{self.destination_folder}/{self.destination_file}", "rb") as f:
-            content = f.read()
-            return self.backup_trigger.encode() in content
+        with open(self.gst, "rb") as f:
+            return self.backup_trigger.encode() in f.read()
 
     def __extract(self):
         """
         Extract gresource files to temp folder
         """
-
         print("Extracting gresource files...")
 
-        gst = self.gst
-        workdir = self.temp_folder
+        resources = subprocess.getoutput(f"gresource list {self.gst}").split("\n")
+        prefix = "/org/gnome/shell/"
 
-        # Get the list of resources
-        resources = subprocess.getoutput(f"gresource list {gst}").split("\n")
+        try:
+            for resource in resources:
+                resource_path = resource.replace(prefix, "")
+                dir_path = os.path.join(self.temp_folder, os.path.dirname(resource_path))
+                output_path = os.path.join(self.temp_folder, resource_path)
 
-        # Create directories
-        for r in resources:
-            r = r.replace("/org/gnome/shell/", "")
-            directory = os.path.join(workdir, os.path.dirname(r))
-            os.makedirs(directory, exist_ok=True)
+                os.makedirs(dir_path, exist_ok=True)
+                with open(output_path, 'wb') as f:
+                    subprocess.run(["gresource", "extract", self.gst, resource], stdout=f, check=True)
 
-        # Extract resources
-        for r in resources:
-            output_path = os.path.join(workdir, r.replace("/org/gnome/shell/", ""))
-            subprocess.run(f"gresource extract {gst} {r} > {output_path}", shell=True)
+        except FileNotFoundError as e:
+            if "gresource" in str(e):
+                print("Error: 'gresource' command not found.")
+                print("Please install the glib2-devel package:")
+                print(" - For Fedora/RHEL: sudo dnf install glib2-devel")
+                print(" - For Ubuntu/Debian: sudo apt install libglib2.0-dev")
+                print(" - For Arch: sudo pacman -S glib2-devel")
+                raise Exception("Missing required dependency: glib2-devel") from e
+            raise
 
     def __add_gnome_styles(self, theme):
         """
@@ -102,25 +125,17 @@ class GlobalTheme:
         :param sat: color saturation
         """
 
-        # add -light label to light theme files because they are installed to the same folder
-        label_files(self.light_theme.temp_folder, "light", self.light_theme.main_styles)
+        for theme in self.themes:
+            if theme.should_label:
+                label_files(theme.theme.temp_folder, "light", theme.theme.main_styles)
 
-        # remove !important from the gnome file
-        remove_keywords(self.extracted_light_theme, "!important")
-        remove_keywords(self.extracted_dark_theme, "!important")
+            remove_keywords(theme.theme_file, "!important")
+            remove_properties(theme.theme_file, "background-color", "color", "box-shadow", "border-radius")
 
-        # remove properties from the gnome file
-        props_to_remove = ("background-color", "color", "box-shadow", "border-radius")
-        remove_properties(self.extracted_light_theme, *props_to_remove)
-        remove_properties(self.extracted_dark_theme, *props_to_remove)
+            self.__add_gnome_styles(theme.theme)
 
-        # add gnome styles to the start of the file
-        self.__add_gnome_styles(self.light_theme)
-        self.__add_gnome_styles(self.dark_theme)
+            theme.theme.install(hue, color, sat, destination=self.extracted_theme)
 
-        # build code for gnome-shell-theme.gresource.xml
-        self.light_theme.install(hue, color, sat, destination=self.extracted_theme)
-        self.dark_theme.install(hue, color, sat, destination=self.extracted_theme)
 
     def __backup(self):
         """
@@ -132,25 +147,23 @@ class GlobalTheme:
 
         # backup installed theme
         print("Backing up default theme...")
-        os.system(f"cp -aT {self.gst} {self.gst}.backup")
+        subprocess.run(["cp", "-aT", self.gst, f"{self.gst}.backup"], cwd=self.destination_folder, check=True)
 
-    def __generte_gresource_xml(self):
+    def __generate_gresource_xml(self):
         """
         Generates.gresource.xml
         """
 
         # list of files to add to gnome-shell-theme.gresource.xml
-        files = list(f"<file>{file}</file>" for file in os.listdir(self.extracted_theme))
+        files = [f"<file>{file}</file>" for file in os.listdir(self.extracted_theme)]
         nl = "\n"  # fstring doesn't support newline character
 
-        ready_xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+        return f"""<?xml version="1.0" encoding="UTF-8"?>
 <gresources>
     <gresource prefix="/org/gnome/shell/theme">
         {nl.join(files)}
     </gresource>
 </gresources>"""
-
-        return ready_xml
 
     def install(self, hue, sat=None):
         """
@@ -173,13 +186,13 @@ class GlobalTheme:
 
         # generate gnome-shell-theme.gresource.xml
         with open(f"{self.extracted_theme}/{self.destination_file}.xml", 'w') as gresource_xml:
-            generated_xml = self.__generte_gresource_xml()
+            generated_xml = self.__generate_gresource_xml()
             gresource_xml.write(generated_xml)
 
         # compile gnome-shell-theme.gresource.xml
         print("Compiling theme...")
-        subprocess.run(f"glib-compile-resources {self.destination_file}.xml",
-                       shell=True, cwd=self.extracted_theme)
+        subprocess.run(["glib-compile-resources" , f"{self.destination_file}.xml"],
+                       cwd=self.extracted_theme, check=True)
 
         # backup installed theme
         self.__backup()
@@ -191,7 +204,8 @@ class GlobalTheme:
                         f"{self.destination_folder}/{self.destination_file}"], 
                        check=True)
 
-        return 0
+        print("Theme installed successfully.")
+
 
     def remove(self):
         """
@@ -201,18 +215,15 @@ class GlobalTheme:
         # use backup file if theme is installed
         if self.__is_installed():
             print("Theme is installed. Removing...")
+            backup_path = os.path.join(self.destination_folder, self.backup_file)
+            dest_path = os.path.join(self.destination_folder, self.destination_file)
 
-            if os.path.isfile(f"{self.destination_folder}/{self.backup_file}"):
-                subprocess.run(f"sudo mv {self.backup_file} {self.destination_file}",
-                               shell=True, cwd=self.destination_folder)
+            if os.path.isfile(backup_path):
+                subprocess.run(["sudo", "mv", backup_path,  dest_path], check=True)
 
             else:
                 print("Backup file not found. Try reinstalling gnome-shell package.")
-                return 1
 
         else:
             print("Theme is not installed. Nothing to remove.")
             print("If theme is still installed globally, try reinstalling gnome-shell package.")
-            return 1
-
-        return 0

@@ -76,7 +76,7 @@ class Theme:
 
     def __del__(self):
         # delete temp folder
-        os.system(f"rm -r {self.temp_folder}")
+        shutil.rmtree(self.temp_folder, ignore_errors=True)
 
     def __apply_colors(self, hue, destination, theme_mode, apply_file, sat=None):
         """
