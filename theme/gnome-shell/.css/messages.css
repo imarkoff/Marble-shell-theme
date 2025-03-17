@@ -7,8 +7,8 @@
 }
 
 /* dnd and clear button */
-.message-list-controls:ltr { padding: auto 0 auto auto; }
-.message-list-controls:rtl { padding: auto auto auto 0; }
+.message-list-controls:ltr { padding: auto 0 0 6px; }
+.message-list-controls:rtl { padding: auto 6px 0 0; }
 
 /* "No Notifications" text */
 .message-list-placeholder {
@@ -16,9 +16,9 @@
 	font-weight: 700;
 }
 
-/* remove right margin in message list section (datemenu) */
-.message-list-sections:ltr { margin-right: 0; }
-.message-list-sections:rtl { margin-left: 0; }
+/* remove right margin in message list section (datemenu) (a.k.a scrollbar) */
+.message-list:ltr, .message-list-sections:ltr { margin-right: 0; }
+.message-list:rtl, .message-list-sections:rtl { margin-left: 0; }
 
 
 /* popup messages */
@@ -36,13 +36,17 @@
 }
 
 /* Box layout for messages. I know looks weird but i can't find a better way to do it */
-.message-list > StBoxLayout > StScrollView > StViewport { spacing: 8px; } /* gap between player and messages box */
-.message-list > StBoxLayout > StScrollView > StViewport > StBoxLayout > StBoxLayout { spacing: 8px; } /* gap between messages */
+.message-list > StBoxLayout > StScrollView > StViewport, /* gap between player and messages box */
+.message-list > StBoxLayout > StScrollView > StViewport > StBoxLayout > StBoxLayout { /* gap between messages */
+	spacing: 9px; 
+}
 
 /* messages in menus */
 .message-list .message, .popup-menu-content .message {
 	background-color: SECTION-COLOR;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	border: 0;
+	margin: 0; /* fix margins for GNOME older than 46 */
 	border-radius: 13px;
 	transition-duration: 100ms;
 }
@@ -70,8 +74,13 @@
 .message .message-header .message-header-content .message-source-title,
 .message .message-header .message-header-content .event-time {
 	color: TEXT-SECONDARY-COLOR;
+	padding-bottom: 0;
 }
 
+/* that's much better than adding "margin: $base_padding * 0.5;" to .message-close-button */
+.message-close-button { margin: 0; }
+.message-header:ltr > :last-child { margin-right: 2px; }
+.messahe-header:rtl > :first-child { margin-left: 2px; }
 
 /* close button, expand button (46+) */
 .message-close-button,

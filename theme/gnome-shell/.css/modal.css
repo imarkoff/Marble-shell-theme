@@ -28,6 +28,7 @@
 /* password entry */
 .prompt-dialog-password-entry {
 	background-color: SECTION-COLOR;
+	padding: 8px !important;
 }
 
 
@@ -44,7 +45,7 @@
 
 .modal-dialog-linked-button,
 .modal-dialog-button-box .modal-dialog-button {
-	padding: 9px 0;
+	padding: 9px 0 !important;
 	border-radius: 10px;
 }
 

@@ -7,7 +7,6 @@ def gnome_version() -> str | None:
 
     try:
         output = subprocess.check_output(['gnome-shell', '--version'], text=True).strip()
-        print(output)
         return output.split(' ')[2]
     except subprocess.CalledProcessError:
         return None

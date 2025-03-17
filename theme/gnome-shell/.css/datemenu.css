@@ -3,16 +3,20 @@
 /* overall menu */
 #calendarArea {
 	padding: 0;
+	spacing: 9px;
 }
 
-/* Calendar menu side column */
-.datemenu-calendar-column { spacing: 0px; }
+/* set padding here instead of #calendarArea for GNOME older than 46 */
+.datemenu-popover { padding: 9px;  }
 
-/* let's bring back issue #1 */
-.datemenu-calendar-column:ltr { margin-left: 0; }
-.datemenu-calendar-column:rtl {	margin-right: 0; }
+/* padding property for older gnome versions */
+.datemenu-calendar-column:ltr { margin-left: 0; padding-left: 0; }
+.datemenu-calendar-column:rtl {	margin-right: 0; padding-right: 0; }
 
-.datemenu-calendar-column .datemenu-displays-box { spacing: 0px; }
+.datemenu-calendar-column, /* Calendar menu side column */
+.datemenu-calendar-column .datemenu-displays-box { /* widgets below calendar */
+	spacing: 9px; 
+}
 
 
 /* today header button */
@@ -20,6 +24,7 @@
 	color: TEXT-SECONDARY-COLOR;
 	background-color: none;
 	border-radius: 12px;
+	margin: 0;
 }
 
 .datemenu-today-button:hover {
@@ -51,7 +56,9 @@
 	border-radius: 14px;
 	background-color: SECTION-COLOR;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW !important;
+	border: 0;
 	padding: 5px;
+	margin: 0;
 }
 
 /* month header */
@@ -168,6 +175,8 @@
 	background-color: SECTION-COLOR;
 	color: TEXT-SECONDARY-COLOR;
 	border-radius: 14px;
+	margin: 0;
+	border: 0;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 	transition-duration: 125ms;
 }

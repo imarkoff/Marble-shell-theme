@@ -65,42 +65,44 @@
 
 
 /* login buttons */
-.login-dialog-button.cancel-button,
-.login-dialog-button.switch-user-button,
-.login-dialog-button.login-dialog-session-list-button {
+.cancel-button,
+.switch-user-button,
+.login-dialog-session-list-button {
     background-color: ACCENT-DISABLED-COLOR;
     color: TEXT-PRIMARY-COLOR;
+    padding: 12px;
+    min-height: 16px;
     box-shadow: inset 0 0 0 1px BORDER-SHADOW;
     border-radius: 99px;
     transition-duration: 100ms;
 }
 
-.login-dialog-button.cancel-button:hover,
-.login-dialog-button.switch-user-button:hover,
-.login-dialog-button.login-dialog-session-list-button:hover {
+.cancel-button:hover,
+.switch-user-button:hover,
+.login-dialog-session-list-button:hover {
     background-color: ACCENT-DISABLED_HOVER;
 }
 
-.login-dialog-button.cancel-button:focus,
-.login-dialog-button.switch-user-button:focus,
-.login-dialog-button.login-dialog-session-list-button:focus {
+.cancel-button:focus,
+.switch-user-button:focus,
+.login-dialog-session-list-button:focus {
     background-color: ACCENT-DISABLED_HOVER;
     box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
 }
 
-.login-dialog-button.cancel-button:focus:active,
-.login-dialog-button.switch-user-button:focus:active,
-.login-dialog-button.login-dialog-session-list-button:focus:active,
-.login-dialog-button.cancel-button:focus:hover,
-.login-dialog-button.switch-user-button:focus:hover,
-.login-dialog-button.login-dialog-session-list-button:focus:hover {
+.cancel-button:focus:active,
+.switch-user-button:focus:active,
+.login-dialog-session-list-button:focus:active,
+.cancel-button:focus:hover,
+.switch-user-button:focus:hover,
+.login-dialog-session-list-button:focus:hover {
     background-color: ACCENT-DISABLED_HOVER;
     box-shadow: inset 0 0 0 1px ACCENT-SECONDARY-COLOR !important;
 }
 
-.login-dialog-button.cancel-button:active,
-.login-dialog-button.switch-user-button:active,
-.login-dialog-button.login-dialog-session-list-button:active {
+.cancel-button:active,
+.switch-user-button:active,
+.login-dialog-session-list-button:active {
     background-color: ACCENT-DISABLED_HOVER;
 }
 

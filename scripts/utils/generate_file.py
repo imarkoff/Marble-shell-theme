@@ -3,10 +3,11 @@ import shutil
 from .gnome import gnome_version
 from .get_version_folder import get_version_folders
 
-def generate_file(folder, final_file):
+def generate_file(folder, temp_folder, final_file):
     """
     Combines all files in a folder into a single file
     :param folder: source folder
+    :param temp_folder: temporary folder
     :param final_file: location where file will be created
     """
     opened_file = open(final_file, "w")
@@ -32,6 +33,6 @@ def generate_file(folder, final_file):
 
             for file in os.listdir(version_path):
                 if file.endswith('.svg'):
-                    shutil.move(os.path.join(version_path, file), folder)
+                    shutil.copy(os.path.join(version_path, file), temp_folder)
 
     opened_file.close()
