@@ -27,9 +27,10 @@ def generate_file(folder, temp_folder, final_file):
             version_path = os.path.join(base_path, version_folder)
             css_path = os.path.join(version_path, '.css')
 
-            for css_file in os.listdir(css_path):
-                with open(os.path.join(css_path, css_file)) as f:
-                    opened_file.write(f.read() + '\n')
+            if os.path.exists(css_path):
+                for css_file in os.listdir(css_path):
+                    with open(os.path.join(css_path, css_file)) as f:
+                        opened_file.write(f.read() + '\n')
 
             for file in os.listdir(version_path):
                 if file.endswith('.svg'):
