@@ -67,6 +67,14 @@
 	background-color: SECTION-OPAQUE-COLOR;
 }
 
+.message:second-in-stack {
+	background-color: SECTION-OPAQUE_SECOND;
+}
+
+.message:lower-in-stack {
+	background-color: SECTION-OPAQUE_THIRD;
+}
+
 .message-view .message:hover {
 	background-color: SECTION-OPAQUE_HOVER;
 }

@@ -597,29 +597,22 @@
         "SECTION-OPAQUE-COLOR" : {
             "_comment" : "Same as SECTION-COLOR, but has no transparency",
 
-            "light" : {
-                "s" : 45,
-                "l" : 92,
-                "a" : 0.9
-            },
-
-            "dark" : {
-                "s" : 6,
-                "l" : 14,
-                "a" : 0.95
-            }
+            "light" : { "s": 45, "l": 92, "a": 0.95 },
+            "dark" : { "s": 6, "l": 14, "a": 0.95 }
         },
         "SECTION-OPAQUE_HOVER": {
-            "light": {
-                "s": 45,
-                "l": 89,
-                "a": 0.95
-            },
-            "dark": {
-                "s": 11,
-                "l": 17,
-                "a": 0.95
-            }
+            "light": { "s": 45, "l": 89, "a": 0.95 },
+            "dark": { "s": 11, "l": 17, "a": 0.95 }
+        },
+        "SECTION-OPAQUE_SECOND": {
+            "_comment": "Will be removed after moving to scss",
+            "light": { "s": 30, "l": 88, "a": 0.9 },
+            "dark": { "s": 7, "l": 11, "a": 0.95 }
+        },
+        "SECTION-OPAQUE_THIRD": {
+            "_comment": "Will be removed after moving to scss",
+            "light": { "s": 25, "l": 85, "a": 0.9 },
+            "dark": { "s": 5, "l": 10, "a": 0.9 }
         },
 
         "BUTTON-CLOSE-COLOR" : {
