@@ -165,9 +165,10 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 
 | Option                     | Secondary option | Description                    |
 |----------------------------|------------------|--------------------------------|
-| -Pds, --panel_default_size |                  | set default panel size         |
-| -Pnp, --panel_no_pill      |                  | remove panel button background |
-| -Ptc, --panel_text_color   | #abcdef          | custom panel HEX(A) text color |
+| -Pds, --panel-default-size |                  | set default panel size         |
+| -Pnp, --panel-no-pill      |                  | remove panel button background |
+| -Ptc, --panel-text-color   | #abcdef        | custom panel HEX(A) text color |
+| --wider-panel              |                  | make the panel a bit wider     |
 
 #### Overview tweaks
 

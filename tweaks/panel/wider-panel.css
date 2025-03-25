@@ -1,0 +1,9 @@
+#panel {
+    height: 36px;
+    font-size: 14px;
+}
+
+.panel-button,
+.panel-button .clock {
+    border-radius: 10px;
+}

@@ -6,8 +6,12 @@
 }
 
 .panel-button,
-.panel-button .clock, /* Date & clock */
-.clock-display StIcon { /* DND / new messages icon */
-  border-radius: 99px;
-  border: 3px solid transparent;
+.panel-button .clock {
+  border-radius: 12px;
+  border: 3px solid transparent !important;
 }
+
+.panel-button { -natural-hpadding: 10px !important; } 
+.panel-status-indicators-box:first-child { padding-left: 0; }
+.panel-status-indicators-box:last-child { padding-right: 0; }
+.panel-status-indicators-box:first-child:last-child { padding: 0; }
