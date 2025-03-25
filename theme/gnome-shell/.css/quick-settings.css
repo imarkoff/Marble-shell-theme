@@ -30,12 +30,14 @@
 /* toggles in QS */
 .quick-toggle, /* 43 */
 .quick-menu-toggle .quick-toggle, /* 44-47 */
-.quick-toggle-has-menu .quick-toggle{ /* 48+ */
+.quick-toggle-has-menu .quick-toggle { /* 48+ */
 	color: TEXT-PRIMARY-COLOR;
 	border-radius: 15px;
 	background-color: ACCENT-DISABLED-COLOR;
 	transition-duration: 100ms;
 }
+
+.quick-toggle-has-menu .quick-toggle-separator { width: 0; } /* margins are set in below for backward compatibility */
 
 /* toggle name */
 .quick-toggle .quick-toggle-label {
