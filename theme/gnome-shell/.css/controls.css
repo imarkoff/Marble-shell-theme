@@ -144,6 +144,13 @@ StScrollView StScrollBar {
 	min-height: 8px;
 }
 
+.message-list StScrollView StScrollBar,
+.message-view StScrollView StScrollBar {
+	min-width: 3px;
+	min-height: 3px;
+}
+
+
 StScrollBar StBin#trough {
 	border-radius: 0;
 	background-color: transparent;
@@ -155,6 +162,12 @@ StScrollBar StButton#hhandle {
 	background-color: SCROLLBAR-COLOR;
 	border: 3px solid transparent;
 	transition-duration: 100ms;
+}
+
+.message-list StScrollBar StButton#vhandle,
+.message-view StScrollBar StButton#hhandle {
+	border-radius: 0;
+	border: 0px solid transparent
 }
 
 StScrollBar StButton#vhandle:hover,

@@ -7,8 +7,8 @@
 }
 
 /* dnd and clear button */
-.message-list-controls:ltr { padding: auto 0 0 6px; }
-.message-list-controls:rtl { padding: auto 6px 0 0; }
+.message-list-controls:ltr { padding: auto 5px 0 6px; }
+.message-list-controls:rtl { padding: auto 6px 0 5px; }
 
 /* "No Notifications" text */
 .message-list-placeholder {
@@ -17,8 +17,16 @@
 }
 
 /* remove right margin in message list section (datemenu) (a.k.a scrollbar) */
-.message-list:ltr, .message-list-sections:ltr { margin-right: 0; }
-.message-list:rtl, .message-list-sections:rtl { margin-left: 0; }
+.message-list:ltr,
+.message-list-sections:ltr, /* up to 47 */
+.message-view:ltr { /* 48+ */
+	margin-right: 1px;
+	padding-right: 5px;
+}
+.message-list:rtl, .message-list-sections:rtl, .message-view:rtl { 
+	margin-left: 1px;
+	padding-left: 5px;
+}
 
 
 /* popup messages */
@@ -35,18 +43,15 @@
 	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.07);
 }
 
-/* Box layout for messages. I know looks weird but i can't find a better way to do it */
-.message-list > StBoxLayout > StScrollView > StViewport, /* gap between player and messages box */
-.message-list > StBoxLayout > StScrollView > StViewport > StBoxLayout > StBoxLayout { /* gap between messages */
-	spacing: 9px; 
-}
-
 /* messages in menus */
-.message-list .message, .popup-menu-content .message {
+.message-list .message, 
+.popup-menu-content .message, 
+.message-view .message { /* 48+ */
 	background-color: SECTION-COLOR;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 	border: 0;
 	margin: 0; /* fix margins for GNOME older than 46 */
+	margin-bottom: 9px !important;
 	border-radius: 13px;
 	transition-duration: 100ms;
 }
@@ -56,6 +61,14 @@
 .message-list .message:focus {
 	background-color: ACCENT-OPACITY-COLOR;
 	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
+}
+
+.message-view .message {
+	background-color: SECTION-OPAQUE-COLOR;
+}
+
+.message-view .message:hover {
+	background-color: SECTION-OPAQUE_HOVER;
 }
 
 /* text / header in message */
@@ -84,22 +97,32 @@
 
 /* close button, expand button (46+) */
 .message-close-button,
-.message-expand-button {
-	border-radius: 99px;
-	padding: 5px;
+.message-expand-button,
+.message-collapse-button { /* collapse group of messages button */
 	color: TEXT-PRIMARY-COLOR;
 	background-color: ACCENT-DISABLED-COLOR;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 	transition-duration: 100ms;
+	border-radius: 99px;
 }
 
+.message-collapse-button {
+	border: 0;
+	padding: 6px !important;
+	margin: 2px;
+}
+
+.message-close-button,.message-expand-button { padding: 5px; }
+
 .message-close-button:hover,
-.message-expand-button:hover {
+.message-expand-button:hover,
+.message-collapse-button:hover {
 	background-color: ACCENT-DISABLED_HOVER;
 }
 
 .message-close-button:active,
-.message-expand-button:active {
+.message-expand-button:active,
+.message-collapse-button:active {
 	color: TEXT-SECONDARY-COLOR;
 }
 

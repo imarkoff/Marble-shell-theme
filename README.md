@@ -41,7 +41,7 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 </details>
 
 ## 🚧 Requirements
-- GNOME 42-47. Correct functionality on other versions is not guaranteed.
+- GNOME 42-48. Correct functionality on other versions is not guaranteed.
 - [User Themes](https://extensions.gnome.org/extension/19/user-themes/ "User Themes") extension.
 - Python 3.2+.
 
