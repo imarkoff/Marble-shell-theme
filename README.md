@@ -81,7 +81,7 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 ![GDM theme](./readme-images/gdm.png)
 > **Image:** [Network Abstract](https://4kwallpapers.com/abstract/network-abstract-background-blue-background-5k-8k-8270.html).
 > 
-> **Config:** `sudo python install.py --gdm --blue --gdm-image /path/to/image.jpg --gdm-blur=40 --gdm-darken=30`
+> **Config:** `sudo python install.py --gdm --blue --filled --gdm-image /path/to/image.jpg --gdm-blur=40 --gdm-darken=30`
 
 > [!NOTE]  
 > This theme only supports GNOME Display Manager. Ubuntu Display Manager is currently not supported.
