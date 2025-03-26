@@ -34,7 +34,7 @@ class GlobalTheme:
         self.theme_folder = theme_folder
         self.destination_folder = destination_folder
         self.destination_file = destination_file
-        self.temp_folder = os.path.join(temp_folder, "gdm")
+        self.temp_folder = temp_folder
 
         self.backup_file = f"{self.destination_file}.backup"
         self.backup_trigger = "\n/* Marble theme */\n"  # trigger to check if theme is installed

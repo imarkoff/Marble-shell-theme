@@ -79,6 +79,9 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 ## 🖥️ GDM theme
 
 ![GDM theme](./readme-images/gdm.png)
+> **Image:** [Network Abstract](https://4kwallpapers.com/abstract/network-abstract-background-blue-background-5k-8k-8270.html).
+> 
+> **Config:** `sudo python install.py --gdm --blue --gdm-image /path/to/image.jpg --gdm-blur=40 --gdm-darken=30`
 
 > [!NOTE]  
 > This theme only supports GNOME Display Manager. Ubuntu Display Manager is currently not supported.
@@ -86,9 +89,9 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 > [!WARNING]  
 > I am not responsible for any damage caused by the installation of the theme. If you have any problems, please open an issue.
 
-> [!IMPORTANT]  
-> Install `glib2-devel` package before running the program. 
-> For Debian-based systems, use the `libglib2.0-dev` package.
+### 🚧 Additional requirements
+- `glib2-devel` (`libglib2.0-dev` on Debian-based distros).
+- `imagemagick` (if you want to apply filters to the background image).
 
 1. Open the terminal.
 2. Go to the directory with the theme.
@@ -99,6 +102,9 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
     - Example:
         ```shell
         sudo python install.py --gdm --blue --filled
+        ```
+        ```shell
+        sudo python install.py --gdm --gray --gdm-image /path/to/image.jpg --gdm-blur=40 --gdm-darken=30
         ```
 4. After successful file restart GDM service:
    ```shell
@@ -153,6 +159,15 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 | --mode | light / dark     | light / dark theme only                                    |
 | --sat  | (0 - 250)        | custom color saturation (<100% - reduce, >100% - increase) |
 
+#### GDM tweaks
+
+| Option        | Secondary option         | Description                 |
+|---------------|--------------------------|-----------------------------|
+| --gdm-image   | /absolute/path/to/image/ | set background image to GDM |
+| --gdm-blur    | 0+                       | apply blur to image (px)    |
+| --gdm-darken  | 0 - 100                  | darken image (%)            |
+| --gdm-lighten | 0 - 100                  | lighten image (%)           |
+
 #### Panel tweaks
 
 **Panel default size**
@@ -167,7 +182,7 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 |----------------------------|------------------|--------------------------------|
 | -Pds, --panel-default-size |                  | set default panel size         |
 | -Pnp, --panel-no-pill      |                  | remove panel button background |
-| -Ptc, --panel-text-color   | #abcdef        | custom panel HEX(A) text color |
+| -Ptc, --panel-text-color   | #abcdef          | custom panel HEX(A) text color |
 | --wider-panel              |                  | make the panel a bit wider     |
 
 #### Overview tweaks
@@ -181,11 +196,12 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 | --launchpad | Change Show Apps icon to macOS Launchpad icon |
 
 #### Examples
-| Command                                        | Description                                                          |
-|------------------------------------------------|----------------------------------------------------------------------|
-| -a                                             | Install all accent colors with light & dark mode                     |
-| --all --mode dark                              | Install all accent colors with dark mode only                        |
-| --purple --mode=light                          | Install purple accent color with light mode only                     |
-| --hue 150 --name coldgreen                     | Install custom coldgreen accent color, light & dark mode             |
-| --red --green --sat=70                         | red, green accent colors, 70% of the stock saturation                |
-| --hue=200 --name=grayblue --sat=50 --mode=dark | custom grayblue accent color, 50% of the stock saturation, dark mode |
+| Command                                                   | Description                                                              |
+|-----------------------------------------------------------|--------------------------------------------------------------------------|
+| -a                                                        | Install all accent colors with light & dark mode                         |
+| --all --mode dark                                         | Install all accent colors with dark mode only                            |
+| --purple --mode=light                                     | Install purple accent color with light mode only                         |
+| --hue 150 --name coldgreen                                | Install custom coldgreen accent color, light & dark mode                 |
+| --red --green --sat=70                                    | red, green accent colors, 70% of the stock saturation                    |
+| --hue=200 --name=grayblue --sat=50 --mode=dark            | custom grayblue accent color, 50% of the stock saturation, dark mode     |
+| --gdm --blue --gdm-image /path/to/image.jpg --gdm-blur=40 | Install GDM theming in blue color with own GDM background image and blur |

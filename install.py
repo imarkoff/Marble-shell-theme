@@ -16,6 +16,7 @@
 
 import json       # working with json files
 import argparse   # command-line options
+import os.path
 import shutil
 import textwrap   # example text in argparse
 
@@ -155,10 +156,10 @@ def global_theme(args, colors):
     :param args: parsed arguments
     :param colors: colors from colors.json
     """
-
+    gdm_temp = os.path.join(config.temp_folder, config.gdm_folder)
     gdm_theme = GlobalTheme(colors, f"{config.raw_theme_folder}/{config.gnome_folder}",
                             config.global_gnome_shell_theme, config.gnome_shell_gresource,
-                            config.temp_folder, mode=args.mode, is_filled=args.filled)
+                            gdm_temp, mode=args.mode, is_filled=args.filled)
 
     if args.remove:
         gdm_rm_status = gdm_theme.remove()
@@ -166,6 +167,8 @@ def global_theme(args, colors):
             print("GDM theme removed successfully.")
         return
 
+    for theme in gdm_theme.themes:
+        apply_tweaks(args, theme.theme, colors)
 
     if apply_colors(args, gdm_theme, colors, gdm=True) is None:
         print("\nGDM theme installed successfully.")
