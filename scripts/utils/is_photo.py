@@ -17,5 +17,5 @@ class NotSupportedPhotoExtension(Exception):
 
     def __init__(self, extension):
         self.message = (f"Photo extension {extension} is not supported. "
-                        f"Supported formats: {", ".join(image_extensions)}.")
+                        f"Supported formats: {', '.join(image_extensions)}.")
         super().__init__(self.message)
