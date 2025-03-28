@@ -9,7 +9,7 @@ def define_arguments(parser: ArgumentParser):
     gdm_args = parser.add_argument_group("GDM tweaks")
     gdm_args.add_argument("--gdm-image", type=str, nargs="?", help="Set GDM background image")
     gdm_args.add_argument("--gdm-blur", type=int, nargs="?", help="Blur GDM background image (px)")
-    gdm_args.add_argument("--gdm-darken", type=int, choices=range(0, 100), help="Darken GDM background image (%)", metavar="(0 - 100)")
+    gdm_args.add_argument("--gdm-darken", type=int, choices=range(0, 100), help="Darken GDM background image (%%)", metavar="(0 - 100)")
     gdm_args.add_argument("--gdm-lighten",  type=int, choices=range(0, 100), help="Lighten GDM background image", metavar="(0 - 100)")
 
 

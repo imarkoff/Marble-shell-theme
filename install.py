@@ -30,7 +30,7 @@ from scripts.theme import Theme
 from scripts.gdm import GlobalTheme
 
 
-def parse_args(colors):
+def parse_args(colors) -> argparse.Namespace:
     """
     Parse command-line arguments
     :return: parsed arguments
@@ -51,7 +51,8 @@ def parse_args(colors):
                     '''))
 
     # Default arguments
-    parser.add_argument('-r', '--remove', action='store_true', help='remove all "Marble" themes')
+    parser.add_argument('-r', '--remove', action='store_true', help='remove Marble themes')
+    parser.add_argument('-ri', '--reinstall', action='store_true', help='reinstall Marble themes')
 
     default_args = parser.add_argument_group('Install default theme')
     default_args.add_argument('-a', '--all', action='store_true', help='all available accent colors')
@@ -70,7 +71,7 @@ def parse_args(colors):
     color_tweaks = parser.add_argument_group('Optional theme tweaks')
     color_tweaks.add_argument('--mode', choices=['light', 'dark'], help='select a specific theme mode to install')
     color_tweaks.add_argument('--sat', type=int, choices=range(0, 251),
-                              help='custom color saturation (<100%% - reduce, >100%% - increase)', metavar='(0 - 250)%')
+                              help='custom color saturation (<100%% - reduce, >100%% - increase)', metavar='(0 - 250)')
 
     gdm_theming = parser.add_argument_group('GDM theming')
     gdm_theming.add_argument('--gdm', action='store_true', help='install GDM theme. \
@@ -183,8 +184,10 @@ def local_theme(args, colors):
     :param colors: colors from colors.json
     """
 
-    if args.remove:
-        remove_files()
+    if args.remove or args.reinstall:
+        remove_files(args, colors["colors"])
+        if not args.reinstall:
+            return
 
     gnome_shell_theme = Theme("gnome-shell", colors, f"{config.raw_theme_folder}/{config.gnome_folder}",
                               config.themes_folder, config.temp_folder,
@@ -204,7 +207,9 @@ def main():
 
     else:
         local_theme(args, colors)
-        apply_gnome_theme()
+
+        if args.remove == args.reinstall:
+            apply_gnome_theme()
 
 
 if __name__ == "__main__":

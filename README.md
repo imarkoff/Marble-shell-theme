@@ -75,6 +75,9 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 > [!TIP]
 > If you want to install only one color, use the `--red`, `--yellow`, `--green`, `--blue`, `--purple`, `--gray` option.
 
+See the [installation tweaks](#-installation-tweaks) section for more information.
+
+If you want to remove the theme, see the [uninstallation](#-uninstallation--reinstallation) section.
 
 ## 🖥️ GDM theme
 
@@ -205,3 +208,37 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 | --red --green --sat=70                                    | red, green accent colors, 70% of the stock saturation                    |
 | --hue=200 --name=grayblue --sat=50 --mode=dark            | custom grayblue accent color, 50% of the stock saturation, dark mode     |
 | --gdm --blue --gdm-image /path/to/image.jpg --gdm-blur=40 | Install GDM theming in blue color with own GDM background image and blur |
+
+
+## 🗑️ Uninstallation / Reinstallation
+
+- To remove the theme, run the program with the `--remove` option:
+    ```shell
+    python install.py -ra
+    ```
+- To reinstall the theme, run the program with the `--reinstall` option:
+    ```shell
+    python install.py -ri -a  # (other installation options)
+    ```
+  
+> [!TIP]
+> If you want to remove the GDM theme, use the `--gdm` option with the `--remove` option.
+
+
+The program allows you to specify the color of the theme and the mode to remove.
+For example, to remove purple and green themes in light mode, use the command:
+```shell
+python install.py -r --purple --green --mode light
+```
+
+Also, you can use the command above to reinstall purple and green themes in light mode with the `--reinstall` option.
+```shell
+python install.py -ri --purple --green --mode light
+```
+
+#### Options
+
+| Option           | Description           |
+|------------------|-----------------------|
+| -r, --remove     | Remove the theme      |
+| -ri, --reinstall | Reinstall the theme   |
