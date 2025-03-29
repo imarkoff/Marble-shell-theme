@@ -14,7 +14,7 @@ Shell theme for GNOME DE. Based on https://www.pling.com/p/1939902/.
 <details><summary>Click me 🐈</summary>
 
 Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
-#### Overview [[Blur My Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/) / Light / Dark] ([Amber](https://gitlab.gnome.org/GNOME/gnome-backgrounds/-/tree/46.0/backgrounds?ref_type=tags))
+#### Overview [[Blur My Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/) / Light / Dark] ([Neon Gas Station](https://www.heroscreen.cc/2025/03/neon-gas-station-4k-wallpaper.html))
 ![Overview with Blur My Shell](./readme-images/overview_blur-my-shell.png?raw=true "Overview with Blur My Shell")
 ![Overview in light mode](./readme-images/overview_light.png?raw=true "Overview in light mode")
 ![Overview in dark mode](./readme-images/overview_dark.png?raw=true "Overview in dark mode")
@@ -26,8 +26,8 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 
 #### Modal dialog ([Wide Angle Photography of Mountain](https://www.pexels.com/photo/wide-angle-photography-of-mountain-1612559/))
 ![Modal dialog look](./readme-images/modal.png?raw=true "Modal dialog look")
-#### Calendar & notifications ([Sand Dunes](https://4kwallpapers.com/nature/sand-dunes-desert-landscape-evening-windows-10x-microsoft-3287.html))
-![Calendar & notifications look](./readme-images/datemenu.jpg?raw=true)
+#### Calendar & notifications ([Neon Gas Station](https://www.heroscreen.cc/2025/03/neon-gas-station-4k-wallpaper.html))
+![Calendar & notifications look](./readme-images/datemenu.png?raw=true)
 
 #### Dash ([Dash To Dock](https://extensions.gnome.org/extension/307/dash-to-dock/ "Dash To Dock"))
 - Position and size:
@@ -77,7 +77,7 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 
 See the [installation tweaks](#-installation-tweaks) section for more information.
 
-If you want to remove the theme, see the [uninstallation](#-uninstallation--reinstallation) section.
+If you want to remove the theme, see the [uninstallation](#%EF%B8%8F-uninstallation--reinstallation) section.
 
 ## 🖥️ GDM theme
 
