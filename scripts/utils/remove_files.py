@@ -5,11 +5,12 @@
 import argparse
 import shutil
 from collections import defaultdict
+from typing import Any
 
 from .. import config
 import os
 
-def remove_files(args: argparse.Namespace, colors: dict[str, str]):
+def remove_files(args: argparse.Namespace, colors: dict[str, Any]):
     """Delete already installed Marble theme"""
     themes = detect_themes(config.themes_folder)
 

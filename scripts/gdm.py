@@ -42,23 +42,8 @@ class GlobalTheme:
         self.gst = os.path.join(self.destination_folder, self.destination_file)  # use backup file if theme is installed
 
         self.themes: list[ThemePrepare] = []
-
-        try:
-            gnome_version = gnome.gnome_version()
-            gnome_major = gnome_version.split(".")[0]
-            if int(gnome_major) >= 44:
-                self.themes += [
-                    self.__create_theme("gnome-shell-light", mode='light', should_label=True, is_filled=is_filled),
-                    self.__create_theme("gnome-shell-dark", mode='dark', is_filled=is_filled)
-                ]
-        except Exception as e:
-            print(f"Error: {e}")
-            print("Using single theme.")
-
-        if not self.themes:
-            self.themes.append(
-                self.__create_theme(
-                    "gnome-shell", mode=mode if mode else 'dark', is_filled=is_filled))
+        self.is_filled = is_filled
+        self.mode = mode
 
 
     def __create_theme(self, theme_type, mode=None, should_label=False, is_filled=False):
@@ -66,6 +51,7 @@ class GlobalTheme:
         theme = Theme(theme_type, self.colors_json, self.theme_folder,
                       self.extracted_theme, self.temp_folder,
                       mode=mode, is_filled=is_filled)
+        theme.prepare()
         theme_file = os.path.join(self.extracted_theme, f"{theme_type}.css")
         return ThemePrepare(theme=theme, theme_file=theme_file, should_label=should_label)
 
@@ -117,7 +103,7 @@ class GlobalTheme:
             gnome_styles = gnome_theme.read() + self.backup_trigger
             theme.add_to_start(gnome_styles)
 
-    def __prepare(self, hue, color, sat=None):
+    def __generate_themes(self, hue, color, sat=None):
         """
         Generate theme files for gnome-shell-theme.gresource.xml
         :param hue: color hue
@@ -165,6 +151,24 @@ class GlobalTheme:
     </gresource>
 </gresources>"""
 
+    def prepare(self):
+        try:
+            gnome_version = gnome.gnome_version()
+            gnome_major = gnome_version.split(".")[0]
+            if int(gnome_major) >= 44:
+                self.themes += [
+                    self.__create_theme("gnome-shell-light", mode='light', should_label=True, is_filled=self.is_filled),
+                    self.__create_theme("gnome-shell-dark", mode='dark', is_filled=self.is_filled)
+                ]
+        except Exception as e:
+            print(f"Error: {e}")
+            print("Using single theme.")
+
+        if not self.themes:
+            self.themes.append(
+                self.__create_theme(
+                    "gnome-shell", mode=self.mode if self.mode else 'dark', is_filled=self.is_filled))
+
     def install(self, hue, sat=None):
         """
         Install theme globally
@@ -182,7 +186,7 @@ class GlobalTheme:
         self.__extract()
 
         # generate theme files for global theme
-        self.__prepare(hue, 'Marble', sat)
+        self.__generate_themes(hue, 'Marble', sat)
 
         # generate gnome-shell-theme.gresource.xml
         with open(f"{self.extracted_theme}/{self.destination_file}.xml", 'w') as gresource_xml:

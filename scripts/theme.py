@@ -2,6 +2,7 @@ import os
 import shutil
 import colorsys  # colorsys.hls_to_rgb(h, l, s)
 
+from .install.colors_definer import ColorsDefiner
 from .utils import (
     replace_keywords,    # replace keywords in file
     copy_files,          # copy files from source to destination
@@ -23,31 +24,14 @@ class Theme:
         :param is_filled: if True, theme will be filled
         """
 
-        self.colors = colors_json
+        self.colors: ColorsDefiner = colors_json
         self.temp_folder = f"{temp_folder}/{theme_type}"
         self.theme_folder = theme_folder
         self.theme_type = theme_type
         self.mode = [mode] if mode else ['light', 'dark']
         self.destination_folder = destination_folder
         self.main_styles = f"{self.temp_folder}/{theme_type}.css"
-
-        # move files to temp folder
-        copy_files(self.theme_folder, self.temp_folder)
-        generate_file(f"{self.theme_folder}", self.temp_folder, self.main_styles)
-        # after generating main styles, remove .css and .versions folders
-        shutil.rmtree(f"{self.temp_folder}/.css/", ignore_errors=True)
-        shutil.rmtree(f"{self.temp_folder}/.versions/", ignore_errors=True)
-
-        # if theme is filled
-        if is_filled:
-            for apply_file in os.listdir(f"{self.temp_folder}/"):
-                replace_keywords(f"{self.temp_folder}/{apply_file}",
-                                 ("BUTTON-COLOR", "ACCENT-FILLED-COLOR"),
-                                 ("BUTTON_HOVER", "ACCENT-FILLED_HOVER"),
-                                 ("BUTTON_ACTIVE", "ACCENT-FILLED_ACTIVE"),
-                                 ("BUTTON_INSENSITIVE", "ACCENT-FILLED_INSENSITIVE"),
-                                 ("BUTTON-TEXT-COLOR", "TEXT-BLACK-COLOR"),
-                                 ("BUTTON-TEXT_SECONDARY", "TEXT-BLACK_SECONDARY"))
+        self.is_filled = is_filled
 
     def __add__(self, other):
         """
@@ -93,18 +77,18 @@ class Theme:
 
         # colorsys works in range(0, 1)
         h = hue / 360
-        for element in self.colors["elements"]:
+        for element in self.colors.replacers:
             # if color has default color and hasn't been replaced
-            if theme_mode not in self.colors["elements"][element] and self.colors["elements"][element]["default"]:
-                default_element = self.colors["elements"][element]["default"]
-                default_color = self.colors["elements"][default_element][theme_mode]
-                self.colors["elements"][element][theme_mode] = default_color
+            if theme_mode not in self.colors.replacers[element] and self.colors.replacers[element]["default"]:
+                default_element = self.colors.replacers[element]["default"]
+                default_color = self.colors.replacers[default_element][theme_mode]
+                self.colors.replacers[element][theme_mode] = default_color
 
             # convert sla to range(0, 1)
-            lightness = int(self.colors["elements"][element][theme_mode]["l"]) / 100
-            saturation = int(self.colors["elements"][element][theme_mode]["s"]) / 100 if sat is None else \
-                int(self.colors["elements"][element][theme_mode]["s"]) * (sat / 100) / 100
-            alpha = self.colors["elements"][element][theme_mode]["a"]
+            lightness = int(self.colors.replacers[element][theme_mode]["l"]) / 100
+            saturation = int(self.colors.replacers[element][theme_mode]["s"]) / 100 if sat is None else \
+                int(self.colors.replacers[element][theme_mode]["s"]) * (sat / 100) / 100
+            alpha = self.colors.replacers[element][theme_mode]["a"]
 
             # convert hsl to rgb and multiply every item
             red, green, blue = [int(item * 255) for item in colorsys.hls_to_rgb(h, lightness, saturation)]
@@ -126,6 +110,25 @@ class Theme:
 
         for apply_file in os.listdir(f"{source}/"):
             self.__apply_colors(hue, destination, theme_mode, apply_file, sat=sat)
+
+    def prepare(self):
+        # move files to temp folder
+        copy_files(self.theme_folder, self.temp_folder)
+        generate_file(f"{self.theme_folder}", self.temp_folder, self.main_styles)
+        # after generating main styles, remove .css and .versions folders
+        shutil.rmtree(f"{self.temp_folder}/.css/", ignore_errors=True)
+        shutil.rmtree(f"{self.temp_folder}/.versions/", ignore_errors=True)
+
+        # if theme is filled
+        if self.is_filled:
+            for apply_file in os.listdir(f"{self.temp_folder}/"):
+                replace_keywords(f"{self.temp_folder}/{apply_file}",
+                                 ("BUTTON-COLOR", "ACCENT-FILLED-COLOR"),
+                                 ("BUTTON_HOVER", "ACCENT-FILLED_HOVER"),
+                                 ("BUTTON_ACTIVE", "ACCENT-FILLED_ACTIVE"),
+                                 ("BUTTON_INSENSITIVE", "ACCENT-FILLED_INSENSITIVE"),
+                                 ("BUTTON-TEXT-COLOR", "TEXT-BLACK-COLOR"),
+                                 ("BUTTON-TEXT_SECONDARY", "TEXT-BLACK_SECONDARY"))
 
     def install(self, hue, name, sat=None, destination=None):
         """
