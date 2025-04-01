@@ -1,4 +1,6 @@
 import os
+import shutil
+
 
 def copy_files(source, destination):
     """
@@ -7,6 +9,7 @@ def copy_files(source, destination):
     :param destination: where files will be pasted
     """
 
-    destination = os.path.expanduser(destination)  # expand ~ to /home/user
+    destination = os.path.expanduser(destination)
     os.makedirs(destination, exist_ok=True)
-    os.system(f"cp -aT {source} {destination}")
+
+    shutil.copytree(source, destination, dirs_exist_ok=True)

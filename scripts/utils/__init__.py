@@ -3,7 +3,6 @@ from .copy_files import copy_files
 from .destinaiton_return import destination_return
 from .generate_file import generate_file
 from .hex_to_rgba import hex_to_rgba
-from .label_files import label_files
 from .remove_files import remove_files
 from .remove_keywords import remove_keywords
 from .remove_properties import remove_properties
