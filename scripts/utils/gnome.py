@@ -29,7 +29,7 @@ def apply_gnome_theme(theme=None) -> bool:
         formatted_theme = Console.format(theme, color=Color.get(color, Color.GRAY), format_type=Format.BOLD)
 
         line.update(f"Applying {formatted_theme} theme...")
-        time.sleep(0.1) # applying the theme may freeze, so we need to wait a bit
+        time.sleep(0.025) # applying the theme may freeze, so we need to wait a bit
         apply_user_theme(theme)
         line.success(f"Theme {formatted_theme} applied.")
     except Exception:
