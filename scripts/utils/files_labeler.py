@@ -1,6 +1,7 @@
 import os
+from typing import Tuple
 
-type LabeledFileGroup = tuple[str, str]
+type LabeledFileGroup = Tuple[str, str]
 
 class FilesLabeler:
     def __init__(self, directory: str, *args: str):
