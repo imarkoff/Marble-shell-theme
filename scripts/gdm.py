@@ -4,6 +4,7 @@ import subprocess
 from .theme import Theme
 from .utils import remove_properties, remove_keywords, gnome
 from . import config
+from .utils.console import Console, Color, Format
 from .utils.files_labeler import FilesLabeler
 
 
@@ -69,7 +70,8 @@ class GlobalTheme:
         """
         Extract gresource files to temp folder
         """
-        print("Extracting gresource files...")
+        extract_line = Console.Line()
+        extract_line.update("Extracting gresource files...")
 
         resources = subprocess.getoutput(f"gresource list {self.gst}").split("\n")
         prefix = "/org/gnome/shell/"
@@ -83,6 +85,8 @@ class GlobalTheme:
                 os.makedirs(dir_path, exist_ok=True)
                 with open(output_path, 'wb') as f:
                     subprocess.run(["gresource", "extract", self.gst, resource], stdout=f, check=True)
+
+            extract_line.success("Extracted gresource files.")
 
         except FileNotFoundError as e:
             if "gresource" in str(e):
@@ -127,22 +131,16 @@ class GlobalTheme:
 
 
     def __backup(self):
-        """
-        Backup installed theme
-        """
-
         if self.__is_installed():
             return
 
-        # backup installed theme
-        print("Backing up default theme...")
+        backup_line = Console.Line()
+
+        backup_line.update("Backing up default theme...")
         subprocess.run(["cp", "-aT", self.gst, f"{self.gst}.backup"], cwd=self.destination_folder, check=True)
+        backup_line.success("Backed up default theme.")
 
     def __generate_gresource_xml(self):
-        """
-        Generates.gresource.xml
-        """
-
         # list of files to add to gnome-shell-theme.gresource.xml
         files = [f"<file>{file}</file>" for file in os.listdir(self.extracted_theme)]
         nl = "\n"  # fstring doesn't support newline character
@@ -197,21 +195,23 @@ class GlobalTheme:
             gresource_xml.write(generated_xml)
 
         # compile gnome-shell-theme.gresource.xml
-        print("Compiling theme...")
+        compile_line = Console.Line()
+        compile_line.update("Compiling gnome-shell theme...")
         subprocess.run(["glib-compile-resources" , f"{self.destination_file}.xml"],
                        cwd=self.extracted_theme, check=True)
+        compile_line.success("Theme compiled.")
 
         # backup installed theme
         self.__backup()
 
         # install theme
-        print("Installing theme...")
+        install_line = Console.Line()
+        install_line.update("Moving compiled theme to system folder...")
         subprocess.run(["sudo", "cp", "-f", 
                         f"{self.extracted_theme}/{self.destination_file}", 
                         f"{self.destination_folder}/{self.destination_file}"], 
                        check=True)
-
-        print("Theme installed successfully.")
+        install_line.success("Theme moved to system folder.")
 
 
     def remove(self):
@@ -221,16 +221,19 @@ class GlobalTheme:
 
         # use backup file if theme is installed
         if self.__is_installed():
-            print("Theme is installed. Removing...")
+            removing_line = Console.Line()
+            removing_line.update("Theme is installed. Removing...")
             backup_path = os.path.join(self.destination_folder, self.backup_file)
             dest_path = os.path.join(self.destination_folder, self.destination_file)
 
             if os.path.isfile(backup_path):
                 subprocess.run(["sudo", "mv", backup_path,  dest_path], check=True)
+                removing_line.success("Global theme removed successfully. Restart GDM to apply changes.")
 
             else:
-                print("Backup file not found. Try reinstalling gnome-shell package.")
+                formatted_shell = Console.format("gnome-shell", color=Color.BLUE, format_type=Format.BOLD)
+                removing_line.error(f"Backup file not found. Try reinstalling {formatted_shell} package.")
 
         else:
-            print("Theme is not installed. Nothing to remove.")
-            print("If theme is still installed globally, try reinstalling gnome-shell package.")
+            Console.Line().error("Theme is not installed. Nothing to remove.")
+            Console.Line().update("If theme is still installed globally, try reinstalling gnome-shell package.", icon="⚠️")

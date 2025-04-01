@@ -7,10 +7,12 @@ import shutil
 from collections import defaultdict
 from typing import Any
 
+from .console import Console, Color, Format
+from .parse_folder import parse_folder
 from .. import config
 import os
 
-def remove_files(args: argparse.Namespace, colors: dict[str, Any]):
+def remove_files(args: argparse.Namespace, formatted_colors: dict[str, Any]):
     """Delete already installed Marble theme"""
     themes = detect_themes(config.themes_folder)
 
@@ -20,23 +22,26 @@ def remove_files(args: argparse.Namespace, colors: dict[str, Any]):
         filtered_themes = themes
     if not args.all:
         args_dict = vars(args)
-        arguments = [color for color in colors.keys() if args_dict.get(color)]
+        arguments = [color for color in formatted_colors.keys() if args_dict.get(color)]
         filtered_themes = themes.filter(arguments)
 
     if not filtered_themes:
-        print("No matching themes found.")
+        Console.Line().error("No matching themes found.")
         return
 
-    colors = [color for (color, modes) in filtered_themes]
-    print(f"The following themes will be deleted: {', '.join(colors)}.")
+    formatted_colors = [
+        Console.format(color, color=Color.get(color), format_type=Format.BOLD)
+        for (color, modes) in filtered_themes
+    ]
+    Console.Line().warn(f"The following themes will be deleted: {', '.join(formatted_colors)}.")
     if args.mode:
-        print(f"Theme modes to be deleted: {args.mode}.")
+        Console.Line().warn(f"Theme modes to be deleted: {args.mode}.")
 
-    if input(f"Proceed? (y/N) ").lower() == "y":
+    if proceed_input().lower() == "y":
         filtered_themes.remove(args.mode)
-        print("Themes deleted successfully.")
+        Console.Line().success("Themes deleted successfully.")
     else:
-        print("Operation cancelled.")
+        Console.Line().error("Operation cancelled.")
 
 
 def detect_themes(path: str) -> 'Themes':
@@ -59,41 +64,12 @@ def detect_themes(path: str) -> 'Themes':
     return themes
 
 
-def parse_folder(folder: str) -> tuple[str, str] | None:
-    """Parse a folder name into color and mode"""
-    folder_arr = folder.split("-")
-
-    if len(folder_arr) < 2 or folder_arr[0] != "Marble":
-        return None
-
-    color = "-".join(folder_arr[1:-1])
-    mode = folder_arr[-1]
-
-    return color, mode
-
-
-class ThemeMode:
-    """Concrete theme with mode and path"""
-    mode: str
-    path: str
-
-    def __init__(self, mode: str, path: str):
-        self.mode = mode
-        self.path = path
-
-    def remove(self):
-        try:
-            shutil.rmtree(self.path)
-        except Exception as e:
-            print(f"Error deleting {self.path}: {e}")
-
-
 class Themes:
     """Collection of themes grouped by color"""
     def __init__(self):
         self.by_color: dict[str, list[ThemeMode]] = defaultdict(list)  # color: list[ThemeMode]
 
-    def add_theme(self, color: str, theme_mode: ThemeMode):
+    def add_theme(self, color: str, theme_mode: 'ThemeMode'):
         self.by_color[color].append(theme_mode)
 
     def filter(self, colors: list[str]):
@@ -121,3 +97,26 @@ class Themes:
     def __iter__(self):
         for color, modes in self.by_color.items():
             yield color, modes
+
+
+class ThemeMode:
+    """Concrete theme with mode and path"""
+    mode: str
+    path: str
+
+    def __init__(self, mode: str, path: str):
+        self.mode = mode
+        self.path = path
+
+    def remove(self):
+        try:
+            shutil.rmtree(self.path)
+        except Exception as e:
+            print(f"Error deleting {self.path}: {e}")
+
+
+def proceed_input():
+    formatted_agree = Console.format("y", color=Color.GREEN, format_type=Format.BOLD)
+    formatted_disagree = Console.format("N", color=Color.RED, format_type=Format.BOLD)
+    formatted_proceed = Console.format("Proceed?", format_type=Format.BOLD)
+    return input(f"{formatted_proceed} ({formatted_agree}/{formatted_disagree}) ")

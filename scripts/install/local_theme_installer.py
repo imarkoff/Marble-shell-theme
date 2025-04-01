@@ -4,6 +4,7 @@ from scripts import config
 from scripts.install.theme_installer import ThemeInstaller
 from scripts.theme import Theme
 from scripts.utils import remove_files
+from scripts.utils.console import Console, Color, Format
 
 
 class LocalThemeInstaller(ThemeInstaller):
@@ -26,4 +27,6 @@ class LocalThemeInstaller(ThemeInstaller):
         self._apply_tweaks(self.theme)
 
     def _after_install(self):
-        print("\nTheme installed successfully.")
+        print()
+        formatted_output = Console.format("Theme installed successfully.", color=Color.GREEN, format_type=Format.BOLD)
+        Console.Line().update(formatted_output, icon="🥳")

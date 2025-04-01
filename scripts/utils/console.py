@@ -11,9 +11,9 @@ class Console:
     _next_line = 0
 
     class Line:
-        def __init__(self, name):
+        def __init__(self, name: Optional[str]=None):
             """Initialize a new managed line"""
-            self.name = name
+            self.name = name or f"line_{Console._next_line}"
             self._reserve_line()
 
         def update(self, message, icon="⏳"):
@@ -25,7 +25,10 @@ class Console:
                 if lines_up > 0:
                     sys.stdout.write(f"\033[{lines_up}F")
                 # Clear line and write status
-                sys.stdout.write(f"\r\033[K{icon} {message}")
+                if icon.strip() == "":
+                    sys.stdout.write(f"\r\033[K{message}")
+                else:
+                    sys.stdout.write(f"\r\033[K{icon} {message}")
                 # Move the cursor back down
                 if lines_up > 0:
                     sys.stdout.write(f"\033[{lines_up}E")
@@ -78,8 +81,8 @@ class Color(Enum):
     GRAY = '\033[90m'
 
     @classmethod
-    def get(cls, color: str) -> Optional['Color']:
-        return getattr(cls, color.upper(), None)
+    def get(cls, color: str, default: Optional['Color']=None) -> Optional['Color']:
+        return getattr(cls, color.upper(), default)
 
 
 class Format(Enum):

@@ -3,6 +3,7 @@ import os
 from scripts import config
 from scripts.gdm import GlobalTheme
 from scripts.install.theme_installer import ThemeInstaller
+from scripts.utils.console import Console, Color, Format
 
 
 class GlobalThemeInstaller(ThemeInstaller):
@@ -27,6 +28,12 @@ class GlobalThemeInstaller(ThemeInstaller):
             self._apply_tweaks(theme.theme)
 
     def _after_install(self):
-        print("\nGDM theme installed successfully.")
-        print("You need to restart gdm.service to apply changes.")
-        print("Run \"systemctl restart gdm.service\" to restart GDM.")
+        print()
+        Console.Line().update(
+            Console.format("GDM theme installed successfully.", color=Color.GREEN, format_type=Format.BOLD),
+            icon="🥳"
+        )
+        Console.Line().update("You need to restart GDM to apply changes.", icon="ℹ️ ")
+
+        formatted_command = Console.format("systemctl restart gdm.service", color=Color.YELLOW, format_type=Format.BOLD)
+        Console.Line().update(f"Run {formatted_command} to restart GDM.", icon="🔄")
