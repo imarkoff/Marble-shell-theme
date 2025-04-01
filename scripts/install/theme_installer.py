@@ -1,4 +1,5 @@
 import argparse
+import concurrent.futures
 from abc import ABC, abstractmethod
 
 from scripts.install.colors_definer import ColorsDefiner
@@ -75,17 +76,24 @@ class ThemeInstaller(ABC):
     def _apply_default_color(self) -> bool:
         colors = self.colors.colors
         args = self.args
-        installed_any = False
 
+        colors_to_install = []
         for color, values in colors.items():
-            if self.args.all or getattr(self.args, color, False):
+            if args.all or getattr(args, color, False):
                 hue = values.get('h')
-                sat = values.get('s', args.sat)  # if saturation already defined in color (gray)
-
-                self._install_theme(hue, color, sat)
-                installed_any = True
+                sat = values.get('s', args.sat)
+                colors_to_install.append((hue, color, sat))
 
                 if self.stop_after_first_installed_color:
                     break
 
-        return installed_any
+        if not colors_to_install:
+            return False
+        self._run_concurrent_installation(colors_to_install)
+        return True
+
+    def _run_concurrent_installation(self, colors_to_install):
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            futures = [executor.submit(self._install_theme, hue, color, sat)
+                       for hue, color, sat in colors_to_install]
+            concurrent.futures.wait(futures)
