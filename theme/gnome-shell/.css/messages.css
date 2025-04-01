@@ -101,7 +101,7 @@
 /* that's much better than adding "margin: $base_padding * 0.5;" to .message-close-button */
 .message-close-button { margin: 0; }
 .message-header:ltr > :last-child { margin-right: 2px; }
-.messahe-header:rtl > :first-child { margin-left: 2px; }
+.message-header:rtl > :first-child { margin-left: 2px; }
 
 /* close button, expand button (46+) */
 .message-close-button,

@@ -20,7 +20,6 @@ class LocalThemeInstaller(ThemeInstaller):
                               mode=self.args.mode, is_filled=self.args.filled)
 
     def _install_theme(self, hue, theme_name, sat):
-        self.theme.prepare()
         self.theme.install(hue, theme_name, sat)
 
     def _apply_tweaks_to_theme(self):
