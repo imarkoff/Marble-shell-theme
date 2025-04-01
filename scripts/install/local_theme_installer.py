@@ -10,12 +10,8 @@ class LocalThemeInstaller(ThemeInstaller):
     theme: Theme
 
     def remove(self):
-        args = self.args
         colors = self.colors.colors
-        if args.remove or args.reinstall:
-            remove_files(args, colors)
-            if not args.reinstall:
-                return
+        remove_files(self.args, colors)
 
     def _define_theme(self):
         theme_folder = os.path.join(config.raw_theme_folder, config.gnome_folder)
@@ -29,3 +25,6 @@ class LocalThemeInstaller(ThemeInstaller):
 
     def _apply_tweaks_to_theme(self):
         self._apply_tweaks(self.theme)
+
+    def _after_install(self):
+        print("\nTheme installed successfully.")

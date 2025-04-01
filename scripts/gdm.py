@@ -2,8 +2,9 @@ import os
 import subprocess
 
 from .theme import Theme
-from .utils import label_files, remove_properties, remove_keywords, gnome
+from .utils import remove_properties, remove_keywords, gnome
 from . import config
+from .utils.files_labeler import FilesLabeler
 
 
 class ThemePrepare:
@@ -11,7 +12,7 @@ class ThemePrepare:
     Theme object prepared for installation
     """
 
-    def __init__(self, theme, theme_file, should_label=False):
+    def __init__(self, theme: Theme, theme_file, should_label=False):
         self.theme = theme
         self.theme_file = theme_file
         self.should_label = should_label
@@ -38,7 +39,7 @@ class GlobalTheme:
 
         self.backup_file = f"{self.destination_file}.backup"
         self.backup_trigger = "\n/* Marble theme */\n"  # trigger to check if theme is installed
-        self.extracted_theme = os.path.join(self.temp_folder, config.extracted_gdm_folder)
+        self.extracted_theme: str = os.path.join(self.temp_folder, config.extracted_gdm_folder)
         self.gst = os.path.join(self.destination_folder, self.destination_file)  # use backup file if theme is installed
 
         self.themes: list[ThemePrepare] = []
@@ -46,7 +47,7 @@ class GlobalTheme:
         self.mode = mode
 
 
-    def __create_theme(self, theme_type, mode=None, should_label=False, is_filled=False):
+    def __create_theme(self, theme_type: str, mode=None, should_label=False, is_filled=False):
         """Helper to create theme objects"""
         theme = Theme(theme_type, self.colors_json, self.theme_folder,
                       self.extracted_theme, self.temp_folder,
@@ -111,16 +112,18 @@ class GlobalTheme:
         :param sat: color saturation
         """
 
-        for theme in self.themes:
-            if theme.should_label:
-                label_files(theme.theme.temp_folder, "light", theme.theme.main_styles)
+        for theme_prepare in self.themes:
+            if theme_prepare.should_label:
+                temp_folder = theme_prepare.theme.temp_folder
+                main_styles = theme_prepare.theme.main_styles
+                FilesLabeler(temp_folder, main_styles).append_label("light")
 
-            remove_keywords(theme.theme_file, "!important")
-            remove_properties(theme.theme_file, "background-color", "color", "box-shadow", "border-radius")
+            remove_keywords(theme_prepare.theme_file, "!important")
+            remove_properties(theme_prepare.theme_file, "background-color", "color", "box-shadow", "border-radius")
 
-            self.__add_gnome_styles(theme.theme)
+            self.__add_gnome_styles(theme_prepare.theme)
 
-            theme.theme.install(hue, color, sat, destination=self.extracted_theme)
+            theme_prepare.theme.install(hue, color, sat, destination=self.extracted_theme)
 
 
     def __backup(self):

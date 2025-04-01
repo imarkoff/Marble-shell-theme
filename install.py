@@ -33,10 +33,11 @@ def main():
 
     if args.remove or args.reinstall:
         installer.remove()
-    else:
+
+    if not args.remove:
         installer.install()
 
-    if not args.gdm and args.remove == args.reinstall:
+    if not args.gdm and not args.remove:
         apply_gnome_theme()
 
 
