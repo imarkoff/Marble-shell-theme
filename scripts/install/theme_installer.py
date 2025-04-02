@@ -14,7 +14,6 @@ class ThemeInstaller(ABC):
     def __init__(self, args: argparse.Namespace, colors: ColorsDefiner):
         self.args = args
         self.colors = colors
-        self.stop_after_first_installed_color = False
         self._define_theme()
 
     @abstractmethod
@@ -84,9 +83,6 @@ class ThemeInstaller(ABC):
                 sat = values.get('s', args.sat)
                 colors_to_install.append((hue, color, sat))
 
-                if self.stop_after_first_installed_color:
-                    break
-
         if not colors_to_install:
             return False
         self._run_concurrent_installation(colors_to_install)
@@ -96,4 +92,6 @@ class ThemeInstaller(ABC):
         with concurrent.futures.ThreadPoolExecutor() as executor:
             futures = [executor.submit(self._install_theme, hue, color, sat)
                        for hue, color, sat in colors_to_install]
-            concurrent.futures.wait(futures)
+
+            for future in concurrent.futures.as_completed(futures):
+                future.result()
