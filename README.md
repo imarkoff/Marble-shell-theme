@@ -14,7 +14,8 @@ Shell theme for GNOME DE. Based on https://www.pling.com/p/1939902/.
 <details><summary>Click me 🐈</summary>
 
 Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
-#### Overview [[Blur My Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/) / Light / Dark] ([Neon Gas Station](https://www.heroscreen.cc/2025/03/neon-gas-station-4k-wallpaper.html))
+
+#### Overview [[Blur My Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/) / Light / Dark] ([Neon Gas Station](https://www.heroscreen.cc/2025/03/neon-gas-station-4k-wallpaper.html) - AI Generated)
 ![Overview with Blur My Shell](./readme-images/overview_blur-my-shell.png?raw=true "Overview with Blur My Shell")
 ![Overview in light mode](./readme-images/overview_light.png?raw=true "Overview in light mode")
 ![Overview in dark mode](./readme-images/overview_dark.png?raw=true "Overview in dark mode")
@@ -26,7 +27,7 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 
 #### Modal dialog ([Wide Angle Photography of Mountain](https://www.pexels.com/photo/wide-angle-photography-of-mountain-1612559/))
 ![Modal dialog look](./readme-images/modal.png?raw=true "Modal dialog look")
-#### Calendar & notifications ([Neon Gas Station](https://www.heroscreen.cc/2025/03/neon-gas-station-4k-wallpaper.html))
+#### Calendar & notifications
 ![Calendar & notifications look](./readme-images/datemenu.png?raw=true)
 
 #### Dash ([Dash To Dock](https://extensions.gnome.org/extension/307/dash-to-dock/ "Dash To Dock"))
@@ -43,7 +44,7 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 ## 🚧 Requirements
 - GNOME 42-48. Correct functionality on other versions is not guaranteed.
 - [User Themes](https://extensions.gnome.org/extension/19/user-themes/ "User Themes") extension.
-- Python 3.9+.
+- Python 3.10 or higher.
 
 ## 💡 Installation
 
@@ -56,7 +57,7 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
    git clone https://github.com/imarkoff/Marble-shell-theme.git
    cd Marble-shell-theme
    ```
-3. Run the program (install all accent colors, light & dark mode): 
+3. Run the program (install all accent colors, light and dark mode): 
    ```shell
    python install.py -a
    ```
@@ -85,9 +86,6 @@ If you want to remove the theme, see the [uninstallation](#%EF%B8%8F-uninstallat
 > **Image:** [Network Abstract](https://4kwallpapers.com/abstract/network-abstract-background-blue-background-5k-8k-8270.html).
 > 
 > **Config:** `sudo python install.py --gdm --blue --filled --gdm-image /path/to/image.jpg --gdm-blur=40 --gdm-darken=30`
-
-> [!NOTE]  
-> This theme only supports GNOME Display Manager. Ubuntu Display Manager is currently not supported.
 
 > [!WARNING]  
 > I am not responsible for any damage caused by the installation of the theme. If you have any problems, please open an issue.
