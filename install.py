@@ -45,4 +45,5 @@ if __name__ == "__main__":
     try:
         main()
     finally:
-        shutil.rmtree(config.temp_folder, ignore_errors=True)
+        pass
+        # shutil.rmtree(config.temp_folder, ignore_errors=True)

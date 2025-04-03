@@ -1,3 +1,4 @@
+import os.path
 from tempfile import gettempdir
 
 # folder definitions
@@ -13,6 +14,7 @@ scripts_folder = "scripts"
 # GDM definitions
 global_gnome_shell_theme = "/usr/share/gnome-shell"
 gnome_shell_gresource = "gnome-shell-theme.gresource"
+ubuntu_gresource_link = "gtk-theme.gresource"
 extracted_gdm_folder = "theme"
 
 # files definitions
