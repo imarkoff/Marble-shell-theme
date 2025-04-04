@@ -7,7 +7,11 @@ from scripts.utils.console import Console
 
 
 class GresourceBackupNotFoundError(FileNotFoundError):
-    pass
+    def __init__(self, location: str = None):
+        if location:
+            super().__init__(f"Gresource backup file not found: {location}")
+        else:
+            super().__init__("Gresource backup file not found.")
 
 
 class Gresource:
@@ -25,14 +29,14 @@ class Gresource:
 
         self.__temp_gresource = os.path.join(temp_folder, gresource_file)
         self.__destination_gresource = os.path.join(destination, gresource_file)
-        self.__source_gresource = self.__destination_gresource
+        self.__active_source_gresource = self.__destination_gresource
+        self.__backup_gresource = os.path.join(destination, f"{gresource_file}.backup")
         self.__gresource_xml = os.path.join(temp_folder, f"{gresource_file}.xml")
 
     def use_backup_gresource(self):
-        if not self.__source_gresource.endswith(".backup"):
-            self.__source_gresource += ".backup"
-            if not os.path.exists(self.__source_gresource):
-                raise GresourceBackupNotFoundError()
+        if not os.path.exists(self.__backup_gresource):
+            raise GresourceBackupNotFoundError(self.__backup_gresource)
+        self.__active_source_gresource = self.__backup_gresource
 
     def extract(self):
         extract_line = Console.Line()
@@ -45,12 +49,12 @@ class Gresource:
 
     def __get_resources_list(self):
         resources_list_response = subprocess.run(
-            ["gresource", "list", self.__source_gresource],
+            ["gresource", "list", self.__active_source_gresource],
             capture_output=True, text=True, check=False
         )
 
         if resources_list_response.stderr:
-            raise Exception(f"gresource could not process the theme file: {self.__source_gresource}")
+            raise Exception(f"gresource could not process the theme file: {self.__active_source_gresource}")
 
         return resources_list_response.stdout.strip().split("\n")
 
@@ -64,7 +68,7 @@ class Gresource:
 
                 with open(output_path, 'wb') as f:
                     subprocess.run(
-                        ["gresource", "extract", self.__source_gresource, resource],
+                        ["gresource", "extract", self.__active_source_gresource, resource],
                         stdout=f, check=True
                     )
         except FileNotFoundError as e:
@@ -133,19 +137,17 @@ class Gresource:
 
         subprocess.run(["cp", "-aT",
                         self.__destination_gresource,
-                        f"{self.__destination_gresource}.backup"],
+                        self.__backup_gresource],
                        check=True)
 
         backup_line.success("Backed up gresource files.")
 
     def restore(self):
-        backup_gresource = f"{self.__destination_gresource}.backup"
-
-        if not os.path.exists(backup_gresource):
-            raise GresourceBackupNotFoundError()
+        if not os.path.exists(self.__backup_gresource):
+            raise GresourceBackupNotFoundError(self.__backup_gresource)
 
         subprocess.run(["sudo", "mv", "-f",
-                        backup_gresource,
+                        self.__backup_gresource,
                         self.__destination_gresource],
                        check=True)
 
