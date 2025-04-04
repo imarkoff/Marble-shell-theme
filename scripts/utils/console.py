@@ -43,6 +43,9 @@ class Console:
         def warn(self, message):
             self.update(message, "⚠️")
 
+        def info(self, message):
+            self.update(message, "ℹ️ ")
+
         def _reserve_line(self):
             """Reserve a line for future updates"""
             with Console._print_lock:
