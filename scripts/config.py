@@ -3,6 +3,7 @@ from tempfile import gettempdir
 
 # folder definitions
 temp_folder = f"{gettempdir()}/marble"
+temp_tests_folder = f"{temp_folder}/tests"
 gdm_folder = "gdm"
 gnome_folder = "gnome-shell"
 temp_gnome_folder = f"{temp_folder}/{gnome_folder}"
