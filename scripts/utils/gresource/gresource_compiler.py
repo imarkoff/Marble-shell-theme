@@ -1,17 +1,22 @@
-import subprocess
 import textwrap
 from pathlib import Path
 
+from scripts.utils.command_runner.command_runner import CommandRunner
 from scripts.utils.gresource import raise_gresource_error
 from scripts.utils.logger.logger import LoggerFactory
 
 
 class GresourceCompiler:
-    def __init__(self, source_folder: str, target_file: str, logger_factory: LoggerFactory):
+    def __init__(
+            self, source_folder: str, target_file: str,
+            logger_factory: LoggerFactory, runner: CommandRunner
+    ):
         self.source_folder = source_folder
         self.target_file = target_file
         self.gresource_xml = target_file + ".xml"
+
         self.logger_factory = logger_factory
+        self.runner = runner
 
     def compile(self):
         compile_line = self.logger_factory.create_logger()
@@ -55,7 +60,7 @@ class GresourceCompiler:
             raise
 
     def _try_compile_resources(self):
-        subprocess.run(["glib-compile-resources",
+        self.runner.run(["glib-compile-resources",
                         "--sourcedir", self.source_folder,
                         "--target", self.target_file,
                         self.gresource_xml

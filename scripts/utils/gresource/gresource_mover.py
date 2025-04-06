@@ -1,4 +1,5 @@
-import subprocess
+import os
+import shutil
 
 from scripts.utils.logger.logger import LoggerFactory
 
@@ -13,11 +14,8 @@ class GresourceMover:
         move_line = self.logger_factory.create_logger()
         move_line.update("Moving gresource files...")
 
-        subprocess.run(["cp", "-f",
-                        self.source_file,
-                        self.destination_file],
-                       check=True)
-
-        subprocess.run(["chmod", "644", self.destination_file], check=True)
+        os.makedirs(os.path.dirname(self.destination_file), exist_ok=True)
+        shutil.copyfile(self.source_file, self.destination_file)
+        os.chmod(self.destination_file, 0o644)
 
         move_line.success("Moved gresource files.")

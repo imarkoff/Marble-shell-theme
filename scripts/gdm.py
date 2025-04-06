@@ -7,6 +7,7 @@ from .utils import remove_properties, remove_keywords
 from . import config
 from .utils.alternatives_updater import AlternativesUpdater
 from scripts.utils.logger.console import Console, Color, Format
+from .utils.command_runner.subprocess_command_runner import SubprocessCommandRunner
 from .utils.files_labeler import FilesLabeler
 from .utils.gresource import GresourceBackupNotFoundError
 from .utils.gresource.gresource import Gresource
@@ -41,7 +42,8 @@ class GlobalTheme:
         self.__gresource_file = os.path.join(self.destination_folder, self.destination_file)
 
         self.__gresource_temp_folder = os.path.join(self.temp_folder, config.extracted_gdm_folder)
-        self.__gresource = Gresource(self.destination_file, self.__gresource_temp_folder, self.destination_folder, logger_factory=Console())
+        self.__gresource = Gresource(self.destination_file, self.__gresource_temp_folder, self.destination_folder,
+                                     logger_factory=Console(), runner=SubprocessCommandRunner())
 
     def prepare(self):
         if self.__is_installed():
