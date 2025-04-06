@@ -2,7 +2,7 @@ import functools
 import subprocess
 from typing import TypeAlias
 
-from scripts.utils.console import Console
+from scripts.utils.logger.console import Console
 
 PathString: TypeAlias = str | bytes
 

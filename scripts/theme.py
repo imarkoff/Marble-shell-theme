@@ -8,7 +8,7 @@ from .utils import (
     copy_files,          # copy files from source to destination
     destination_return,  # copied/modified theme location
     generate_file)       # combine files from folder to one file
-from .utils.console import Console, Color, Format
+from scripts.utils.logger.console import Console, Color, Format
 
 
 class Theme:

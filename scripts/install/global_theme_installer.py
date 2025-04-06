@@ -3,7 +3,7 @@ import os
 from scripts import config
 from scripts.gdm import GlobalTheme
 from scripts.install.theme_installer import ThemeInstaller
-from scripts.utils.console import Console, Color, Format
+from scripts.utils.logger.console import Console, Color, Format
 
 
 class GlobalThemeInstaller(ThemeInstaller):

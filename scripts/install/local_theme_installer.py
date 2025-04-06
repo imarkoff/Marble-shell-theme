@@ -4,7 +4,7 @@ from scripts import config
 from scripts.install.theme_installer import ThemeInstaller
 from scripts.theme import Theme
 from scripts.utils import remove_files
-from scripts.utils.console import Console, Color, Format
+from scripts.utils.logger.console import Console, Color, Format
 
 
 class LocalThemeInstaller(ThemeInstaller):

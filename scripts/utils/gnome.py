@@ -2,7 +2,7 @@ import subprocess
 import time
 
 from scripts import config
-from scripts.utils.console import Console, Format, Color
+from scripts.utils.logger.console import Console, Format, Color
 from scripts.utils.parse_folder import parse_folder
 
 
