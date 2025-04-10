@@ -2,7 +2,8 @@ import os
 from typing import Optional
 
 from .install.colors_definer import ColorsDefiner
-from .theme import Theme
+from scripts.utils.theme.theme import Theme
+from .types.theme_base import ThemeBase
 from .utils import remove_properties, remove_keywords
 from . import config
 from .utils.alternatives_updater import AlternativesUpdater
@@ -11,25 +12,26 @@ from .utils.command_runner.subprocess_command_runner import SubprocessCommandRun
 from .utils.files_labeler import FilesLabeler
 from .utils.gresource import GresourceBackupNotFoundError
 from .utils.gresource.gresource import Gresource
+from .utils.theme.gnome_shell_theme_builder import GnomeShellThemeBuilder
 
 
-class GlobalTheme:
+class GlobalTheme(ThemeBase):
     """Class to install global theme for GDM"""
     def __init__(self,
-                 colors_json: ColorsDefiner, theme_folder: str,
-                 destination_folder: str, destination_file: str, temp_folder: str,
+                 colors_json: ColorsDefiner, source_folder: str,
+                 destination_folder: str, destination_file: str, temp_folder: str | bytes,
                  mode: Optional[str] = None, is_filled = False
                  ):
         """
         :param colors_json: location of a JSON file with color values
-        :param theme_folder: raw theme location
+        :param source_folder: raw theme location
         :param destination_folder: folder where themes will be installed
         :param temp_folder: folder where files will be collected
         :param mode: theme mode (light or dark)
         :param is_filled: if True, the theme will be filled
         """
         self.colors_json = colors_json
-        self.theme_folder = theme_folder
+        self.source_folder = source_folder
         self.destination_folder = destination_folder
         self.destination_file = destination_file
         self.temp_folder = temp_folder
@@ -75,9 +77,14 @@ class GlobalTheme:
 
     def __append_theme(self, theme_type: str, mode = None, label: Optional[str] = None):
         """Helper to create theme objects"""
-        theme = Theme(theme_type, self.colors_json, self.theme_folder,
-                      self.__gresource_temp_folder, self.temp_folder,
-                      mode=mode, is_filled=self.is_filled)
+        theme_builder = GnomeShellThemeBuilder(self.colors_json)
+        theme_builder.with_temp_folder(self.temp_folder)
+        theme_builder.with_theme_name(theme_type)
+        theme_builder.destination_folder = self.__gresource_temp_folder
+        theme_builder.with_mode(mode)
+        theme_builder.filled(self.is_filled)
+
+        theme = theme_builder.build()
         theme.prepare()
         theme_file = os.path.join(self.__gresource_temp_folder, f"{theme_type}.css")
         self.themes.append(ThemePrepare(theme=theme, theme_file=theme_file, label=label))
@@ -113,7 +120,7 @@ class GlobalTheme:
 
     def __add_gnome_styles(self, theme: Theme):
         """Add gnome styles to the start of the file"""
-        with open(f"{theme.destination_folder}/{theme.theme_type}.css", 'r') as gnome_theme:
+        with open(f"{theme.destination_folder}/{theme.theme_name}.css", 'r') as gnome_theme:
             gnome_styles = gnome_theme.read() + self.__is_installed_trigger
             theme.add_to_start(gnome_styles)
 

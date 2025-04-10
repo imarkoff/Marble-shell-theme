@@ -1,4 +1,4 @@
-def replace_keywords(file, *args):
+def replace_keywords(file, *args: tuple[str, str]):
     """
     Replace file with several keywords
     :param file: file name where keywords must be replaced

@@ -1,8 +1,6 @@
-import os.path
-
-from scripts import config
 from scripts.install.theme_installer import ThemeInstaller
-from scripts.theme import Theme
+from scripts.utils.theme.gnome_shell_theme_builder import GnomeShellThemeBuilder
+from scripts.utils.theme.theme import Theme
 from scripts.utils import remove_files
 from scripts.utils.logger.console import Console, Color, Format
 
@@ -15,10 +13,10 @@ class LocalThemeInstaller(ThemeInstaller):
         remove_files(self.args, colors)
 
     def _define_theme(self):
-        theme_folder = os.path.join(config.raw_theme_folder, config.gnome_folder)
-        self.theme = Theme("gnome-shell", self.colors, theme_folder,
-                              config.themes_folder, config.temp_folder,
-                              mode=self.args.mode, is_filled=self.args.filled)
+        theme_builder = GnomeShellThemeBuilder(self.colors)
+        theme_builder.with_mode(self.args.mode)
+        theme_builder.filled(self.args.filled)
+        self.theme = theme_builder.build()
 
     def _install_theme(self, hue, theme_name, sat):
         self.theme.install(hue, theme_name, sat)

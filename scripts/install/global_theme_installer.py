@@ -4,6 +4,7 @@ from scripts import config
 from scripts.gdm import GlobalTheme
 from scripts.install.theme_installer import ThemeInstaller
 from scripts.utils.logger.console import Console, Color, Format
+from theme import SourceFolder
 
 
 class GlobalThemeInstaller(ThemeInstaller):
@@ -16,7 +17,8 @@ class GlobalThemeInstaller(ThemeInstaller):
 
     def _define_theme(self):
         gdm_temp = os.path.join(config.temp_folder, config.gdm_folder)
-        self.theme = GlobalTheme(self.colors, f"{config.raw_theme_folder}/{config.gnome_folder}",
+        source_folder = SourceFolder().gnome_shell
+        self.theme = GlobalTheme(self.colors, source_folder,
                                 config.global_gnome_shell_theme, config.gnome_shell_gresource,
                                 gdm_temp, mode=self.args.mode, is_filled=self.args.filled)
 

@@ -3,7 +3,7 @@ import concurrent.futures
 from abc import ABC, abstractmethod
 
 from scripts.install.colors_definer import ColorsDefiner
-from scripts.theme import Theme
+from scripts.utils.theme.theme import Theme
 from scripts.tweaks_manager import TweaksManager
 
 
