@@ -2,11 +2,12 @@ import os.path
 
 from scripts import config
 from scripts.install.colors_definer import ColorsDefiner
-from scripts.utils.color_converter import ColorConverterImpl
+from scripts.utils.color_converter.color_converter_impl import ColorConverterImpl
 from scripts.utils.logger.console import Console
 from scripts.utils.style_manager import StyleManager
 from scripts.utils.theme.theme import Theme
-from scripts.utils.theme.theme_color_applier import ColorReplacementGenerator, ThemeColorApplier
+from scripts.utils.theme.theme_color_applier import ThemeColorApplier
+from scripts.utils.theme.color_replacement_generator import ColorReplacementGenerator
 from scripts.utils.theme.theme_installer import ThemeInstaller
 from scripts.utils.theme.theme_path_provider import ThemePathProvider
 from scripts.utils.theme.theme_preparation import ThemePreparation

@@ -7,6 +7,9 @@ def get_version_folders(version, base_path):
     :param base_path: base path to version folders
     :return: list of matching version folders
     """
+    if not os.path.exists(base_path):
+        return []
+
     version_folders = os.listdir(base_path)
     version = int(version.split('.')[0])  # Use only the major version for comparison
     matching_folders = []

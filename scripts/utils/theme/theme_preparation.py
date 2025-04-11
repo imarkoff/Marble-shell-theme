@@ -1,5 +1,4 @@
 import os
-import warnings
 
 from scripts.utils import replace_keywords
 from scripts.utils.theme.theme_temp_manager import ThemeTempManager
@@ -45,11 +44,10 @@ class ThemePreparation:
         """
         Extract theme from source folder and prepare it for installation.
         """
-        self.file_manager.prepare_files(self.sources_location)
+        self.file_manager.copy_to_temp(self.sources_location)
         self.style_manager.generate_combined_styles(self.sources_location, self.temp_folder)
         self.file_manager.cleanup()
 
-    @warnings.deprecated
     def replace_filled_keywords(self):
         """
         Replace keywords in the theme files for filled mode.

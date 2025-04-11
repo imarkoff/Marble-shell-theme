@@ -1,5 +1,5 @@
 from scripts import config
-from scripts.utils.color_converter import ColorConverterImpl
+from scripts.utils.color_converter.color_converter_impl import ColorConverterImpl
 
 panel_folder = f"{config.tweaks_folder}/panel"
 
