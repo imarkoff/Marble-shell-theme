@@ -4,11 +4,13 @@ from scripts import config
 from scripts.install.colors_definer import ColorsDefiner
 from scripts.utils.color_converter import ColorConverterImpl
 from scripts.utils.logger.console import Console
+from scripts.utils.style_manager import StyleManager
 from scripts.utils.theme.theme import Theme
 from scripts.utils.theme.theme_color_applier import ColorReplacementGenerator, ThemeColorApplier
 from scripts.utils.theme.theme_installer import ThemeInstaller
 from scripts.utils.theme.theme_path_provider import ThemePathProvider
 from scripts.utils.theme.theme_preparation import ThemePreparation
+from scripts.utils.theme.theme_temp_manager import ThemeTempManager
 from theme import SourceFolder
 
 
@@ -78,8 +80,12 @@ class GnomeShellThemeBuilder:
         return Theme(self.preparation, self.installer, self.mode, self.is_filled)
 
     def _resolve_preparation(self):
-        if self.preparation is None:
-            self.preparation = ThemePreparation(self.source_folder, self.temp_folder, self.main_styles)
+        if self.preparation is not None: return
+
+        file_manager = ThemeTempManager(self.temp_folder)
+        style_manager = StyleManager(self.main_styles)
+        self.preparation = ThemePreparation(self.source_folder,
+                                            file_manager=file_manager, style_manager=style_manager)
 
     def _resolve_installer(self):
         if self.installer is not None: return
