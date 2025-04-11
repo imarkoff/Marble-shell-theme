@@ -1,6 +1,7 @@
 import os
 import shutil
 import unittest
+from unittest.mock import patch
 
 from scripts import config
 from scripts.utils.style_manager import StyleManager
@@ -67,7 +68,8 @@ class StyleManagerTestCase(unittest.TestCase):
         create_dummy_file(first_file, first_css)
         create_dummy_file(second_file, second_css)
 
-        self.manager.generate_combined_styles(source_folder, self.temp_folder)
+        with patch("subprocess.check_output", return_value="GNOME Shell 47.0"):
+            self.manager.generate_combined_styles(source_folder, self.temp_folder)
 
         with open(self.output_file, 'r') as f:
             content = f.read()
