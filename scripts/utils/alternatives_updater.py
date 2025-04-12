@@ -28,7 +28,7 @@ class AlternativesUpdater:
 
     @staticmethod
     @ubuntu_specific
-    def install_and_set(link: str, name: str, path: PathString, priority: int = 0):
+    def install_and_set(link: PathString, name: str, path: PathString, priority: int = 0):
         AlternativesUpdater.install(link, name, path, priority)
         AlternativesUpdater.set(name, path)
 

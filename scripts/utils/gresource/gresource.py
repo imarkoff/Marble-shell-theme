@@ -1,5 +1,6 @@
 import os
 
+from scripts.utils.alternatives_updater import PathString
 from scripts.utils.command_runner.command_runner import CommandRunner
 from scripts.utils.gresource.gresource_backuper import GresourceBackuperManager
 from scripts.utils.gresource.gresource_compiler import GresourceCompiler
@@ -12,7 +13,7 @@ class Gresource:
     """Orchestrator for gresource files."""
 
     def __init__(
-            self, gresource_file: str, temp_folder: str, destination: str,
+            self, gresource_file: str, temp_folder: PathString, destination: PathString,
             logger_factory: LoggerFactory, runner: CommandRunner
     ):
         """
@@ -33,6 +34,15 @@ class Gresource:
 
         self._backuper = GresourceBackuperManager(self._destination_gresource,
                                                   logger_factory=self.logger_factory)
+
+    def has_trigger(self, trigger: str) -> bool:
+        """
+        Check if the trigger is present in the gresource file.
+        Used to detect if the theme is already installed.
+        :param trigger: The trigger to check for.
+        :return: True if the trigger is found, False otherwise.
+        """
+        return self._backuper.has_trigger(trigger)
 
     def use_backup_gresource(self):
         self._active_source_gresource = self._backuper.get_backup()

@@ -4,6 +4,7 @@ from scripts import config
 from scripts.install.colors_definer import ColorsDefiner
 from scripts.utils.color_converter.color_converter_impl import ColorConverterImpl
 from scripts.utils.logger.console import Console
+from scripts.utils.logger.logger import LoggerFactory
 from scripts.utils.style_manager import StyleManager
 from scripts.utils.theme.theme import Theme
 from scripts.utils.theme.theme_color_applier import ThemeColorApplier
@@ -38,6 +39,7 @@ class GnomeShellThemeBuilder:
         self.temp_folder = os.path.join(self._base_temp_folder, self.theme_name)
         self.main_styles = os.path.join(self.temp_folder, f"{self.theme_name}.css")
 
+        self.logger_factory: LoggerFactory | None = None
         self.preparation: ThemePreparation | None = None
         self.installer: ThemeInstaller | None = None
 
@@ -66,6 +68,28 @@ class GnomeShellThemeBuilder:
         self.is_filled = filled
         return self
 
+    def with_logger_factory(self, logger_factory: LoggerFactory | None):
+        """Inject a logger factory for logging purposes."""
+        self.logger_factory = logger_factory
+        return self
+
+    def with_preparation(self, preparation: ThemePreparation | None):
+        """Inject a preparation instance for preparing the theme."""
+        self.preparation = preparation
+        return self
+
+    def with_installer(self, installer: ThemeInstaller | None):
+        """Inject an installer for installing the theme."""
+        self.installer = installer
+        return self
+
+
+    def with_reset_dependencies(self):
+        """Reset the dependencies for the theme preparation and installation."""
+        self.preparation = None
+        self.installer = None
+        return self
+
     def build(self) -> "Theme":
         """
         Constructs and returns a Theme instance using the configured properties.
@@ -81,7 +105,7 @@ class GnomeShellThemeBuilder:
         return Theme(self.preparation, self.installer, self.mode, self.is_filled)
 
     def _resolve_preparation(self):
-        if self.preparation is not None: return
+        if self.preparation: return
 
         file_manager = ThemeTempManager(self.temp_folder)
         style_manager = StyleManager(self.main_styles)
@@ -89,13 +113,14 @@ class GnomeShellThemeBuilder:
                                             file_manager=file_manager, style_manager=style_manager)
 
     def _resolve_installer(self):
-        if self.installer is not None: return
+        if self.installer: return
 
         color_converter = ColorConverterImpl()
         color_replacement_generator = ColorReplacementGenerator(
-            colors_provider=self.colors_provider, color_converter=color_converter)
+            colors_provider=self.colors_provider,
+            color_converter=color_converter)
         color_applier = ThemeColorApplier(color_replacement_generator=color_replacement_generator)
-        logger_factory = Console()
+        logger_factory = self.logger_factory or Console()
         path_provider = ThemePathProvider()
         self.installer = ThemeInstaller(self.theme_name, self.temp_folder, self.destination_folder,
                                         logger_factory=logger_factory,

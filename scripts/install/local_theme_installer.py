@@ -18,9 +18,6 @@ class LocalThemeInstaller(ThemeInstaller):
         theme_builder.filled(self.args.filled)
         self.theme = theme_builder.build()
 
-    def _install_theme(self, hue, theme_name, sat):
-        self.theme.install(hue, theme_name, sat)
-
     def _apply_tweaks_to_theme(self):
         self._apply_tweaks(self.theme)
 

@@ -1,14 +1,11 @@
-import os
-
-from scripts import config
-from scripts.gdm import GlobalTheme
 from scripts.install.theme_installer import ThemeInstaller
+from scripts.utils.global_theme.gdm import GDMTheme
+from scripts.utils.global_theme.gdm_builder import GdmBuilder
 from scripts.utils.logger.console import Console, Color, Format
-from theme import SourceFolder
 
 
 class GlobalThemeInstaller(ThemeInstaller):
-    theme: GlobalTheme
+    theme: GDMTheme
 
     def remove(self):
         gdm_rm_status = self.theme.remove()
@@ -16,14 +13,10 @@ class GlobalThemeInstaller(ThemeInstaller):
             print("GDM theme removed successfully.")
 
     def _define_theme(self):
-        gdm_temp = os.path.join(config.temp_folder, config.gdm_folder)
-        source_folder = SourceFolder().gnome_shell
-        self.theme = GlobalTheme(self.colors, source_folder,
-                                config.global_gnome_shell_theme, config.gnome_shell_gresource,
-                                gdm_temp, mode=self.args.mode, is_filled=self.args.filled)
-
-    def _install_theme(self, hue, theme_name, sat):
-        self.theme.install(hue, sat)
+        gdm_builder = GdmBuilder(self.colors)
+        gdm_builder.with_mode(self.args.mode)
+        gdm_builder.with_filled(self.args.filled)
+        self.theme = gdm_builder.build()
 
     def _apply_tweaks_to_theme(self):
         for theme in self.theme.themes:

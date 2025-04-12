@@ -1,12 +1,12 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 
 
 class ThemeBase(ABC):
     """Base class for theme installation and preparation."""
-    @staticmethod
+    @abstractmethod
     def prepare(self):
         pass
 
-    @staticmethod
-    def install(self, hue: int, sat: float | None = None):
+    @abstractmethod
+    def install(self, hue: int, name: str, sat: float | None = None):
         pass

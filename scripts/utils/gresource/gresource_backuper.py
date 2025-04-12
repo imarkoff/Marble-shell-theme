@@ -11,6 +11,9 @@ class GresourceBackuperManager:
         self._backup_file = f"{destination_file}.backup"
         self._backuper = GresourceBackuper(destination_file, self._backup_file, logger_factory)
 
+    def has_trigger(self, trigger: str) -> bool:
+        return self._backuper.has_trigger(trigger)
+
     def backup(self):
         self._backuper.backup()
 
@@ -26,6 +29,10 @@ class GresourceBackuper:
         self.destination_file = destination_file
         self.backup_file = backup_file
         self.logger_factory = logger_factory
+
+    def has_trigger(self, trigger: str) -> bool:
+        with open(self.destination_file, "rb") as f:
+            return trigger.encode() in f.read()
 
     def get_backup(self) -> str:
         if not os.path.exists(self.backup_file):
