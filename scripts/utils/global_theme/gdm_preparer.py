@@ -1,5 +1,6 @@
 import os
 
+from scripts.utils.files_labeler import FilesLabelerFactory
 from scripts.utils.global_theme.gdm_theme_prepare import GDMThemePrepare
 from scripts.utils.gresource.gresource import Gresource
 from scripts.utils.logger.logger import LoggerFactory
@@ -19,13 +20,16 @@ class GDMThemePreparer:
     def __init__(self, temp_folder: str, default_mode: str | None, is_filled: bool,
                  gresource: Gresource,
                  theme_builder: GnomeShellThemeBuilder,
-                 logger_factory: LoggerFactory):
+                 logger_factory: LoggerFactory,
+                 files_labeler_factory: FilesLabelerFactory):
         """
         :param temp_folder: Temporary folder for extracted theme files
         :param default_mode: Default theme mode to use if not specified in CSS filename
-        :param is_filled: Whether to generate filled (True) or outlined (False) styles
+        :param is_filled: Whether to generate filled (True) or dimmed (False) styles
         :param gresource: Gresource instance for managing gresource files
         :param theme_builder: Theme builder instance for creating themes
+        :param logger_factory: Logger factory for logging messages
+        :param files_labeler_factory: Factory for creating FilesLabeler instances
         """
         self.temp_folder = temp_folder
         self.gresource_temp_folder = gresource.temp_folder
@@ -36,6 +40,7 @@ class GDMThemePreparer:
         self.gresource = gresource
         self.theme_builder = theme_builder
         self.logger_factory = logger_factory
+        self.files_labeler_factory = files_labeler_factory
 
     def use_backup_as_source(self):
         """Use backup gresource file for extraction"""
@@ -72,11 +77,12 @@ class GDMThemePreparer:
         theme.prepare()
 
         theme_file = os.path.join(self.gresource_temp_folder, file_name)
-        return GDMThemePrepare(theme=theme, theme_file=theme_file, label=mode)
+        files_labeler = self.files_labeler_factory.create(
+            theme.temp_folder, theme.main_styles)
+        return GDMThemePrepare(
+            theme=theme, theme_file=theme_file, label=mode, files_labeler=files_labeler)
 
     def _setup_theme_builder(self, file_name: str, mode: str):
-        self.theme_builder.with_temp_folder(self.temp_folder)
-
         theme_name = file_name.replace(".css", "")
 
         (self.theme_builder

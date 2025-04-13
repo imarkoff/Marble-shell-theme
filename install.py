@@ -1,6 +1,6 @@
 # This file installs Marble shell theme for GNOME DE
 # Copyright (C) 2023-2025  Vladyslav Hroshev
-
+import os
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -22,6 +22,7 @@ from scripts.install.colors_definer import ColorsDefiner
 from scripts.install.global_theme_installer import GlobalThemeInstaller
 from scripts.install.local_theme_installer import LocalThemeInstaller
 from scripts.utils.gnome import apply_gnome_theme
+from scripts.utils.logger.console import Console
 
 
 def main():
@@ -30,6 +31,12 @@ def main():
 
     installer_class = GlobalThemeInstaller if args.gdm else LocalThemeInstaller
     installer = installer_class(args, colors_definer)
+
+    if args.gdm:
+        if os.getuid() != 0:
+            Console().Line().error(
+                "Global installation requires root privileges. Please run the script as root.")
+            return
 
     if args.remove or args.reinstall:
         installer.remove()

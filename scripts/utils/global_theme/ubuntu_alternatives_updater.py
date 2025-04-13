@@ -17,7 +17,7 @@ class UbuntuGDMAlternativesUpdater:
         """
         :param alternatives_updater: Handler for update-alternatives operations
         """
-        self.ubuntu_gresource_link = config.ubuntu_gresource_link
+        self.ubuntu_gresource_link_name = config.ubuntu_gresource_link
         self.destination_dir = config.global_gnome_shell_theme
         self.destination_file = config.gnome_shell_gresource
 
@@ -26,7 +26,7 @@ class UbuntuGDMAlternativesUpdater:
         self._update_gresource_paths()
 
     def _update_gresource_paths(self):
-        self.ubuntu_gresource_path = os.path.join(self.destination_dir, self.ubuntu_gresource_link)
+        self.ubuntu_gresource_path = os.path.join(self.destination_dir, self.ubuntu_gresource_link_name)
         self.gnome_gresource_path = os.path.join(self.destination_dir, self.destination_file)
 
     def with_custom_destination(self, destination_dir: str, destination_file: str):
@@ -47,7 +47,7 @@ class UbuntuGDMAlternativesUpdater:
         """
         self.alternatives_updater.install_and_set(
             link=self.ubuntu_gresource_path,
-            name=self.ubuntu_gresource_link,
+            name=self.ubuntu_gresource_link_name,
             path=self.gnome_gresource_path,
             priority=priority
         )
@@ -60,6 +60,6 @@ class UbuntuGDMAlternativesUpdater:
         the system to fall back to the default GDM theme.
         """
         self.alternatives_updater.remove(
-            name=self.ubuntu_gresource_link,
+            name=self.ubuntu_gresource_link_name,
             path=self.gnome_gresource_path
         )

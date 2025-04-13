@@ -1,6 +1,6 @@
 from scripts.install.theme_installer import ThemeInstaller
 from scripts.utils.global_theme.gdm import GDMTheme
-from scripts.utils.global_theme.gdm_builder import GdmBuilder
+from scripts.utils.global_theme.gdm_builder import GDMThemeBuilder
 from scripts.utils.logger.console import Console, Color, Format
 
 
@@ -13,7 +13,7 @@ class GlobalThemeInstaller(ThemeInstaller):
             print("GDM theme removed successfully.")
 
     def _define_theme(self):
-        gdm_builder = GdmBuilder(self.colors)
+        gdm_builder = GDMThemeBuilder(self.colors)
         gdm_builder.with_mode(self.args.mode)
         gdm_builder.with_filled(self.args.filled)
         self.theme = gdm_builder.build()

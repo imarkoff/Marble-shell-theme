@@ -1,15 +1,28 @@
 import os
+from abc import ABC, abstractmethod
 from typing import Tuple, TypeAlias
 
 LabeledFileGroup: TypeAlias = Tuple[str, str]
 
+
+class FilesLabelerFactory(ABC):
+    @abstractmethod
+    def create(self, temp_folder: str, *files_to_update_references: str) -> 'FilesLabeler':
+        pass
+
+
+class FilesLabelerFactoryImpl(FilesLabelerFactory):
+    def create(self, temp_folder: str, *files_to_update_references: str) -> 'FilesLabeler':
+        return FilesLabeler(temp_folder, *files_to_update_references)
+
+
 class FilesLabeler:
-    def __init__(self, directory: str, *args: str):
+    def __init__(self, directory: str, *files_to_update_references: str):
         """
         Initialize the working directory and files to change
         """
         self.directory = directory
-        self.files = args
+        self.files = files_to_update_references
 
     def append_label(self, label: str):
         """

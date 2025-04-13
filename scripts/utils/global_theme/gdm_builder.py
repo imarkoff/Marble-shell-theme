@@ -6,6 +6,7 @@ from scripts.install.colors_definer import ColorsDefiner
 from scripts.types.installation_color import InstallationMode
 from scripts.utils.alternatives_updater import AlternativesUpdater, PathString
 from scripts.utils.command_runner.subprocess_command_runner import SubprocessCommandRunner
+from scripts.utils.files_labeler import FilesLabelerFactoryImpl
 from scripts.utils.global_theme.gdm import GDMTheme
 from scripts.utils.global_theme.gdm_installer import GDMThemeInstaller
 from scripts.utils.global_theme.gdm_preparer import GDMThemePreparer
@@ -17,7 +18,7 @@ from scripts.utils.logger.logger import LoggerFactory
 from scripts.utils.theme.gnome_shell_theme_builder import GnomeShellThemeBuilder
 
 
-class GdmBuilder:
+class GDMThemeBuilder:
     """
     Builder class for creating GDMTheme instances with configurable components.
 
@@ -26,7 +27,7 @@ class GdmBuilder:
     automatically resolved during build() if not provided.
 
     Example usage:
-        builder = GdmBuilder(colors_provider)
+        builder = GMDThemeBuilder(colors_provider)
         theme = builder.with_mode("dark").with_filled(True).build()
     """
     def __init__(self, colors_provider: ColorsDefiner):
@@ -46,42 +47,42 @@ class GdmBuilder:
         self._installer: Optional[GDMThemeInstaller] = None
         self._remover: Optional[GDMThemeRemover] = None
 
-    def with_mode(self, mode: InstallationMode | None) -> 'GdmBuilder':
+    def with_mode(self, mode: InstallationMode | None) -> 'GDMThemeBuilder':
         """Set the mode for the theme."""
         self._mode = mode
         return self
 
-    def with_filled(self, is_filled=True) -> 'GdmBuilder':
+    def with_filled(self, is_filled=True) -> 'GDMThemeBuilder':
         """Set the filled state for the theme."""
         self._is_filled = is_filled
         return self
 
-    def with_logger_factory(self, logger_factory: LoggerFactory) -> 'GdmBuilder':
+    def with_logger_factory(self, logger_factory: LoggerFactory) -> 'GDMThemeBuilder':
         """Inject a logger factory for logging purposes."""
         self._logger_factory = logger_factory
         return self
 
-    def with_gresource(self, gresource: Gresource) -> 'GdmBuilder':
+    def with_gresource(self, gresource: Gresource) -> 'GDMThemeBuilder':
         """Inject a gresource instance for managing gresource files."""
         self._gresource = gresource
         return self
 
-    def with_ubuntu_gdm_alternatives_updater(self, alternatives_updater: UbuntuGDMAlternativesUpdater) -> 'GdmBuilder':
+    def with_ubuntu_gdm_alternatives_updater(self, alternatives_updater: UbuntuGDMAlternativesUpdater) -> 'GDMThemeBuilder':
         """Inject an alternatives updater for managing GDM alternatives."""
         self._ubuntu_gdm_alternatives_updater = alternatives_updater
         return self
 
-    def with_preparer(self, preparer: GDMThemePreparer) -> 'GdmBuilder':
+    def with_preparer(self, preparer: GDMThemePreparer) -> 'GDMThemeBuilder':
         """Inject a preparer for preparing the theme."""
         self._preparer = preparer
         return self
 
-    def with_installer(self, installer: GDMThemeInstaller) -> 'GdmBuilder':
+    def with_installer(self, installer: GDMThemeInstaller) -> 'GDMThemeBuilder':
         """Inject an installer for installing the theme."""
         self._installer = installer
         return self
 
-    def with_remover(self, remover: GDMThemeRemover) -> 'GdmBuilder':
+    def with_remover(self, remover: GDMThemeRemover) -> 'GDMThemeBuilder':
         """Inject a remover for removing the theme."""
         self._remover = remover
         return self
@@ -141,13 +142,15 @@ class GdmBuilder:
         """Create a GDMThemePreparer if not explicitly provided."""
         if self._preparer: return
         theme_builder = GnomeShellThemeBuilder(self.colors_provider)
+        files_labeler_factory = FilesLabelerFactoryImpl()
         self._preparer = GDMThemePreparer(
             temp_folder=self._temp_folder,
             default_mode=self._mode,
             is_filled=self._is_filled,
             gresource=self._gresource,
             theme_builder=theme_builder,
-            logger_factory=self._logger_factory
+            logger_factory=self._logger_factory,
+            files_labeler_factory=files_labeler_factory,
         )
 
     def _resolve_installer(self):

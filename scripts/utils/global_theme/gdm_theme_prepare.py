@@ -12,15 +12,18 @@ class GDMThemePrepare:
     - CSS property and keyword removal for customization
     - Theme installation with color adjustments
     """
-    def __init__(self, theme: Theme, theme_file: str, label: str = None):
+    def __init__(self, theme: Theme, theme_file: str, label: str | None,
+                 files_labeler: FilesLabeler):
         """
         :param theme: The theme object to prepare
         :param theme_file: Path to the original decompiled CSS file
         :param label: Optional label for the theme (e.g. "dark", "light")
+        :param files_labeler: FilesLabeler instance for labeling files
         """
         self.theme = theme
         self.theme_file = theme_file
         self.label = label
+        self.files_labeler = files_labeler
 
     def label_theme(self):
         """
@@ -31,8 +34,7 @@ class GDMThemePrepare:
         if self.label is None:
             raise ValueError("Label is not set for the theme.")
 
-        files_labeler = FilesLabeler(self.theme.temp_folder, self.theme.main_styles)
-        files_labeler.append_label(self.label)
+        self.files_labeler.append_label(self.label)
 
     def remove_keywords(self, *args: str):
         """Remove specific keywords from the theme file"""
@@ -52,7 +54,7 @@ class GDMThemePrepare:
         :param trigger: String marker used to identify installed themes
         """
         with open(self.theme_file, 'r') as gnome_theme:
-            gnome_styles = gnome_theme.read() + trigger
+            gnome_styles = gnome_theme.read() + '\n' + trigger + '\n'
             self.theme.add_to_start(gnome_styles)
 
     def install(self, hue: int, color: str, sat: int | None, destination: str):
