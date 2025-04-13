@@ -1,5 +1,6 @@
 from scripts import config
-from scripts.utils import hex_to_rgba
+from scripts.utils.color_converter.color_converter_impl import ColorConverterImpl
+
 panel_folder = f"{config.tweaks_folder}/panel"
 
 
@@ -28,5 +29,5 @@ def apply_tweak(args, theme, colors):
         theme += ".panel-button,\
                     .clock,\
                     .clock-display StIcon {\
-                        color: rgba(" + ', '.join(map(str, hex_to_rgba(args.panel_text_color))) + ");\
+                        color: rgba(" + ', '.join(map(str, ColorConverterImpl.hex_to_rgba(args.panel_text_color))) + ");\
                     }"

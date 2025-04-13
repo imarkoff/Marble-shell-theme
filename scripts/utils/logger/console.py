@@ -3,14 +3,24 @@ import threading
 from enum import Enum
 from typing import Optional
 
+from scripts.utils.logger.logger import LoggerFactory, Logger
 
-class Console:
+
+class Console(LoggerFactory):
     """Manages console output for concurrent processes with line tracking"""
     _print_lock = threading.Lock()
     _line_mapping = {}
     _next_line = 0
 
-    class Line:
+    def create_logger(self, name: Optional[str]=None) -> 'Console.Line':
+        """
+        Create a logger instance with the given name.
+        :param name: Name of the logger.
+        :return: Logger instance.
+        """
+        return Console.Line(name)
+
+    class Line(Logger):
         def __init__(self, name: Optional[str]=None):
             """Initialize a new managed line"""
             self.name = name or f"line_{Console._next_line}"

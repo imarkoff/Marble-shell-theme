@@ -7,7 +7,7 @@ import shutil
 from collections import defaultdict
 from typing import Any
 
-from .console import Console, Color, Format
+from scripts.utils.logger.console import Console, Color, Format
 from .parse_folder import parse_folder
 from .. import config
 import os
