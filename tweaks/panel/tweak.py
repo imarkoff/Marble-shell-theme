@@ -10,6 +10,7 @@ def define_arguments(parser):
     panel_args.add_argument('-Pnp', '--panel-no-pill', action='store_true', help='remove panel button background')
     panel_args.add_argument('-Ptc', '--panel-text-color', type=str, nargs='?', help='custom panel HEX(A) text color')
     panel_args.add_argument('--wider-panel', action='store_true', help='make the panel wider')
+    panel_args.add_argument('--panel-grouped-buttons', action='store_true', help='group panel buttons together')
 
 
 def apply_tweak(args, theme, colors):
@@ -31,3 +32,7 @@ def apply_tweak(args, theme, colors):
                     .clock-display StIcon {\
                         color: rgba(" + ', '.join(map(str, ColorConverterImpl.hex_to_rgba(args.panel_text_color))) + ");\
                     }"
+
+    if args.panel_grouped_buttons:
+        with open(f"{panel_folder}/grouped-buttons.css", "r") as f:
+            theme += f.read()
