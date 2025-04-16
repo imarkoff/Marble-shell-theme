@@ -76,6 +76,7 @@ Icon theme: https://github.com/vinceliuice/Colloid-icon-theme
 > [!TIP]
 > If you want to install only one color, use the `--red`, `--yellow`, `--green`, `--blue`, `--purple`, `--gray` option.
 
+Want to install a custom color, group buttons in the panel, use launchpad icon or some other tweaks?
 See the [installation tweaks](#-installation-tweaks) section for more information.
 
 If you want to remove the theme, see the [uninstallation](#%EF%B8%8F-uninstallation--reinstallation) section.
@@ -172,12 +173,13 @@ If you want to remove the theme, see the [uninstallation](#%EF%B8%8F-uninstallat
 #### Panel tweaks
 
 **Panel default size**
-
 ![Panel default size](./readme-images/tweaks/panel-default-size.png "Panel default size")
 
 **Panel without button background**
-
 ![Panel without buttons background](./readme-images/tweaks/panel-no-pill.png "Panel without buttons background")
+
+**Grouped buttons in the panel**
+![Grouped buttons in the panel](./readme-images/tweaks/panel-grouped-buttons.png "Grouped buttons in the panel")
 
 | Option                     | Secondary option | Description                    |
 |----------------------------|------------------|--------------------------------|
@@ -185,6 +187,7 @@ If you want to remove the theme, see the [uninstallation](#%EF%B8%8F-uninstallat
 | -Pnp, --panel-no-pill      |                  | remove panel button background |
 | -Ptc, --panel-text-color   | #abcdef          | custom panel HEX(A) text color |
 | --wider-panel              |                  | make the panel a bit wider     |
+| --panel-grouped-buttons    |                  | group buttons in the panel     |
 
 #### Overview tweaks
 
