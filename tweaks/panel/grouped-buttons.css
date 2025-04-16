@@ -1,0 +1,73 @@
+.panel-button {
+    border-radius: 0;
+    margin-left: 0;
+    margin-right: 0;
+    border-left-width: 0 !important;
+}
+
+#panelCenter .panel-button {
+    border-radius: 9px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+#panelLeft > StBin:first-child > .panel-button,
+#panelRight > StBin:first-child > .panel-button {
+    border-radius: 9px 0 0 9px;
+    border-left-width: 1px !important;
+    margin-left: 3px;
+}
+
+#panelLeft > StBin:last-child > .panel-button,
+#panelRight > StBin:last-child > .panel-button {
+    border-radius: 0 9px 9px 0;
+    margin-right: 3px;
+}
+
+#panelLeft > StBin:first-child:last-child > .panel-button,
+#panelRight > StBin:first-child:last-child > .panel-button {
+    border-radius: 9px;
+    border-left-width: 1px !important;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+#panelCenter .clock-display {
+    border: none !important;
+}
+
+/* in dash to panel leftPanel, centerPanel, rightPanel doesn't work as intended */
+.dashtopanelMainPanel StBin:last-child > .panel-button {
+    border-radius: 0 !important;
+    margin-right: 0 !important;
+}
+
+.dashtopanelMainPanel StBin:first-child:last-child > .panel-button {
+    border-radius: 9px !important;
+    margin-left: 3px !important;
+    margin-right: 3px !important;
+}
+
+.dashtopanelMainPanel Gjs_ui_panel_QuickSettings.panel-button {
+    margin-right: 4px;
+    border-radius: 0 9px 9px 0;
+}
+
+/* use entire button area for clock */
+.dashtopanelMainPanel .clock-display {
+    background-color: ACCENT-DISABLED-COLOR !important;
+    margin-left: 0;
+    margin-right: 0;
+    border: 1px solid PANEL-BUTTON-BORDER !important;
+    border-left-width: 0 !important;
+}
+
+.dashtopanelMainPanel .clock-display .clock {
+    background-color: transparent;
+    border: none !important;
+    box-shadow: none;
+}
+
+.dashtopanelMainPanel .clock-display:hover {
+    background-color: ACCENT-DISABLED_HOVER !important;
+}

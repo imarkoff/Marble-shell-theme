@@ -68,6 +68,14 @@ class Theme(ThemeBase):
         self._preparation.add_to_start(content)
         return self
 
+    def add_from_file(self, content) -> "Theme":
+        """
+        Adds content from a file to the main styles file.
+        :param content: The path of the file to add.
+        """
+        self._preparation.add_from_file(content)
+        return self
+
     def prepare(self):
         """Extract theme from source folder and prepare it for installation."""
         self._preparation.prepare()

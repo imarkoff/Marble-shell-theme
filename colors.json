@@ -486,6 +486,21 @@
                 "a" : 0.07
             }
         },
+        "PANEL-BUTTON-BORDER": {
+            "_comment" : "Used as border in panel buttons",
+
+            "light" : {
+                "s" : 0,
+                "l" : 0,
+                "a" : 0.07
+            },
+
+            "dark" : {
+                "s" : 0,
+                "l" : 100,
+                "a" : 0.04
+            }
+        },
 
         "SEPARATOR-COLOR" : {
             "_comment" : "Color for separators",

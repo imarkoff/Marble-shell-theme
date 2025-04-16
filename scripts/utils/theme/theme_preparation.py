@@ -40,6 +40,15 @@ class ThemePreparation:
         self.style_manager.prepend_content(content)
         return self
 
+    def add_from_file(self, content) -> "ThemePreparation":
+        """
+        Adds content from a file to the main styles file.
+        :param content: The path of the file to add.
+        """
+        with open(content, "r") as f:
+            self.style_manager.append_content(f.read())
+        return self
+
     def prepare(self):
         """
         Extract theme from source folder and prepare it for installation.
