@@ -1,5 +1,6 @@
 from scripts import config
 from scripts.utils.color_converter.color_converter_impl import ColorConverterImpl
+from scripts.utils.theme.theme import Theme
 
 panel_folder = f"{config.tweaks_folder}/panel"
 
@@ -13,18 +14,15 @@ def define_arguments(parser):
     panel_args.add_argument('--panel-grouped-buttons', action='store_true', help='group panel buttons together')
 
 
-def apply_tweak(args, theme, colors):
-    if args.panel_no_pill:
-        with open(f"{panel_folder}/no-pill.css", "r") as f:
-            theme += f.read()
-
+def apply_tweak(args, theme: Theme, colors):
     if args.panel_default_size:
-        with open(f"{panel_folder}/def-size.css", "r") as f:
-            theme += f.read()
+        theme.add_from_file(f"{panel_folder}/def-size.css")
+
+    if args.panel_no_pill:
+        theme.add_from_file(f"{panel_folder}/no-pill.css")
 
     if args.wider_panel:
-        with open(f"{panel_folder}/wider-panel.css", "r") as f:
-            theme += f.read()
+        theme.add_from_file(f"{panel_folder}/wider-panel.css")
 
     if args.panel_text_color:
         theme += ".panel-button,\
@@ -34,5 +32,4 @@ def apply_tweak(args, theme, colors):
                     }"
 
     if args.panel_grouped_buttons:
-        with open(f"{panel_folder}/grouped-buttons.css", "r") as f:
-            theme += f.read()
+        theme.add_from_file(f"{panel_folder}/grouped-buttons.css")

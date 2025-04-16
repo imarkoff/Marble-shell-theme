@@ -2,8 +2,6 @@
     border-radius: 0;
     margin-left: 0;
     margin-right: 0;
-    box-shadow: none;
-    border: 1px solid PANEL-BUTTON-BORDER !important;
     border-left-width: 0 !important;
 }
 
@@ -11,14 +9,12 @@
     border-radius: 9px;
     margin-left: 3px;
     margin-right: 3px;
-    box-shadow: none;
-    border: 1px solid PANEL-BUTTON-BORDER !important;
 }
 
 #panelLeft > StBin:first-child > .panel-button,
 #panelRight > StBin:first-child > .panel-button {
     border-radius: 9px 0 0 9px;
-    border: 1px solid PANEL-BUTTON-BORDER !important;
+    border-left-width: 1px !important;
     margin-left: 3px;
 }
 
@@ -31,7 +27,7 @@
 #panelLeft > StBin:first-child:last-child > .panel-button,
 #panelRight > StBin:first-child:last-child > .panel-button {
     border-radius: 9px;
-    border: 1px solid PANEL-BUTTON-BORDER !important;
+    border-left-width: 1px !important;
     margin-left: 3px;
     margin-right: 3px;
 }
