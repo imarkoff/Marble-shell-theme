@@ -16,3 +16,8 @@
 	background-color: transparent;
 	box-shadow: inset 0 0 0 999px ACCENT-DISABLED_HOVER;
 }
+
+.panel-button.clock-display:hover,
+.panel-button.clock-display:active {
+	box-shadow: none;
+}
