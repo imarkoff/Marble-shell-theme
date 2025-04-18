@@ -47,9 +47,9 @@ class AlternativesUpdater:
             gdm-theme.gresource, /usr/share/gnome-shell/gnome-shell-theme.gresource)
         """
         subprocess.run([
-            "update-alternatives", "--quiet", "--install",
+            "update-alternatives", "--install",
             link, name, str(path), str(priority)
-        ], check=True)
+        ], stdout=subprocess.DEVNULL, check=True)
         Console.Line().success(f"Installed {name} alternative.")
 
     @staticmethod
@@ -64,9 +64,9 @@ class AlternativesUpdater:
             set(gdm-theme.gresource, /usr/share/gnome-shell/gnome-shell-theme.gresource)
         """
         subprocess.run([
-            "update-alternatives", "--quiet", "--set",
+            "update-alternatives", "--set",
             name, str(path)
-        ], check=True)
+        ], stdout=subprocess.DEVNULL, check=True)
 
     @staticmethod
     @ubuntu_specific
@@ -80,7 +80,7 @@ class AlternativesUpdater:
             remove(gdm-theme.gresource, /usr/share/gnome-shell/gnome-shell-theme.gresource)
         """
         subprocess.run([
-            "update-alternatives", "--quiet", "--remove",
+            "update-alternatives", "--remove",
             name, str(path)
-        ], check=True)
+        ], stdout=subprocess.DEVNULL, check=True)
         Console.Line().success(f"Removed {name} alternative.")
