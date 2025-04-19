@@ -181,13 +181,17 @@ If you want to remove the theme, see the [uninstallation](#%EF%B8%8F-uninstallat
 **Grouped buttons in the panel**
 ![Grouped buttons in the panel](./readme-images/tweaks/panel-grouped-buttons.png "Grouped buttons in the panel")
 
-| Option                     | Secondary option | Description                    |
-|----------------------------|------------------|--------------------------------|
-| -Pds, --panel-default-size |                  | set default panel size         |
-| -Pnp, --panel-no-pill      |                  | remove panel button background |
-| -Ptc, --panel-text-color   | #abcdef          | custom panel HEX(A) text color |
-| --wider-panel              |                  | make the panel a bit wider     |
-| --panel-grouped-buttons    |                  | group buttons in the panel     |
+**Floating panel**
+![Floating panel](./readme-images/tweaks/floating-panel.png "Floating panel")
+
+| Option                     | Secondary option | Description                                            |
+|----------------------------|------------------|--------------------------------------------------------|
+| -Pds, --panel-default-size |                  | set default panel size                                 |
+| -Pnp, --panel-no-pill      |                  | remove panel button background                         |
+| -Ptc, --panel-text-color   | #abcdef          | custom panel HEX(A) text color                         |
+| --wider-panel              |                  | make the panel a bit wider                             |
+| --panel-grouped-buttons    |                  | group buttons in the panel                             |
+| --floating-panel           |                  | make the panel floating (transparent panel background) |
 
 #### Overview tweaks
 
