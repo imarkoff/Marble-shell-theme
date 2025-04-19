@@ -1,0 +1,33 @@
+#panel {
+    background-color: transparent;
+}
+
+#panel:overview {
+    background-color: BACKGROUND-OPAQUE-COLOR;
+}
+
+.panel-button,
+.panel-button .clock {
+    background-color: DASH-COLOR;
+    border-color: BORDER-MENU-SHADOW !important;
+}
+
+.panel-button:hover,
+.panel-button:hover .clock,
+.panel-button:active,
+.panel-button:active .clock {
+    background-color: ACCENT-DISABLED-OPAQUE_HOVER;
+}
+
+#panel:overview .panel-button,
+#panel:overview .panel-button .clock {
+    background-color: ACCENT-DISABLED-COLOR;
+    border-color: BORDER-SHADOW !important;
+}
+
+#panel:overview .panel-button:hover,
+#panel:overview .panel-button:hover .clock,
+#panel:overview .panel-button:active,
+#panel:overview .panel-button:active .clock {
+    background-color: ACCENT-DISABLED_HOVER;
+}

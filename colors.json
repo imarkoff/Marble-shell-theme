@@ -305,7 +305,7 @@
         },
         
         "DASH-COLOR" : {
-            "_comment" : "Special background color for dash",
+            "_comment" : "Special background color for dash and for panel buttons with floating buttons tweak",
 
             "light" : {
                 "s" : 40,
@@ -630,7 +630,7 @@
             "dark": { "s": 5, "l": 10, "a": 0.9 }
         },
 
-        "BUTTON-CLOSE-COLOR" : {
+        "ACCENT-DISABLED-OPAQUE-COLOR": {
             "_comment" : "Same as ACCENT-DISABLED-COLOR, but has no transparency",
 
             "light" : {
@@ -645,7 +645,7 @@
                 "a" : 1
             }
         },
-        "BUTTON-CLOSE_HOVER" : {
+        "ACCENT-DISABLED-OPAQUE_HOVER": {
             "_comment" : "Same as ACCENT-DISABLED_HOVER, but has no transparency",
 
             "light" : {

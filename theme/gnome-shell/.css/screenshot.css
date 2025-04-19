@@ -185,7 +185,7 @@
 
 .window-close, /* close button (Overview - Workspaces - Selected window) */
 .screenshot-ui-close-button { /* close button (Screenshot UI) */
-	background-color: BUTTON-CLOSE-COLOR;
+	background-color: ACCENT-DISABLED-OPAQUE-COLOR;
 	color: TEXT-PRIMARY-COLOR;
 	border: 1px solid BORDER-SHADOW;
 	border-radius: 99px;
@@ -195,5 +195,5 @@
 
 .window-close:hover,
 .screenshot-ui-close-button:hover {
-	background-color: BUTTON-CLOSE_HOVER;
+	background-color: ACCENT-DISABLED-OPAQUE_HOVER;
 }
