@@ -70,6 +70,9 @@
 .modal-dialog-button-box .modal-dialog-button:rtl:first-child {
 	background-color: BUTTON-COLOR;
 	color: BUTTON-TEXT-COLOR;
+	/* some distributions may have gradient by default (aka Zorin OS) */
+	background-gradient-start: BUTTON-COLOR;
+	background-gradient-end: BUTTON-COLOR
 }
 
 .modal-dialog-linked-button:ltr:last-child:hover,

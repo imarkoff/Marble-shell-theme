@@ -39,10 +39,16 @@
 }
 
 /* weekday label */
-.day-label { font-weight: 600; }
+.day-label {
+	color: TEXT-SECONDARY-COLOR;
+	font-weight: 600;
+}
 
 /* date label */
-.date-label { font-weight: 700; }
+.date-label {
+	color: TEXT-SECONDARY-COLOR;
+	font-weight: 700;
+}
 
 
 /* Calendar */
@@ -124,6 +130,9 @@
 	background-color: BUTTON-COLOR;
 	color: BUTTON-TEXT-COLOR !important;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	/* some distributions may have gradient by default (aka Zorin OS) */
+	background-gradient-start: BUTTON-COLOR;
+	background-gradient-end: BUTTON-COLOR;
 }
 
 .calendar-today:hover,

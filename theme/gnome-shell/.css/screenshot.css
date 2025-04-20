@@ -41,6 +41,9 @@
 	background-color: ACCENT-DISABLED_HOVER;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 	color: TEXT-PRIMARY-COLOR;
+	/* some distributions may have gradient by default (aka Zorin OS) */
+	background-gradient-start: ACCENT-DISABLED_HOVER;
+	background-gradient-end: ACCENT-DISABLED_HOVER;
 }
 
 .screenshot-ui-show-pointer-button:insensitive,
@@ -75,6 +78,9 @@
 	color: BUTTON-TEXT-COLOR;
 	background-color: BUTTON-COLOR;
 	border-radius: 99px;
+	/* some distributions may have gradient by default (aka Zorin OS) */
+	background-gradient-start: BUTTON-COLOR;
+	background-gradient-end: BUTTON-COLOR;
 }
 
 
@@ -129,6 +135,7 @@
 /* screenshot / screencast buttons */
 .screenshot-ui-shot-cast-button {
 	background-color: transparent;
+	color: TEXT-SECONDARY-COLOR;
 	border-radius: 99px;
 	transition-duration: 100ms;
 }
