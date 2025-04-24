@@ -62,3 +62,18 @@ class ColorReplacementGeneratorTestCase(unittest.TestCase):
             )
             assert actual_rgba is not None
             assert expected_rgba == actual_rgba
+
+    def test_convert_with_saturation_higher_than_100_should_round_to_max_value_on_overflow(self):
+        theme_color = InstallationColor(hue=0, saturation=999, modes=[])
+        mode: InstallationMode = "dark"
+        expected_output = self._get_expected_output(theme_color, mode)
+
+        actual_output = self.generator.convert(mode, theme_color)
+
+        self.assertEqual(len(expected_output), len(actual_output))
+        for expected_name, expected_value in expected_output:
+            actual_value = next(
+                (value for name, value in actual_output if name == expected_name), None
+            )
+            self.assertIsNotNone(actual_value)
+            self.assertEqual(expected_value, actual_value)

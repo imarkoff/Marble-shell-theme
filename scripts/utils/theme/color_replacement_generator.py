@@ -23,8 +23,7 @@ class ColorReplacementGenerator:
 
         lightness = int(color_def["l"]) / 100
         saturation = int(color_def["s"]) / 100
-        if theme_color.saturation is not None:
-            saturation *= theme_color.saturation / 100
+        saturation = self._adjust_saturation(saturation, theme_color)
         alpha = color_def["a"]
 
         red, green, blue = self.color_converter.hsl_to_rgb(
@@ -32,6 +31,15 @@ class ColorReplacementGenerator:
         )
 
         return f"rgba({red}, {green}, {blue}, {alpha})"
+
+    @staticmethod
+    def _adjust_saturation(base_saturation: float, theme_color: InstallationColor) -> float:
+        """Adjust saturation based on the theme color"""
+        if theme_color.saturation is None:
+            return base_saturation
+
+        adjusted = base_saturation * (theme_color.saturation / 100)
+        return min(adjusted, 1.0)
 
     def _get_color_definition(self, element: str, mode: str) -> dict:
         """Get color definition for element, handling defaults if needed"""
