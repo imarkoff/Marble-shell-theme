@@ -2,10 +2,6 @@
     background-color: transparent;
 }
 
-#panel:overview {
-    background-color: BACKGROUND-OPAQUE-COLOR;
-}
-
 .panel-button,
 .panel-button .clock {
     background-color: DASH-COLOR;
