@@ -1,26 +1,6 @@
 /* Check Boxes */
 
-.check-box StBoxLayout {
-	spacing: .8em;
-}
-
-.check-box StBin {
-	width: 24px;
-	height: 24px;
-	background-image: url("checkbox-off.svg");
-}
-
-.check-box:focus StBin {
-	background-image: url("checkbox-off-focused.svg");
-}
-
-.check-box:checked StBin {
-	background-image: url("checkbox.svg");
-}
-
-.check-box:focus:checked StBin {
-	background-image: url("checkbox-focused.svg");
-}
+/* .toggle-switch styled in ..46, 47.. */
 
 
 /* Toggles */

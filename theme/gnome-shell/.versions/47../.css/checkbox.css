@@ -1,0 +1,41 @@
+/* Check Boxes */
+
+.check-box StBoxLayout { spacing: .8em; }
+
+.check-box StBin {
+    border-radius: 7px;
+    padding: 2px;
+}
+
+.check-box:focus StBin {
+    /* Trick due to St limitations. It needs a background to draw a box-shadow */
+    background-color: rgba(0, 0, 0, 0.01);
+    box-shadow: inset 0 0 0 2px BORDER-SHADOW;
+}
+
+.check-box StIcon {
+    icon-size: 14px;
+    padding: 1px;
+    color: transparent;
+    border-radius: 6px;
+    border: 2px solid TEXT-DISABLED-COLOR;
+    transition-duration: 150ms;
+}
+
+.check-box:hover StIcon,
+.check-box:active StIcon {
+    border-color: TEXT-SECONDARY-COLOR;
+    background-color: ACCENT-OPACITY-COLOR;
+}
+
+.check-box:checked StIcon {
+    background-color: BUTTON-COLOR;
+    color: BUTTON-TEXT-COLOR;
+    border-color: transparent;
+}
+
+.check-box:checked:hover StIcon,
+.check-box:checked:active StIcon {
+    background-color: BUTTON_HOVER;
+    color: BUTTON-TEXT-COLOR;
+}
