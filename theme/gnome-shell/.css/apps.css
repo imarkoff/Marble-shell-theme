@@ -3,10 +3,10 @@
 /* apps / folders / apps & folders in search */
 .app-well-app .overview-icon,
 .app-well-app.app-folder,
-.grid-search-result .overview-icon,
 .app-folder.grid-search-result .overview-icon,
 #dash .dash-item-container .overview-tile .overview-icon,
 #dash .dash-item-container .show-apps .overview-icon, /* 46+ */
+.grid-search-result, /* systems actions in search results (e.g. logout, suspend) */
 .overview-tile { /* 46+ */
 	box-shadow: inset 0 0 0 0px rgba(255, 255, 255, 0); /* fix default dash focused box-shadow*/
 	transition-duration: 100ms;
@@ -38,12 +38,21 @@
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
+/* icon of systems action in search results (e.g. logout, suspend) */
+.system-action-icon {
+	background-color: ACCENT-OPACITY-COLOR;
+	color: TEXT-PRIMARY-COLOR;
+	border-radius: 99px;
+	box-shadow: inset 0 0 0 2px BORDER-SHADOW;
+}
 
 .app-well-app:hover .overview-icon,
 .app-well-app:focus .overview-icon,
 .app-well-app:selected .overview-icon,
 .show-apps:hover .overview-icon,
 .show-apps:focus .overview-icon,
+.grid-search-result:hover,
+.grid-search-result:focus,
 .overview-tile:hover,
 .overview-tile:focus,
 .overview-tile:selected {
@@ -51,6 +60,7 @@
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
 
+.grid-search-result:focus,
 .overview-tile:focus {
 	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
 }

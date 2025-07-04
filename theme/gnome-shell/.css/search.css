@@ -26,7 +26,7 @@
 .list-search-result,
 .search-provider-icon {
 	background-color: transparent;
-	border-radius: 12px;
+	border-radius: 10px;
 }
 
 /* search result listitem -> item title (with leading icon) */
