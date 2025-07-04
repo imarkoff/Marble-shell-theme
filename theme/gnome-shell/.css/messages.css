@@ -32,7 +32,7 @@
 /* popup messages */
 .message {
 	color: TEXT-PRIMARY-COLOR;
-	border-radius: 18px;
+	border-radius: 16px;
 }
 
 /* Message OSD */
@@ -49,9 +49,7 @@
 .message-view .message { /* 48+ */
 	background-color: SECTION-COLOR;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
-	border: 0;
 	margin: 0; /* fix margins for GNOME older than 46 */
-	margin-bottom: 9px !important;
 	border-radius: 13px;
 	transition-duration: 100ms;
 }
@@ -61,22 +59,6 @@
 .message-list .message:focus {
 	background-color: ACCENT-OPACITY-COLOR;
 	box-shadow: inset 0 0 0 2px ACCENT-SECONDARY-COLOR !important;
-}
-
-.message-view .message {
-	background-color: SECTION-OPAQUE-COLOR;
-}
-
-.message:second-in-stack {
-	background-color: SECTION-OPAQUE_SECOND;
-}
-
-.message:lower-in-stack {
-	background-color: SECTION-OPAQUE_THIRD;
-}
-
-.message-view .message:hover {
-	background-color: SECTION-OPAQUE_HOVER;
 }
 
 /* text / header in message */

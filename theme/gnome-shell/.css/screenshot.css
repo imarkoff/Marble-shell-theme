@@ -5,7 +5,9 @@
 	color: TEXT-PRIMARY-COLOR;
 	background-color: BACKGROUND-COLOR;
 	border: 1px solid BORDER-MENU-SHADOW;
-	border-radius: 22px;
+	border-radius: 24px;
+	padding: 12px;
+	padding-bottom: 8px; /* centers bottom buttons because of capture button */ 
 	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.07);
 }
 
@@ -13,8 +15,12 @@
 .screenshot-ui-type-button { /* Selection / Screen / Window */
 	color: TEXT-PRIMARY-COLOR;
 	background-color: transparent;
-	border-radius: 15px;
+	border-radius: 14px;
 	transition-duration: 100ms;
+}
+
+.screenshot-ui-show-pointer-button {
+	border-radius: 12px;
 }
 
 .screenshot-ui-show-pointer-button:hover,
@@ -83,13 +89,12 @@
 	background-gradient-end: BUTTON-COLOR;
 }
 
-
 /* circle around capture button */
 .screenshot-ui-capture-button {
-	width: 36px;
-	height: 36px;
+	width: 32px;
+	height: 32px;
 	border-radius: 99px;
-	border: 4px ACCENT-SECONDARY-COLOR;
+	border: 3px ACCENT-SECONDARY-COLOR;
 	padding: 4px;
 }
 

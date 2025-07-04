@@ -169,12 +169,14 @@
 .page-navigation-hint.previous:rtl {
 	background-gradient-start: PAGE-NAV-HINT;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	border-radius: 20px 0 0 20px;
 }
 
 .page-navigation-hint.previous:ltr,
 .page-navigation-hint.next:rtl {
 	background-gradient-end: PAGE-NAV-HINT;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
+	border-radius: 0 20px 20px 0;
 }
 
 
@@ -206,6 +208,7 @@
 	background-color: SECTION-OPAQUE-COLOR;
 	color: TEXT-PRIMARY-COLOR;
 	border-radius: 12px;
+	padding: 6px 12px;
 	border: 1px solid BORDER-MENU-SHADOW;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.08);
 }

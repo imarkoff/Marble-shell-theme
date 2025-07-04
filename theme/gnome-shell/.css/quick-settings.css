@@ -2,8 +2,13 @@
 
 /* QS section */
 .quick-settings {
-	padding: 15px;
-	border-radius: 24px;
+	padding: 12px !important;
+	border-radius: 24px !important;
+}
+
+.quick-settings-grid {
+	spacing-rows: 12px;
+  	spacing-columns: 12px;
 }
 
 
@@ -32,7 +37,7 @@
 .quick-menu-toggle .quick-toggle, /* 44-47 */
 .quick-toggle-has-menu .quick-toggle { /* 48+ */
 	color: TEXT-PRIMARY-COLOR;
-	border-radius: 15px;
+	border-radius: 14px;
 	background-color: ACCENT-DISABLED-COLOR;
 	transition-duration: 100ms;
 }
@@ -46,14 +51,14 @@
 
 /* adjust borders if quick toggle has expandable menu button (quick-toggle-arrow)44-47] (quick-toggle-menu-button)[48+] */
 .quick-menu-toggle .quick-toggle:ltr,
-.quick-toggle-has-menu .quick-toggle:ltr { border-radius: 15px 0 0 15px; }
+.quick-toggle-has-menu .quick-toggle:ltr { border-radius: 14px 0 0 14px; }
 .quick-menu-toggle .quick-toggle:rtl,
-.quick-toggle-has-menu .quick-toggle:rtl { border-radius: 0 15px 15px 0; }
+.quick-toggle-has-menu .quick-toggle:rtl { border-radius: 0 14px 14px 0; }
 
 /* if quick toggle has no expandable menu button (quick-toggle-arrow)[44+] */
 .quick-menu-toggle .quick-toggle:last-child,
 .quick-toggle-has-menu .quick-toggle:last-child {
-	border-radius: 15px;
+	border-radius: 14px;
 }
 
 .quick-menu-toggle .quick-toggle-arrow,
@@ -64,13 +69,13 @@
 /* adjust borders in expandable menu button */
 .quick-menu-toggle .quick-toggle-arrow:ltr,
 .quick-toggle-has-menu .quick-toggle-menu-button:ltr {
-	border-radius: 0 15px 15px 0;
+	border-radius: 0 14px 14px 0;
 	border-left-width: 2px;
 }
 
 .quick-menu-toggle .quick-toggle-arrow:rtl,
 .quick-toggle-has-menu .quick-toggle-menu-button:rtl {
-	border-radius: 15px 0 0 15px;
+	border-radius: 14px 0 0 14px;
 	border-right-width: 2px;
 }
 
@@ -142,16 +147,17 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 .quick-toggle-menu {
 	background-color: BACKGROUND-COLOR !important; 
 	color: TEXT-PRIMARY-COLOR !important;
-	border-radius: 18px;
+	border-radius: 16px;
+	padding: 10px;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
-  	margin: 12px auto;
+  	margin: 12px 12px 0;
 }
 
 /* header icon in expanded menu */
 .quick-toggle-menu .header .icon {
 	background-color: ACCENT-DISABLED_HOVER;
 	color: TEXT-PRIMARY-COLOR;
-	border-radius: 12px;
+	border-radius: 10px;
 	icon-size: 1.4em;
 	box-shadow: inset 0 0 0 1px BORDER-SHADOW;
 }
@@ -162,6 +168,10 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 	/* some distributions may have gradient by default (aka Zorin OS) */
 	background-gradient-start: BUTTON-COLOR;
 	background-gradient-end: BUTTON-COLOR;
+}
+
+.quick-toggle-menu .popup-menu-item {
+	border-radius: 10px;
 }
 
 /* connect / disconnect text color (expanded menu) */
