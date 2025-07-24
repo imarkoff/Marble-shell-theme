@@ -12,4 +12,4 @@ def define_arguments(parser):
 def apply_tweak(args, theme: Theme, colors):
     if args.launchpad:
         theme.add_from_file(f"{overview_folder}/launchpad/launchpad.css")
-        theme *= f"{overview_folder}/launchpad/launchpad.png"
+        theme *= f"{overview_folder}/launchpad/launchpad.svg"

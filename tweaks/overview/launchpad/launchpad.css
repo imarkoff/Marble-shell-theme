@@ -2,6 +2,6 @@
 
 .show-apps .show-apps-icon {
     color: transparent;
-    background-image: url("./launchpad.png");
+    background-image: url("./launchpad.svg");
     background-size: contain;
   }
